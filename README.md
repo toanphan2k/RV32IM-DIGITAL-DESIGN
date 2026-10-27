@@ -27,3 +27,5 @@ The divider unit handles operations that require multiple clock cycles without b
 * **Dependency Stalls:** The hazard system continuously monitors the active stages of the divider. If a decoded instruction requires a register that is currently being computed by the active division process, the system stalls the pipeline. However, independent instructions that do not rely on the division result are allowed to bypass the divider and execute normally.
 * **Instruction Pass-through:** When a division instruction enters the execution phase, its original control flags are dynamically modified to disable immediate register writing. This allows the empty "shell" of the instruction to pass harmlessly through the remaining pipeline stages without corrupting the register file with incomplete data.
 * **Write-back Override:** When the multi-cycle division is completed, the memory stage logic recognizes the finished computation, overrides the standard pipeline control flow, restores the write permissions, and safely routes the final quotient or remainder to the write-back stage to be saved.
+
+# TEST GIT CONFIG
