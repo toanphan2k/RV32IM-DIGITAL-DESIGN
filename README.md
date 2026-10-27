@@ -28,4 +28,12 @@ The divider unit handles operations that require multiple clock cycles without b
 * **Instruction Pass-through:** When a division instruction enters the execution phase, its original control flags are dynamically modified to disable immediate register writing. This allows the empty "shell" of the instruction to pass harmlessly through the remaining pipeline stages without corrupting the register file with incomplete data.
 * **Write-back Override:** When the multi-cycle division is completed, the memory stage logic recognizes the finished computation, overrides the standard pipeline control flow, restores the write permissions, and safely routes the final quotient or remainder to the write-back stage to be saved.
 
-# TEST GIT CONFIG
+## Using LAB SERSER
+
+ ssh ee5303_05@red.doelab.site
+
+srun --pty --x11 --nodelist=black -c 2 bash
+
+module avail
+
+module load cadence/xcelium/2409

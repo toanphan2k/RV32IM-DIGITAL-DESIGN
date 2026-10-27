@@ -1,94 +1,110 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+#DEFAULTS
+TOP_FILE=""
+PROJECT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)
+TOP_SOURCE=""
+TOP_MODULE=""
 usage() {
-    printf '%s\n' \
-        'Usage: bash run_xcelium.sh --top <testbench.sv> [--waves] [--trace]' \
-        'Run from any directory on a Linux host with xrun on PATH.' \
-        'The simulator top is the testbench filename without .sv.' \
-        'Testbench files can be in the current directory or tb/.' \
-        'Optional: XRUN_BIN=/path/to/xrun SIM_OUT=/path/to/results'
+    cat <<EOF
+Usage:
+  run_xcelium.sh --top <testbench.sv>
+  run_xcelium.sh --top <tb/testbench.sv>
+
+Options:
+  -h, --help      Show this help message
+      --top FILE  Compile and run FILE; its filename without .sv is the top module
+
+Examples:
+  run_xcelium.sh --top tb_riscv_programs.sv
+  run_xcelium.sh --top tb_alu.sv
+
+Testbench files can be in the current directory, the workspace root, or tb/.
+The RTL paths in rtl_files.f are relative to sim/xcelium/<top>.
+Xrun must be available on PATH.
+EOF
 }
 
-top_file=
-waves=0
-trace=0
 while (($#)); do
     argument=$1
     shift
     case "$argument" in
         --top)
-            if (($# == 0)) || [[ -z "$1" ]] || [[ -n "$top_file" ]]; then
+            if (($# == 0)) || [[ -z "$1" ]] || [[ -n "$TOP_FILE" ]]; then
                 usage >&2
                 exit 2
             fi
-            top_file=$1
+            TOP_FILE=$1
             shift
             ;;
-        --waves) waves=1 ;;
-        --trace) trace=1 ;;
         -h|--help) usage; exit 0 ;;
         *) usage >&2; exit 2 ;;
     esac
 done
 
-if [[ -z "$top_file" || "$top_file" != *.sv ]]; then
-    usage >&2
-    exit 2
-fi
+environment_check() {
+    if ! xrun_bin=$(which xrun 2>/dev/null); then
+        printf 'Cannot find xrun. Load the Cadence environment on the remote host first.\n' >&2
+        exit 127
+    fi
+}
 
-project_dir=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)
-if [[ -f "$top_file" ]]; then
-    top_source="$(cd -- "$(dirname -- "$top_file")" && pwd)/${top_file##*/}"
-elif [[ -f "$project_dir/tb/$top_file" ]]; then
-    top_source="$project_dir/tb/$top_file"
-elif [[ -f "$project_dir/$top_file" ]]; then
-    top_source="$project_dir/$top_file"
-else
-    printf 'Cannot find testbench source file: %s\n' "$top_file" >&2
-    exit 2
-fi
+check_top_file() {
+    if [[ -z "$TOP_FILE" || "$TOP_FILE" != *.sv ]]; then
+        usage >&2
+        exit 2
+    fi
 
-top_module=${top_file##*/}
-top_module=${top_module%.sv}
+    if [[ ! -f "$TOP_FILE" ]]; then
+        printf 'Cannot find top file: %s\n' "$TOP_FILE" >&2
+        exit 2
+    fi
+}
 
-xrun_bin=${XRUN_BIN:-xrun}
-if ! command -v "$xrun_bin" >/dev/null 2>&1; then
-    printf 'Cannot find %s. Load the Cadence environment on the remote host first.\n' "$xrun_bin" >&2
-    exit 127
-fi
-xrun_bin=$(command -v "$xrun_bin")
-if [[ "$xrun_bin" != /* ]]; then
-    xrun_bin="$PWD/$xrun_bin"
-fi
+update_top_src_and_top_modulde() {
+    TOP_SOURCE=$(realpath -- "$TOP_FILE")
+    TOP_MODULE=${TOP_FILE##*/}
+    TOP_MODULE=${TOP_MODULE%.sv}
+}
 
-rtl_file_list="$project_dir/rtl_files.f"
-if [[ ! -f "$rtl_file_list" ]]; then
-    printf 'Cannot find RTL file list: %s\n' "$rtl_file_list" >&2
-    exit 2
-fi
+check_rtl_files() {
+    RTL_FILE_LIST="$PROJECT_DIR/rtl_files.f"
+    if [[ ! -f "$RTL_FILE_LIST" ]]; then
+        printf 'Cannot find RTL file list: %s\n' "$RTL_FILE_LIST" >&2
+        exit 2
+    fi
+}
 
-output_dir=${SIM_OUT:-"$project_dir/sim/xcelium"}
-mkdir -p -- "$output_dir/$top_module"
-output_dir=$(cd -- "$output_dir/$top_module" && pwd)
+create_output_dir() {
+    local output_root="$PROJECT_DIR/sim/xcelium"
+    mkdir -p -- "$output_root/$TOP_MODULE"
+    OUTPUT_DIR=$(cd -- "$output_root/$TOP_MODULE" && pwd)
+}
 
-options=()
-if (( trace )); then
-    options+=(+TRACE)
-fi
-if (( waves )); then
-    options+=(-access +rwc -input "$project_dir/tb/xcelium_waves.tcl")
-fi
+run_behavioral_sim() {
+    local status
+    cd -- "$OUTPUT_DIR"
+    printf '\n===== top %s: %s =====\n' "$TOP_MODULE" "$PWD"
+    if "$xrun_bin" -64bit -sv -top "$TOP_MODULE" -l xrun.log \
+        -f "$RTL_FILE_LIST" "$TOP_SOURCE" > console.log 2>&1; then
+        cat console.log
+        printf 'PASS: top %s compiled and ran successfully\n' "$TOP_MODULE"
+    else
+        status=$?
+        cat console.log
+        printf 'FAIL: top %s (xrun exit %s). See %s/console.log\n' "$TOP_MODULE" "$status" "$PWD" >&2
+        exit "$status"
+    fi
+}
 
-cd -- "$output_dir"
-printf '\n===== top %s: %s =====\n' "$top_module" "$PWD"
-if "$xrun_bin" -64bit -sv -top "$top_module" -l xrun.log \
-    -f "$rtl_file_list" "$top_source" "${options[@]}" > console.log 2>&1; then
-    cat console.log
-    printf 'PASS: top %s compiled and ran successfully\n' "$top_module"
-else
-    status=$?
-    cat console.log
-    printf 'FAIL: top %s (xrun exit %s). See %s/console.log\n' "$top_module" "$status" "$PWD" >&2
-    exit "$status"
-fi
+main() {
+    environment_check
+    check_top_file
+    update_top_src_and_top_modulde
+    check_rtl_files
+    create_output_dir
+    run_behavioral_sim
+}
+
+main
