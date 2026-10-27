@@ -2,13 +2,33 @@
 
 ## What Is Included
 
-`rv32im_uvm_tb.sv` contains a small UVM agent and one self-checking directed test. The program-loading driver uses UVM HDL backdoor access because the DUT exposes no external instruction or data memory ports. The monitor samples the retirement trace; the scoreboard checks that retired instructions have known values and aligned PCs. The test also checks architectural registers through a backdoor read.
+`rv32im_uvm_tb.sv` contains a UVM agent, an ISS-based scoreboard with functional coverage, and several tests.
 
-The driver replaces every instruction word with a NOP and clears every data-memory word before releasing reset. `imem.mem` and `dmem.mem` are startup placeholders for the RTL `$readmemh` calls; the UVM driver supplies the actual test contents.
+- **Backdoor**: `tb_top` implements `rv32im_backdoor` with hierarchical references (load IMEM, clear DMEM, read registers/DMEM). No `uvm_hdl_*`/`+acc` is needed.
+- **Driver**: loads the image, clears DMEM, resets the core and runs until the signature store is seen on the DMEM write port (or `max_cycles`), then drains the pipeline.
+- **Monitor**: samples the WB retirement (`trace_pc/inst`, `reg_we_w/rd_w/d_rd_w`) and the MEM store port (`store_we/addr/data`).
+- **Scoreboard**: a RV32IM ISS runs in lock-step with every retirement and checks PC order, the register write, and every store (address, strobe, data). DIV/REM retire twice in this core (shell with `reg_we=0`, then the divider writeback); the writeback is matched against a pending queue. At program end the whole register file and DMEM are compared with the ISS.
+- **Coverage**: opcode, branch taken/not-taken, and RAW-hazard distance (1..3) x producer type (ALU/LOAD/MUL/DIV/JUMP).
 
-## Directed Test Coverage
+`imem.mem` and `dmem.mem` are startup placeholders for the RTL `$readmemh` calls; the driver supplies the actual contents. The testbench writes `uvm_dmem_zero.mem` into the run directory to clear DMEM.
 
-Run `rv32im_directed_test` to exercise:
+## Tests
+
+| Test | Content |
+| --- | --- |
+| `rv32im_directed_test` | Hand-encoded program below |
+| `rv32im_mem_regression_test` | All images in `tb/mem` (basic, pipeline hazard, load/store, control flow, SoC all) with signature and expected-word checks |
+| `rv32im_mem_file_test` | One image: `+MEM_FILE=<file> [+SIG_WORD=<n>] [+PASS_MARKER=<hex>] [+FAIL_MARKER=<hex>] [+MAX_CYCLES=<n>]` |
+| `rv32im_random_test` | Constrained-random programs (ALU, M-ext, loads/stores, forward branches, JAL/JALR): `+NUM_PROGRAMS=<n> +PROG_LEN=<n>` |
+| `rv32im_full_regression_test` | Directed + mem regression + random |
+
+`+MEM_DIR=<dir>/` selects the image directory (default `../mem/`). `+UVM_VERBOSITY=UVM_HIGH` prints every retirement and store.
+
+The ISS follows the RISC-V spec. Signed DIV/REM by zero with a negative dividend is expected to be reported by the scoreboard, because `div_pipelined.sv` negates the all-ones quotient.
+
+### Directed program
+
+`rv32im_directed_test` exercises:
 
 | Case | Stimulus / expected result |
 | --- | --- |
@@ -38,7 +58,7 @@ Compile and run with a Questa installation that provides the UVM library. Run fr
 
 ```powershell
 vlog -sv -L uvm -f rtl_files.f rv32im_uvm_tb.sv
-vsim -c -voptargs=+acc tb_top +UVM_TESTNAME=rv32im_directed_test -do "run -all; quit -f"
+vsim -c tb_top +UVM_TESTNAME=rv32im_full_regression_test -sv_seed random -do "coverage save -onexit cov.ucdb; run -all; quit -f"
 ```
 
-The design uses hierarchical UVM HDL access, so retain signal visibility (`+acc`). For another simulator, compile `rtl_files.f` in order, enable its UVM library and HDL access support, and set the simulation working directory to `tb/uvm`.
+For another simulator, compile `rtl_files.f` in order plus `rv32im_uvm_tb.sv` with its UVM library, and run from `tb/uvm` (or pass `+MEM_DIR`).
