@@ -182,7 +182,7 @@ module ex_stage(
             load_type_m <= load_type_e;
             rd_addr_m <= rd_addr_e;
             rs2_addr_m <= rs2_addr_e;
-            d_rs2_m <= d_rs2_e;
+            d_rs2_m <= srcb_tmp_alu;
             c_pc_m <= c_pc_e;
             inst_m <= inst_e;
             //Save address

@@ -54,11 +54,11 @@ Additional recommended tests, not yet encoded in this starter test, are listed b
 
 ## Questa Example
 
-Compile and run with a Questa installation that provides the UVM library. Run from this directory so the RTL memory-image paths resolve:
+Compile and run with a Questa installation that provides the UVM library. Run from the repository root so the paths in `rtl_files.f` resolve:
 
 ```powershell
-vlog -sv -L uvm -f rtl_files.f rv32im_uvm_tb.sv
-vsim -c tb_top +UVM_TESTNAME=rv32im_full_regression_test -sv_seed random -do "coverage save -onexit cov.ucdb; run -all; quit -f"
+vlog -sv -L uvm -f rtl_files.f tb/uvm/rv32im_uvm_tb.sv
+vsim -c tb_top +UVM_TESTNAME=rv32im_full_regression_test -sv_seed random -do "cd tb/uvm; coverage save -onexit cov.ucdb; run -all; quit -f"
 ```
 
-For another simulator, compile `rtl_files.f` in order plus `rv32im_uvm_tb.sv` with its UVM library, and run from `tb/uvm` (or pass `+MEM_DIR`).
+For another simulator, compile `rtl_files.f` in order plus `tb/uvm/rv32im_uvm_tb.sv` with its UVM library, and run from the repository root (or pass `+MEM_DIR`).

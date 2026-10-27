@@ -8,7 +8,7 @@
 //
 // Plusargs:    +MEM_DIR=<path/>  directory holding the .mem files (default "mem/")
 //              +TRACE            print every writeback / store
-// Dependencies: all files in rtl/ (see tb/uvm/rtl_files.f)
+// Dependencies: all files in rtl/ (see rtl_files.f)
 //////////////////////////////////////////////////////////////////////////////////
 
 import RV32_PKG::*;
@@ -27,7 +27,7 @@ module tb_riscv_programs;
     logic [INST_SIZE-1:0] trace_inst;
 
     logic [31:0] prog [0:NUM_WORDS-1];
-    string mem_dir = "mem/";
+    string mem_dir = "";
     bit    trace_en = 0;
 
     int cycle_count = 0;

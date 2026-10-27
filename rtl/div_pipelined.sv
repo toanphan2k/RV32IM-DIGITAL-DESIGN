@@ -51,6 +51,9 @@ module div_pipelined (
     
     logic p_neg_quot [0:7]; 
     logic p_neg_rem  [0:7]; 
+    logic p_div_by_zero [0:7];
+    logic p_overflow [0:7];
+    logic [31:0] p_original_dividend [0:7];
 
     logic [31:0] stage_div_out  [0:7];
     logic [31:0] stage_rem_out  [0:7];
@@ -98,6 +101,8 @@ module div_pipelined (
                 p_dividend[k] <= 0; p_divisor[k] <= 0;
                 p_remainder[k]<= 0; p_quotient[k]<= 0;
                 p_neg_quot[k] <= 0; p_neg_rem[k] <= 0;
+                p_div_by_zero[k] <= 0; p_overflow[k] <= 0;
+                p_original_dividend[k] <= 0;
             end
         end else begin
             p_dividend[0]  <= stage_div_out[0];
@@ -106,6 +111,11 @@ module div_pipelined (
             p_divisor[0]   <= abs_divisor;     
             p_neg_quot[0]  <= negate_quot_in;  
             p_neg_rem[0]   <= negate_rem_in;
+            p_div_by_zero[0] <= (i_divisor == 0);
+            p_overflow[0] <= is_signed &&
+                             (i_dividend == 32'h8000_0000) &&
+                             (i_divisor == 32'hffff_ffff);
+            p_original_dividend[0] <= i_dividend;
 
             for (k = 1; k < 8; k = k + 1) begin
                 p_dividend[k]  <= stage_div_out[k];
@@ -114,14 +124,24 @@ module div_pipelined (
                 p_divisor[k]   <= p_divisor[k-1]; 
                 p_neg_quot[k]  <= p_neg_quot[k-1];
                 p_neg_rem[k]   <= p_neg_rem[k-1];
+                p_div_by_zero[k] <= p_div_by_zero[k-1];
+                p_overflow[k] <= p_overflow[k-1];
+                p_original_dividend[k] <= p_original_dividend[k-1];
             end
         end
     end
     
     always @* begin
-        o_remainder <= p_neg_rem[7]  ? -p_remainder[7] : p_remainder[7];
-        o_quotient  <= p_neg_quot[7] ? -p_quotient[7]  : p_quotient[7];
+        if (p_div_by_zero[7]) begin
+            o_remainder = p_original_dividend[7];
+            o_quotient = 32'hffff_ffff;
+        end else if (p_overflow[7]) begin
+            o_remainder = 32'b0;
+            o_quotient = 32'h8000_0000;
+        end else begin
+            o_remainder = p_neg_rem[7] ? -p_remainder[7] : p_remainder[7];
+            o_quotient = p_neg_quot[7] ? -p_quotient[7] : p_quotient[7];
+        end
     end
 endmodule
-
 
