@@ -208,11 +208,14 @@ module tb_riscv_programs;
         // imem/dmem run their own $readmemh at time 0; load after that
         #1;
 
+        $display("--- Begin Level 1: basic instructions (2 checks) ---");
         run_program("Level 1: basic instructions",
                     "basic_instructions_test.mem",
                     64, PASS_SIG, FAIL_SIG, 1'b1);
         check_ram_word(64, PASS_SIG, "Basic instruction PASS signature");
+        $display("--- End Level 1: basic instructions ---");
 
+        $display("--- Begin Level 2: pipeline hazards (7 checks) ---");
         run_program("Level 2: pipeline hazards",
                     "pipeline_harzard_test.mem",
                     67, 32'h0000_0014, 32'h0, 1'b0);
@@ -222,7 +225,9 @@ module tb_riscv_programs;
         check_ram_word(67, 32'd20, "Pipeline test completion store");
         check_ram_word(68, 32'd0,  "Wrong-path store was flushed");
         check_store_count(4, "Pipeline test");
+        $display("--- End Level 2: pipeline hazards ---");
 
+        $display("--- Begin Level 3: load/store subsystem (6 checks) ---");
         run_program("Level 3: load/store subsystem",
                     "load_store_subsystem_test.mem",
                     128, PASS_SIG, FAIL_SIG, 1'b1);
@@ -231,19 +236,24 @@ module tb_riscv_programs;
         check_ram_word(66,  32'h0456_0123, "SH halfword lanes and strobes");
         check_ram_word(68,  32'h89AB_C123, "SW/LW word address");
         check_ram_word(128, PASS_SIG,      "Load/store subsystem PASS signature");
+        $display("--- End Level 3: load/store subsystem ---");
 
+        $display("--- Begin Level 4: control flow and corner cases (2 checks) ---");
         run_program("Level 4: control flow and corner cases",
                     "control_flow_corner_cases_test.mem",
                     64, PASS_SIG, FAIL_SIG, 1'b1);
         check_ram_word(64, PASS_SIG, "Control-flow PASS signature");
+        $display("--- End Level 4: control flow and corner cases ---");
 
         // The signature goes to MMIO 0x80000000; dmem only decodes addr[10:2],
         // so it lands in dram[0].
+        $display("--- Begin Level 5: SoC all-in-one (3 checks) ---");
         run_program("Level 5: SoC all-in-one (ALU/fwd/load-use/branch/jump/MUL/DIV/REM)",
                     "test_soc_all.mem",
                     0, PASS_SIG, FAIL_SIG, 1'b1);
         check_ram_word(0,  PASS_SIG, "SoC all PASS signature (MMIO alias)");
         check_ram_word(64, 32'd10,   "SoC all SW/LW RAM word");
+        $display("--- End Level 5: SoC all-in-one ---");
 
         $display("");
         $display("===== riscv SUMMARY =====");

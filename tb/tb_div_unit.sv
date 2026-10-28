@@ -217,37 +217,36 @@ module tb_div_unit;
         end
         rst_n = 1'b1;
 
-        // ---------------- Basic ----------------
-        $display("--- Basic ---");
+        $display("--- Begin Basic tests (6 operand pairs, 24 operations) ---");
         all_ops(32'd20, 32'd6);
         all_ops(32'd10, 32'd3);
         all_ops(32'd100, 32'd10);
         all_ops(32'd7, 32'd9);
         all_ops(32'd5, 32'd5);
         all_ops(32'd0, 32'd5);
+        $display("--- End Basic tests ---");
 
-        // ---------------- Signed ----------------
-        $display("--- Signed ---");
+        $display("--- Begin Signed tests (6 operand pairs, 24 operations) ---");
         all_ops(-32'sd10, 32'd3);
         all_ops(32'd10, -32'sd3);
         all_ops(-32'sd10, -32'sd3);
         all_ops(-32'sd1, 32'd2);
         all_ops(32'h8000_0000, 32'd1);
         all_ops(32'h7FFF_FFFF, 32'd2);
+        $display("--- End Signed tests ---");
 
-        // ---------------- Divide by zero ----------------
-        $display("--- Divide by zero ---");
+        $display("--- Begin Divide-by-zero tests (4 operand pairs, 16 operations) ---");
         all_ops(32'd100, 32'd0);
         all_ops(-32'sd10, 32'd0);
         all_ops(32'hFFFF_FFFF, 32'd0);
         all_ops(32'd0, 32'd0);
+        $display("--- End Divide-by-zero tests ---");
 
-        // ---------------- Signed overflow ----------------
-        $display("--- Signed overflow INT_MIN / -1 ---");
+        $display("--- Begin Signed overflow tests (1 operand pair, 4 operations) ---");
         all_ops(32'h8000_0000, 32'hFFFF_FFFF);
+        $display("--- End Signed overflow tests ---");
 
-        // ---------------- Boundary ----------------
-        $display("--- Boundary ---");
+        $display("--- Begin Boundary tests (8 operand pairs, 32 operations) ---");
         all_ops(32'hFFFF_FFFF, 32'd1);
         all_ops(32'hFFFF_FFFF, 32'd2);
         all_ops(32'hFFFF_FFFF, 32'hFFFF_FFFF);
@@ -257,9 +256,9 @@ module tb_div_unit;
         all_ops(32'hFFFF_FFFF, 32'h4000_0000);
         all_ops(32'd1, 32'h8000_0000);
         flush_pipe();
+        $display("--- End Boundary tests ---");
 
-        // ---------------- Bubbles between divides ----------------
-        $display("--- Interleaved non-divide ops (bubbles) ---");
+        $display("--- Begin Interleaved divide/bubble tests (40 cycles) ---");
         repeat (40) begin
             if ($urandom_range(0, 1))
                 step(DIV_OPS[$urandom_range(0, 3)], $urandom, $urandom_range(1, 1000));
@@ -267,12 +266,13 @@ module tb_div_unit;
                 step(ALU_ADD, $urandom, $urandom);
         end
         flush_pipe();
+        $display("--- End Interleaved divide/bubble tests ---");
 
-        // ---------------- Random back-to-back ----------------
-        $display("--- Random back-to-back ---");
+        $display("--- Begin Random back-to-back tests (500 + 200 operations) ---");
         repeat (500) step(DIV_OPS[$urandom_range(0, 3)], $urandom, $urandom);
         repeat (200) step(DIV_OPS[$urandom_range(0, 3)], $urandom, $urandom_range(0, 255));
         flush_pipe();
+        $display("--- End Random back-to-back tests ---");
 
         tests++;
         if (scoreboard.size() != 0) begin

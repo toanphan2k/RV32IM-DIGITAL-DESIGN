@@ -54,7 +54,7 @@ module tb_cla;
         $display(" tb_cla: 32-bit CLA self-checking testbench");
         $display("==================================================");
 
-        // ---------------- Directed ----------------
+        $display("--- Begin Directed tests (90 cases) ---");
         check(32'd0,          32'd0,          1'b0, "zero");
         check(32'd0,          32'd0,          1'b1, "cin only");
         check(32'd10,         32'd5,          1'b0, "basic");
@@ -77,15 +77,17 @@ module tb_cla;
             check(32'h1 << i, 32'h1 << i, 1'b0, "");
             check((32'h1 << i) - 1, 32'h1, 1'b0, "");
         end
+        $display("--- End Directed tests ---");
 
-        // ---------------- Exhaustive low byte ----------------
+        $display("--- Begin Exhaustive low-byte tests (4096 cases) ---");
         for (int i = 0; i < 256; i++)
             for (int j = 0; j < 256; j += 17)
                 check(i, j, i[0] ^ j[0], "");
+        $display("--- End Exhaustive low-byte tests ---");
 
-        // ---------------- Random ----------------
-        $display("--- Random tests ---");
+        $display("--- Begin Random tests (5000 cases) ---");
         repeat (5000) check($urandom, $urandom, $urandom_range(0, 1));
+        $display("--- End Random tests ---");
 
         $display("===== tb_cla SUMMARY =====");
         $display("Total: %0d | Passed: %0d | Failed: %0d", tests, passed, failed);

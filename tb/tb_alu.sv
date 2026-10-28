@@ -123,7 +123,7 @@ module tb_alu;
         $display(" tb_alu: alu.sv self-checking testbench");
         $display("==================================================");
 
-        // ---------------- Directed: RV32I ----------------
+        $display("--- Begin Directed RV32I tests (24 cases) ---");
         check(32'd10,         32'd5,         ALU_ADD,          "basic");
         check(32'hFFFF_FFFF,  32'd1,         ALU_ADD,          "wrap");
         check(32'h7FFF_FFFF,  32'd1,         ALU_ADD,          "signed overflow");
@@ -148,8 +148,9 @@ module tb_alu;
         check(32'd1,          32'd2,         ALU_SLTU,         "");
         check(32'hFFFF_FFFF,  32'd1,         ALU_SLTU,         "high unsigned");
         check(32'd7,          32'd7,         ALU_SLTU,         "equal");
+        $display("--- End Directed RV32I tests ---");
 
-        // ---------------- Directed: RV32M multiply ----------------
+        $display("--- Begin Directed RV32M multiply tests (11 cases) ---");
         check(32'd20,         32'd6,         ALU_MUL,          "20*6");
         check(32'hFFFF_FFFF,  32'hFFFF_FFFF, ALU_MUL,          "-1*-1");
         check(32'h8000_0000,  32'hFFFF_FFFF, ALU_MUL,          "INT_MIN*-1");
@@ -161,19 +162,24 @@ module tb_alu;
         check(32'h0000_0002,  32'hFFFF_FFFF, ALU_MULSU,        "2*0xFFFFFFFF");
         check(32'hFFFF_FFFF,  32'hFFFF_FFFF, ALU_MULU,         "max*max");
         check(32'h8000_0000,  32'h0000_0002, ALU_MULU,         "");
+        $display("--- End Directed RV32M multiply tests ---");
 
-        // ---------------- Unused / NOP control ----------------
+        $display("--- Begin Unused / NOP control tests (2 cases) ---");
         check(32'h1234_5678,  32'h9ABC_DEF0, ALU_NOP,          "default -> 0");
         check(32'h1234_5678,  32'h9ABC_DEF0, ALU_DIV,          "DIV not in ALU -> 0");
+        $display("--- End Unused / NOP control tests ---");
 
         // ---------------- Random over all ops ----------------
-        $display("--- Random tests ---");
+        $display("--- Begin Random tests ---");
+        $display("Testing Random Value for 2000 times");
         repeat (2000) begin
             check($urandom, $urandom, ALU_OPS[$urandom_range(0, 14)]);
         end
         foreach (ALU_OPS[i]) begin
+            $display("Testing random value of %s for 50 times", op_name(ALU_OPS[i]));
             repeat (50) check($urandom, $urandom_range(0, 40), ALU_OPS[i]);
         end
+        $display("--- End Random tests ---");
 
         $display("===== tb_alu SUMMARY =====");
         $display("Total: %0d | Passed: %0d | Failed: %0d", tests, passed, failed);
