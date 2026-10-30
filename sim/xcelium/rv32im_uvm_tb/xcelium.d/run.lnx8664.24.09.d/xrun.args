@@ -1,0 +1,16 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+-64bit
+-sv
+-uvm
+-f
+/home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/rtl_files.f
++MEM_DIR=/home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/mem/
+-top
+rv32im_uvm_tb
+-l
+xrun.log
+/home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv
++UVM_TESTNAME=rv32im_full_regression_test

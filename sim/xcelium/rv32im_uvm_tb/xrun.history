@@ -1,0 +1,2 @@
+#e1(30Oct2026:21:59:13): source ./xcelium.d/env.d/env.history.30Oct2026_21_59_13
+s1(30Oct2026:21:59:13):  xrun -64bit -sv -uvm -f /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/rtl_files.f +MEM_DIR=/home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/mem/ -top rv32im_uvm_tb -l xrun.log /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv +UVM_TESTNAME=rv32im_full_regression_test 

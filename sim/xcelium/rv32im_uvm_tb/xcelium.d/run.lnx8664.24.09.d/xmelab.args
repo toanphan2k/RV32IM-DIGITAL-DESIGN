@@ -1,0 +1,23 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
++MEM_DIR=/home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/mem/
+-loadpli
+/tools/eda/cadence/XCELIUM2409/tools/methodology/UVM/CDNS-1.1d/additions/sv/lib/64bit/libuvmpli.so:uvm_pli_boot
++UVM_TESTNAME=rv32im_full_regression_test
+-no_analogsolver
+-MESSAGES
+rv32im_uvm_tb
+-dms_perf
+-XLMODE
+./xcelium.d/run.lnx8664.24.09.d
+-RUNMODE
+-CDSLIB
+./xcelium.d/run.lnx8664.24.09.d/cds.lib
+-HDLVAR
+./xcelium.d/run.lnx8664.24.09.d/hdl.var
+-WORK
+worklib
+-IRUNHASTOP
+-HASXLMODE
