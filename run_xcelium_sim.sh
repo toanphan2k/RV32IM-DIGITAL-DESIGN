@@ -195,6 +195,7 @@ xrun_args_parser() {
         XRUN_ARGS+=(-sv)
         if [[ "$EN_UVM" == true ]]; then
             XRUN_ARGS+=(-uvm)
+            XRUN_ARGS+=(-coverage all)
         fi
         if [[ "$COMPILE_ONLY" == true ]]; then
             XRUN_ARGS+=(-compile)

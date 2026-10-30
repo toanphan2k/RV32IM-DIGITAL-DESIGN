@@ -667,6 +667,53 @@ package rv32im_uvm_pkg;
             }
         endgroup
 
+        covergroup cg_memory with function sample(rv_mnemonic_e op, bit [1:0] offset,
+                                                  bit [3:0] strobe);
+            option.per_instance = 1;
+            cp_access: coverpoint op {
+                bins byte_load  = {I_LB, I_LBU};
+                bins half_load  = {I_LH, I_LHU};
+                bins word_load  = {I_LW};
+                bins byte_store = {I_SB};
+                bins half_store = {I_SH};
+                bins word_store = {I_SW};
+            }
+            cp_offset: coverpoint offset {
+                bins lane[] = {[0:3]};
+            }
+            cp_strobe: coverpoint strobe {
+                bins no_store = {4'b0000};
+                bins byte_lane[] = {4'b0001, 4'b0010, 4'b0100, 4'b1000};
+                bins half_low  = {4'b0011};
+                bins half_high = {4'b1100};
+                bins word      = {4'b1111};
+            }
+        endgroup
+
+        covergroup cg_divider with function sample(rv_mnemonic_e op, bit [31:0] dividend,
+                                                   bit [31:0] divisor);
+            option.per_instance = 1;
+            cp_operation: coverpoint op {
+                bins div  = {I_DIV};
+                bins divu = {I_DIVU};
+                bins rem  = {I_REM};
+                bins remu = {I_REMU};
+            }
+            cp_divisor_zero: coverpoint (divisor == 32'b0) {
+                bins nonzero = {0};
+                bins zero    = {1};
+            }
+            cp_dividend_sign: coverpoint dividend[31];
+            cp_divisor_sign: coverpoint divisor[31];
+            cp_signed_overflow: coverpoint ((op inside {I_DIV, I_REM}) &&
+                                            (dividend == 32'h8000_0000) &&
+                                            (divisor == 32'hffff_ffff)) {
+                bins normal   = {0};
+                bins overflow = {1};
+            }
+            x_divzero: cross cp_operation, cp_divisor_zero;
+        endgroup
+
         function new(string name, uvm_component parent);
             super.new(name, parent);
             program_export = new("program_export", this);
@@ -674,6 +721,8 @@ package rv32im_uvm_pkg;
             store_export   = new("store_export", this);
             iss            = new();
             cg_commit      = new();
+            cg_memory      = new();
+            cg_divider     = new();
         endfunction
 
         function void build_phase(uvm_phase phase);
@@ -825,6 +874,11 @@ package rv32im_uvm_pkg;
             end
             cg_commit.sample(s.op, s.taken, raw_dist, prod);
 
+            if (s.op inside {I_LB, I_LH, I_LW, I_LBU, I_LHU, I_SB, I_SH, I_SW})
+                cg_memory.sample(s.op, s.mem_addr[1:0], s.st_we);
+            if (s.is_div)
+                cg_divider.sample(s.op, s.op_a, s.op_b);
+
             if (s.rd_write) begin
                 last_write_idx[s.rd] = retire_idx;
                 case (s.op)
@@ -872,8 +926,10 @@ package rv32im_uvm_pkg;
 
         function void report_phase(uvm_phase phase);
             `uvm_info("SB", $sformatf(
-                "SUMMARY programs=%0d retired=%0d mismatches=%0d functional_coverage=%0.2f%%",
-                total_programs, total_retired, total_mismatches, cg_commit.get_inst_coverage()), UVM_NONE)
+                "SUMMARY programs=%0d retired=%0d mismatches=%0d commit_cov=%0.2f%% memory_cov=%0.2f%% divider_cov=%0.2f%%",
+                total_programs, total_retired, total_mismatches,
+                cg_commit.get_inst_coverage(), cg_memory.get_inst_coverage(),
+                cg_divider.get_inst_coverage()), UVM_NONE)
         endfunction
     endclass
 

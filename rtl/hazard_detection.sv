@@ -64,7 +64,7 @@ module hazard_detection(
 
     // Keep non-divider instructions out of MEM while a divider result arrives.
     logic collision_at_mem;
-    assign collision_at_mem = div_stage_5[6] && !is_div_op_d;
+    assign collision_at_mem = (div_stage_5[6] || div_stage_6[6]) && !is_div_op_d;
 
     //Stall system
     assign stall_req = conflict_div || stall_load_use || collision_at_mem;
@@ -75,13 +75,12 @@ module hazard_detection(
         if (!rst_n) begin
             pc_en = 1'b1;
             flush = 1'b0;
-        end 
-        else if (stall_req) begin  
+        end else if (pc_sel) begin
+            flush = 1'b1;
+            pc_en = 1'b1;
+        end else if (stall_req) begin
             pc_en    = 1'b0;  
             flush    = 1'b1;  
-        end else if (pc_sel) begin   // Branch instruction
-            flush = 1'b1; 
-            pc_en = 1'b1;
         end 
     end
     
