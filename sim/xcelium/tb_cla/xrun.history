@@ -1,0 +1,2 @@
+#e1(30Oct2026:08:30:53): source ./xcelium.d/env.d/env.history.30Oct2026_08_30_53
+s1(30Oct2026:08:30:53):  xrun -64bit -sv -top tb_cla -l xrun.log -f /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/rtl_files.f /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/tb_cla.sv 

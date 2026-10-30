@@ -1,0 +1,13 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+-64bit
+-sv
+-top
+tb_alu
+-l
+xrun.log
+-f
+/home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/rtl_files.f
+/home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/tb_alu.sv

@@ -1,0 +1,203 @@
+TOOL:	xrun(64)	24.09-s005: Started on Oct 30, 2026 at 08:30:40 +07
+xrun(64): 24.09-s005: (c) Copyright 1995-2025 Cadence Design Systems, Inc.
+file: ../../../rtl/def_pkg.sv
+	package worklib.RV32_PKG:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/alu.sv
+	module worklib.alu:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/cla.sv
+	module worklib.cla:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/control_unit.sv
+	module worklib.control_unit:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/datapath.sv
+	module worklib.datapath:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/div_pipelined.sv
+	module worklib.div_pipelined:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/div_unit.sv
+	module worklib.div_unit:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/divu_1iter.sv
+	module worklib.divu_1iter:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/dmem.sv
+	module worklib.dmem:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/ex_stage.sv
+	module worklib.ex_stage:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/fowarding.sv
+	module worklib.forwarding:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/gp1.sv
+	module worklib.gp1:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/gp4.sv
+	module worklib.gp4:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/gp8.sv
+	module worklib.gp8:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/hazard_detection.sv
+	module worklib.hazard_detection:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/id_stage.sv
+	module worklib.id_stage:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/if_stage.sv
+	module worklib.if_stage:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/imem.sv
+	module worklib.imem:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/imm_gen.sv
+	module worklib.imm_gen:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/mem_stage.sv
+	module worklib.mem_stage:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/memorypath.sv
+	module worklib.memorypath:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/mul.sv
+	module worklib.mul:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/mux_2x1.sv
+	module worklib.mux_2x1:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/mux_3x1.sv
+	module worklib.mux_3x1:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/pc_update.sv
+	module worklib.pc_update:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/reg_file.sv
+	module worklib.reg_file:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/riscv.sv
+	module worklib.riscv:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/wb_stage.sv
+	module worklib.wb_stage:sv
+		errors: 0, warnings: 0
+file: /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/tb_alu.sv
+	module worklib.tb_alu:sv
+		errors: 0, warnings: 0
+	Elaborating the design hierarchy:
+		Caching library 'worklib' ....... Done
+	Top level design units:
+		RV32_PKG
+		$unit_0x178ae7f0
+		tb_alu
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.mul:sv <0x76c62ed5>
+			streams:   6, words:  2793
+		worklib.gp4:sv <0x5adb018d>
+			streams:   5, words:  2016
+		worklib.gp4:sv <0x3bf06b7d>
+			streams:   3, words:  1301
+		worklib.gp4:sv <0x3c2b7ce8>
+			streams:   5, words:  2011
+		worklib.gp8:sv <0x31625792>
+			streams:   7, words:  2346
+		worklib.gp1:sv <0x5c976fb6>
+			streams:   1, words:   335
+		worklib.alu:sv <0x19f9fa19>
+			streams:   6, words:  3786
+		worklib.tb_alu:sv <0x3e49e148>
+			streams:  13, words: 34604
+		worklib.cla:sv <0x0bc5a2a5>
+			streams:  57, words: 18309
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                 Instances  Unique
+		Modules:                47       7
+		Verilog packages:        1       1
+		Registers:             162      73
+		Scalar wires:          314       -
+		Expanded wires:         80       4
+		Vectored wires:         63       -
+		Always blocks:           2       2
+		Initial blocks:          4       4
+		Cont. assignments:      94      41
+		Pseudo assignments:    128       -
+		Compilation units:       1       1
+		Simulation timescale:  1ps
+	Writing initial simulation snapshot: worklib.tb_alu:sv
+Loading snapshot worklib.tb_alu:sv .................... Done
+SVSEED default: 1
+xcelium> source /tools/eda/cadence/XCELIUM2409/tools/xcelium/files/xmsimrc
+xcelium> run
+==================================================
+ tb_alu: alu.sv self-checking testbench
+==================================================
+--- Begin Directed RV32I tests (24 cases) ---
+[PASS] ADD basic a=0000000a b=00000005 res=0000000f
+[PASS] ADD wrap a=ffffffff b=00000001 res=00000000
+[PASS] ADD signed overflow a=7fffffff b=00000001 res=80000000
+[PASS] ADD full carry chain a=0f0f0f0f b=f0f0f0f1 res=00000000
+[PASS] SUB basic a=0000000a b=00000005 res=00000005
+[PASS] SUB equal -> zero a=00000005 b=00000005 res=00000000
+[PASS] SUB borrow a=00000000 b=00000001 res=ffffffff
+[PASS] AND zero result a=aa55aa55 b=55aa55aa res=00000000
+[PASS] XOR all ones a=a5a5a5a5 b=5a5a5a5a res=ffffffff
+[PASS] SLL shamt 31 a=00000001 b=0000001f res=80000000
+[PASS] SLL shamt uses [4:0] a=00000001 b=00000021 res=00000002
+[PASS] SRL shamt 31 a=80000000 b=0000001f res=00000001
+[PASS] SRA negative a=80000001 b=00000001 res=c0000000
+[PASS] SRA shamt 31 a=80000000 b=0000001f res=ffffffff
+[PASS] SRA positive a=40000000 b=00000004 res=04000000
+[PASS] SLT -1 < 1 a=ffffffff b=00000001 res=00000001
+[PASS] SLT INT_MIN < 1 (overflow) a=80000000 b=00000001 res=00000001
+[PASS] SLT INT_MAX vs INT_MIN a=7fffffff b=80000000 res=00000000
+[PASS] SLTU high unsigned a=ffffffff b=00000001 res=00000000
+[PASS] SLTU equal a=00000007 b=00000007 res=00000000
+--- End Directed RV32I tests ---
+--- Begin Directed RV32M multiply tests (11 cases) ---
+[PASS] MUL 20*6 a=00000014 b=00000006 res=00000078
+[PASS] MUL -1*-1 a=ffffffff b=ffffffff res=00000001
+[PASS] MUL INT_MIN*-1 a=80000000 b=ffffffff res=80000000
+[PASS] MULH -1*-1 a=ffffffff b=ffffffff res=00000000
+[PASS] MULH INT_MIN*INT_MIN a=80000000 b=80000000 res=40000000
+[PASS] MULH INT_MAX^2 a=7fffffff b=7fffffff res=3fffffff
+[PASS] MULHSU -1*0xFFFFFFFF a=ffffffff b=ffffffff res=ffffffff
+[PASS] MULHSU INT_MIN*0xFFFFFFFF a=80000000 b=ffffffff res=80000000
+[PASS] MULHSU 2*0xFFFFFFFF a=00000002 b=ffffffff res=00000001
+[PASS] MULHU max*max a=ffffffff b=ffffffff res=fffffffe
+--- End Directed RV32M multiply tests ---
+--- Begin Unused / NOP control tests (2 cases) ---
+[PASS] OP_11111 default -> 0 a=12345678 b=9abcdef0 res=00000000
+[PASS] OP_01100 DIV not in ALU -> 0 a=12345678 b=9abcdef0 res=00000000
+--- End Unused / NOP control tests ---
+--- Begin Random tests ---
+Testing Random Value for 2000 times
+Testing random value of AND for 50 times
+Testing random value of OR for 50 times
+Testing random value of ADD for 50 times
+Testing random value of SUB for 50 times
+Testing random value of SLL for 50 times
+Testing random value of SRL for 50 times
+Testing random value of SRA for 50 times
+Testing random value of XOR for 50 times
+Testing random value of MUL for 50 times
+Testing random value of MULH for 50 times
+Testing random value of MULHSU for 50 times
+Testing random value of MULHU for 50 times
+Testing random value of SLT for 50 times
+Testing random value of SLTU for 50 times
+Testing random value of OP_11111 for 50 times
+--- End Random tests ---
+===== tb_alu SUMMARY =====
+Total: 2787 | Passed: 2787 | Failed: 0
+RESULT: ALL TESTS PASSED
+==========================
+Simulation complete via $finish(1) at time 2787 NS + 0
+/home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/tb_alu.sv:189         $finish;
+xcelium> exit
+TOOL:	xrun(64)	24.09-s005: Exiting on Oct 30, 2026 at 08:30:41 +07  (total: 00:00:01)

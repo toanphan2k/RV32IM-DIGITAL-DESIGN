@@ -1,0 +1,209 @@
+xrun(64): 24.09-s005: (c) Copyright 1995-2025 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	24.09-s005: Started on Oct 30, 2026 at 08:30:52 +07
+xrun
+	-64bit
+	-sv
+	-top tb_cla
+	-l xrun.log
+	-f /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/rtl_files.f
+		../../../rtl/def_pkg.sv
+		../../../rtl/alu.sv
+		../../../rtl/cla.sv
+		../../../rtl/control_unit.sv
+		../../../rtl/datapath.sv
+		../../../rtl/div_pipelined.sv
+		../../../rtl/div_unit.sv
+		../../../rtl/divu_1iter.sv
+		../../../rtl/dmem.sv
+		../../../rtl/ex_stage.sv
+		../../../rtl/fowarding.sv
+		../../../rtl/gp1.sv
+		../../../rtl/gp4.sv
+		../../../rtl/gp8.sv
+		../../../rtl/hazard_detection.sv
+		../../../rtl/id_stage.sv
+		../../../rtl/if_stage.sv
+		../../../rtl/imem.sv
+		../../../rtl/imm_gen.sv
+		../../../rtl/mem_stage.sv
+		../../../rtl/memorypath.sv
+		../../../rtl/mul.sv
+		../../../rtl/mux_2x1.sv
+		../../../rtl/mux_3x1.sv
+		../../../rtl/pc_update.sv
+		../../../rtl/reg_file.sv
+		../../../rtl/riscv.sv
+		../../../rtl/wb_stage.sv
+	/home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/tb_cla.sv
+file: ../../../rtl/def_pkg.sv
+	package worklib.RV32_PKG:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/alu.sv
+	module worklib.alu:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/cla.sv
+	module worklib.cla:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/control_unit.sv
+	module worklib.control_unit:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/datapath.sv
+	module worklib.datapath:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/div_pipelined.sv
+	module worklib.div_pipelined:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/div_unit.sv
+	module worklib.div_unit:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/divu_1iter.sv
+	module worklib.divu_1iter:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/dmem.sv
+	module worklib.dmem:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/ex_stage.sv
+	module worklib.ex_stage:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/fowarding.sv
+	module worklib.forwarding:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/gp1.sv
+	module worklib.gp1:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/gp4.sv
+	module worklib.gp4:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/gp8.sv
+	module worklib.gp8:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/hazard_detection.sv
+	module worklib.hazard_detection:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/id_stage.sv
+	module worklib.id_stage:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/if_stage.sv
+	module worklib.if_stage:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/imem.sv
+	module worklib.imem:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/imm_gen.sv
+	module worklib.imm_gen:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/mem_stage.sv
+	module worklib.mem_stage:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/memorypath.sv
+	module worklib.memorypath:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/mul.sv
+	module worklib.mul:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/mux_2x1.sv
+	module worklib.mux_2x1:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/mux_3x1.sv
+	module worklib.mux_3x1:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/pc_update.sv
+	module worklib.pc_update:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/reg_file.sv
+	module worklib.reg_file:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/riscv.sv
+	module worklib.riscv:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/wb_stage.sv
+	module worklib.wb_stage:sv
+		errors: 0, warnings: 0
+file: /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/tb_cla.sv
+	module worklib.tb_cla:sv
+		errors: 0, warnings: 0
+	Elaborating the design hierarchy:
+		Caching library 'worklib' ....... Done
+	Top level design units:
+		RV32_PKG
+		$unit_0x683d0a98
+		tb_cla
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.gp4:sv <0x0b105349>
+			streams:   5, words:  2016
+		worklib.gp4:sv <0x6a3b39b9>
+			streams:   3, words:  1301
+		worklib.gp4:sv <0x6de02e2c>
+			streams:   5, words:  2011
+		worklib.gp8:sv <0x510b9c8c>
+			streams:   7, words:  2346
+		worklib.gp1:sv <0x6aee54d6>
+			streams:   1, words:   335
+		worklib.tb_cla:sv <0x082d2fb3>
+			streams:   8, words: 18608
+		worklib.cla:sv <0x3622f4fa>
+			streams:  57, words: 18309
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                 Instances  Unique
+		Modules:                45       5
+		Verilog packages:        1       1
+		Registers:             128      39
+		Scalar wires:          303       -
+		Expanded wires:         80       4
+		Vectored wires:         44       -
+		Initial blocks:          4       4
+		Cont. assignments:      86      24
+		Pseudo assignments:    123       -
+		Compilation units:       1       1
+		Simulation timescale:  1ps
+	Writing initial simulation snapshot: worklib.tb_cla:sv
+Loading snapshot worklib.tb_cla:sv .................... Done
+SVSEED default: 1
+xcelium> source /tools/eda/cadence/XCELIUM2409/tools/xcelium/files/xmsimrc
+xcelium> run
+==================================================
+ tb_cla: 32-bit CLA self-checking testbench
+==================================================
+--- Begin Directed tests (90 cases) ---
+[PASS] zero a=00000000 b=00000000 cin=0 sum=00000000
+[PASS] cin only a=00000000 b=00000000 cin=1 sum=00000001
+[PASS] basic a=0000000a b=00000005 cin=0 sum=0000000f
+[PASS] full ripple wrap a=ffffffff b=00000001 cin=0 sum=00000000
+[PASS] cin ripple wrap a=ffffffff b=00000000 cin=1 sum=00000000
+[PASS] all ones + cin a=ffffffff b=ffffffff cin=1 sum=ffffffff
+[PASS] signed overflow a=7fffffff b=00000001 cin=0 sum=80000000
+[PASS] propagate all a=aaaaaaaa b=55555555 cin=0 sum=ffffffff
+[PASS] propagate all + cin a=aaaaaaaa b=55555555 cin=1 sum=00000000
+[PASS] MSB carry out dropped a=80000000 b=80000000 cin=0 sum=00000000
+[PASS] group 0 generate a=ffffffff b=00000001 cin=0 sum=00000000
+[PASS] group 0 boundary a=0000000f b=00000001 cin=0 sum=00000010
+[PASS] group 1 generate a=ffffffff b=00000010 cin=0 sum=0000000f
+[PASS] group 1 boundary a=000000f0 b=00000010 cin=0 sum=00000100
+[PASS] group 2 generate a=ffffffff b=00000100 cin=0 sum=000000ff
+[PASS] group 2 boundary a=00000f00 b=00000100 cin=0 sum=00001000
+[PASS] group 3 generate a=ffffffff b=00001000 cin=0 sum=00000fff
+[PASS] group 3 boundary a=0000f000 b=00001000 cin=0 sum=00010000
+[PASS] group 4 generate a=ffffffff b=00010000 cin=0 sum=0000ffff
+[PASS] group 4 boundary a=000f0000 b=00010000 cin=0 sum=00100000
+[PASS] group 5 generate a=ffffffff b=00100000 cin=0 sum=000fffff
+[PASS] group 5 boundary a=00f00000 b=00100000 cin=0 sum=01000000
+[PASS] group 6 generate a=ffffffff b=01000000 cin=0 sum=00ffffff
+[PASS] group 6 boundary a=0f000000 b=01000000 cin=0 sum=10000000
+[PASS] group 7 generate a=ffffffff b=10000000 cin=0 sum=0fffffff
+[PASS] group 7 boundary a=f0000000 b=10000000 cin=0 sum=00000000
+--- End Directed tests ---
+--- Begin Exhaustive low-byte tests (4096 cases) ---
+--- End Exhaustive low-byte tests ---
+--- Begin Random tests (5000 cases) ---
+--- End Random tests ---
+===== tb_cla SUMMARY =====
+Total: 9186 | Passed: 9186 | Failed: 0
+RESULT: ALL TESTS PASSED
+==========================
+Simulation complete via $finish(1) at time 9186 NS + 0
+/home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/tb_cla.sv:97         $finish;
+xcelium> exit
+TOOL:	xrun(64)	24.09-s005: Exiting on Oct 30, 2026 at 08:30:53 +07  (total: 00:00:01)
