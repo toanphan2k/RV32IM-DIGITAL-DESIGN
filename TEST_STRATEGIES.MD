@@ -90,7 +90,7 @@ The UVM implementation is in `tb/rv32im_uvm_tb.sv` and contains the testbench, p
 
 The current full-regression default is **17 program-level tests**: 1 directed + 1 arithmetic + 5 memory-image + 10 random. The summary's `Total Tests` counts program items submitted to `run_item`; it does not count retired instructions or individual assertions. The scoreboard checks those separately.
 
-The constrained-random generator uses a small register pool, a fixed memory base, and forward-only control flow intended to terminate. Reproduce random failures by recording the simulator seed and plusargs (`NUM_PROGRAMS`, `PROG_LEN`, `MEM_DIR`, and `UVM_TESTNAME`).
+The constrained-random generator uses a small register pool, a fixed memory base, and forward-only control flow intended to terminate. Each generated image appends a PASS store to reserved `dmem[200]` (byte address `0x320`) followed by a park instruction; this address is outside the generator's random data-access range. The driver stops on this signature and then drains the pipeline, so divider work issued near an arbitrary cycle limit is not confused with a lost result. Reproduce random failures by recording the simulator seed and plusargs (`NUM_PROGRAMS`, `PROG_LEN`, `MEM_DIR`, and `UVM_TESTNAME`).
 
 ## 6. Unit-Level Coverage
 

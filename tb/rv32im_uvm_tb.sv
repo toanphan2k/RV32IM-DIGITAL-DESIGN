@@ -62,6 +62,7 @@ package rv32im_uvm_pkg;
     localparam bit [4:0]    RAND_BASE_REG = 5'd8;  // fixed memory base
     localparam bit [4:0]    RAND_TMP_REG  = 5'd9;  // AUIPC/JALR scratch
     localparam int          RAND_MEM_BASE = 512;   // byte 0x200 -> accesses 0x100..0x2FF
+    localparam int unsigned RAND_SIGNATURE_WORD = 200; // byte 0x320, outside random data range
 
     typedef bit [31:0] rv_image_t[];
 
@@ -1066,6 +1067,9 @@ package rv32im_uvm_pkg;
 
             body_end = code.size() + body_len;
             while (code.size() < body_end) gen_one(body_end);
+            code.push_back(enc_i(OPC_OPIMM, 32'h55, 5'd0, 3'b000, 5'd31));
+            code.push_back(enc_s(4 * (RAND_SIGNATURE_WORD - (RAND_MEM_BASE >> 2)),
+                                 5'd31, RAND_BASE_REG, 3'b010));
             code.push_back(enc_j(0, 5'd0)); // park
 
             image = new[code.size()];
@@ -1436,11 +1440,16 @@ package rv32im_uvm_pkg;
         // ---------------------------------------------------------------
         task run_random(int unsigned num_programs, int unsigned body_len);
             rv32im_random_program gen = new();
-            int unsigned max_len = MEM_WORDS - (2 * RAND_POOL + 2);
+            int unsigned max_len = MEM_WORDS - (2 * RAND_POOL + 4);
+            rv32im_program_item item;
             if (body_len > max_len) body_len = max_len;
-            for (int unsigned n = 0; n < num_programs; n++)
-                run_item(new_program($sformatf("random_%0d", n), gen.build(body_len),
-                                     body_len * 16 + 200));
+            for (int unsigned n = 0; n < num_programs; n++) begin
+                item = new_program($sformatf("random_%0d", n), gen.build(body_len),
+                                   body_len * 16 + 200);
+                item.sig_word = RAND_SIGNATURE_WORD;
+                item.has_fail_marker = 1'b0;
+                run_item(item);
+            end
         endtask
 
         function void report_phase(uvm_phase phase);
