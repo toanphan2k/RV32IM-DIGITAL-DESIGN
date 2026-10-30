@@ -12,11 +12,22 @@ interface rv32im_if(input logic clk);
     logic [3:0]  st_we;
     logic [31:0] st_addr;
     logic [31:0] st_data;
+    logic [31:0] ex_pc;
+    logic [31:0] ex_inst;
+    logic [31:0] ex_operand_a;
+    logic [31:0] ex_operand_b;
+    logic [4:0]  ex_rs1;
+    logic [4:0]  ex_rs2;
+    logic [4:0]  ex_alu_ctrl;
+    logic [1:0]  ex_forward_a;
+    logic [1:0]  ex_forward_b;
 
     // Sample the values that are committed on each rising edge.
     clocking monitor_cb @(posedge clk);
         default input #1step;
         input rst_n, trace_pc, trace_inst, wb_we, wb_rd, wb_data, st_we, st_addr, st_data;
+        input ex_pc, ex_inst, ex_operand_a, ex_operand_b, ex_rs1, ex_rs2, ex_alu_ctrl;
+        input ex_forward_a, ex_forward_b;
     endclocking
 endinterface
 
@@ -547,9 +558,23 @@ package rv32im_uvm_pkg;
         task run_phase(uvm_phase phase);
             rv32im_retire_item r;
             rv32im_store_item  s;
+            rv_mnemonic_e      ex_op;
             forever begin
                 @(vif.monitor_cb);
                 if (vif.monitor_cb.rst_n !== 1'b1) continue;
+
+                if (vif.monitor_cb.ex_inst != 32'b0) begin
+                    ex_op = rv32im_iss::decode(vif.monitor_cb.ex_inst);
+                    if (ex_op inside {I_MUL, I_MULH, I_MULHSU, I_MULHU,
+                                      I_DIV, I_DIVU, I_REM, I_REMU})
+                        `uvm_info("EX_OPERAND", $sformatf(
+                            "pc=%08h %s rs1=x%0d a=%08h rs2=x%0d b=%08h fwd=%b/%b alu_ctrl=%05b",
+                            vif.monitor_cb.ex_pc, rv32im_iss::mnemonic_name(ex_op),
+                            vif.monitor_cb.ex_rs1, vif.monitor_cb.ex_operand_a,
+                            vif.monitor_cb.ex_rs2, vif.monitor_cb.ex_operand_b,
+                            vif.monitor_cb.ex_forward_a, vif.monitor_cb.ex_forward_b,
+                            vif.monitor_cb.ex_alu_ctrl), UVM_LOW)
+                end
 
                 if ($isunknown({vif.monitor_cb.trace_pc, vif.monitor_cb.trace_inst,
                                 vif.monitor_cb.wb_we, vif.monitor_cb.st_we}))
@@ -1551,6 +1576,15 @@ module rv32im_uvm_tb;
     assign vif.st_we   = dut.store_we_dmem;
     assign vif.st_addr = dut.store_addr_dmem;
     assign vif.st_data = dut.d_store_dmem_m;
+    assign vif.ex_pc         = dut.u_datapath.u_ex.c_pc_e;
+    assign vif.ex_inst       = dut.u_datapath.u_ex.inst_e;
+    assign vif.ex_operand_a  = dut.u_datapath.u_ex.srca_alu;
+    assign vif.ex_operand_b  = dut.u_datapath.u_ex.srcb_alu;
+    assign vif.ex_rs1        = dut.u_datapath.rs1_addr_e;
+    assign vif.ex_rs2        = dut.u_datapath.rs2_addr_e;
+    assign vif.ex_alu_ctrl   = dut.u_datapath.u_ex.alu_ctrl_e;
+    assign vif.ex_forward_a  = dut.u_datapath.sel_a_forward;
+    assign vif.ex_forward_b  = dut.u_datapath.sel_b_forward;
 
     class tb_backdoor extends rv32im_backdoor;
         function void load_imem(rv_image_t image);
