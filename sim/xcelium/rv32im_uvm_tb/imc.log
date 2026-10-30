@@ -1,0 +1,4 @@
+imc: *I,imc.tool.cov.version.diff: "There is a difference between the IMC tool version 25.09 and the coverage version 24.09-s005"
+IMC(64): 25.09-a001: (c) Copyright 1995-2025 Cadence Design Systems Inc - Simulator version: 24.09-s005 - Coverage engine version: 24.09-s005
+Starting gui mode
+imc: *I,RUNLD: Successfully loaded run /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/sim/xcelium/rv32im_uvm_tb/cov_work/scope/test.
