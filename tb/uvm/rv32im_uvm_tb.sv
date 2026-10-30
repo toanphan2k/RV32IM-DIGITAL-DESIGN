@@ -643,8 +643,8 @@ package rv32im_uvm_pkg;
             }
             cp_taken: coverpoint taken;
             cp_raw: coverpoint raw_dist {
-                bins dist[] = {[1:3]};
-                bins far    = {0};
+                bins distance_bins[] = {[1:3]};
+                bins far             = {0};
             }
             cp_producer: coverpoint producer {
                 ignore_bins none = {P_NONE};
@@ -783,20 +783,23 @@ package rv32im_uvm_pkg;
         endfunction
 
         function void sample_coverage(rv_step_t s);
-            int unsigned  dist = 0;
+            int unsigned  raw_dist = 0;
             int unsigned  d;
             rv_producer_e prod = P_NONE;
             retire_idx++;
 
             if (s.uses_rs1 && s.rs1 != 0 && last_write_idx[s.rs1] != 0) begin
                 d = retire_idx - last_write_idx[s.rs1];
-                if (d <= 3) begin dist = d; prod = last_producer[s.rs1]; end
+                if (d <= 3) begin raw_dist = d; prod = last_producer[s.rs1]; end
             end
             if (s.uses_rs2 && s.rs2 != 0 && last_write_idx[s.rs2] != 0) begin
                 d = retire_idx - last_write_idx[s.rs2];
-                if (d <= 3 && (dist == 0 || d < dist)) begin dist = d; prod = last_producer[s.rs2]; end
+                if (d <= 3 && (raw_dist == 0 || d < raw_dist)) begin
+                    raw_dist = d;
+                    prod = last_producer[s.rs2];
+                end
             end
-            cg_commit.sample(s.op, s.taken, dist, prod);
+            cg_commit.sample(s.op, s.taken, raw_dist, prod);
 
             if (s.rd_write) begin
                 last_write_idx[s.rd] = retire_idx;
@@ -1289,7 +1292,7 @@ package rv32im_uvm_pkg;
     endclass
 endpackage
 
-module tb_top;
+module rv32im_uvm_tb;
     import uvm_pkg::*;
     import rv32im_uvm_pkg::*;
 
