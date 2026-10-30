@@ -1183,6 +1183,97 @@ package rv32im_uvm_pkg;
             expect_reg(18, 32'd4);
         endtask
 
+        task run_arithmetic();
+            rv_image_t img = new[55];
+            img[0]  = enc_i(OPC_OPIMM, 7, 0, 3'b000, 1);          // x1 = 7
+            img[1]  = enc_i(OPC_OPIMM, 5, 0, 3'b000, 2);          // x2 = 5
+            img[2]  = enc_r(7'b0000000, 2, 1, 3'b000, 3);        // ADD
+            img[3]  = enc_r(7'b0100000, 2, 1, 3'b000, 4);        // SUB
+            img[4]  = enc_b(8, 3, 3, 3'b000);                    // taken BEQ skips next instruction
+            img[5]  = enc_i(OPC_OPIMM, 99, 0, 3'b000, 5);        // flushed: x5 remains zero
+            img[6]  = enc_s(0, 4, 0, 3'b010);                    // SW
+            img[7]  = enc_i(OPC_LOAD, 0, 0, 3'b010, 6);          // LW
+            img[8]  = enc_r(7'b0000000, 3, 6, 3'b000, 7);        // ADD load result
+            img[9]  = enc_r(7'b0000000, 2, 1, 3'b111, 8);        // AND
+            img[10] = enc_r(7'b0000000, 2, 1, 3'b110, 9);        // OR
+            img[11] = enc_r(7'b0000000, 2, 1, 3'b100, 10);       // XOR
+            img[12] = enc_r(7'b0000000, 2, 1, 3'b001, 11);       // SLL
+            img[13] = enc_r(7'b0000000, 2, 1, 3'b101, 12);       // SRL
+            img[14] = enc_i(OPC_OPIMM, -8, 0, 3'b000, 14);       // x14 = -8
+            img[15] = enc_r(7'b0100000, 2, 14, 3'b101, 15);      // SRA
+            img[16] = enc_r(7'b0000000, 1, 14, 3'b010, 16);      // SLT
+            img[17] = enc_r(7'b0000000, 1, 14, 3'b011, 17);      // SLTU
+            img[18] = enc_i(OPC_OPIMM, -3, 1, 3'b000, 18);       // ADDI
+            img[19] = enc_i(OPC_OPIMM, 8, 1, 3'b010, 19);        // SLTI
+            img[20] = enc_i(OPC_OPIMM, -1, 1, 3'b011, 20);       // SLTIU
+            img[21] = enc_i(OPC_OPIMM, 3, 1, 3'b100, 21);         // XORI
+            img[22] = enc_i(OPC_OPIMM, 8, 1, 3'b110, 22);         // ORI
+            img[23] = enc_i(OPC_OPIMM, 3, 1, 3'b111, 23);         // ANDI
+            img[24] = enc_i(OPC_OPIMM, 2, 1, 3'b001, 24);         // SLLI
+            img[25] = enc_i(OPC_OPIMM, 1, 1, 3'b101, 25);         // SRLI
+            img[26] = enc_i(OPC_OPIMM, 'h402, 14, 3'b101, 26);    // SRAI
+            img[27] = enc_r(7'b0000001, 2, 1, 3'b000, 27);       // MUL
+            img[28] = enc_r(7'b0000001, 2, 14, 3'b001, 28);      // MULH
+            img[29] = enc_r(7'b0000001, 2, 14, 3'b010, 29);      // MULHSU
+            img[30] = enc_u(OPC_LUI, 20'hfffff, 30);             // x30 = 0xfffff000
+            img[31] = enc_i(OPC_OPIMM, -1, 30, 3'b110, 30);      // x30 = 0xffffffff
+            img[32] = enc_r(7'b0000001, 30, 30, 3'b011, 31);     // MULHU
+            img[33] = enc_s(4, 27, 0, 3'b010);                   // save MUL result
+            img[34] = enc_s(8, 28, 0, 3'b010);                   // save MULH result
+            img[35] = enc_s(12, 29, 0, 3'b010);                  // save MULHSU result
+            img[36] = enc_s(16, 31, 0, 3'b010);                  // save MULHU result
+            img[37] = enc_r(7'b0000001, 2, 14, 3'b100, 27);     // DIV -8 / 5
+            img[38] = enc_r(7'b0000001, 2, 30, 3'b101, 28);     // DIVU 0xffffffff / 5
+            img[39] = enc_r(7'b0000001, 2, 14, 3'b110, 29);     // REM -8 % 5
+            img[40] = enc_r(7'b0000001, 2, 30, 3'b111, 31);     // REMU 0xffffffff % 5
+            img[41] = enc_s(20, 27, 0, 3'b010);
+            img[42] = enc_s(24, 28, 0, 3'b010);
+            img[43] = enc_s(28, 29, 0, 3'b010);
+            img[44] = enc_s(32, 31, 0, 3'b010);
+            img[45] = enc_r(7'b0000001, 0, 1, 3'b100, 27);      // DIV by zero
+            img[46] = enc_r(7'b0000001, 0, 1, 3'b111, 28);      // REMU by zero
+            img[47] = enc_s(36, 27, 0, 3'b010);
+            img[48] = enc_s(40, 28, 0, 3'b010);
+            img[49] = enc_u(OPC_LUI, 20'h80000, 14);             // x14 = INT_MIN
+            img[50] = enc_i(OPC_OPIMM, -1, 0, 3'b000, 15);      // x15 = -1
+            img[51] = enc_r(7'b0000001, 15, 14, 3'b100, 29);    // INT_MIN / -1
+            img[52] = enc_r(7'b0000001, 15, 14, 3'b110, 31);    // INT_MIN % -1
+            img[53] = enc_s(44, 29, 0, 3'b010);
+            img[54] = enc_s(48, 31, 0, 3'b010);
+
+            run_item(new_program("arithmetic", img, 240));
+
+            expect_reg(1, 32'd7);           expect_reg(2, 32'd5);
+            expect_reg(3, 32'd12);          expect_reg(4, 32'd2);
+            expect_reg(5, 32'd0);           expect_reg(6, 32'd2);
+            expect_reg(7, 32'd14);          expect_reg(8, 32'd5);
+            expect_reg(9, 32'd7);           expect_reg(10, 32'd2);
+            expect_reg(11, 32'd224);        expect_reg(12, 32'd0);
+            expect_reg(14, 32'h8000_0000);  expect_reg(15, 32'hffff_ffff);
+            expect_reg(16, 32'd1);          expect_reg(17, 32'd0);
+            expect_reg(18, 32'd4);          expect_reg(19, 32'd1);
+            expect_reg(20, 32'd1);          expect_reg(21, 32'd4);
+            expect_reg(22, 32'd15);         expect_reg(23, 32'd3);
+            expect_reg(24, 32'd28);         expect_reg(25, 32'd3);
+            expect_reg(26, 32'hffff_fffe);  expect_reg(27, 32'hffff_ffff);
+            expect_reg(28, 32'd7);          expect_reg(29, 32'h8000_0000);
+            expect_reg(30, 32'hffff_ffff);  expect_reg(31, 32'd0);
+
+            expect_dmem(0,  32'd2,          "SW/LW result");
+            expect_dmem(1,  32'd35,         "MUL result");
+            expect_dmem(2,  32'hffff_ffff,  "MULH signed result");
+            expect_dmem(3,  32'hffff_ffff,  "MULHSU mixed-sign result");
+            expect_dmem(4,  32'hffff_fffe,  "MULHU unsigned result");
+            expect_dmem(5,  32'hffff_ffff,  "DIV signed result");
+            expect_dmem(6,  32'h3333_3333,  "DIVU result");
+            expect_dmem(7,  32'hffff_fffd,  "REM signed result");
+            expect_dmem(8,  32'd0,          "REMU result");
+            expect_dmem(9,  32'hffff_ffff,  "DIV by zero result");
+            expect_dmem(10, 32'd7,          "REMU by zero result");
+            expect_dmem(11, 32'h8000_0000,  "Signed division overflow result");
+            expect_dmem(12, 32'd0,          "Signed remainder overflow result");
+        endtask
+
         // ---------------------------------------------------------------
         // Program images from tb/mem (same checks as tb_riscv_programs.sv)
         // ---------------------------------------------------------------
@@ -1277,6 +1368,20 @@ package rv32im_uvm_pkg;
         endtask
     endclass
 
+    class rv32im_arithmetic_test extends rv32im_base_test;
+        `uvm_component_utils(rv32im_arithmetic_test)
+
+        function new(string name, uvm_component parent);
+            super.new(name, parent);
+        endfunction
+
+        task run_phase(uvm_phase phase);
+            phase.raise_objection(this);
+            run_arithmetic();
+            phase.drop_objection(this);
+        endtask
+    endclass
+
     // Runs every program in tb/mem with its signature + expected-word checks
     class rv32im_mem_regression_test extends rv32im_base_test;
         `uvm_component_utils(rv32im_mem_regression_test)
@@ -1356,6 +1461,7 @@ package rv32im_uvm_pkg;
             void'($value$plusargs("NUM_PROGRAMS=%d", num_programs));
             void'($value$plusargs("PROG_LEN=%d", prog_len));
             run_directed();
+            run_arithmetic();
             run_mem_programs();
             run_random(num_programs, prog_len);
             phase.drop_objection(this);
