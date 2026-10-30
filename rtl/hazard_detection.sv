@@ -62,9 +62,9 @@ module hazard_detection(
     logic stall_load_use;
     assign stall_load_use = (mem_read_e && ((rd_addr_e == rs1_addr_d) || (rd_addr_e == rs2_addr_d && !mem_write_d)) && (rd_addr_e != 5'd0)); // Load-Use Harzard (except Store Inst)
 
-    //Writeback collision (DIV and ALU ops write at mem at the same time)
+    // Keep non-divider instructions out of MEM while a divider result arrives.
     logic collision_at_mem;
-    assign collision_at_mem = (div_stage_5[6] == 1'b1) && (mem_write_d == 1'b1) && (is_div_op_d == '0);
+    assign collision_at_mem = div_stage_5[6] && !is_div_op_d;
 
     //Stall system
     assign stall_req = conflict_div || stall_load_use || collision_at_mem;

@@ -57,7 +57,7 @@ module pc_update(
             t_pc = c_pc_e + imm_e;
             pc_sel = '1;
         end else if (jalr_e) begin
-            t_pc = srca_alu + imm_e;
+            t_pc = (srca_alu + imm_e) & ~32'd1;
             pc_sel = '1;
         end else if (branch_e && branch) begin
             t_pc = c_pc_e + imm_e;
