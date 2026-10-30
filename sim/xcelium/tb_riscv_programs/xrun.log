@@ -1,5 +1,5 @@
 xrun(64): 24.09-s005: (c) Copyright 1995-2025 Cadence Design Systems, Inc.
-TOOL:	xrun(64)	24.09-s005: Started on Oct 30, 2026 at 14:53:36 +07
+TOOL:	xrun(64)	24.09-s005: Started on Oct 30, 2026 at 21:25:10 +07
 xrun
 	-64bit
 	-sv
@@ -40,90 +40,9 @@ xrun
    User defined plus("+") options:
 	+MEM_DIR=/home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/mem/
 
-file: ../../../rtl/def_pkg.sv
-	package worklib.RV32_PKG:sv
-		errors: 0, warnings: 0
-file: ../../../rtl/alu.sv
-	module worklib.alu:sv
-		errors: 0, warnings: 0
-file: ../../../rtl/cla.sv
-	module worklib.cla:sv
-		errors: 0, warnings: 0
-file: ../../../rtl/control_unit.sv
-	module worklib.control_unit:sv
-		errors: 0, warnings: 0
-file: ../../../rtl/datapath.sv
-	module worklib.datapath:sv
-		errors: 0, warnings: 0
-file: ../../../rtl/div_pipelined.sv
-	module worklib.div_pipelined:sv
-		errors: 0, warnings: 0
-file: ../../../rtl/div_unit.sv
-	module worklib.div_unit:sv
-		errors: 0, warnings: 0
-file: ../../../rtl/divu_1iter.sv
-	module worklib.divu_1iter:sv
-		errors: 0, warnings: 0
-file: ../../../rtl/dmem.sv
-	module worklib.dmem:sv
-		errors: 0, warnings: 0
-file: ../../../rtl/ex_stage.sv
-	module worklib.ex_stage:sv
-		errors: 0, warnings: 0
-file: ../../../rtl/fowarding.sv
-	module worklib.forwarding:sv
-		errors: 0, warnings: 0
-file: ../../../rtl/gp1.sv
-	module worklib.gp1:sv
-		errors: 0, warnings: 0
-file: ../../../rtl/gp4.sv
-	module worklib.gp4:sv
-		errors: 0, warnings: 0
-file: ../../../rtl/gp8.sv
-	module worklib.gp8:sv
-		errors: 0, warnings: 0
-file: ../../../rtl/hazard_detection.sv
-	module worklib.hazard_detection:sv
-		errors: 0, warnings: 0
-file: ../../../rtl/id_stage.sv
-	module worklib.id_stage:sv
-		errors: 0, warnings: 0
-file: ../../../rtl/if_stage.sv
-	module worklib.if_stage:sv
-		errors: 0, warnings: 0
-file: ../../../rtl/imem.sv
-	module worklib.imem:sv
-		errors: 0, warnings: 0
-file: ../../../rtl/imm_gen.sv
-	module worklib.imm_gen:sv
-		errors: 0, warnings: 0
-file: ../../../rtl/mem_stage.sv
-	module worklib.mem_stage:sv
-		errors: 0, warnings: 0
-file: ../../../rtl/memorypath.sv
-	module worklib.memorypath:sv
-		errors: 0, warnings: 0
-file: ../../../rtl/mul.sv
-	module worklib.mul:sv
-		errors: 0, warnings: 0
-file: ../../../rtl/mux_2x1.sv
-	module worklib.mux_2x1:sv
-		errors: 0, warnings: 0
-file: ../../../rtl/mux_3x1.sv
-	module worklib.mux_3x1:sv
-		errors: 0, warnings: 0
-file: ../../../rtl/pc_update.sv
-	module worklib.pc_update:sv
-		errors: 0, warnings: 0
-file: ../../../rtl/reg_file.sv
-	module worklib.reg_file:sv
-		errors: 0, warnings: 0
-file: ../../../rtl/riscv.sv
-	module worklib.riscv:sv
-		errors: 0, warnings: 0
-file: ../../../rtl/wb_stage.sv
-	module worklib.wb_stage:sv
-		errors: 0, warnings: 0
+Recompiling... reason: file '/home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/tb_riscv_programs.sv' is newer than expected.
+	expected: Fri Oct 30 08:45:55 2026
+	actual:   Fri Oct 30 21:18:36 2026
 file: /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/tb_riscv_programs.sv
 	module worklib.tb_riscv_programs:sv
 		errors: 0, warnings: 0
@@ -135,66 +54,8 @@ file: /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/tb_riscv_program
 		tb_riscv_programs
 	Building instance overlay tables: .................... Done
 	Generating native compiled code:
-		worklib.memorypath:sv <0x2b197e5b>
-			streams:   2, words:   696
-		worklib.forwarding:sv <0x2c9cba40>
-			streams:   2, words:  1651
-		worklib.hazard_detection:sv <0x3f27407d>
-			streams:   5, words:  3797
-		worklib.mem_stage:sv <0x66feda0d>
-			streams:   6, words:  5354
-		worklib.pc_update:sv <0x7ea2638b>
-			streams:   2, words:  1452
-		worklib.divu_1iter:sv <0x2dbad5bc>
-			streams:   2, words:   909
-		worklib.div_unit:sv <0x6b476a68>
-			streams:   8, words: 10266
-		worklib.mul:sv <0x77260723>
-			streams:   6, words:  2793
-		worklib.gp4:sv <0x3e9ff84a>
-			streams:   5, words:  2016
-		worklib.gp4:sv <0x5fb492ba>
-			streams:   3, words:  1301
-		worklib.gp4:sv <0x586f852f>
-			streams:   5, words:  2011
-		worklib.gp8:sv <0x3add5569>
-			streams:   7, words:  2346
-		worklib.gp1:sv <0x5418f789>
-			streams:   1, words:   335
-		worklib.alu:sv <0x643e4e43>
-			streams:   6, words:  3786
-		worklib.mux_3x1:sv <0x7209fc3b>
-			streams:   1, words:   518
-		worklib.ex_stage:sv <0x5d313319>
-			streams:  32, words: 13003
-		worklib.imm_gen:sv <0x7b125e6f>
-			streams:   8, words:  3465
-		worklib.control_unit:sv <0x1b33379b>
-			streams:   3, words: 16972
-		worklib.reg_file:sv <0x0aefd670>
-			streams:   4, words:  2095
-		worklib.id_stage:sv <0x60281836>
-			streams:  35, words: 17296
-		worklib.mux_2x1:sv <0x250b807d>
-			streams:   1, words:   262
-		worklib.if_stage:sv <0x3b132af2>
-			streams:   4, words:  1107
-		worklib.datapath:sv <0x066c5636>
-			streams: 140, words: 29576
-		worklib.tb_riscv_programs:sv <0x0079fb7b>
+		worklib.tb_riscv_programs:sv <0x36c919e7>
 			streams:  22, words: 41595
-		worklib.cla:sv <0x78ab5f1d>
-			streams:  57, words: 18309
-		worklib.div_pipelined:sv <0x2e12b54f>
-			streams:  36, words: 59107
-		worklib.riscv:sv <0x30b335f7>
-			streams:  12, words:  2445
-		worklib.wb_stage:sv <0x633fe284>
-			streams:   3, words:   552
-		worklib.dmem:sv <0x52c94481>
-			streams:   4, words:  2481
-		worklib.imem:sv <0x71aaf506>
-			streams:   2, words:   524
 	Building instance specific data structures.
 	Loading native compiled code:     .................... Done
 	Design hierarchy summary:
@@ -277,4 +138,4 @@ RESULT: ALL TESTS PASSED
 Simulation complete via $finish(1) at time 3930 NS + 0
 /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/tb_riscv_programs.sv:264         $finish;
 xcelium> exit
-TOOL:	xrun(64)	24.09-s005: Exiting on Oct 30, 2026 at 14:53:38 +07  (total: 00:00:02)
+TOOL:	xrun(64)	24.09-s005: Exiting on Oct 30, 2026 at 21:25:12 +07  (total: 00:00:02)

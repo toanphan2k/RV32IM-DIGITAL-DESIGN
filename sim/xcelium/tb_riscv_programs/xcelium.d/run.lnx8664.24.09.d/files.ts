@@ -26,4 +26,4 @@
 1793125882 /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/rtl/reg_file.sv
 1793125882 /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/rtl/riscv.sv
 1793125882 /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/rtl/wb_stage.sv
-1793324755 /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/tb_riscv_programs.sv
+1793369916 /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/tb_riscv_programs.sv

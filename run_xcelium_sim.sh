@@ -4,6 +4,7 @@ set -euo pipefail
 #DEFAULTS
 TOP_FILE=""
 EN_MEM=false
+EN_MEM_DIR=false
 EN_UVM=false
 COMPILE_ONLY=false
 RUN_ONLY=false
@@ -12,18 +13,20 @@ PROJECT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)
 TOP_SOURCE=""
 TOP_MODULE=""
 MEM_FILE_LIST=""
+MEM_DIR=""
 XRUN_ARGS=()
 usage() {
     cat <<EOF
 Usage:
-    run_xcelium_sim.sh --top <testbench.sv> [--mem <mem_files.f>] [--uvm] [--test-name NAME]
+    run_xcelium_sim.sh --top <testbench.sv> [--mem <mem_files.f>] [--mem-dir <dir>] [--uvm] [--test-name NAME]
     run_xcelium_sim.sh --top <testbench.sv> --compile [--uvm]
     run_xcelium_sim.sh --top <testbench.sv> (--run|-R) [--test-name NAME]
 
 Options:
   -h, --help            Show this help message
   --top FILE            Select the top module from FILE's filename (required)
-      --mem FILE        Include FILE in the Xrun file lists
+      --mem-file FILE   Include FILE in the Xrun file lists
+      --mem-dir DIR     Set +MEM_DIR=DIR for testbenches that load memory files
   --uvm                 Enable UVM for compile-and-run or compile-only
   --test-name NAME      Set +UVM_TESTNAME=NAME
   --compile             Compile only; do not simulate
@@ -57,13 +60,22 @@ while (($#)); do
             TOP_FILE=$1
             shift
             ;;
-        --mem)
+        --mem-file)
             if (($# == 0)) || [[ -z "$1" ]] || [[ "$EN_MEM" == true ]]; then
                 usage >&2
                 exit 2
             fi
             MEM_FILE_LIST=$1
             EN_MEM=true
+            shift
+            ;;
+        --mem-dir)
+            if (($# == 0)) || [[ -z "$1" ]] || [[ "$EN_MEM_DIR" == true ]]; then
+                usage >&2
+                exit 2
+            fi
+            MEM_DIR=$1
+            EN_MEM_DIR=true
             shift
             ;;
         --uvm)
@@ -154,6 +166,16 @@ check_mem_file_list() {
     fi
 }
 
+check_mem_dir() {
+    if [[ "$EN_MEM_DIR" == true ]]; then
+        if [[ ! -d "$MEM_DIR" ]]; then
+            echo "Cannot find memory directory: $MEM_DIR" >&2
+            exit 2
+        fi
+        MEM_DIR=$(realpath -- "$MEM_DIR")
+    fi
+}
+
 create_output_dir() {
     local output_root="$PROJECT_DIR/sim/xcelium"
     mkdir -p -- "$output_root/$TOP_MODULE"
@@ -179,7 +201,10 @@ xrun_args_parser() {
         fi
         XRUN_ARGS+=(-f "$RTL_FILE_LIST")
         if [[ "$EN_MEM" == true ]]; then
-            XRUN_ARGS+=("+MEM_DIR=/home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/uvm/")
+            XRUN_ARGS+=(-f "$MEM_FILE_LIST")
+        fi
+        if [[ "$EN_MEM_DIR" == true ]]; then
+            XRUN_ARGS+=("+MEM_DIR=$MEM_DIR/")
         fi
         XRUN_ARGS+=(-top "$TOP_MODULE")
         XRUN_ARGS+=(-l xrun.log)
@@ -223,6 +248,7 @@ main() {
     update_top_src_and_top_modulde
     check_rtl_files
     check_mem_file_list
+    check_mem_dir
     create_output_dir
     execute_xrun
 }
