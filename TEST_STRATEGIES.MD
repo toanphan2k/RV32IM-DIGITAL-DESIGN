@@ -64,20 +64,56 @@ The core does not currently implement an instruction-address misalignment trap p
 
 ## 5. UVM Testbench Contents
 
-The UVM implementation is in `tb/rv32im_uvm_tb.sv` and contains the testbench, package, and top module.
+The UVM package, interface, components, tests, and HDL top are all in `tb/rv32im_uvm_tb.sv`. A selected test submits complete program images to the driver. The driver does not send one UVM sequence item per instruction; instruction activity is observed from the DUT's retirement trace and memory write ports.
 
-| UVM element | Responsibility |
+### Component Hierarchy
+
+```mermaid
+flowchart TD
+  Test[Selected UVM test] --> Env[rv32im_env]
+  Test --> Sequence[rv32im_program_sequence]
+  Env --> Agent[rv32im_agent]
+  Sequence --> Sequencer[rv32im_sequencer]
+  Agent --> Sequencer
+  Agent --> Driver[rv32im_driver]
+  Agent --> Monitor[rv32im_monitor]
+  Sequencer -->|program items| Driver
+  Driver -->|load, reset, completion| DUT[riscv DUT]
+  DUT --> VIF[rv32im_if]
+  VIF --> Monitor
+  Driver -->|program_ap: reset ISS| Scoreboard[rv32im_scoreboard]
+  Monitor -->|retirement and store analysis| Scoreboard
+  ISS[rv32im_iss reference model] --> Scoreboard
+```
+
+### What Each Part Does
+
+| Element | Responsibility and interaction |
 |---|---|
-| `rv32im_if` | Samples retirement trace, register writeback, and data-memory store signals on the monitor clocking block. |
-| `rv32im_program_item` | Carries an instruction image, cycle limit, optional signature configuration, and run status. |
-| `rv32im_program_sequence` / `rv32im_sequencer` | Pass a program item from the selected test to the driver. This bench sequences program images, rather than one transaction per instruction. |
-| `rv32im_driver` | Asserts reset, loads IMEM, clears DMEM, releases reset, waits for a signature or timeout, drains the pipeline, and completes the item. |
-| `rv32im_monitor` | Publishes non-bubble instruction retirements and observed stores; checks for unknown values on key trace/write signals. |
-| `rv32im_iss` | Golden instruction-set model for register state, PC, supported RV32I/RV32M operations, branch decisions, and byte-addressed store effects. |
-| `rv32im_scoreboard` | Compares DUT PC/instruction/register writes against the ISS, matches stores and delayed DIV/REM writebacks, then compares the full register file and data memory. |
-| `rv32im_agent` / `rv32im_env` | Build and connect sequencer, driver, monitor, and scoreboard analysis ports. |
-| `tb_backdoor` and top module | Tie the virtual interface and hierarchical IMEM/DMEM/register-file access to the instantiated `riscv` DUT, then call `run_test()`. |
-| Base test helpers | Load `.mem` images, build instruction arrays, run program items, check expected registers/memory, and print the test summary. |
+| `rv32im_uvm_tb` top module | Creates the clock and `riscv` DUT, wires the virtual interface to the DUT's retirement/writeback, store, and EX diagnostic signals, configures the backdoor and interface with `uvm_config_db`, and calls `run_test()`. `+UVM_TESTNAME=<class>` selects the registered test. |
+| `rv32im_if` | Carries sampled DUT signals between the HDL top and UVM classes. Its `monitor_cb` clocking block samples on the rising edge with `#1step`, avoiding races with sequential updates. It includes architectural retirement/store signals and EX operand/forwarding diagnostics. |
+| `rv32im_program_item` | The transaction for one whole program run: instruction image, cycle limit, optional signature word and PASS/FAIL markers, run status, and elapsed cycles. |
+| `rv32im_program_sequence` | Sends its assigned program item to the sequencer. It does not encode individual RISC-V instructions into separate UVM transactions. |
+| `rv32im_sequencer` | Standard UVM sequencer that arbitrates program items between the sequence and driver. |
+| `rv32im_driver` | Receives one program item, asserts reset, loads the image into IMEM through the backdoor, clears DMEM, informs the scoreboard to reset its ISS, releases reset, and waits for the configured store signature or cycle timeout. It then drains the pipeline before completing the item. |
+| `rv32im_monitor` | Observes the DUT independently of the driver. For each non-bubble retirement it publishes PC, instruction, write enable, destination, and writeback data. It separately publishes each observed store's address, byte enables, and data, and checks key signals for unknown values. `EX_OPERAND`, `EX_X1`, and `WB_X1` logs are targeted diagnostics for investigating datapath/forwarding failures. |
+| `rv32im_iss` | The software reference model. It decodes and executes the modeled RV32I/RV32M instructions, advances architectural PC/register state, calculates loads/stores and branch outcomes, and supplies expected effects to the scoreboard. |
+| `rv32im_scoreboard` | On program start, resets the ISS from the same image. It checks retirement PC/instruction/register writes, queues DIV/REM shells until their delayed writebacks arrive, matches expected and observed stores including lane masks, checks the final register file and full DMEM, and samples functional coverage. |
+| `rv32im_agent` | Groups sequencer, driver, and monitor into one reusable UVM agent. Its connect phase connects the driver's sequence port to the sequencer. |
+| `rv32im_env` | Builds the agent and scoreboard, then connects the driver's program analysis port and the monitor's retirement/store analysis ports to the scoreboard. |
+| `rv32im_backdoor` / `tb_backdoor` | Abstracts hierarchical access used to load IMEM, clear DMEM, and read architectural state. The concrete implementation references the DUT's IMEM, DMEM, and register-file arrays. This is simulator-independent at the UVM API boundary but depends on the RTL hierarchy. |
+| `rv32im_base_test` | Common setup and helpers: create the environment, load `.mem` files, create program items, run them, check expected register/memory values, and print the summary. Concrete tests extend it and implement `run_phase`. |
+
+### Program Flow
+
+1. The selected test creates a program image and wraps it in an `rv32im_program_item`.
+2. Its sequence submits the item through the sequencer; the driver resets and loads the DUT and publishes the program to the scoreboard.
+3. The scoreboard resets its ISS to the same image. The driver releases reset and starts the program.
+4. The monitor samples retirements and stores. The scoreboard compares those events with the ISS and tracks delayed divider results.
+5. The driver stops waiting when it sees the configured PASS/FAIL signature or reaches the timeout, then drains the pipeline.
+6. The test calls `finish_program()`, which checks pending divider/stores and compares the full register file and DMEM. Program-level pass/fail counters are updated from status and errors.
+
+The report's `Total Tests` is the number of program items passed to `run_item`, not the number of retired instructions. Instruction retirements, stores, divider writebacks, and explicit register/memory checks are reported or checked separately.
 
 ### Available UVM Tests
 
