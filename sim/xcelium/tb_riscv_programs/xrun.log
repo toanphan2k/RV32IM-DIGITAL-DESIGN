@@ -1,0 +1,280 @@
+xrun(64): 24.09-s005: (c) Copyright 1995-2025 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	24.09-s005: Started on Oct 30, 2026 at 14:53:36 +07
+xrun
+	-64bit
+	-sv
+	-f /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/rtl_files.f
+		../../../rtl/def_pkg.sv
+		../../../rtl/alu.sv
+		../../../rtl/cla.sv
+		../../../rtl/control_unit.sv
+		../../../rtl/datapath.sv
+		../../../rtl/div_pipelined.sv
+		../../../rtl/div_unit.sv
+		../../../rtl/divu_1iter.sv
+		../../../rtl/dmem.sv
+		../../../rtl/ex_stage.sv
+		../../../rtl/fowarding.sv
+		../../../rtl/gp1.sv
+		../../../rtl/gp4.sv
+		../../../rtl/gp8.sv
+		../../../rtl/hazard_detection.sv
+		../../../rtl/id_stage.sv
+		../../../rtl/if_stage.sv
+		../../../rtl/imem.sv
+		../../../rtl/imm_gen.sv
+		../../../rtl/mem_stage.sv
+		../../../rtl/memorypath.sv
+		../../../rtl/mul.sv
+		../../../rtl/mux_2x1.sv
+		../../../rtl/mux_3x1.sv
+		../../../rtl/pc_update.sv
+		../../../rtl/reg_file.sv
+		../../../rtl/riscv.sv
+		../../../rtl/wb_stage.sv
+	+MEM_DIR=/home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/mem/
+	-top tb_riscv_programs
+	-l xrun.log
+	/home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/tb_riscv_programs.sv
+
+   User defined plus("+") options:
+	+MEM_DIR=/home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/mem/
+
+file: ../../../rtl/def_pkg.sv
+	package worklib.RV32_PKG:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/alu.sv
+	module worklib.alu:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/cla.sv
+	module worklib.cla:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/control_unit.sv
+	module worklib.control_unit:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/datapath.sv
+	module worklib.datapath:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/div_pipelined.sv
+	module worklib.div_pipelined:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/div_unit.sv
+	module worklib.div_unit:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/divu_1iter.sv
+	module worklib.divu_1iter:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/dmem.sv
+	module worklib.dmem:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/ex_stage.sv
+	module worklib.ex_stage:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/fowarding.sv
+	module worklib.forwarding:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/gp1.sv
+	module worklib.gp1:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/gp4.sv
+	module worklib.gp4:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/gp8.sv
+	module worklib.gp8:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/hazard_detection.sv
+	module worklib.hazard_detection:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/id_stage.sv
+	module worklib.id_stage:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/if_stage.sv
+	module worklib.if_stage:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/imem.sv
+	module worklib.imem:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/imm_gen.sv
+	module worklib.imm_gen:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/mem_stage.sv
+	module worklib.mem_stage:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/memorypath.sv
+	module worklib.memorypath:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/mul.sv
+	module worklib.mul:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/mux_2x1.sv
+	module worklib.mux_2x1:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/mux_3x1.sv
+	module worklib.mux_3x1:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/pc_update.sv
+	module worklib.pc_update:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/reg_file.sv
+	module worklib.reg_file:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/riscv.sv
+	module worklib.riscv:sv
+		errors: 0, warnings: 0
+file: ../../../rtl/wb_stage.sv
+	module worklib.wb_stage:sv
+		errors: 0, warnings: 0
+file: /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/tb_riscv_programs.sv
+	module worklib.tb_riscv_programs:sv
+		errors: 0, warnings: 0
+	Elaborating the design hierarchy:
+		Caching library 'worklib' ....... Done
+	Top level design units:
+		RV32_PKG
+		$unit_0x1ffa7009
+		tb_riscv_programs
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.memorypath:sv <0x2b197e5b>
+			streams:   2, words:   696
+		worklib.forwarding:sv <0x2c9cba40>
+			streams:   2, words:  1651
+		worklib.hazard_detection:sv <0x3f27407d>
+			streams:   5, words:  3797
+		worklib.mem_stage:sv <0x66feda0d>
+			streams:   6, words:  5354
+		worklib.pc_update:sv <0x7ea2638b>
+			streams:   2, words:  1452
+		worklib.divu_1iter:sv <0x2dbad5bc>
+			streams:   2, words:   909
+		worklib.div_unit:sv <0x6b476a68>
+			streams:   8, words: 10266
+		worklib.mul:sv <0x77260723>
+			streams:   6, words:  2793
+		worklib.gp4:sv <0x3e9ff84a>
+			streams:   5, words:  2016
+		worklib.gp4:sv <0x5fb492ba>
+			streams:   3, words:  1301
+		worklib.gp4:sv <0x586f852f>
+			streams:   5, words:  2011
+		worklib.gp8:sv <0x3add5569>
+			streams:   7, words:  2346
+		worklib.gp1:sv <0x5418f789>
+			streams:   1, words:   335
+		worklib.alu:sv <0x643e4e43>
+			streams:   6, words:  3786
+		worklib.mux_3x1:sv <0x7209fc3b>
+			streams:   1, words:   518
+		worklib.ex_stage:sv <0x5d313319>
+			streams:  32, words: 13003
+		worklib.imm_gen:sv <0x7b125e6f>
+			streams:   8, words:  3465
+		worklib.control_unit:sv <0x1b33379b>
+			streams:   3, words: 16972
+		worklib.reg_file:sv <0x0aefd670>
+			streams:   4, words:  2095
+		worklib.id_stage:sv <0x60281836>
+			streams:  35, words: 17296
+		worklib.mux_2x1:sv <0x250b807d>
+			streams:   1, words:   262
+		worklib.if_stage:sv <0x3b132af2>
+			streams:   4, words:  1107
+		worklib.datapath:sv <0x066c5636>
+			streams: 140, words: 29576
+		worklib.tb_riscv_programs:sv <0x0079fb7b>
+			streams:  22, words: 41595
+		worklib.cla:sv <0x78ab5f1d>
+			streams:  57, words: 18309
+		worklib.div_pipelined:sv <0x2e12b54f>
+			streams:  36, words: 59107
+		worklib.riscv:sv <0x30b335f7>
+			streams:  12, words:  2445
+		worklib.wb_stage:sv <0x633fe284>
+			streams:   3, words:   552
+		worklib.dmem:sv <0x52c94481>
+			streams:   4, words:  2481
+		worklib.imem:sv <0x71aaf506>
+			streams:   2, words:   524
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                 Instances  Unique
+		Modules:               101      28
+		Verilog packages:        1       1
+		Registers:             656     420
+		Scalar wires:          484       -
+		Expanded wires:         80       4
+		Vectored wires:        742       -
+		Always blocks:          55      24
+		Initial blocks:         13      13
+		Cont. assignments:     210     144
+		Pseudo assignments:    552       -
+		Compilation units:       1       1
+		Process Clocks:          8       2
+		Simulation timescale:  1ps
+	Writing initial simulation snapshot: worklib.tb_riscv_programs:sv
+Loading snapshot worklib.tb_riscv_programs:sv .................... Done
+xcelium> source /tools/eda/cadence/XCELIUM2409/tools/xcelium/files/xmsimrc
+xcelium> run
+xmsim: *W,RMEMNOF: $readmem error: open failed on file "imem.mem".
+            File: /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/rtl/imem.sv, line = 35, pos = 33
+           Scope: tb_riscv_programs.u_dut.u_memorypath.u_imem
+            Time: 0 FS + 0
+
+xmsim: *W,RMEMNOF: $readmem error: open failed on file "dmem.mem".
+            File: /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/rtl/dmem.sv, line = 38, pos = 33
+           Scope: tb_riscv_programs.u_dut.u_memorypath.u_dmem
+            Time: 0 FS + 0
+
+==================================================
+ riscv.sv program-level testbench (MEM_DIR=/home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/mem/)
+==================================================
+--- Begin Level 1: basic instructions (2 checks) ---
+
+===== Running Level 1: basic instructions (basic_instructions_test.mem) =====
+[PASS] Level 1: basic instructions completed in 77 cycles with PASS marker 00000055
+[PASS] Basic instruction PASS signature: dmem[64] = 00000055
+--- End Level 1: basic instructions ---
+--- Begin Level 2: pipeline hazards (7 checks) ---
+
+===== Running Level 2: pipeline hazards (pipeline_harzard_test.mem) =====
+[PASS] Level 2: pipeline hazards completed in 19 cycles with PASS marker 00000014
+[PASS] Pipeline result x3: dmem[64] = 0000001e
+[PASS] Load-use result x7: dmem[65] = 00000032
+[PASS] Taken-branch target result x9: dmem[66] = 00000007
+[PASS] Pipeline test completion store: dmem[67] = 00000014
+[PASS] Wrong-path store was flushed: dmem[68] = 00000000
+[PASS] Pipeline test: observed exactly 4 store cycles
+--- End Level 2: pipeline hazards ---
+--- Begin Level 3: load/store subsystem (6 checks) ---
+
+===== Running Level 3: load/store subsystem (load_store_subsystem_test.mem) =====
+[PASS] Level 3: load/store subsystem completed in 122 cycles with PASS marker 00000055
+[PASS] Seed word and byte address: dmem[64] = 80ff8001
+[PASS] SB byte lanes and strobes: dmem[65] = 44332211
+[PASS] SH halfword lanes and strobes: dmem[66] = 04560123
+[PASS] SW/LW word address: dmem[68] = 89abc123
+[PASS] Load/store subsystem PASS signature: dmem[128] = 00000055
+--- End Level 3: load/store subsystem ---
+--- Begin Level 4: control flow and corner cases (2 checks) ---
+
+===== Running Level 4: control flow and corner cases (control_flow_corner_cases_test.mem) =====
+[PASS] Level 4: control flow and corner cases completed in 34 cycles with PASS marker 00000055
+[PASS] Control-flow PASS signature: dmem[64] = 00000055
+--- End Level 4: control flow and corner cases ---
+--- Begin Level 5: SoC all-in-one (3 checks) ---
+
+===== Running Level 5: SoC all-in-one (ALU/fwd/load-use/branch/jump/MUL/DIV/REM) (test_soc_all.mem) =====
+[PASS] Level 5: SoC all-in-one (ALU/fwd/load-use/branch/jump/MUL/DIV/REM) completed in 76 cycles with PASS marker 00000055
+[PASS] SoC all PASS signature (MMIO alias): dmem[0] = 00000055
+[PASS] SoC all SW/LW RAM word: dmem[64] = 0000000a
+--- End Level 5: SoC all-in-one ---
+
+===== riscv SUMMARY =====
+Total: 20 | Passed: 20 | Failed: 0
+RESULT: ALL TESTS PASSED
+=========================
+Simulation complete via $finish(1) at time 3930 NS + 0
+/home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/tb_riscv_programs.sv:264         $finish;
+xcelium> exit
+TOOL:	xrun(64)	24.09-s005: Exiting on Oct 30, 2026 at 14:53:38 +07  (total: 00:00:02)

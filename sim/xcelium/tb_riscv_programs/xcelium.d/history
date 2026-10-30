@@ -1,0 +1,5 @@
+//
+// File created by:  xrun
+// Do not modify this file
+
+s1::(30Oct2026:14:53:37):( xrun -64bit -sv -f /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/rtl_files.f +MEM_DIR=/home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/mem/ -top tb_riscv_programs -l xrun.log /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/tb_riscv_programs.sv )&&(./xcelium.d/env.d/env.history.30Oct2026_14_53_37)
