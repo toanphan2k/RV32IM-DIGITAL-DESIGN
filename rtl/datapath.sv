@@ -55,7 +55,9 @@ module datapath(
     // ID signals
     logic [4:0] rs1_d;
     logic [4:0] rs2_d;
+    logic [4:0] rd_addr_d;
     logic is_div_op_d;
+    logic reg_write_d;
     logic mem_write_d;
     logic [REG_SIZE - 1:0] c_pc_e;
     logic [REG_SIZE - 1:0] inst_e;
@@ -150,7 +152,9 @@ module datapath(
         .d_rd_w,
         .rs1_d,
         .rs2_d,
+        .rd_addr_d,
         .is_div_op_d,
+        .reg_write_d,
         .c_pc_e,
         .inst_e,
         .d_rs1_e,
@@ -288,6 +292,8 @@ module datapath(
         .rst_n,
         .rs1_addr_d(rs1_d),
         .rs2_addr_d(rs2_d),
+        .rd_addr_d,
+        .reg_write_d,
         .is_div_op_d,
         .mem_write_d,
         .is_div_op_e,

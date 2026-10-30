@@ -24,7 +24,9 @@ module hazard_detection(
     input logic         rst_n, 
     //Signal from Decode Stage
     input logic [4:0]   rs1_addr_d, rs2_addr_d,  
+    input logic [4:0]   rd_addr_d,
     input logic         is_div_op_d,
+    input logic         reg_write_d,
     input logic         mem_write_d,
     //Signal from Execute Stage
     input logic         is_div_op_e,
@@ -58,6 +60,20 @@ module hazard_detection(
             end
         end    
     end
+
+    // A delayed divider result must not overwrite a younger write to the same rd.
+    logic conflict_div_waw;
+    assign conflict_div_waw = reg_write_d && (rd_addr_d != 5'd0) &&
+        ((div_stage_0[6] && div_stage_0[4:0] == rd_addr_d) ||
+         (div_stage_1[6] && div_stage_1[4:0] == rd_addr_d) ||
+         (div_stage_2[6] && div_stage_2[4:0] == rd_addr_d) ||
+         (div_stage_3[6] && div_stage_3[4:0] == rd_addr_d) ||
+         (div_stage_4[6] && div_stage_4[4:0] == rd_addr_d) ||
+         (div_stage_5[6] && div_stage_5[4:0] == rd_addr_d) ||
+         (div_stage_6[6] && div_stage_6[4:0] == rd_addr_d) ||
+         (div_stage_7[6] && div_stage_7[4:0] == rd_addr_d) ||
+         (is_div_op_e && rd_addr_e == rd_addr_d));
+
     // Load Use Hazard
     logic stall_load_use;
     assign stall_load_use = (mem_read_e && ((rd_addr_e == rs1_addr_d) || (rd_addr_e == rs2_addr_d && !mem_write_d)) && (rd_addr_e != 5'd0)); // Load-Use Harzard (except Store Inst)
@@ -67,7 +83,7 @@ module hazard_detection(
     assign collision_at_mem = (div_stage_5[6] || div_stage_6[6]) && !is_div_op_d;
 
     //Stall system
-    assign stall_req = conflict_div || stall_load_use || collision_at_mem;
+    assign stall_req = conflict_div || conflict_div_waw || stall_load_use || collision_at_mem;
 
     always_comb begin
         pc_en = 1'b1;

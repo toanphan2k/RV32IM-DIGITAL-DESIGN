@@ -1284,7 +1284,7 @@ package rv32im_uvm_pkg;
         endtask
 
         task run_arithmetic();
-            rv_image_t img = new[58];
+            rv_image_t img = new[61];
             img[0]  = enc_i(OPC_OPIMM, 7, 0, 3'b000, 1);          // x1 = 7
             img[1]  = enc_i(OPC_OPIMM, 5, 0, 3'b000, 2);          // x2 = 5
             img[2]  = enc_r(7'b0000000, 2, 1, 3'b000, 3);        // ADD
@@ -1343,10 +1343,13 @@ package rv32im_uvm_pkg;
             img[55] = enc_i(OPC_OPIMM, -6, 0, 3'b000, 13);      // x13 = 0xfffffffa
             img[56] = enc_r(7'b0000001, 13, 13, 3'b011, 5);    // MULHU regression vector
             img[57] = enc_s(52, 5, 0, 3'b010);                  // save MULHU result
+            img[58] = enc_r(7'b0000001, 2, 1, 3'b100, 1);      // DIV writes x1 after latency
+            img[59] = enc_i(OPC_OPIMM, 42, 0, 3'b000, 1);      // younger write must remain final
+            img[60] = enc_s(56, 1, 0, 3'b010);                  // save final x1 value
 
             run_item(new_program("arithmetic", img, 240));
 
-            expect_reg(1, 32'd7);           expect_reg(2, 32'd5);
+            expect_reg(1, 32'd42);          expect_reg(2, 32'd5);
             expect_reg(3, 32'd12);          expect_reg(4, 32'd2);
             expect_reg(5, 32'hffff_fff4);   expect_reg(6, 32'd2);
             expect_reg(7, 32'd14);          expect_reg(8, 32'd5);
@@ -1376,6 +1379,7 @@ package rv32im_uvm_pkg;
             expect_dmem(11, 32'h8000_0000,  "Signed division overflow result");
             expect_dmem(12, 32'd0,          "Signed remainder overflow result");
             expect_dmem(13, 32'hffff_fff4,  "MULHU high unsigned product regression result");
+            expect_dmem(14, 32'd42,         "Younger write survives older DIV writeback");
         endtask
 
         // ---------------------------------------------------------------

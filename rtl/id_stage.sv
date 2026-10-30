@@ -34,7 +34,9 @@ module id_stage(
     
     //Output for Hazard Unit
     output logic [4:0]                      rs1_d, rs2_d,
+    output logic [4:0]                      rd_addr_d,
     output logic                            is_div_op_d,
+    output logic                            reg_write_d,
     output logic                            mem_write_d,
     
     //Output to EX
@@ -120,7 +122,9 @@ module id_stage(
     // =================================================================
     assign rs1_d = rs1;
     assign rs2_d = rs2;
+    assign rd_addr_d = rd;
     assign is_div_op_d = is_div_op;
+    assign reg_write_d = reg_write;
     assign mem_write_d = mem_write;
     // =================================================================
     //REG FILE INSTANCE
