@@ -19,7 +19,7 @@ module tb_riscv_programs;
     localparam logic [31:0] NOP        = 32'h0000_0013;
     localparam logic [31:0] PASS_SIG   = 32'h0000_0055;
     localparam logic [31:0] FAIL_SIG   = 32'h0000_00EE;
-    localparam string       ZERO_FILE  = "tb_dmem_zero.mem";
+    localparam string       ZERO_FILE  = "dmem_zero.mem";
 
     logic clk = 1'b0;
     logic rst_n = 1'b0;
