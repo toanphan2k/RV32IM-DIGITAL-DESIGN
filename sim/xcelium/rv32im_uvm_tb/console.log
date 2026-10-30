@@ -1,22 +1,11 @@
-TOOL:	xrun(64)	24.09-s005: Started on Oct 31, 2026 at 00:27:13 +07
+TOOL:	xrun(64)	24.09-s005: Started on Oct 31, 2026 at 00:32:36 +07
 xrun(64): 24.09-s005: (c) Copyright 1995-2025 Cadence Design Systems, Inc.
-Recompiling... reason: file '/home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/rtl/datapath.sv' is newer than expected.
-	expected: Wed Oct 28 01:31:22 2026
-	actual:   Sat Oct 31 00:27:06 2026
+Recompiling... reason: file '/home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/rtl/hazard_detection.sv' is newer than expected.
+	expected: Sat Oct 31 00:27:06 2026
+	actual:   Sat Oct 31 00:32:30 2026
 Compiling UVM packages (uvm_pkg.sv cdns_uvm_pkg.sv) using uvmhome location /tools/eda/cadence/XCELIUM2409/tools/methodology/UVM/CDNS-1.1d
-file: ../../../rtl/datapath.sv
-	module worklib.datapath:sv
-		errors: 0, warnings: 0
 file: ../../../rtl/hazard_detection.sv
 	module worklib.hazard_detection:sv
-		errors: 0, warnings: 0
-file: ../../../rtl/id_stage.sv
-	module worklib.id_stage:sv
-		errors: 0, warnings: 0
-file: /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv
-	package worklib.rv32im_uvm_pkg:sv
-		errors: 0, warnings: 0
-	module worklib.rv32im_uvm_tb:sv
 		errors: 0, warnings: 0
 	Elaborating the design hierarchy:
 		Caching library 'worklib' ....... Done
@@ -68,14 +57,8 @@ xmelab: *W,COVUCC (/home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv3
 	Enabling instrumentation for coverage types: block expression FSM toggle functional
 xmelab: *W,COVDCL: By default expression coverage is scored only for Verilog logical operators (|| and &&) and VHDL logical operators (OR, AND, NOR, and NAND), and is scored only in condition expressions. To score coverage for other operators and for expressions in other statements, use the "set_expr_coverable_operators" and "set_expr_coverable_statements" coverage configuration file commands with suitable options at elaboration.
 	Generating native compiled code:
-		worklib.hazard_detection:sv <0x22671596>
-			streams:   6, words: 15017
-		worklib.id_stage:sv <0x0fb94a0a>
-			streams:  39, words: 40827
-		worklib.rv32im_uvm_tb:sv <0x19b28a89>
-			streams: 1108, words: 1299463
-		worklib.datapath:sv <0x595a7899>
-			streams: 146, words: 46367
+		worklib.hazard_detection:sv <0x35f0543f>
+			streams:   6, words: 14984
     integer i;
             |
 xmelab: *W,COVUTA (/home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/rtl/hazard_detection.sv,42|12): Toggle coverage is not supported for SystemVerilog integer, real array, string, dynamic array, sparse memory and reference ports. It is also not supported for VHDL multi-dimensional array and array of record. There may also be other such objects in the design.
@@ -39443,223 +39426,223 @@ UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb
 UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 321995000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: SLT      result correct
 UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322005000: uvm_test_top.env.agent.monitor [MONITOR] MULH instruction completed (pc=00000214)
 UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322005000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: MULH      result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(580) @ 322015000: uvm_test_top.env.agent.monitor [EX_OPERAND] pc=00000220 REM rs1=x6 a=00000000 rs2=x7 b=fffffffd fwd=00/00 alu_ctrl=01110
 UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322015000: uvm_test_top.env.agent.monitor [MONITOR] XOR instruction completed (pc=00000218)
 UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322015000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: XOR      result correct
 UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322025000: uvm_test_top.env.agent.monitor [MONITOR] SLT instruction completed (pc=0000021c)
 UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322025000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: SLT      result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(590) @ 322035000: uvm_test_top.env.agent.monitor [EX_X1] pc=00000224 AUIPC rs1=x13 a=00000224 rs2=x30 b=9be68000 rd=x1 we=1 result=9be68224 fwd=00/00
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(580) @ 322035000: uvm_test_top.env.agent.monitor [EX_OPERAND] pc=00000220 REM rs1=x6 a=00000000 rs2=x7 b=fffffffd fwd=00/00 alu_ctrl=01110
 UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322035000: uvm_test_top.env.agent.monitor [MONITOR] DIVU instruction completed (pc=00000204)
 UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(874) @ 322035000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: DIVU result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(596) @ 322055000: uvm_test_top.env.agent.monitor [WB_X1] pc=00000224 inst=9be68097 x1=9be68224
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322055000: uvm_test_top.env.agent.monitor [MONITOR] AUIPC instruction completed (pc=00000224)
-UVM_ERROR /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(780) @ 322055000: uvm_test_top.env.scoreboard [PC_MISMATCH] [random_9] DUT retired pc=00000224 inst=9be68097, ISS expected pc=00000220 inst=02736333
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322105000: uvm_test_top.env.agent.monitor [MONITOR] REM instruction completed (pc=00000220)
-UVM_ERROR /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(780) @ 322105000: uvm_test_top.env.scoreboard [DIV_UNEXPECTED] [random_9] Divider writeback without pending DIV: pc=00000220 inst=02736333 we=1 rd=x6 data=00000000
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322135000: uvm_test_top.env.agent.monitor [MONITOR] BLT instruction completed (pc=00000228)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322135000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: BLT instruction correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322145000: uvm_test_top.env.agent.monitor [MONITOR] ADDI instruction completed (pc=0000022c)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322145000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: ADDI      result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(590) @ 322155000: uvm_test_top.env.agent.monitor [EX_X1] pc=00000238 SLLI rs1=x1 a=9be68224 rs2=x25 b=00000019 rd=x2 we=1 result=48000000 fwd=00/00
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322155000: uvm_test_top.env.agent.monitor [MONITOR] LBU instruction completed (pc=00000230)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322155000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: LBU      result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322165000: uvm_test_top.env.agent.monitor [MONITOR] AND instruction completed (pc=00000234)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322165000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: AND      result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322175000: uvm_test_top.env.agent.monitor [MONITOR] SLLI instruction completed (pc=00000238)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322175000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: SLLI      result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322185000: uvm_test_top.env.agent.monitor [MONITOR] OR instruction completed (pc=0000023c)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322185000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: OR      result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322195000: uvm_test_top.env.agent.monitor [MONITOR] SLLI instruction completed (pc=00000240)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(590) @ 322045000: uvm_test_top.env.agent.monitor [EX_X1] pc=00000224 AUIPC rs1=x13 a=00000224 rs2=x30 b=9be68000 rd=x1 we=1 result=9be68224 fwd=00/00
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322055000: uvm_test_top.env.agent.monitor [MONITOR] REM instruction completed (pc=00000220)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322055000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: REM      result correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(596) @ 322065000: uvm_test_top.env.agent.monitor [WB_X1] pc=00000224 inst=9be68097 x1=9be68224
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322065000: uvm_test_top.env.agent.monitor [MONITOR] AUIPC instruction completed (pc=00000224)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322065000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: AUIPC      result correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322125000: uvm_test_top.env.agent.monitor [MONITOR] REM instruction completed (pc=00000220)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(874) @ 322125000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: REM result correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322155000: uvm_test_top.env.agent.monitor [MONITOR] BLT instruction completed (pc=00000228)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322155000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: BLT instruction correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322165000: uvm_test_top.env.agent.monitor [MONITOR] ADDI instruction completed (pc=0000022c)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322165000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: ADDI      result correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(590) @ 322175000: uvm_test_top.env.agent.monitor [EX_X1] pc=00000238 SLLI rs1=x1 a=9be68224 rs2=x25 b=00000019 rd=x2 we=1 result=48000000 fwd=00/00
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322175000: uvm_test_top.env.agent.monitor [MONITOR] LBU instruction completed (pc=00000230)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322175000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: LBU      result correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322185000: uvm_test_top.env.agent.monitor [MONITOR] AND instruction completed (pc=00000234)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322185000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: AND      result correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322195000: uvm_test_top.env.agent.monitor [MONITOR] SLLI instruction completed (pc=00000238)
 UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322195000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: SLLI      result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322205000: uvm_test_top.env.agent.monitor [MONITOR] XORI instruction completed (pc=00000244)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322205000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: XORI      result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322215000: uvm_test_top.env.agent.monitor [MONITOR] XORI instruction completed (pc=00000248)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322215000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: XORI      result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322225000: uvm_test_top.env.agent.monitor [MONITOR] OR instruction completed (pc=0000024c)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322225000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: OR      result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(580) @ 322235000: uvm_test_top.env.agent.monitor [EX_OPERAND] pc=00000258 MULHU rs1=x4 a=00000000 rs2=x7 b=00000000 fwd=00/00 alu_ctrl=01011
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322235000: uvm_test_top.env.agent.monitor [MONITOR] SLTIU instruction completed (pc=00000250)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322235000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: SLTIU      result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322245000: uvm_test_top.env.agent.monitor [MONITOR] SW instruction completed (pc=00000254)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(898) @ 322245000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: SW store data correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(580) @ 322255000: uvm_test_top.env.agent.monitor [EX_OPERAND] pc=00000260 DIV rs1=x3 a=b7fffff1 rs2=x6 b=00000000 fwd=00/01 alu_ctrl=01100
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322255000: uvm_test_top.env.agent.monitor [MONITOR] MULHU instruction completed (pc=00000258)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322255000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: MULHU      result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322265000: uvm_test_top.env.agent.monitor [MONITOR] LBU instruction completed (pc=0000025c)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322265000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: LBU      result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322275000: uvm_test_top.env.agent.monitor [MONITOR] DIV instruction completed (pc=00000260)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322275000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: DIV      result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322345000: uvm_test_top.env.agent.monitor [MONITOR] DIV instruction completed (pc=00000260)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(874) @ 322345000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: DIV result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(590) @ 322355000: uvm_test_top.env.agent.monitor [EX_X1] pc=00000264 XOR rs1=x1 a=9be68224 rs2=x4 b=ffffffff rd=x4 we=1 result=64197ddb fwd=00/00
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(580) @ 322375000: uvm_test_top.env.agent.monitor [EX_OPERAND] pc=0000026c MULHSU rs1=x4 a=64197ddb rs2=x6 b=00000000 fwd=01/00 alu_ctrl=01010
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322375000: uvm_test_top.env.agent.monitor [MONITOR] XOR instruction completed (pc=00000264)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322375000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: XOR      result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322385000: uvm_test_top.env.agent.monitor [MONITOR] LH instruction completed (pc=00000268)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322385000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: LH      result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322395000: uvm_test_top.env.agent.monitor [MONITOR] MULHSU instruction completed (pc=0000026c)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322395000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: MULHSU      result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322405000: uvm_test_top.env.agent.monitor [MONITOR] AND instruction completed (pc=00000270)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322405000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: AND      result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(590) @ 322415000: uvm_test_top.env.agent.monitor [EX_X1] pc=0000027c LHU rs1=x8 a=00000200 rs2=x28 b=000000fc rd=x1 we=1 result=000002fc fwd=00/00
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322415000: uvm_test_top.env.agent.monitor [MONITOR] BLT instruction completed (pc=00000274)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322415000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: BLT instruction correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322425000: uvm_test_top.env.agent.monitor [MONITOR] LB instruction completed (pc=00000278)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322425000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: LB      result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(580) @ 322435000: uvm_test_top.env.agent.monitor [EX_OPERAND] pc=00000284 MULH rs1=x4 a=00000000 rs2=x5 b=00000000 fwd=00/00 alu_ctrl=01001
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(596) @ 322435000: uvm_test_top.env.agent.monitor [WB_X1] pc=0000027c inst=0fc45083 x1=00000000
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322435000: uvm_test_top.env.agent.monitor [MONITOR] LHU instruction completed (pc=0000027c)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322435000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: LHU      result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322445000: uvm_test_top.env.agent.monitor [MONITOR] BNE instruction completed (pc=00000280)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322445000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: BNE instruction correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322455000: uvm_test_top.env.agent.monitor [MONITOR] MULH instruction completed (pc=00000284)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322455000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: MULH      result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(580) @ 322465000: uvm_test_top.env.agent.monitor [EX_OPERAND] pc=00000290 DIVU rs1=x7 a=00000000 rs2=x3 b=64197ddb fwd=00/00 alu_ctrl=01101
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(590) @ 322465000: uvm_test_top.env.agent.monitor [EX_X1] pc=00000290 DIVU rs1=x7 a=00000000 rs2=x3 b=64197ddb rd=x1 we=1 result=00000000 fwd=00/00
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322465000: uvm_test_top.env.agent.monitor [MONITOR] SH instruction completed (pc=00000288)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(898) @ 322465000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: SH store data correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(580) @ 322475000: uvm_test_top.env.agent.monitor [EX_OPERAND] pc=00000294 REM rs1=x3 a=64197ddb rs2=x6 b=00000000 fwd=00/00 alu_ctrl=01110
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322475000: uvm_test_top.env.agent.monitor [MONITOR] SLLI instruction completed (pc=0000028c)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322475000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: SLLI      result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322485000: uvm_test_top.env.agent.monitor [MONITOR] DIVU instruction completed (pc=00000290)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322485000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: DIVU      result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322495000: uvm_test_top.env.agent.monitor [MONITOR] REM instruction completed (pc=00000294)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322495000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: REM      result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(596) @ 322555000: uvm_test_top.env.agent.monitor [WB_X1] pc=00000290 inst=0233d0b3 x1=00000000
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322555000: uvm_test_top.env.agent.monitor [MONITOR] DIVU instruction completed (pc=00000290)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(874) @ 322555000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: DIVU result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(580) @ 322565000: uvm_test_top.env.agent.monitor [EX_OPERAND] pc=00000298 DIVU rs1=x2 a=00000000 rs2=x4 b=00000000 fwd=00/00 alu_ctrl=01101
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(590) @ 322565000: uvm_test_top.env.agent.monitor [EX_X1] pc=00000298 DIVU rs1=x2 a=00000000 rs2=x4 b=00000000 rd=x1 we=1 result=00000000 fwd=00/00
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322565000: uvm_test_top.env.agent.monitor [MONITOR] REM instruction completed (pc=00000294)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(874) @ 322565000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: REM result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322585000: uvm_test_top.env.agent.monitor [MONITOR] DIVU instruction completed (pc=00000298)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322585000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: DIVU      result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322595000: uvm_test_top.env.agent.monitor [MONITOR] LHU instruction completed (pc=0000029c)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322595000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: LHU      result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322615000: uvm_test_top.env.agent.monitor [MONITOR] SLT instruction completed (pc=000002a0)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322615000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: SLT      result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(596) @ 322655000: uvm_test_top.env.agent.monitor [WB_X1] pc=00000298 inst=024150b3 x1=ffffffff
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322655000: uvm_test_top.env.agent.monitor [MONITOR] DIVU instruction completed (pc=00000298)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(874) @ 322655000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: DIVU result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(580) @ 322665000: uvm_test_top.env.agent.monitor [EX_OPERAND] pc=000002a4 DIV rs1=x3 a=64197ddb rs2=x5 b=00000000 fwd=00/00 alu_ctrl=01100
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(590) @ 322665000: uvm_test_top.env.agent.monitor [EX_X1] pc=000002a4 DIV rs1=x3 a=64197ddb rs2=x5 b=00000000 rd=x1 we=1 result=00000000 fwd=00/00
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322685000: uvm_test_top.env.agent.monitor [MONITOR] DIV instruction completed (pc=000002a4)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322685000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: DIV      result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322695000: uvm_test_top.env.agent.monitor [MONITOR] ORI instruction completed (pc=000002a8)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322695000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: ORI      result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322705000: uvm_test_top.env.agent.monitor [MONITOR] BEQ instruction completed (pc=000002ac)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322705000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: BEQ instruction correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(596) @ 322755000: uvm_test_top.env.agent.monitor [WB_X1] pc=000002a4 inst=0251c0b3 x1=ffffffff
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322755000: uvm_test_top.env.agent.monitor [MONITOR] DIV instruction completed (pc=000002a4)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(874) @ 322755000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: DIV result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(590) @ 322765000: uvm_test_top.env.agent.monitor [EX_X1] pc=000002b0 SLT rs1=x1 a=ffffffff rs2=x5 b=00000000 rd=x2 we=1 result=00000001 fwd=00/00
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322785000: uvm_test_top.env.agent.monitor [MONITOR] SLT instruction completed (pc=000002b0)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322785000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: SLT      result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(590) @ 322795000: uvm_test_top.env.agent.monitor [EX_X1] pc=000002bc ADDI rs1=x1 a=ffffffff rs2=x26 b=fffffffa rd=x6 we=1 result=fffffff9 fwd=00/00
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322795000: uvm_test_top.env.agent.monitor [MONITOR] SW instruction completed (pc=000002b4)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(898) @ 322795000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: SW store data correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322805000: uvm_test_top.env.agent.monitor [MONITOR] LHU instruction completed (pc=000002b8)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322805000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: LHU      result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(590) @ 322815000: uvm_test_top.env.agent.monitor [EX_X1] pc=000002c4 ADDI rs1=x0 a=00000000 rs2=x1 b=00000001 rd=x3 we=1 result=00000001 fwd=00/00
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322815000: uvm_test_top.env.agent.monitor [MONITOR] ADDI instruction completed (pc=000002bc)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322815000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: ADDI      result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(580) @ 322825000: uvm_test_top.env.agent.monitor [EX_OPERAND] pc=000002c8 MULHSU rs1=x3 a=00000001 rs2=x4 b=64197ddb fwd=10/01 alu_ctrl=01010
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322825000: uvm_test_top.env.agent.monitor [MONITOR] OR instruction completed (pc=000002c0)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322825000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: OR      result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(580) @ 322835000: uvm_test_top.env.agent.monitor [EX_OPERAND] pc=000002cc MULHU rs1=x5 a=00000000 rs2=x1 b=ffffffff fwd=10/00 alu_ctrl=01011
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(590) @ 322835000: uvm_test_top.env.agent.monitor [EX_X1] pc=000002cc MULHU rs1=x5 a=00000000 rs2=x1 b=ffffffff rd=x7 we=1 result=00000000 fwd=10/00
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322835000: uvm_test_top.env.agent.monitor [MONITOR] ADDI instruction completed (pc=000002c4)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322205000: uvm_test_top.env.agent.monitor [MONITOR] OR instruction completed (pc=0000023c)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322205000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: OR      result correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322215000: uvm_test_top.env.agent.monitor [MONITOR] SLLI instruction completed (pc=00000240)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322215000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: SLLI      result correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322225000: uvm_test_top.env.agent.monitor [MONITOR] XORI instruction completed (pc=00000244)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322225000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: XORI      result correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322235000: uvm_test_top.env.agent.monitor [MONITOR] XORI instruction completed (pc=00000248)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322235000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: XORI      result correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322245000: uvm_test_top.env.agent.monitor [MONITOR] OR instruction completed (pc=0000024c)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322245000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: OR      result correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(580) @ 322255000: uvm_test_top.env.agent.monitor [EX_OPERAND] pc=00000258 MULHU rs1=x4 a=00000000 rs2=x7 b=00000000 fwd=00/00 alu_ctrl=01011
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322255000: uvm_test_top.env.agent.monitor [MONITOR] SLTIU instruction completed (pc=00000250)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322255000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: SLTIU      result correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322265000: uvm_test_top.env.agent.monitor [MONITOR] SW instruction completed (pc=00000254)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(898) @ 322265000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: SW store data correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(580) @ 322275000: uvm_test_top.env.agent.monitor [EX_OPERAND] pc=00000260 DIV rs1=x3 a=b7fffff1 rs2=x6 b=00000000 fwd=00/01 alu_ctrl=01100
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322275000: uvm_test_top.env.agent.monitor [MONITOR] MULHU instruction completed (pc=00000258)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322275000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: MULHU      result correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322285000: uvm_test_top.env.agent.monitor [MONITOR] LBU instruction completed (pc=0000025c)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322285000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: LBU      result correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322295000: uvm_test_top.env.agent.monitor [MONITOR] DIV instruction completed (pc=00000260)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322295000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: DIV      result correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322365000: uvm_test_top.env.agent.monitor [MONITOR] DIV instruction completed (pc=00000260)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(874) @ 322365000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: DIV result correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(590) @ 322375000: uvm_test_top.env.agent.monitor [EX_X1] pc=00000264 XOR rs1=x1 a=9be68224 rs2=x4 b=ffffffff rd=x4 we=1 result=64197ddb fwd=00/00
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(580) @ 322395000: uvm_test_top.env.agent.monitor [EX_OPERAND] pc=0000026c MULHSU rs1=x4 a=64197ddb rs2=x6 b=00000000 fwd=01/00 alu_ctrl=01010
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322395000: uvm_test_top.env.agent.monitor [MONITOR] XOR instruction completed (pc=00000264)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322395000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: XOR      result correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322405000: uvm_test_top.env.agent.monitor [MONITOR] LH instruction completed (pc=00000268)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322405000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: LH      result correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322415000: uvm_test_top.env.agent.monitor [MONITOR] MULHSU instruction completed (pc=0000026c)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322415000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: MULHSU      result correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322425000: uvm_test_top.env.agent.monitor [MONITOR] AND instruction completed (pc=00000270)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322425000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: AND      result correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(590) @ 322435000: uvm_test_top.env.agent.monitor [EX_X1] pc=0000027c LHU rs1=x8 a=00000200 rs2=x28 b=000000fc rd=x1 we=1 result=000002fc fwd=00/00
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322435000: uvm_test_top.env.agent.monitor [MONITOR] BLT instruction completed (pc=00000274)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322435000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: BLT instruction correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322445000: uvm_test_top.env.agent.monitor [MONITOR] LB instruction completed (pc=00000278)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322445000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: LB      result correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(580) @ 322455000: uvm_test_top.env.agent.monitor [EX_OPERAND] pc=00000284 MULH rs1=x4 a=00000000 rs2=x5 b=00000000 fwd=00/00 alu_ctrl=01001
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(596) @ 322455000: uvm_test_top.env.agent.monitor [WB_X1] pc=0000027c inst=0fc45083 x1=00000000
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322455000: uvm_test_top.env.agent.monitor [MONITOR] LHU instruction completed (pc=0000027c)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322455000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: LHU      result correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322465000: uvm_test_top.env.agent.monitor [MONITOR] BNE instruction completed (pc=00000280)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322465000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: BNE instruction correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322475000: uvm_test_top.env.agent.monitor [MONITOR] MULH instruction completed (pc=00000284)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322475000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: MULH      result correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(580) @ 322485000: uvm_test_top.env.agent.monitor [EX_OPERAND] pc=00000290 DIVU rs1=x7 a=00000000 rs2=x3 b=64197ddb fwd=00/00 alu_ctrl=01101
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(590) @ 322485000: uvm_test_top.env.agent.monitor [EX_X1] pc=00000290 DIVU rs1=x7 a=00000000 rs2=x3 b=64197ddb rd=x1 we=1 result=00000000 fwd=00/00
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322485000: uvm_test_top.env.agent.monitor [MONITOR] SH instruction completed (pc=00000288)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(898) @ 322485000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: SH store data correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(580) @ 322495000: uvm_test_top.env.agent.monitor [EX_OPERAND] pc=00000294 REM rs1=x3 a=64197ddb rs2=x6 b=00000000 fwd=00/00 alu_ctrl=01110
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322495000: uvm_test_top.env.agent.monitor [MONITOR] SLLI instruction completed (pc=0000028c)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322495000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: SLLI      result correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322505000: uvm_test_top.env.agent.monitor [MONITOR] DIVU instruction completed (pc=00000290)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322505000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: DIVU      result correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322515000: uvm_test_top.env.agent.monitor [MONITOR] REM instruction completed (pc=00000294)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322515000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: REM      result correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(596) @ 322575000: uvm_test_top.env.agent.monitor [WB_X1] pc=00000290 inst=0233d0b3 x1=00000000
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322575000: uvm_test_top.env.agent.monitor [MONITOR] DIVU instruction completed (pc=00000290)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(874) @ 322575000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: DIVU result correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(580) @ 322585000: uvm_test_top.env.agent.monitor [EX_OPERAND] pc=00000298 DIVU rs1=x2 a=00000000 rs2=x4 b=00000000 fwd=00/00 alu_ctrl=01101
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(590) @ 322585000: uvm_test_top.env.agent.monitor [EX_X1] pc=00000298 DIVU rs1=x2 a=00000000 rs2=x4 b=00000000 rd=x1 we=1 result=00000000 fwd=00/00
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322585000: uvm_test_top.env.agent.monitor [MONITOR] REM instruction completed (pc=00000294)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(874) @ 322585000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: REM result correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322605000: uvm_test_top.env.agent.monitor [MONITOR] DIVU instruction completed (pc=00000298)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322605000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: DIVU      result correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322615000: uvm_test_top.env.agent.monitor [MONITOR] LHU instruction completed (pc=0000029c)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322615000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: LHU      result correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322635000: uvm_test_top.env.agent.monitor [MONITOR] SLT instruction completed (pc=000002a0)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322635000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: SLT      result correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(596) @ 322675000: uvm_test_top.env.agent.monitor [WB_X1] pc=00000298 inst=024150b3 x1=ffffffff
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322675000: uvm_test_top.env.agent.monitor [MONITOR] DIVU instruction completed (pc=00000298)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(874) @ 322675000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: DIVU result correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(580) @ 322685000: uvm_test_top.env.agent.monitor [EX_OPERAND] pc=000002a4 DIV rs1=x3 a=64197ddb rs2=x5 b=00000000 fwd=00/00 alu_ctrl=01100
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(590) @ 322685000: uvm_test_top.env.agent.monitor [EX_X1] pc=000002a4 DIV rs1=x3 a=64197ddb rs2=x5 b=00000000 rd=x1 we=1 result=00000000 fwd=00/00
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322705000: uvm_test_top.env.agent.monitor [MONITOR] DIV instruction completed (pc=000002a4)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322705000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: DIV      result correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322715000: uvm_test_top.env.agent.monitor [MONITOR] ORI instruction completed (pc=000002a8)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322715000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: ORI      result correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322725000: uvm_test_top.env.agent.monitor [MONITOR] BEQ instruction completed (pc=000002ac)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322725000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: BEQ instruction correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(596) @ 322775000: uvm_test_top.env.agent.monitor [WB_X1] pc=000002a4 inst=0251c0b3 x1=ffffffff
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322775000: uvm_test_top.env.agent.monitor [MONITOR] DIV instruction completed (pc=000002a4)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(874) @ 322775000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: DIV result correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(590) @ 322785000: uvm_test_top.env.agent.monitor [EX_X1] pc=000002b0 SLT rs1=x1 a=ffffffff rs2=x5 b=00000000 rd=x2 we=1 result=00000001 fwd=00/00
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322805000: uvm_test_top.env.agent.monitor [MONITOR] SLT instruction completed (pc=000002b0)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322805000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: SLT      result correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(590) @ 322815000: uvm_test_top.env.agent.monitor [EX_X1] pc=000002bc ADDI rs1=x1 a=ffffffff rs2=x26 b=fffffffa rd=x6 we=1 result=fffffff9 fwd=00/00
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322815000: uvm_test_top.env.agent.monitor [MONITOR] SW instruction completed (pc=000002b4)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(898) @ 322815000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: SW store data correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322825000: uvm_test_top.env.agent.monitor [MONITOR] LHU instruction completed (pc=000002b8)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322825000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: LHU      result correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(590) @ 322835000: uvm_test_top.env.agent.monitor [EX_X1] pc=000002c4 ADDI rs1=x0 a=00000000 rs2=x1 b=00000001 rd=x3 we=1 result=00000001 fwd=00/00
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322835000: uvm_test_top.env.agent.monitor [MONITOR] ADDI instruction completed (pc=000002bc)
 UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322835000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: ADDI      result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322845000: uvm_test_top.env.agent.monitor [MONITOR] MULHSU instruction completed (pc=000002c8)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322845000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: MULHSU      result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322855000: uvm_test_top.env.agent.monitor [MONITOR] MULHU instruction completed (pc=000002cc)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322855000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: MULHU      result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322865000: uvm_test_top.env.agent.monitor [MONITOR] SLTIU instruction completed (pc=000002d0)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322865000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: SLTIU      result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(580) @ 322875000: uvm_test_top.env.agent.monitor [EX_OPERAND] pc=000002dc DIV rs1=x2 a=00000001 rs2=x1 b=ffffffff fwd=00/00 alu_ctrl=01100
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(590) @ 322875000: uvm_test_top.env.agent.monitor [EX_X1] pc=000002dc DIV rs1=x2 a=00000001 rs2=x1 b=ffffffff rd=x2 we=1 result=00000000 fwd=00/00
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322875000: uvm_test_top.env.agent.monitor [MONITOR] SLL instruction completed (pc=000002d4)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322875000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: SLL      result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322885000: uvm_test_top.env.agent.monitor [MONITOR] LHU instruction completed (pc=000002d8)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322885000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: LHU      result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322895000: uvm_test_top.env.agent.monitor [MONITOR] DIV instruction completed (pc=000002dc)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322895000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: DIV      result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322965000: uvm_test_top.env.agent.monitor [MONITOR] DIV instruction completed (pc=000002dc)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(874) @ 322965000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: DIV result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322995000: uvm_test_top.env.agent.monitor [MONITOR] SUB instruction completed (pc=000002e0)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322995000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: SUB      result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 323005000: uvm_test_top.env.agent.monitor [MONITOR] ADDI instruction completed (pc=000002e4)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 323005000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: ADDI      result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(590) @ 323015000: uvm_test_top.env.agent.monitor [EX_X1] pc=000002f0 SUB rs1=x5 a=00000001 rs2=x1 b=ffffffff rd=x3 we=1 result=00000002 fwd=00/00
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 323015000: uvm_test_top.env.agent.monitor [MONITOR] AUIPC instruction completed (pc=000002e8)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 323015000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: AUIPC      result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 323025000: uvm_test_top.env.agent.monitor [MONITOR] XORI instruction completed (pc=000002ec)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 323025000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: XORI      result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 323035000: uvm_test_top.env.agent.monitor [MONITOR] SUB instruction completed (pc=000002f0)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 323035000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: SUB      result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(580) @ 323045000: uvm_test_top.env.agent.monitor [EX_OPERAND] pc=000002fc REM rs1=x4 a=64197ddb rs2=x7 b=fffffff7 fwd=00/00 alu_ctrl=01110
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 323045000: uvm_test_top.env.agent.monitor [MONITOR] SH instruction completed (pc=000002f4)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(898) @ 323045000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: SH store data correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 323055000: uvm_test_top.env.agent.monitor [MONITOR] SW instruction completed (pc=000002f8)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(898) @ 323055000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: SW store data correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 323065000: uvm_test_top.env.agent.monitor [MONITOR] REM instruction completed (pc=000002fc)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 323065000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: REM      result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 323075000: uvm_test_top.env.agent.monitor [MONITOR] LW instruction completed (pc=00000300)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 323075000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: LW      result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 323135000: uvm_test_top.env.agent.monitor [MONITOR] REM instruction completed (pc=000002fc)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(874) @ 323135000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: REM result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(580) @ 323165000: uvm_test_top.env.agent.monitor [EX_OPERAND] pc=0000030c REMU rs1=x7 a=fffffff7 rs2=x6 b=00000000 fwd=00/00 alu_ctrl=01111
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(590) @ 323165000: uvm_test_top.env.agent.monitor [EX_X1] pc=0000030c REMU rs1=x7 a=fffffff7 rs2=x6 b=00000000 rd=x1 we=1 result=00000000 fwd=00/00
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 323165000: uvm_test_top.env.agent.monitor [MONITOR] SLT instruction completed (pc=00000304)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 323165000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: SLT      result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 323175000: uvm_test_top.env.agent.monitor [MONITOR] SH instruction completed (pc=00000308)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(898) @ 323175000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: SH store data correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 323185000: uvm_test_top.env.agent.monitor [MONITOR] REMU instruction completed (pc=0000030c)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 323185000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: REMU      result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 323195000: uvm_test_top.env.agent.monitor [MONITOR] SLTU instruction completed (pc=00000310)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 323195000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: SLTU      result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(580) @ 323205000: uvm_test_top.env.agent.monitor [EX_OPERAND] pc=0000031c REMU rs1=x7 a=fffffff7 rs2=x3 b=00000002 fwd=00/00 alu_ctrl=01111
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 323205000: uvm_test_top.env.agent.monitor [MONITOR] AUIPC instruction completed (pc=00000314)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 323205000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: AUIPC      result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 323215000: uvm_test_top.env.agent.monitor [MONITOR] SB instruction completed (pc=00000318)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(898) @ 323215000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: SB store data correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 323225000: uvm_test_top.env.agent.monitor [MONITOR] REMU instruction completed (pc=0000031c)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 323225000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: REMU      result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(596) @ 323255000: uvm_test_top.env.agent.monitor [WB_X1] pc=0000030c inst=0263f0b3 x1=fffffff7
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 323255000: uvm_test_top.env.agent.monitor [MONITOR] REMU instruction completed (pc=0000030c)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(874) @ 323255000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: REMU result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 323295000: uvm_test_top.env.agent.monitor [MONITOR] REMU instruction completed (pc=0000031c)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(874) @ 323295000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: REMU result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 323325000: uvm_test_top.env.agent.monitor [MONITOR] BEQ instruction completed (pc=00000320)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 323325000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: BEQ instruction correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 323335000: uvm_test_top.env.agent.monitor [MONITOR] BGE instruction completed (pc=00000324)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 323335000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: BGE instruction correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 323355000: uvm_test_top.env.agent.monitor [MONITOR] SW instruction completed (pc=00000334)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(898) @ 323355000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: SW store data correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 323365000: uvm_test_top.env.agent.monitor [MONITOR] LBU instruction completed (pc=00000338)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 323365000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: LBU      result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(580) @ 323375000: uvm_test_top.env.agent.monitor [EX_OPERAND] pc=00000344 REMU rs1=x0 a=00000000 rs2=x1 b=fffffff7 fwd=00/00 alu_ctrl=01111
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(590) @ 323375000: uvm_test_top.env.agent.monitor [EX_X1] pc=00000344 REMU rs1=x0 a=00000000 rs2=x1 b=fffffff7 rd=x5 we=1 result=00000000 fwd=00/00
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 323375000: uvm_test_top.env.agent.monitor [MONITOR] SLT instruction completed (pc=0000033c)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 323375000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: SLT      result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 323385000: uvm_test_top.env.agent.monitor [MONITOR] SB instruction completed (pc=00000340)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(898) @ 323385000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: SB store data correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 323395000: uvm_test_top.env.agent.monitor [MONITOR] REMU instruction completed (pc=00000344)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 323395000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: REMU      result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 323465000: uvm_test_top.env.agent.monitor [MONITOR] REMU instruction completed (pc=00000344)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(874) @ 323465000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: REMU result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 323495000: uvm_test_top.env.agent.monitor [MONITOR] SLTI instruction completed (pc=00000348)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 323495000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: SLTI      result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 323505000: uvm_test_top.env.agent.monitor [MONITOR] ADDI instruction completed (pc=0000034c)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 323505000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: ADDI      result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 323515000: uvm_test_top.env.agent.monitor [MONITOR] SLL instruction completed (pc=00000350)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 323515000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: SLL      result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 323525000: uvm_test_top.env.agent.monitor [MONITOR] SLTU instruction completed (pc=00000354)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 323525000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: SLTU      result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 323535000: uvm_test_top.env.agent.monitor [MONITOR] SLL instruction completed (pc=00000358)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(580) @ 322845000: uvm_test_top.env.agent.monitor [EX_OPERAND] pc=000002c8 MULHSU rs1=x3 a=00000001 rs2=x4 b=64197ddb fwd=10/01 alu_ctrl=01010
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322845000: uvm_test_top.env.agent.monitor [MONITOR] OR instruction completed (pc=000002c0)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322845000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: OR      result correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(580) @ 322855000: uvm_test_top.env.agent.monitor [EX_OPERAND] pc=000002cc MULHU rs1=x5 a=00000000 rs2=x1 b=ffffffff fwd=10/00 alu_ctrl=01011
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(590) @ 322855000: uvm_test_top.env.agent.monitor [EX_X1] pc=000002cc MULHU rs1=x5 a=00000000 rs2=x1 b=ffffffff rd=x7 we=1 result=00000000 fwd=10/00
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322855000: uvm_test_top.env.agent.monitor [MONITOR] ADDI instruction completed (pc=000002c4)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322855000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: ADDI      result correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322865000: uvm_test_top.env.agent.monitor [MONITOR] MULHSU instruction completed (pc=000002c8)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322865000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: MULHSU      result correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322875000: uvm_test_top.env.agent.monitor [MONITOR] MULHU instruction completed (pc=000002cc)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322875000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: MULHU      result correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322885000: uvm_test_top.env.agent.monitor [MONITOR] SLTIU instruction completed (pc=000002d0)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322885000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: SLTIU      result correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(580) @ 322895000: uvm_test_top.env.agent.monitor [EX_OPERAND] pc=000002dc DIV rs1=x2 a=00000001 rs2=x1 b=ffffffff fwd=00/00 alu_ctrl=01100
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(590) @ 322895000: uvm_test_top.env.agent.monitor [EX_X1] pc=000002dc DIV rs1=x2 a=00000001 rs2=x1 b=ffffffff rd=x2 we=1 result=00000000 fwd=00/00
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322895000: uvm_test_top.env.agent.monitor [MONITOR] SLL instruction completed (pc=000002d4)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322895000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: SLL      result correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322905000: uvm_test_top.env.agent.monitor [MONITOR] LHU instruction completed (pc=000002d8)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322905000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: LHU      result correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322915000: uvm_test_top.env.agent.monitor [MONITOR] DIV instruction completed (pc=000002dc)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 322915000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: DIV      result correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 322985000: uvm_test_top.env.agent.monitor [MONITOR] DIV instruction completed (pc=000002dc)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(874) @ 322985000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: DIV result correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 323015000: uvm_test_top.env.agent.monitor [MONITOR] SUB instruction completed (pc=000002e0)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 323015000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: SUB      result correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 323025000: uvm_test_top.env.agent.monitor [MONITOR] ADDI instruction completed (pc=000002e4)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 323025000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: ADDI      result correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(590) @ 323035000: uvm_test_top.env.agent.monitor [EX_X1] pc=000002f0 SUB rs1=x5 a=00000001 rs2=x1 b=ffffffff rd=x3 we=1 result=00000002 fwd=00/00
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 323035000: uvm_test_top.env.agent.monitor [MONITOR] AUIPC instruction completed (pc=000002e8)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 323035000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: AUIPC      result correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 323045000: uvm_test_top.env.agent.monitor [MONITOR] XORI instruction completed (pc=000002ec)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 323045000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: XORI      result correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 323055000: uvm_test_top.env.agent.monitor [MONITOR] SUB instruction completed (pc=000002f0)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 323055000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: SUB      result correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(580) @ 323065000: uvm_test_top.env.agent.monitor [EX_OPERAND] pc=000002fc REM rs1=x4 a=64197ddb rs2=x7 b=fffffff7 fwd=00/00 alu_ctrl=01110
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 323065000: uvm_test_top.env.agent.monitor [MONITOR] SH instruction completed (pc=000002f4)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(898) @ 323065000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: SH store data correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 323075000: uvm_test_top.env.agent.monitor [MONITOR] SW instruction completed (pc=000002f8)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(898) @ 323075000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: SW store data correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 323085000: uvm_test_top.env.agent.monitor [MONITOR] REM instruction completed (pc=000002fc)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 323085000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: REM      result correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 323095000: uvm_test_top.env.agent.monitor [MONITOR] LW instruction completed (pc=00000300)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 323095000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: LW      result correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 323155000: uvm_test_top.env.agent.monitor [MONITOR] REM instruction completed (pc=000002fc)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(874) @ 323155000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: REM result correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(580) @ 323185000: uvm_test_top.env.agent.monitor [EX_OPERAND] pc=0000030c REMU rs1=x7 a=fffffff7 rs2=x6 b=00000000 fwd=00/00 alu_ctrl=01111
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(590) @ 323185000: uvm_test_top.env.agent.monitor [EX_X1] pc=0000030c REMU rs1=x7 a=fffffff7 rs2=x6 b=00000000 rd=x1 we=1 result=00000000 fwd=00/00
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 323185000: uvm_test_top.env.agent.monitor [MONITOR] SLT instruction completed (pc=00000304)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 323185000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: SLT      result correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 323195000: uvm_test_top.env.agent.monitor [MONITOR] SH instruction completed (pc=00000308)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(898) @ 323195000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: SH store data correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 323205000: uvm_test_top.env.agent.monitor [MONITOR] REMU instruction completed (pc=0000030c)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 323205000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: REMU      result correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 323215000: uvm_test_top.env.agent.monitor [MONITOR] SLTU instruction completed (pc=00000310)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 323215000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: SLTU      result correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(580) @ 323225000: uvm_test_top.env.agent.monitor [EX_OPERAND] pc=0000031c REMU rs1=x7 a=fffffff7 rs2=x3 b=00000002 fwd=00/00 alu_ctrl=01111
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 323225000: uvm_test_top.env.agent.monitor [MONITOR] AUIPC instruction completed (pc=00000314)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 323225000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: AUIPC      result correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 323235000: uvm_test_top.env.agent.monitor [MONITOR] SB instruction completed (pc=00000318)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(898) @ 323235000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: SB store data correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 323245000: uvm_test_top.env.agent.monitor [MONITOR] REMU instruction completed (pc=0000031c)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 323245000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: REMU      result correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(596) @ 323275000: uvm_test_top.env.agent.monitor [WB_X1] pc=0000030c inst=0263f0b3 x1=fffffff7
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 323275000: uvm_test_top.env.agent.monitor [MONITOR] REMU instruction completed (pc=0000030c)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(874) @ 323275000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: REMU result correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 323315000: uvm_test_top.env.agent.monitor [MONITOR] REMU instruction completed (pc=0000031c)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(874) @ 323315000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: REMU result correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 323345000: uvm_test_top.env.agent.monitor [MONITOR] BEQ instruction completed (pc=00000320)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 323345000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: BEQ instruction correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 323355000: uvm_test_top.env.agent.monitor [MONITOR] BGE instruction completed (pc=00000324)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 323355000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: BGE instruction correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 323375000: uvm_test_top.env.agent.monitor [MONITOR] SW instruction completed (pc=00000334)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(898) @ 323375000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: SW store data correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 323385000: uvm_test_top.env.agent.monitor [MONITOR] LBU instruction completed (pc=00000338)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 323385000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: LBU      result correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(580) @ 323395000: uvm_test_top.env.agent.monitor [EX_OPERAND] pc=00000344 REMU rs1=x0 a=00000000 rs2=x1 b=fffffff7 fwd=00/00 alu_ctrl=01111
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(590) @ 323395000: uvm_test_top.env.agent.monitor [EX_X1] pc=00000344 REMU rs1=x0 a=00000000 rs2=x1 b=fffffff7 rd=x5 we=1 result=00000000 fwd=00/00
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 323395000: uvm_test_top.env.agent.monitor [MONITOR] SLT instruction completed (pc=0000033c)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 323395000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: SLT      result correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 323405000: uvm_test_top.env.agent.monitor [MONITOR] SB instruction completed (pc=00000340)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(898) @ 323405000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: SB store data correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 323415000: uvm_test_top.env.agent.monitor [MONITOR] REMU instruction completed (pc=00000344)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 323415000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: REMU      result correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 323485000: uvm_test_top.env.agent.monitor [MONITOR] REMU instruction completed (pc=00000344)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(874) @ 323485000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: REMU result correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 323515000: uvm_test_top.env.agent.monitor [MONITOR] SLTI instruction completed (pc=00000348)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 323515000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: SLTI      result correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 323525000: uvm_test_top.env.agent.monitor [MONITOR] ADDI instruction completed (pc=0000034c)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 323525000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: ADDI      result correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 323535000: uvm_test_top.env.agent.monitor [MONITOR] SLL instruction completed (pc=00000350)
 UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 323535000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: SLL      result correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 323545000: uvm_test_top.env.agent.monitor [MONITOR] JAL instruction completed (pc=0000035c)
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 323545000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: JAL instruction correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 323545000: uvm_test_top.env.agent.monitor [MONITOR] SLTU instruction completed (pc=00000354)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 323545000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: SLTU      result correct
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 323555000: uvm_test_top.env.agent.monitor [MONITOR] SLL instruction completed (pc=00000358)
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 323555000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: SLL      result correct
 UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 323565000: uvm_test_top.env.agent.monitor [MONITOR] JAL instruction completed (pc=0000035c)
 UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 323565000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: JAL instruction correct
 UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 323585000: uvm_test_top.env.agent.monitor [MONITOR] JAL instruction completed (pc=0000035c)
@@ -42724,21 +42707,21 @@ UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb
 UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 354165000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: JAL instruction correct
 UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(612) @ 354185000: uvm_test_top.env.agent.monitor [MONITOR] JAL instruction completed (pc=0000035c)
 UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(851) @ 354185000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS: JAL instruction correct
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(968) @ 354190000: uvm_test_top.env.scoreboard [SB] [random_9] retired=1736 stores=18 div_writebacks=25 mismatches=2
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(968) @ 354190000: uvm_test_top.env.scoreboard [SB] [random_9] retired=1736 stores=18 div_writebacks=26 mismatches=0
 UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(1221) @ 354190000: uvm_test_top [TEST] random_9: ran 3400 cycles
 UVM_INFO /tools/eda/cadence/XCELIUM2409/tools/methodology/UVM/CDNS-1.1d/sv/src/base/uvm_objection.svh(1268) @ 354190000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
-UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(976) @ 354190000: uvm_test_top.env.scoreboard [SB] SUMMARY programs=17 retired=18931 mismatches=4 commit_cov=100.00% memory_cov=100.00% divider_cov=100.00%
+UVM_INFO /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/tb/rv32im_uvm_tb.sv(976) @ 354190000: uvm_test_top.env.scoreboard [SB] SUMMARY programs=17 retired=18931 mismatches=2 commit_cov=100.00% memory_cov=100.00% divider_cov=100.00%
 
 --------------------------------------------------
                   TEST SUMMARY
 --------------------------------------------------
 Total Tests  : 17
-Passed       : 15
-Failed       : 2
+Passed       : 16
+Failed       : 1
 
-UVM_INFO     : 42571
+UVM_INFO     : 42573
 UVM_WARNING  : 0
-UVM_ERROR    : 4
+UVM_ERROR    : 2
 UVM_FATAL    : 0
 --------------------------------------------------
 
@@ -42755,23 +42738,21 @@ Number of caught UVM_WARNING reports :    0
 --- UVM Report Summary ---
 
 ** Report counts by severity
-UVM_INFO :42571
+UVM_INFO :42573
 UVM_WARNING :    0
-UVM_ERROR :    4
+UVM_ERROR :    2
 UVM_FATAL :    0
 ** Report counts by id
 [CHECK]    29
 [DIV_LOST]     1
-[DIV_UNEXPECTED]     1
 [DRIVER]    17
 [EX_OPERAND]   981
 [EX_X1]  1646
 [FINAL_REG]     1
 [MONITOR] 19515
-[PC_MISMATCH]     1
 [RNTST]     1
 [SB]    18
-[SCOREBOARD] 19502
+[SCOREBOARD] 19504
 [TEST]    34
 [TEST_DONE]     1
 [WB_X1]   827
@@ -42790,6 +42771,6 @@ coverage setup:
   testname :  test
 
 coverage files:
-  model(design data) :  ./cov_work/scope/icc_2869ef12_355a4a16.ucm
+  model(design data) :  ./cov_work/scope/icc_2869ef12_355a4a16.ucm (reused)
   data               :  ./cov_work/scope/test/icc_2869ef12_355a4a16.ucd
-TOOL:	xrun(64)	24.09-s005: Exiting on Oct 31, 2026 at 00:27:18 +07  (total: 00:00:05)
+TOOL:	xrun(64)	24.09-s005: Exiting on Oct 31, 2026 at 00:32:40 +07  (total: 00:00:04)
