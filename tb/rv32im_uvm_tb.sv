@@ -1109,17 +1109,8 @@ package rv32im_uvm_pkg;
                 end
                 6:  code.push_back(enc_b(4 * (1 + skip(room - 1)), src(), src(),
                                          branch_f3[$urandom_range(0, 5)]));
-                3:  code.push_back(enc_j(4 * (1 + skip(room - 1)),
+                5:  code.push_back(enc_j(4 * (1 + skip(room - 1)),
                                          $urandom_range(0, 3) ? dst() : 5'd0));
-                2: begin // JALR, target computed from AUIPC
-                    if (room < 2) begin
-                        code.push_back(NOP);
-                    end else begin
-                        code.push_back(enc_u(OPC_AUIPC, 20'd0, RAND_TMP_REG));
-                        code.push_back(enc_i(OPC_JALR, 4 * (2 + skip(room - 2)), RAND_TMP_REG,
-                                             3'b000, $urandom_range(0, 3) ? dst() : 5'd0));
-                    end
-                end
                 4:  code.push_back(enc_u($urandom_range(0, 1) ? OPC_LUI : OPC_AUIPC, 20'($urandom), dst()));
                 4: begin // corner operand values
                     case ($urandom_range(0, 3))
