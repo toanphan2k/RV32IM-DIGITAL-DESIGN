@@ -196,6 +196,8 @@ xrun_args_parser() {
         if [[ "$EN_UVM" == true ]]; then
             XRUN_ARGS+=(-uvm)
             XRUN_ARGS+=(-coverage all)
+            XRUN_ARGS+=(-covoverwrite)
+            #XRUN_ARGS+=(-cov_debuglog)
         fi
         if [[ "$COMPILE_ONLY" == true ]]; then
             XRUN_ARGS+=(-compile)
