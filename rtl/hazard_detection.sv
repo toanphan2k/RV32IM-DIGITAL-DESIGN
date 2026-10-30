@@ -78,9 +78,9 @@ module hazard_detection(
     logic stall_load_use;
     assign stall_load_use = (mem_read_e && ((rd_addr_e == rs1_addr_d) || (rd_addr_e == rs2_addr_d && !mem_write_d)) && (rd_addr_e != 5'd0)); // Load-Use Harzard (except Store Inst)
 
-    // Keep non-divider instructions out of MEM while a divider result arrives.
+    // Keep the normal WB trace slot clear while a divider result arrives.
     logic collision_at_mem;
-    assign collision_at_mem = (div_stage_5[6] || div_stage_6[6]) && !is_div_op_d;
+    assign collision_at_mem = div_stage_5[6] || div_stage_6[6];
 
     //Stall system
     assign stall_req = conflict_div || conflict_div_waw || stall_load_use || collision_at_mem;
