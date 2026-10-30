@@ -158,6 +158,12 @@ package rv32im_uvm_pkg;
             return op inside {I_DIV, I_DIVU, I_REM, I_REMU};
         endfunction
 
+        static function string mnemonic_name(rv_mnemonic_e op);
+            string name;
+            name = op.name();
+            return (name.len() > 2) ? name.substr(2, name.len() - 1) : name;
+        endfunction
+
         static function rv_mnemonic_e decode(bit [31:0] inst);
             bit [2:0] f3 = inst[14:12];
             bit [6:0] f7 = inst[31:25];
@@ -482,6 +488,8 @@ package rv32im_uvm_pkg;
                 vif.rst_n = 1'b0;
                 backdoor.load_imem(req.instructions);
                 backdoor.clear_dmem();
+                `uvm_info("DRIVER", $sformatf("Loaded program %s (%0d words)",
+                                               req.prog_name, req.instructions.size()), UVM_LOW)
                 program_ap.write(req);
 
                 repeat (2) @(posedge vif.clk);
@@ -555,7 +563,9 @@ package rv32im_uvm_pkg;
                     r.we   = vif.monitor_cb.wb_we;
                     r.rd   = vif.monitor_cb.wb_rd;
                     r.data = vif.monitor_cb.wb_data;
-                    `uvm_info("MON", {"RETIRE ", r.convert2string()}, UVM_HIGH)
+                    `uvm_info("MONITOR", $sformatf("%s instruction completed (pc=%08h)",
+                                                    rv32im_iss::mnemonic_name(rv32im_iss::decode(r.inst)),
+                                                    r.pc), UVM_LOW)
                     retire_ap.write(r);
                 end
 
@@ -698,6 +708,7 @@ package rv32im_uvm_pkg;
         function void write_retire(rv32im_retire_item t);
             rv_step_t     s;
             rv_mnemonic_e op;
+            int unsigned  mismatches_before;
             if (!active) return;
 
             op = rv32im_iss::decode(t.inst);
@@ -707,6 +718,7 @@ package rv32im_uvm_pkg;
             end
 
             if (t.inst == NOP && t.pc != iss.pc) return;
+            mismatches_before = mismatches;
 
             if (t.pc != iss.pc || t.inst != iss.fetch(iss.pc)) begin
                 mismatch("PC_MISMATCH", $sformatf(
@@ -740,11 +752,17 @@ package rv32im_uvm_pkg;
                 match_stores();
             end
 
+            if (mismatches == mismatches_before && !s.is_store)
+                `uvm_info("SCOREBOARD", $sformatf("PASS: %s %s correct",
+                          rv32im_iss::mnemonic_name(s.op),
+                          s.rd_write ? "result" : "instruction"), UVM_LOW)
+
             sample_coverage(s);
         endfunction
 
         function void check_div_writeback(rv32im_retire_item t);
             rv_step_t s;
+            int unsigned mismatches_before = mismatches;
             if (pending_div_q.size() == 0) begin
                 mismatch("DIV_UNEXPECTED", {"Divider writeback without pending DIV: ", t.convert2string()});
                 return;
@@ -758,6 +776,9 @@ package rv32im_uvm_pkg;
                 mismatch("DIV_RESULT", $sformatf(
                     "pc=%08h %s a=%08h b=%08h: DUT x%0d=%08h, expected x%0d=%08h",
                     s.pc, s.op.name(), s.op_a, s.op_b, t.rd, t.data, s.rd, s.rd_value));
+            if (mismatches == mismatches_before)
+                `uvm_info("SCOREBOARD", $sformatf("PASS: %s result correct",
+                          rv32im_iss::mnemonic_name(s.op)), UVM_LOW)
         endfunction
 
         function void write_store(rv32im_store_item t);
@@ -779,6 +800,9 @@ package rv32im_uvm_pkg;
                     mismatch("STORE_MISMATCH", $sformatf(
                         "pc=%08h %s: DUT %s, expected addr=%08h we=%04b data=%08h",
                         e.pc, e.op.name(), d.convert2string(), e.mem_addr, e.st_we, e.st_data));
+                else
+                    `uvm_info("SCOREBOARD", $sformatf("PASS: %s store data correct",
+                              rv32im_iss::mnemonic_name(e.op)), UVM_LOW)
             end
         endfunction
 
@@ -1014,6 +1038,8 @@ package rv32im_uvm_pkg;
         rv32im_env      env;
         rv32im_backdoor backdoor;
         string          mem_dir = "../mem/";
+        int unsigned    report_tests, report_passed, report_failed;
+        bit             last_test_failed;
 
         function new(string name, uvm_component parent);
             super.new(name, parent);
@@ -1025,6 +1051,25 @@ package rv32im_uvm_pkg;
             if (!uvm_config_db#(rv32im_backdoor)::get(this, "", "backdoor", backdoor))
                 `uvm_fatal("NOBACKDOOR", "rv32im_backdoor was not configured")
             void'($value$plusargs("MEM_DIR=%s", mem_dir));
+        endfunction
+
+        function void start_of_simulation_phase(uvm_phase phase);
+            super.start_of_simulation_phase(phase);
+            $display("--------------------------------------------------");
+            $display("              RV32IM UVM TEST REPORT");
+            $display("--------------------------------------------------");
+            $display("");
+            $display("[TEST]       %s", get_type_name());
+            $display("[TEST]       Starting simulation...");
+            $display("");
+        endfunction
+
+        function void mark_last_test_failed();
+            if (report_tests != 0 && !last_test_failed) begin
+                report_passed--;
+                report_failed++;
+                last_test_failed = 1'b1;
+            end
         endfunction
 
         function rv32im_program_item new_program(string name, rv_image_t image,
@@ -1053,11 +1098,22 @@ package rv32im_uvm_pkg;
 
         task run_item(rv32im_program_item item);
             rv32im_program_sequence seq;
+            uvm_report_server    srv;
+            int                  errors_before;
             seq = rv32im_program_sequence::type_id::create({item.prog_name, "_seq"});
             seq.item = item;
+            srv = uvm_report_server::get_server();
+            errors_before = srv.get_severity_count(UVM_ERROR) + srv.get_severity_count(UVM_FATAL);
             `uvm_info("TEST", $sformatf("===== Running %s =====", item.prog_name), UVM_LOW)
             seq.start(env.agent.sequencer);
             env.scoreboard.finish_program();
+            report_tests++;
+            last_test_failed = (item.status inside {RUN_FAIL, RUN_TIMEOUT}) ||
+                               (env.scoreboard.mismatches != 0) ||
+                               (srv.get_severity_count(UVM_ERROR) + srv.get_severity_count(UVM_FATAL) >
+                                errors_before);
+            if (last_test_failed) report_failed++;
+            else report_passed++;
             case (item.status)
                 RUN_PASS: `uvm_info("TEST", $sformatf("%s: PASS signature after %0d cycles",
                                                       item.prog_name, item.cycles), UVM_LOW)
@@ -1072,16 +1128,19 @@ package rv32im_uvm_pkg;
 
         function void expect_reg(int unsigned index, bit [31:0] expected);
             logic [31:0] v = backdoor.read_reg(index);
-            if (v !== expected)
+            if (v !== expected) begin
+                mark_last_test_failed();
                 `uvm_error("REG_MISMATCH", $sformatf("x%0d expected %08h, got %08h", index, expected, v))
+            end
         endfunction
 
         function void expect_dmem(int unsigned word, bit [31:0] expected, string description);
             logic [31:0] v = backdoor.read_dmem(word);
-            if (v !== expected)
+            if (v !== expected) begin
+                mark_last_test_failed();
                 `uvm_error("DMEM_MISMATCH", $sformatf("%s: dmem[%0d] expected %08h, got %08h",
                                                       description, word, expected, v))
-            else
+            end else
                 `uvm_info("CHECK", $sformatf("%s: dmem[%0d] = %08h", description, word, v), UVM_MEDIUM)
         endfunction
 
@@ -1145,9 +1204,11 @@ package rv32im_uvm_pkg;
             expect_dmem(66, 32'd7,  "Taken-branch target result x9");
             expect_dmem(67, 32'd20, "Pipeline completion store");
             expect_dmem(68, 32'd0,  "Wrong-path store was flushed");
-            if (env.scoreboard.dut_stores != 4)
+            if (env.scoreboard.dut_stores != 4) begin
+                mark_last_test_failed();
                 `uvm_error("STORE_COUNT", $sformatf("Pipeline test expected 4 stores, observed %0d",
                                                     env.scoreboard.dut_stores))
+            end
 
             item = new_program("load_store_subsystem", load_mem_file("load_store_subsystem_test.mem"));
             item.sig_word = 128;
@@ -1185,10 +1246,20 @@ package rv32im_uvm_pkg;
 
         function void report_phase(uvm_phase phase);
             uvm_report_server srv = uvm_report_server::get_server();
-            if (srv.get_severity_count(UVM_ERROR) + srv.get_severity_count(UVM_FATAL) == 0)
-                `uvm_info("RESULT", "*** TEST PASSED ***", UVM_NONE)
-            else
-                `uvm_info("RESULT", "*** TEST FAILED ***", UVM_NONE)
+            super.report_phase(phase);
+            $display("");
+            $display("--------------------------------------------------");
+            $display("                  TEST SUMMARY");
+            $display("--------------------------------------------------");
+            $display("Total Tests  : %0d", report_tests);
+            $display("Passed       : %0d", report_passed);
+            $display("Failed       : %0d", report_failed);
+            $display("");
+            $display("UVM_INFO     : %0d", srv.get_severity_count(UVM_INFO));
+            $display("UVM_WARNING  : %0d", srv.get_severity_count(UVM_WARNING));
+            $display("UVM_ERROR    : %0d", srv.get_severity_count(UVM_ERROR));
+            $display("UVM_FATAL    : %0d", srv.get_severity_count(UVM_FATAL));
+            $display("--------------------------------------------------");
         endfunction
     endclass
 
