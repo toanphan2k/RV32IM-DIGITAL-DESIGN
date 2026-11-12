@@ -30,10 +30,16 @@ The divider unit handles operations that require multiple clock cycles without b
 
 ## Using LAB SERSER
 
- ssh ee5303_05@red.doelab.site
+
+``` bash
+ssh ee5303_05@red.doelab.site
 
 srun --pty --x11 --nodelist=black -c 2 bash
 
 module avail
 
 module load cadence/xcelium/2409
+module load cadence/verisium_manager/2509
+imc -gui
+
+```
