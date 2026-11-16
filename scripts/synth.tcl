@@ -1,66 +1,62 @@
 
-# ==========================================
-# RV32IM CPU - Cadence Genus Synthesis
-# ==========================================
+set SCRIPT_DIR [file dirname [file normalize [info script]]]
+set PROJECT_DIR [file normalize [file join $SCRIPT_DIR ..]]
+source [file join $SCRIPT_DIR pd_config.tcl]
 
-# 1. Set top module
-set TOP cpu_rv32im_top
+set TOP riscv
+set RTL_DIR [file join $PROJECT_DIR rtl]
+set RTL_LIST [file join $PROJECT_DIR rtl_files.f]
+set SDC_FILE [file join $PROJECT_DIR constraints top.sdc]
+set OUTPUT_DIR [file join $SCRIPT_DIR output genus]
 
-# 2. Technology library
-# CHANGE THIS PATH TO YOUR PDK LIBRARY
-set LIB "/path/to/your/technology/slow.lib"
-
-set_db library $LIB
-
-# 3. Read SystemVerilog source files
-read_hdl -language sv {
-    rtl/rv32im_pkg.sv
-    rtl/cla_32bit.sv
-    rtl/alu_rv32.sv
-    rtl/register_file.sv
-    rtl/hazard_unit.sv
-    rtl/forwarding_unit.sv
-    rtl/rv32im_core.sv
-    rtl/imem.sv
-    rtl/dmem.sv
-    rtl/cpu_rv32im_top.sv
+if {![info exists STD_CELL_LIBS] || [llength $STD_CELL_LIBS] == 0} {
+    error "Set STD_CELL_LIBS in scripts/pd_config.tcl"
+}
+foreach library $STD_CELL_LIBS {
+    if {![file isfile $library]} {
+        error "Standard-cell library not found: $library"
+    }
 }
 
-# 4. Elaborate
+set_db init_lib_search_path [list $LIB_DIR]
+read_libs $STD_CELL_LIBS
+
+set rtl_handle [open $RTL_LIST r]
+set RTL_FILES [list]
+while {[gets $rtl_handle line] >= 0} {
+    set line [string trim $line]
+    if {$line eq "" || [string match "#*" $line]} {
+        continue
+    }
+    set source_file [file join $RTL_DIR [file tail $line]]
+    if {![file isfile $source_file]} {
+        close $rtl_handle
+        error "RTL source not found: $source_file"
+    }
+    lappend RTL_FILES $source_file
+}
+close $rtl_handle
+
+file mkdir $OUTPUT_DIR
+read_hdl -language sv $RTL_FILES
+cd [file join $PROJECT_DIR tb mem]
 elaborate $TOP
-
-# 5. Check design
 check_design -unresolved
+read_sdc $SDC_FILE
 
-# 6. Read timing constraints
-read_sdc constraints/top.sdc
-
-# 7. Synthesis effort
 set_db syn_generic_effort medium
 set_db syn_map_effort medium
 set_db syn_opt_effort medium
-
-# 8. Run synthesis
 syn_generic
 syn_map
 syn_opt
 
-# 9. Reports
-report_area   > output/area.rpt
-report_timing > output/timing.rpt
-report_power  > output/power.rpt
-report_gates  > output/gates.rpt
-report_qor    > output/qor.rpt
-
-# 10. Export gate-level netlist
-write_hdl > output/cpu_rv32im_netlist.v
-
-# Export constraints
-write_sdc > output/cpu_rv32im.sdc
-
-# 11. Finish
-puts "================================"
-puts "RV32IM SYNTHESIS COMPLETED"
-puts "================================"
+report_area > [file join $OUTPUT_DIR area.rpt]
+report_timing > [file join $OUTPUT_DIR timing.rpt]
+report_power > [file join $OUTPUT_DIR power.rpt]
+report_gates > [file join $OUTPUT_DIR gates.rpt]
+report_qor > [file join $OUTPUT_DIR qor.rpt]
+write_hdl -mapped > [file join $OUTPUT_DIR riscv_mapped.v]
+write_sdc > [file join $OUTPUT_DIR riscv.sdc]
 
 exit
