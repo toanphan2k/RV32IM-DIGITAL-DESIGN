@@ -2,8 +2,8 @@ set SCRIPT_DIR [file dirname [file normalize [info script]]]
 set PROJECT_DIR [file normalize [file join $SCRIPT_DIR ..]]
 source [file join $SCRIPT_DIR pd_config.tcl]
 
-set TOP riscv
-set NETLIST [file join $SCRIPT_DIR output genus riscv_mapped.v]
+set TOP datapath
+set NETLIST [file join $SCRIPT_DIR output genus datapath_mapped.v]
 set OUTPUT_DIR [file join $SCRIPT_DIR output innovus]
 set LEF_FILES [concat [list $TECH_LEF] $CELL_LEFS]
 
@@ -50,7 +50,7 @@ optDesign -postRoute
 
 report_area > [file join $OUTPUT_DIR area.rpt]
 report_timing > [file join $OUTPUT_DIR timing.rpt]
-saveNetlist [file join $OUTPUT_DIR riscv_pnr.v]
-saveDesign [file join $OUTPUT_DIR riscv_final.enc]
+saveNetlist [file join $OUTPUT_DIR datapath_pnr.v]
+saveDesign [file join $OUTPUT_DIR datapath_final.enc]
 
 exit

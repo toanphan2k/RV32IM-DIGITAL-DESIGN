@@ -8,11 +8,11 @@ Task: RTL synthesis with Cadence Genus.
 
 Command: `genus -files scripts/synth.tcl`
 
-`imem.sv` instantiates `imem_rom`. Simulation uses `rtl/imem_rom.sv`, which
-loads `imem.mem`; Genus ignores that RTL `initial` / `$readmemh` construct.
-The synthesis script substitutes a synthesizable ROM generated from
-`tb/mem/imem.mem`. Change that image before synthesis to select a different
-instruction program. Addresses not specified in the image synthesize as zero.
+Genus synthesizes `datapath` as the generic CPU core. Its instruction and data
+memory ports are external, so the selected simulation program cannot cause
+Genus to optimize away unused processor logic. The resulting area excludes
+instruction/data memory implementation. The mapped netlist is
+`scripts/output/genus/datapath_mapped.v`; Innovus uses the same top and netlist.
 
 Task: Floorplan, power plan, placement, CTS, routing, and physical optimization with Cadence Innovus.
 
