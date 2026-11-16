@@ -16,6 +16,7 @@
 ../../../rtl/id_stage.sv
 ../../../rtl/if_stage.sv
 ../../../rtl/imem.sv
+../../../rtl/imem_rom.sv
 ../../../rtl/imm_gen.sv
 ../../../rtl/mem_stage.sv
 ../../../rtl/memorypath.sv

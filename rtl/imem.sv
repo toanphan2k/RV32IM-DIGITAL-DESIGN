@@ -26,16 +26,14 @@ module imem (
     output logic [INST_SIZE - 1:0] f_inst
 );
 
-    localparam int addr_msb = $clog2(NUM_WORDS);
-    localparam int addr_lsb = 2;
+    localparam int ADDR_WIDTH = $clog2(NUM_WORDS);
+    logic [ADDR_WIDTH - 1:0] word_addr;
 
-    logic [INST_SIZE - 1:0] iram [0:NUM_WORDS-1];
+    assign word_addr = c_pc_f[ADDR_WIDTH + 1:2];
 
-    initial begin
-        $readmemh("imem.mem", iram);
-    end
-
-    // byte address
-    assign f_inst = iram[c_pc_f[addr_msb + 1 : addr_lsb]];
+    imem_rom u_imem_rom (
+        .addr(word_addr),
+        .data(f_inst)
+    );
 
 endmodule
