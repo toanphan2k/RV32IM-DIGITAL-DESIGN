@@ -31,13 +31,16 @@ module divu_1iter (
 );
 
     logic [31:0] partial_rem;
+    logic [32:0] difference_with_borrow;
+
     assign partial_rem = {i_remainder[30:0], i_dividend[31]};
+    assign difference_with_borrow = {1'b0, partial_rem} - {1'b0, i_divisor};
 
     always @(*) begin
         o_dividend = i_dividend << 1; 
         
-        if (partial_rem >= i_divisor) begin
-            o_remainder = partial_rem - i_divisor; 
+        if (!difference_with_borrow[32]) begin
+            o_remainder = difference_with_borrow[31:0];
             o_quotient  = (i_quotient << 1) | 1'b1; 
         end else begin
             o_remainder = partial_rem;             

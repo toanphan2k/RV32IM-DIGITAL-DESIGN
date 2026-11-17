@@ -5,7 +5,10 @@ set LIB_DIR "/tools/eda/pdks/cadence/gpdk045"
 # Standard Cell Library - GPDK045 SVT
 # --------------------------------------------------
 
-set STD_CELL_LIBS [list "$LIB_DIR/gsclib045_svt_v4.7/gsclib045/timing/slow_vdd1v0_basicCells.lib" ]
+set STD_CELL_LIBS [list \
+    "$LIB_DIR/gsclib045_svt_v4.7/gsclib045/timing/slow_vdd1v0_basicCells.lib" \
+    "$LIB_DIR/gsclib045_svt_v4.7/gsclib045/timing/slow_vdd1v0_multibitsDFF.lib" \
+]
 
 # --------------------------------------------------
 # Physical Technology
@@ -13,7 +16,10 @@ set STD_CELL_LIBS [list "$LIB_DIR/gsclib045_svt_v4.7/gsclib045/timing/slow_vdd1v
 
 set TECH_LEF "$LIB_DIR/gsclib045_svt_v4.7/gsclib045_tech/lef/gsclib045_tech.lef"
 
-set CELL_LEFS [list "$LIB_DIR/gsclib045_svt_v4.7/gsclib045/lef/gsclib045_macro.lef" ]
+set CELL_LEFS [list \
+    "$LIB_DIR/gsclib045_svt_v4.7/gsclib045/lef/gsclib045_macro.lef" \
+    "$LIB_DIR/gsclib045_svt_v4.7/gsclib045/lef/gsclib045_multibitsDFF.lef" \
+]
 
 set QRC_TECH_FILE \
     "$LIB_DIR/gsclib045_svt_v4.7/gsclib045/qrc/qx/gpdk045.tch"
