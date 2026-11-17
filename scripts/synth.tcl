@@ -49,9 +49,9 @@ elaborate $TOP
 check_design -unresolved
 read_sdc $SDC_FILE
 
-set_db syn_generic_effort medium
-set_db syn_map_effort medium
-set_db syn_opt_effort medium
+set_db syn_generic_effort high
+set_db syn_map_effort high
+set_db syn_opt_effort high
 syn_generic
 syn_map
 syn_opt

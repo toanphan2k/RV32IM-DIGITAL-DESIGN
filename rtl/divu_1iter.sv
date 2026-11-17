@@ -24,10 +24,8 @@ module divu_1iter (
     input logic [31:0] i_dividend,
     input logic [31:0] i_divisor,
     input logic [31:0] i_remainder,
-    input logic [31:0] i_quotient,
     output logic [31:0] o_dividend,
-    output logic [31:0] o_remainder,
-    output logic [31:0] o_quotient
+    output logic [31:0] o_remainder
 );
 
     logic [31:0] partial_rem;
@@ -37,14 +35,12 @@ module divu_1iter (
     assign difference_with_borrow = {1'b0, partial_rem} - {1'b0, i_divisor};
 
     always @(*) begin
-        o_dividend = i_dividend << 1; 
+        o_dividend = {i_dividend[30:0], !difference_with_borrow[32]};
         
         if (!difference_with_borrow[32]) begin
             o_remainder = difference_with_borrow[31:0];
-            o_quotient  = (i_quotient << 1) | 1'b1; 
         end else begin
-            o_remainder = partial_rem;             
-            o_quotient  = (i_quotient << 1) | 1'b0; 
+            o_remainder = partial_rem;
         end
     end
 

@@ -46,7 +46,16 @@ ccopt_design
 optDesign -postCTS
 routeDesign -global
 routeDesign -detail
+setExtractRCMode -engine postRoute
+extractRC
 optDesign -postRoute
+extractRC
+
+set POST_ROUTE_REPORT_DIR [file join $OUTPUT_DIR postRoute]
+file mkdir $POST_ROUTE_REPORT_DIR
+timeDesign -postRoute -outDir $POST_ROUTE_REPORT_DIR
+verify_drc -report [file join $OUTPUT_DIR drc.rpt]
+verify_connectivity -type all -report [file join $OUTPUT_DIR connectivity.rpt]
 
 report_area > [file join $OUTPUT_DIR area.rpt]
 report_timing > [file join $OUTPUT_DIR timing.rpt]

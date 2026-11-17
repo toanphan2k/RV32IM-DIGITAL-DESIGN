@@ -46,7 +46,6 @@ module div_pipelined (
 
     logic [31:0] p_divisor   [0:7]; 
     logic [31:0] p_remainder [0:7]; 
-    logic [31:0] p_quotient  [0:7]; 
     logic [31:0] p_dividend  [0:7]; 
     
     logic p_neg_quot [0:7]; 
@@ -57,23 +56,19 @@ module div_pipelined (
 
     logic [31:0] stage_div_out  [0:7];
     logic [31:0] stage_rem_out  [0:7];
-    logic [31:0] stage_quot_out [0:7];
 
     genvar i, j;
     generate
         for (i = 0; i < 8; i = i + 1) begin : gen_stages
             logic [31:0] temp_div  [0:4];
             logic [31:0] temp_rem  [0:4];
-            logic [31:0] temp_quot [0:4];
 
             if (i == 0) begin
                 assign temp_div[0]  = abs_dividend;
                 assign temp_rem[0]  = '0;
-                assign temp_quot[0] = '0;
             end else begin
                 assign temp_div[0]  = p_dividend[i-1];
                 assign temp_rem[0]  = p_remainder[i-1];
-                assign temp_quot[0] = p_quotient[i-1];
             end
 
             for (j = 0; j < 4; j = j + 1) begin : gen_iters
@@ -81,16 +76,13 @@ module div_pipelined (
                     .i_dividend (temp_div[j]),
                     .i_divisor  (i == 0 ? abs_divisor : p_divisor[i-1]),
                     .i_remainder(temp_rem[j]),
-                    .i_quotient (temp_quot[j]),
                     .o_dividend (temp_div[j+1]),
-                    .o_remainder(temp_rem[j+1]),
-                    .o_quotient (temp_quot[j+1])
+                    .o_remainder(temp_rem[j+1])
                 );
             end
 
             assign stage_div_out[i]  = temp_div[4];
             assign stage_rem_out[i]  = temp_rem[4];
-            assign stage_quot_out[i] = temp_quot[4];
         end
     endgenerate
 
@@ -99,7 +91,7 @@ module div_pipelined (
         if (!rst_n) begin
             for (k = 0; k < 8; k = k + 1) begin
                 p_dividend[k] <= 0; p_divisor[k] <= 0;
-                p_remainder[k]<= 0; p_quotient[k]<= 0;
+                p_remainder[k]<= 0;
                 p_neg_quot[k] <= 0; p_neg_rem[k] <= 0;
                 p_div_by_zero[k] <= 0; p_overflow[k] <= 0;
                 p_original_dividend[k] <= 0;
@@ -107,7 +99,6 @@ module div_pipelined (
         end else begin
             p_dividend[0]  <= stage_div_out[0];
             p_remainder[0] <= stage_rem_out[0];
-            p_quotient[0]  <= stage_quot_out[0];
             p_divisor[0]   <= abs_divisor;     
             p_neg_quot[0]  <= negate_quot_in;  
             p_neg_rem[0]   <= negate_rem_in;
@@ -120,7 +111,6 @@ module div_pipelined (
             for (k = 1; k < 8; k = k + 1) begin
                 p_dividend[k]  <= stage_div_out[k];
                 p_remainder[k] <= stage_rem_out[k];
-                p_quotient[k]  <= stage_quot_out[k];
                 p_divisor[k]   <= p_divisor[k-1]; 
                 p_neg_quot[k]  <= p_neg_quot[k-1];
                 p_neg_rem[k]   <= p_neg_rem[k-1];
@@ -140,7 +130,7 @@ module div_pipelined (
             o_quotient = 32'h8000_0000;
         end else begin
             o_remainder = p_neg_rem[7] ? -p_remainder[7] : p_remainder[7];
-            o_quotient = p_neg_quot[7] ? -p_quotient[7] : p_quotient[7];
+            o_quotient = p_neg_quot[7] ? -p_dividend[7] : p_dividend[7];
         end
     end
 endmodule
