@@ -13,8 +13,10 @@ memory ports are external, so the selected simulation program cannot cause
 Genus to optimize away unused processor logic. The resulting area excludes
 instruction/data memory implementation. The mapped netlist is
 `scripts/output/genus/datapath_mapped.v`; Innovus uses the same top and netlist.
-The slow-corner SVT library set includes the matching multi-bit DFF Liberty and
-LEF files; check `gates.rpt` to see whether Genus actually selected those cells.
+Innovus uses the SDC exported by Genus at `scripts/output/genus/datapath.sdc`
+and sets the soft stack-size limit to 251 MB before design initialization.
+The floorplan uses single-height standard cells; multi-bit DFF cells are
+excluded because they require `CoreSiteDouble` placement rows.
 
 Task: Floorplan, power plan, placement, CTS, routing, and physical optimization with Cadence Innovus.
 

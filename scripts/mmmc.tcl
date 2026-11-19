@@ -1,9 +1,11 @@
 set SCRIPT_DIR [file dirname [file normalize [info script]]]
 source [file join $SCRIPT_DIR pd_config.tcl]
 
-set PROJECT_DIR [file normalize [file join $SCRIPT_DIR ..]]
 set OUTPUT_DIR [file join $SCRIPT_DIR output genus]
-set SDC_FILE [file join $PROJECT_DIR constraints top.sdc]
+set SDC_FILE [file join $OUTPUT_DIR datapath.sdc]
+if {![file isfile $SDC_FILE]} {
+    error "Run scripts/synth.tcl first; Genus SDC not found: $SDC_FILE"
+}
 
 create_library_set -name stdcells -timing $STD_CELL_LIBS
 create_rc_corner -name rc_corner -qx_tech_file $QRC_TECH_FILE

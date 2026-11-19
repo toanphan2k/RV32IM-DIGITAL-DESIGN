@@ -2,6 +2,8 @@ set SCRIPT_DIR [file dirname [file normalize [info script]]]
 set PROJECT_DIR [file normalize [file join $SCRIPT_DIR ..]]
 source [file join $SCRIPT_DIR pd_config.tcl]
 
+set_global soft_stack_size_limit 251
+
 set TOP datapath
 set NETLIST [file join $SCRIPT_DIR output genus datapath_mapped.v]
 set OUTPUT_DIR [file join $SCRIPT_DIR output innovus]
@@ -27,6 +29,7 @@ set init_verilog $NETLIST
 set init_top_cell $TOP
 set init_mmmc_file [file join $SCRIPT_DIR mmmc.tcl]
 init_design
+setAnalysisMode -analysisType onChipVariation -cppr both
 
 floorPlan -site $CORE_SITE -r $CORE_ASPECT_RATIO $CORE_UTILIZATION $CORE_MARGIN $CORE_MARGIN $CORE_MARGIN $CORE_MARGIN
 
