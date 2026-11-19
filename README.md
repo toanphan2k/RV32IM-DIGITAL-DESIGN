@@ -40,6 +40,8 @@ module avail
 
 module load cadence/xcelium/2409
 module load cadence/verisium_manager/2509
+module load cadence/innovus/211
+module load cadence/genus/211
 imc -gui
 
 ```
