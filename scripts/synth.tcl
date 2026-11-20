@@ -7,7 +7,7 @@ set TOP datapath
 set RTL_DIR [file join $PROJECT_DIR rtl]
 set RTL_LIST [file join $PROJECT_DIR rtl_files.f]
 set SDC_FILE [file join $PROJECT_DIR constraints top.sdc]
-set OUTPUT_DIR [file join $SCRIPT_DIR output genus]
+set OUTPUT_DIR [file join $PROJECT_DIR output genus]
 set SYNTH_EXCLUDED_RTL [list dmem.sv imem.sv imem_rom.sv memorypath.sv riscv.sv]
 
 if {![info exists STD_CELL_LIBS] || [llength $STD_CELL_LIBS] == 0} {
@@ -21,6 +21,13 @@ foreach library $STD_CELL_LIBS {
 
 set_db init_lib_search_path [list $LIB_DIR]
 read_libs $STD_CELL_LIBS
+foreach cell $DONT_USE_CELLS {
+    set matching_lib_cells [get_db lib_cells *$cell]
+    if {[llength $matching_lib_cells] == 0} {
+        error "Cannot find library cell to exclude: $cell"
+    }
+    set_db $matching_lib_cells .dont_use true
+}
 
 set rtl_handle [open $RTL_LIST r]
 set RTL_FILES [list]

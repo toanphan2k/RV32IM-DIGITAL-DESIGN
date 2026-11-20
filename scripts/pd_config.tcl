@@ -8,6 +8,7 @@ set LIB_DIR "/tools/eda/pdks/cadence/gpdk045"
 set STD_CELL_LIBS [list \
     "$LIB_DIR/gsclib045_svt_v4.7/gsclib045/timing/slow_vdd1v0_basicCells.lib" \
 ]
+set DONT_USE_CELLS [list BUFX2]
 
 # --------------------------------------------------
 # Physical Technology
