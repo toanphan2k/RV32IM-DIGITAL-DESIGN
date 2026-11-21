@@ -1,0 +1,6 @@
+layout_path "/home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/signoff/datapath.gds" gdsii;
+layout_primary "datapath";
+results_db -drc "/home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/signoff/drc/drc.db" -ascii;
+report_summary -drc "/home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/signoff/drc/drc.sum" -replace;
+max_results -drc 1000;
+abort_on_layout_error yes;

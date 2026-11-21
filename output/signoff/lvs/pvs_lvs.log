@@ -1,0 +1,22 @@
+File descriptor 4 (/dev/null) leaked on pvs invocation. Parent PID 3132181: /tools/eda/cadence/INNOVUS211/t
+File descriptor 5 (/dev/null) leaked on pvs invocation. Parent PID 3132181: /tools/eda/cadence/INNOVUS211/t
+File descriptor 6 (pipe:[49765106]) leaked on pvs invocation. Parent PID 3132181: /tools/eda/cadence/INNOVUS211/t
+File descriptor 7 (pipe:[49765106]) leaked on pvs invocation. Parent PID 3132181: /tools/eda/cadence/INNOVUS211/t
+File descriptor 8 (/dev/null) leaked on pvs invocation. Parent PID 3132181: /tools/eda/cadence/INNOVUS211/t
+File descriptor 9 (socket:[49765108]) leaked on pvs invocation. Parent PID 3132181: /tools/eda/cadence/INNOVUS211/t
+File descriptor 11 (/tools/eda/cadence/INNOVUS211/etc/innovus/build.tcl) leaked on pvs invocation. Parent PID 3132181: /tools/eda/cadence/INNOVUS211/t
+File descriptor 12 (/home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/innovus.log2) leaked on pvs invocation. Parent PID 3132181: /tools/eda/cadence/INNOVUS211/t
+File descriptor 13 (/home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/innovus.logv2) leaked on pvs invocation. Parent PID 3132181: /tools/eda/cadence/INNOVUS211/t
+File descriptor 15 (/var/tmp/.cds_l_3433891019312196953) leaked on pvs invocation. Parent PID 3132181: /tools/eda/cadence/INNOVUS211/t
+File descriptor 16 (/var/tmp/.cds_l_9774500642099878450) leaked on pvs invocation. Parent PID 3132181: /tools/eda/cadence/INNOVUS211/t
+File descriptor 17 (/tmp/.cdsor.9774500642099878450) leaked on pvs invocation. Parent PID 3132181: /tools/eda/cadence/INNOVUS211/t
+File descriptor 28 (/dev/null) leaked on pvs invocation. Parent PID 3132181: /tools/eda/cadence/INNOVUS211/t
+File descriptor 29 (/dev/pts/13) leaked on pvs invocation. Parent PID 3132181: /tools/eda/cadence/INNOVUS211/t
+File descriptor 35 (/home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/innovus.cmd2) leaked on pvs invocation. Parent PID 3132181: /tools/eda/cadence/INNOVUS211/t
+File descriptor 36 (/tools/eda/pdks/cadence/gpdk045/gsclib045_svt_v4.7/gsclib045/qrc/qx/gpdk045.tch) leaked on pvs invocation. Parent PID 3132181: /tools/eda/cadence/INNOVUS211/t
+File descriptor 37 (/tmp/innovus_temp_3132181_black.doelab.site_ee5303_05_Pu4gX1/md5_0.txtuOuzJa.) leaked on pvs invocation. Parent PID 3132181: /tools/eda/cadence/INNOVUS211/t
+File descriptor 38 (/tools/eda/pdks/cadence/gpdk045/gsclib045_svt_v4.7/gsclib045/qrc/qx/gpdk045.tch) leaked on pvs invocation. Parent PID 3132181: /tools/eda/cadence/INNOVUS211/t
+File descriptor 39 (/tmp/innovus_temp_3132181_black.doelab.site_ee5303_05_Pu4gX1/md5_1.txtfwRLdv.) leaked on pvs invocation. Parent PID 3132181: /tools/eda/cadence/INNOVUS211/t
+  WARNING: Running as a non-root user. Functionality may be unavailable.
+pvs: invalid option -- 'l'
+  Error during parsing of command line.

@@ -1,0 +1,829 @@
+[11/21 16:58:14      0s] 
+[11/21 16:58:14      0s] Cadence Innovus(TM) Implementation System.
+[11/21 16:58:14      0s] Copyright 2021 Cadence Design Systems, Inc. All rights reserved worldwide.
+[11/21 16:58:14      0s] 
+[11/21 16:58:14      0s] Version:	v21.19-s058_1, built Thu Apr 4 09:59:17 PDT 2024
+[11/21 16:58:14      0s] Options:	-files ./scripts/lvs.tcl 
+[11/21 16:58:14      0s] Date:		Sat Nov 21 16:58:14 2026
+[11/21 16:58:14      0s] Host:		black.doelab.site (x86_64 w/Linux 7.0.3-1.el8.elrepo.x86_64) (48cores*48cpus*AMD EPYC 7H12 64-Core Processor 512KB)
+[11/21 16:58:14      0s] OS:		Rocky Linux 8.10 (Green Obsidian)
+[11/21 16:58:14      0s] 
+[11/21 16:58:14      0s] License:
+[11/21 16:58:14      0s] 		[16:58:14.067017] Configured Lic search path (21.01-s002): 5280@cdns.doelab.site
+
+[11/21 16:58:14      0s] 		invs	Innovus Implementation System	21.1	checkout succeeded
+[11/21 16:58:14      0s] 		8 CPU jobs allowed with the current license(s). Use setMultiCpuUsage to set your required CPU count.
+[11/21 16:58:34     13s] Reset Parastics called with the command setExtractRCMode -reset**WARN: (IMPOPT-801):	Genus executable not found in PATH. Install Genus, add the path to the genus executable in the PATH variable and rerun Innovus.
+[11/21 16:58:37     16s] @(#)CDS: Innovus v21.19-s058_1 (64bit) 04/04/2024 09:59 (Linux 3.10.0-693.el7.x86_64)
+[11/21 16:58:37     16s] @(#)CDS: NanoRoute 21.19-s058_1 NR231113-0413/21_19-UB (database version 18.20.605) {superthreading v2.17}
+[11/21 16:58:37     16s] @(#)CDS: AAE 21.19-s004 (64bit) 04/04/2024 (Linux 3.10.0-693.el7.x86_64)
+[11/21 16:58:37     16s] @(#)CDS: CTE 21.19-s010_1 () Mar 27 2024 01:55:37 ( )
+[11/21 16:58:37     16s] @(#)CDS: SYNTECH 21.19-s002_1 () Sep  6 2023 22:17:00 ( )
+[11/21 16:58:37     16s] @(#)CDS: CPE v21.19-s026
+[11/21 16:58:37     16s] @(#)CDS: IQuantus/TQuantus 21.1.1-s966 (64bit) Wed Mar 8 10:22:20 PST 2023 (Linux 3.10.0-693.el7.x86_64)
+[11/21 16:58:37     16s] @(#)CDS: OA 22.60-p087 Thu Feb  9 09:35:26 2023
+[11/21 16:58:37     16s] @(#)CDS: SGN 20.10-d001 (01-Jun-2020) (64 bit executable, Qt5.9.0)
+[11/21 16:58:37     16s] @(#)CDS: RCDB 11.15.0
+[11/21 16:58:37     16s] @(#)CDS: STYLUS 21.12-s019_1 (12/20/2022 05:13 PST)
+[11/21 16:58:37     16s] @(#)CDS: SystemPlanner-21.18-10439 (21.18) (2023-03-01 15:40:03+0800)
+[11/21 16:58:37     16s] Create and set the environment variable TMPDIR to /tmp/innovus_temp_3132181_black.doelab.site_ee5303_05_Pu4gX1.
+
+[11/21 16:58:37     16s] Change the soft stacksize limit to 0.2%RAM (251 mbytes). Set global soft_stack_size_limit to change the value.
+[11/21 16:58:41     18s] 
+[11/21 16:58:41     18s] **INFO:  MMMC transition support version v31-84 
+[11/21 16:58:41     18s] 
+[11/21 16:58:41     18s] <CMD> set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+[11/21 16:58:41     18s] <CMD> suppressMessage ENCEXT-2799
+[11/21 16:58:41     18s] Sourcing file "./scripts/lvs.tcl" ...
+[11/21 16:58:41     18s] <CMD> is_common_ui_mode
+[11/21 16:58:41     18s] <CMD> restoreDesign /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/innovus/datapath_final.enc.dat datapath
+[11/21 16:58:41     18s] #% Begin load design ... (date=11/21 16:58:41, mem=992.1M)
+[11/21 16:58:41     18s] Set Default Input Pin Transition as 0.1 ps.
+[11/21 16:58:41     18s] Loading design 'datapath' saved by 'Innovus' '21.19-s058_1' on 'Sat Nov 21 11:16:39 2026'.
+[11/21 16:58:41     19s] % Begin Load MMMC data ... (date=11/21 16:58:41, mem=994.9M)
+[11/21 16:58:41     19s] % End Load MMMC data ... (date=11/21 16:58:41, total cpu=0:00:00.0, real=0:00:00.0, peak res=996.3M, current mem=996.3M)
+[11/21 16:58:41     19s] 
+[11/21 16:58:41     19s] Loading LEF file /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/innovus/datapath_final.enc.dat/libs/lef/gsclib045_tech.lef ...
+[11/21 16:58:41     19s] 
+[11/21 16:58:41     19s] Loading LEF file /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/innovus/datapath_final.enc.dat/libs/lef/gsclib045_macro.lef ...
+[11/21 16:58:41     19s] Set DBUPerIGU to M2 pitch 400.
+[11/21 16:58:42     19s] **WARN: (IMPLF-200):	Pin 'A' in macro 'ANTENNA' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[11/21 16:58:42     19s] Type 'man IMPLF-200' for more detail.
+[11/21 16:58:42     19s] 
+##  Check design process and node:  
+##  Both design process and tech node are not set.
+
+[11/21 16:58:42     19s] Loading view definition file from /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/innovus/datapath_final.enc.dat/viewDefinition.tcl
+[11/21 16:58:42     19s] Reading libs_slow timing library '/tools/eda/pdks/cadence/gpdk045/gsclib045_svt_v4.7/gsclib045/timing/slow_vdd1v0_basicCells.lib' ...
+[11/21 16:58:42     19s] **WARN: (TECHLIB-302):	No function defined for cell 'DECAP9'. The cell will only be used for analysis. (File /tools/eda/pdks/cadence/gpdk045/gsclib045_svt_v4.7/gsclib045/timing/slow_vdd1v0_basicCells.lib)
+[11/21 16:58:42     19s] **WARN: (TECHLIB-302):	No function defined for cell 'DECAP8'. The cell will only be used for analysis. (File /tools/eda/pdks/cadence/gpdk045/gsclib045_svt_v4.7/gsclib045/timing/slow_vdd1v0_basicCells.lib)
+[11/21 16:58:42     19s] **WARN: (TECHLIB-302):	No function defined for cell 'DECAP7'. The cell will only be used for analysis. (File /tools/eda/pdks/cadence/gpdk045/gsclib045_svt_v4.7/gsclib045/timing/slow_vdd1v0_basicCells.lib)
+[11/21 16:58:42     19s] **WARN: (TECHLIB-302):	No function defined for cell 'DECAP6'. The cell will only be used for analysis. (File /tools/eda/pdks/cadence/gpdk045/gsclib045_svt_v4.7/gsclib045/timing/slow_vdd1v0_basicCells.lib)
+[11/21 16:58:42     19s] **WARN: (TECHLIB-302):	No function defined for cell 'DECAP5'. The cell will only be used for analysis. (File /tools/eda/pdks/cadence/gpdk045/gsclib045_svt_v4.7/gsclib045/timing/slow_vdd1v0_basicCells.lib)
+[11/21 16:58:42     19s] **WARN: (TECHLIB-302):	No function defined for cell 'DECAP4'. The cell will only be used for analysis. (File /tools/eda/pdks/cadence/gpdk045/gsclib045_svt_v4.7/gsclib045/timing/slow_vdd1v0_basicCells.lib)
+[11/21 16:58:42     19s] **WARN: (TECHLIB-302):	No function defined for cell 'DECAP3'. The cell will only be used for analysis. (File /tools/eda/pdks/cadence/gpdk045/gsclib045_svt_v4.7/gsclib045/timing/slow_vdd1v0_basicCells.lib)
+[11/21 16:58:42     19s] **WARN: (TECHLIB-302):	No function defined for cell 'DECAP2'. The cell will only be used for analysis. (File /tools/eda/pdks/cadence/gpdk045/gsclib045_svt_v4.7/gsclib045/timing/slow_vdd1v0_basicCells.lib)
+[11/21 16:58:42     19s] **WARN: (TECHLIB-302):	No function defined for cell 'DECAP10'. The cell will only be used for analysis. (File /tools/eda/pdks/cadence/gpdk045/gsclib045_svt_v4.7/gsclib045/timing/slow_vdd1v0_basicCells.lib)
+[11/21 16:58:42     19s] **WARN: (TECHLIB-302):	No function defined for cell 'ANTENNA'. The cell will only be used for analysis. (File /tools/eda/pdks/cadence/gpdk045/gsclib045_svt_v4.7/gsclib045/timing/slow_vdd1v0_basicCells.lib)
+[11/21 16:58:42     19s] Read 489 cells in library 'slow_vdd1v0' 
+[11/21 16:58:42     19s] Reading libs_fast timing library '/tools/eda/pdks/cadence/gpdk045/gsclib045_svt_v4.7/gsclib045/timing/fast_vdd1v0_basicCells.lib' ...
+[11/21 16:58:43     20s] **WARN: (TECHLIB-302):	No function defined for cell 'DECAP9'. The cell will only be used for analysis. (File /tools/eda/pdks/cadence/gpdk045/gsclib045_svt_v4.7/gsclib045/timing/fast_vdd1v0_basicCells.lib)
+[11/21 16:58:43     20s] **WARN: (TECHLIB-302):	No function defined for cell 'DECAP8'. The cell will only be used for analysis. (File /tools/eda/pdks/cadence/gpdk045/gsclib045_svt_v4.7/gsclib045/timing/fast_vdd1v0_basicCells.lib)
+[11/21 16:58:43     20s] **WARN: (TECHLIB-302):	No function defined for cell 'DECAP7'. The cell will only be used for analysis. (File /tools/eda/pdks/cadence/gpdk045/gsclib045_svt_v4.7/gsclib045/timing/fast_vdd1v0_basicCells.lib)
+[11/21 16:58:43     20s] **WARN: (TECHLIB-302):	No function defined for cell 'DECAP6'. The cell will only be used for analysis. (File /tools/eda/pdks/cadence/gpdk045/gsclib045_svt_v4.7/gsclib045/timing/fast_vdd1v0_basicCells.lib)
+[11/21 16:58:43     20s] **WARN: (TECHLIB-302):	No function defined for cell 'DECAP5'. The cell will only be used for analysis. (File /tools/eda/pdks/cadence/gpdk045/gsclib045_svt_v4.7/gsclib045/timing/fast_vdd1v0_basicCells.lib)
+[11/21 16:58:43     20s] **WARN: (TECHLIB-302):	No function defined for cell 'DECAP4'. The cell will only be used for analysis. (File /tools/eda/pdks/cadence/gpdk045/gsclib045_svt_v4.7/gsclib045/timing/fast_vdd1v0_basicCells.lib)
+[11/21 16:58:43     20s] **WARN: (TECHLIB-302):	No function defined for cell 'DECAP3'. The cell will only be used for analysis. (File /tools/eda/pdks/cadence/gpdk045/gsclib045_svt_v4.7/gsclib045/timing/fast_vdd1v0_basicCells.lib)
+[11/21 16:58:43     20s] **WARN: (TECHLIB-302):	No function defined for cell 'DECAP2'. The cell will only be used for analysis. (File /tools/eda/pdks/cadence/gpdk045/gsclib045_svt_v4.7/gsclib045/timing/fast_vdd1v0_basicCells.lib)
+[11/21 16:58:43     20s] **WARN: (TECHLIB-302):	No function defined for cell 'DECAP10'. The cell will only be used for analysis. (File /tools/eda/pdks/cadence/gpdk045/gsclib045_svt_v4.7/gsclib045/timing/fast_vdd1v0_basicCells.lib)
+[11/21 16:58:43     20s] **WARN: (TECHLIB-302):	No function defined for cell 'ANTENNA'. The cell will only be used for analysis. (File /tools/eda/pdks/cadence/gpdk045/gsclib045_svt_v4.7/gsclib045/timing/fast_vdd1v0_basicCells.lib)
+[11/21 16:58:43     20s] Read 489 cells in library 'fast_vdd1v0' 
+[11/21 16:58:43     20s] Ending "PreSetAnalysisView" (total cpu=0:00:01.0, real=0:00:01.0, peak res=1077.0M, current mem=1023.3M)
+[11/21 16:58:43     20s] *** End library_loading (cpu=0.02min, real=0.02min, mem=38.9M, fe_cpu=0.34min, fe_real=0.48min, fe_mem=1092.4M) ***
+[11/21 16:58:43     20s] % Begin Load netlist data ... (date=11/21 16:58:43, mem=1023.3M)
+[11/21 16:58:43     20s] *** Begin netlist parsing (mem=1092.4M) ***
+[11/21 16:58:43     20s] Created 489 new cells from 2 timing libraries.
+[11/21 16:58:43     20s] Reading netlist ...
+[11/21 16:58:43     20s] Backslashed names will retain backslash and a trailing blank character.
+[11/21 16:58:43     20s] Reading verilogBinary netlist '/home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/innovus/datapath_final.enc.dat/vbin/datapath.v.bin'
+[11/21 16:58:43     20s] 
+[11/21 16:58:43     20s] *** Memory Usage v#1 (Current mem = 1109.402M, initial mem = 495.004M) ***
+[11/21 16:58:43     20s] *** End netlist parsing (cpu=0:00:00.1, real=0:00:00.0, mem=1109.4M) ***
+[11/21 16:58:43     20s] % End Load netlist data ... (date=11/21 16:58:43, total cpu=0:00:00.1, real=0:00:00.0, peak res=1042.1M, current mem=1042.1M)
+[11/21 16:58:43     20s] Set top cell to datapath.
+[11/21 16:58:43     20s] Hooked 978 DB cells to tlib cells.
+[11/21 16:58:43     20s] Ending "BindLib:" (total cpu=0:00:00.1, real=0:00:00.0, peak res=1058.1M, current mem=1058.1M)
+[11/21 16:58:43     20s] Starting recursive module instantiation check.
+[11/21 16:58:43     20s] No recursion found.
+[11/21 16:58:43     20s] Building hierarchical netlist for Cell datapath ...
+[11/21 16:58:43     20s] *** Netlist is unique.
+[11/21 16:58:43     20s] Setting Std. cell height to 3420 DBU (smallest netlist inst).
+[11/21 16:58:43     20s] ** info: there are 1108 modules.
+[11/21 16:58:43     20s] ** info: there are 19583 stdCell insts.
+[11/21 16:58:43     20s] 
+[11/21 16:58:43     20s] *** Memory Usage v#1 (Current mem = 1168.316M, initial mem = 495.004M) ***
+[11/21 16:58:43     20s] *info: set bottom ioPad orient R0
+[11/21 16:58:43     20s] **WARN: (IMPFP-3961):	The techSite 'CornerSite' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+[11/21 16:58:43     20s] Type 'man IMPFP-3961' for more detail.
+[11/21 16:58:43     20s] **WARN: (IMPFP-3961):	The techSite 'IOSite' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+[11/21 16:58:43     20s] Type 'man IMPFP-3961' for more detail.
+[11/21 16:58:43     20s] Start create_tracks
+[11/21 16:58:44     21s] Loading preference file /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/innovus/datapath_final.enc.dat/gui.pref.tcl ...
+[11/21 16:58:44     21s] ##  Process: 45            (User Set)               
+[11/21 16:58:44     21s] ##     Node: (not set)                           
+[11/21 16:58:44     21s] 
+##  Check design process and node:  
+##  Design tech node is not set.
+
+[11/21 16:58:44     21s] Applying the recommended capacitance filtering threshold values for 45nm process node: total_c_th=0, relative_c_th=1 and coupling_c_th=0.1.
+[11/21 16:58:44     21s] 	These values will be used by all post-route extraction engines, including TQuantus, IQuantus and Quantus QRC extraction.
+[11/21 16:58:44     21s] 	Capacitance filtering mode(-capFilterMode option of the setExtractRCMode) is 'relAndCoup' for all engines.
+[11/21 16:58:44     21s] 	The accuracy mode for postRoute effortLevel low extraction will be set to 'high'.
+[11/21 16:58:44     21s] 	Default value for EffortLevel(-effortLevel option of the setExtractRCMode) in postRoute extraction mode will be 'medium' if Quantus QRC technology file is specified else 'low'.
+[11/21 16:58:44     21s] **WARN: (IMPOPT-3602):	The specified path group name reg2cgate is not defined.
+[11/21 16:58:44     21s] Type 'man IMPOPT-3602' for more detail.
+[11/21 16:58:44     21s] Effort level <high> specified for reg2cgate path_group
+[11/21 16:58:44     21s] Slack adjustment of -0 applied on reg2cgate path_group
+[11/21 16:58:44     21s] **WARN: (IMPOPT-3602):	The specified path group name reg2reg is not defined.
+[11/21 16:58:44     21s] Type 'man IMPOPT-3602' for more detail.
+[11/21 16:58:44     21s] Effort level <high> specified for reg2reg path_group
+[11/21 16:58:44     21s] Slack adjustment of -0 applied on reg2reg path_group
+[11/21 16:58:44     21s] Slack adjustment of -0 applied on <default> path group
+[11/21 16:58:44     21s] #WARNING (NRIF-80) When droutePostRouteSwapVia is set to 'multiCut', the post route via swapping step will be performed on all nets, and to double cut vias. To swap to DFM vias based on via weight, please set the option to 'true'.
+[11/21 16:58:44     21s] **WARN: (IMPTCM-77):	Option "-drouteStartIteration" for command setNanoRouteMode is obsolete and will be removed in a future release. The obsolete option still works in this release but to avoid this warning and to ensure compatibility with future releases, remove the obsolete option from your script.
+[11/21 16:58:44     21s] AAE_INFO: switching -siAware from false to true ...
+[11/21 16:58:44     21s] AAE_INFO: The setting is changed from false to true in setDelayCalMode -SIAware
+[11/21 16:58:44     21s] Change floorplan default-technical-site to 'CoreSite'.
+[11/21 16:58:44     21s] Extraction setup Delayed 
+[11/21 16:58:44     21s] *Info: initialize multi-corner CTS.
+[11/21 16:58:44     21s] Ending "SetAnalysisView" (total cpu=0:00:00.0, real=0:00:00.0, peak res=1349.4M, current mem=1094.3M)
+[11/21 16:58:44     21s] Tech dependent Parameter, Build TLibAnalyzer for: cellAreaConsiderPadding
+[11/21 16:58:44     21s] 
+[11/21 16:58:44     21s] TimeStamp Creating Cell Server ...(0, 1, 1, 1) in restoreDesign Begin ...
+[11/21 16:58:44     21s] SBFF Setting to complicate: SMDFFHQX8 complicate code: 30.1
+[11/21 16:58:44     21s] SBFF Setting to complicate: SMDFFHQX4 complicate code: 30.1
+[11/21 16:58:44     21s] SBFF Setting to complicate: SMDFFHQX2 complicate code: 30.1
+[11/21 16:58:44     21s] SBFF Setting to complicate: SMDFFHQX1 complicate code: 30.1
+[11/21 16:58:44     21s] SBFF Setting to complicate: SEDFFTRXL complicate code: 30.05
+[11/21 16:58:44     21s] SBFF Setting to complicate: SEDFFTRX4 complicate code: 30.05
+[11/21 16:58:44     21s] SBFF Setting to complicate: SEDFFTRX2 complicate code: 30.05
+[11/21 16:58:44     21s] SBFF Setting to complicate: SEDFFTRX1 complicate code: 30.05
+[11/21 16:58:44     21s] SBFF Setting to complicate: SEDFFHQX8 complicate code: 30.05
+[11/21 16:58:44     21s] SBFF Setting to complicate: SEDFFHQX4 complicate code: 30.05
+[11/21 16:58:44     21s] SBFF Setting to complicate: SEDFFHQX2 complicate code: 30.05
+[11/21 16:58:44     21s] SBFF Setting to complicate: SEDFFHQX1 complicate code: 30.05
+[11/21 16:58:44     21s] SBFF Setting to complicate: EDFFTRXL complicate code: 30.05
+[11/21 16:58:44     21s] SBFF Setting to complicate: EDFFTRX4 complicate code: 30.05
+[11/21 16:58:44     21s] SBFF Setting to complicate: EDFFTRX2 complicate code: 30.05
+[11/21 16:58:44     21s] SBFF Setting to complicate: EDFFTRX1 complicate code: 30.05
+[11/21 16:58:44     21s] Summary for sequential cells identification: 
+[11/21 16:58:44     21s]   Identified SBFF number: 104
+[11/21 16:58:44     21s]   Identified MBFF number: 0
+[11/21 16:58:44     21s]   Identified SB Latch number: 0
+[11/21 16:58:44     21s]   Identified MB Latch number: 0
+[11/21 16:58:44     21s]   Not identified SBFF number: 16
+[11/21 16:58:44     21s]   Not identified MBFF number: 0
+[11/21 16:58:44     21s]   Not identified SB Latch number: 0
+[11/21 16:58:44     21s]   Not identified MB Latch number: 0
+[11/21 16:58:44     21s]   Number of sequential cells which are not FFs: 32
+[11/21 16:58:44     21s] Total number of combinational cells: 318
+[11/21 16:58:44     21s] Total number of sequential cells: 152
+[11/21 16:58:44     21s] Total number of tristate cells: 10
+[11/21 16:58:44     21s] Total number of level shifter cells: 0
+[11/21 16:58:44     21s] Total number of power gating cells: 0
+[11/21 16:58:44     21s] Total number of isolation cells: 0
+[11/21 16:58:44     21s] Total number of power switch cells: 0
+[11/21 16:58:44     21s] Total number of pulse generator cells: 0
+[11/21 16:58:44     21s] Total number of always on buffers: 0
+[11/21 16:58:44     21s] Total number of retention cells: 0
+[11/21 16:58:44     21s] Total number of physical cells: 9
+[11/21 16:58:44     21s] List of usable buffers: BUFX2 BUFX12 BUFX16 BUFX20 CLKBUFX2 BUFX3 BUFX4 BUFX6 BUFX8 CLKBUFX12 CLKBUFX16 CLKBUFX20 CLKBUFX3 CLKBUFX4 CLKBUFX6 CLKBUFX8
+[11/21 16:58:44     21s] Total number of usable buffers: 16
+[11/21 16:58:44     21s] List of unusable buffers:
+[11/21 16:58:44     21s] Total number of unusable buffers: 0
+[11/21 16:58:44     21s] List of usable inverters: CLKINVX1 CLKINVX2 CLKINVX12 CLKINVX16 CLKINVX20 CLKINVX4 CLKINVX3 CLKINVX6 CLKINVX8 INVX1 INVX2 INVX12 INVX16 INVX20 INVXL INVX3 INVX4 INVX6 INVX8
+[11/21 16:58:44     21s] Total number of usable inverters: 19
+[11/21 16:58:44     21s] List of unusable inverters:
+[11/21 16:58:44     21s] Total number of unusable inverters: 0
+[11/21 16:58:44     21s] List of identified usable delay cells: DLY1X1 DLY1X4 DLY2X1 DLY2X4 DLY3X1 DLY3X4 DLY4X1 DLY4X4
+[11/21 16:58:44     21s] Total number of identified usable delay cells: 8
+[11/21 16:58:44     21s] List of identified unusable delay cells:
+[11/21 16:58:44     21s] Total number of identified unusable delay cells: 0
+[11/21 16:58:44     21s] 
+[11/21 16:58:44     21s] TimeStamp Creating Cell Server ...(0, 1, 1, 1) in restoreDesign End ...
+[11/21 16:58:44     21s] 
+[11/21 16:58:44     21s] TimeStamp Deleting Cell Server Begin ...
+[11/21 16:58:44     21s] 
+[11/21 16:58:44     21s] TimeStamp Deleting Cell Server End ...
+[11/21 16:58:44     21s] Ending "Cell type marking" (total cpu=0:00:00.0, real=0:00:00.0, peak res=1366.3M, current mem=1358.9M)
+[11/21 16:58:44     21s] 
+[11/21 16:58:44     21s] TimeStamp Creating Cell Server ...(0, 0, 0, 0) in restoreDesign Begin ...
+[11/21 16:58:44     21s] SBFF Setting to complicate: SMDFFHQX8 complicate code: 30.1
+[11/21 16:58:44     21s] SBFF Setting to complicate: SMDFFHQX4 complicate code: 30.1
+[11/21 16:58:44     21s] SBFF Setting to complicate: SMDFFHQX2 complicate code: 30.1
+[11/21 16:58:44     21s] SBFF Setting to complicate: SMDFFHQX1 complicate code: 30.1
+[11/21 16:58:44     21s] SBFF Setting to complicate: SEDFFTRXL complicate code: 30.05
+[11/21 16:58:44     21s] SBFF Setting to complicate: SEDFFTRX4 complicate code: 30.05
+[11/21 16:58:44     21s] SBFF Setting to complicate: SEDFFTRX2 complicate code: 30.05
+[11/21 16:58:44     21s] SBFF Setting to complicate: SEDFFTRX1 complicate code: 30.05
+[11/21 16:58:44     21s] SBFF Setting to complicate: SEDFFHQX8 complicate code: 30.05
+[11/21 16:58:44     21s] SBFF Setting to complicate: SEDFFHQX4 complicate code: 30.05
+[11/21 16:58:44     21s] SBFF Setting to complicate: SEDFFHQX2 complicate code: 30.05
+[11/21 16:58:44     21s] SBFF Setting to complicate: SEDFFHQX1 complicate code: 30.05
+[11/21 16:58:44     21s] SBFF Setting to complicate: EDFFTRXL complicate code: 30.05
+[11/21 16:58:44     21s] SBFF Setting to complicate: EDFFTRX4 complicate code: 30.05
+[11/21 16:58:44     21s] SBFF Setting to complicate: EDFFTRX2 complicate code: 30.05
+[11/21 16:58:44     21s] SBFF Setting to complicate: EDFFTRX1 complicate code: 30.05
+[11/21 16:58:44     21s] Summary for sequential cells identification: 
+[11/21 16:58:44     21s]   Identified SBFF number: 104
+[11/21 16:58:44     21s]   Identified MBFF number: 0
+[11/21 16:58:44     21s]   Identified SB Latch number: 0
+[11/21 16:58:44     21s]   Identified MB Latch number: 0
+[11/21 16:58:44     21s]   Not identified SBFF number: 16
+[11/21 16:58:44     21s]   Not identified MBFF number: 0
+[11/21 16:58:44     21s]   Not identified SB Latch number: 0
+[11/21 16:58:44     21s]   Not identified MB Latch number: 0
+[11/21 16:58:44     21s]   Number of sequential cells which are not FFs: 32
+[11/21 16:58:44     21s] 
+[11/21 16:58:44     21s] Trim Metal Layers:
+[11/21 16:58:44     21s]  Visiting view : func_slow_view
+[11/21 16:58:44     21s]    : PowerDomain = none : Weighted F : unweighted  = 37.90 (1.000) with rcCorner = 0
+[11/21 16:58:44     21s]    : PowerDomain = none : Weighted F : unweighted  = 20.10 (1.000) with rcCorner = -1
+[11/21 16:58:44     21s]  Visiting view : func_fast_view
+[11/21 16:58:44     21s]    : PowerDomain = none : Weighted F : unweighted  = 11.90 (1.000) with rcCorner = 1
+[11/21 16:58:44     21s]    : PowerDomain = none : Weighted F : unweighted  = 5.30 (1.000) with rcCorner = -1
+[11/21 16:58:44     21s] 
+[11/21 16:58:44     21s] TimeStamp Creating Cell Server ...(0, 0, 0, 0) in restoreDesign End ...
+[11/21 16:58:44     21s] 
+[11/21 16:58:44     21s] TimeStamp Deleting Cell Server Begin ...
+[11/21 16:58:44     21s] 
+[11/21 16:58:44     21s] TimeStamp Deleting Cell Server End ...
+[11/21 16:58:44     21s] Reading floorplan file - /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/innovus/datapath_final.enc.dat/datapath.fp.gz (mem = 1428.8M).
+[11/21 16:58:44     21s] % Begin Load floorplan data ... (date=11/21 16:58:44, mem=1362.0M)
+[11/21 16:58:44     21s] *info: reset 20507 existing net BottomPreferredLayer and AvoidDetour
+[11/21 16:58:44     21s] Deleting old partition specification.
+[11/21 16:58:44     21s] Set FPlanBox to (0 0 564800 560120)
+[11/21 16:58:44     21s] **WARN: (IMPFP-3961):	The techSite 'CornerSite' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+[11/21 16:58:44     21s] Type 'man IMPFP-3961' for more detail.
+[11/21 16:58:44     21s] **WARN: (IMPFP-3961):	The techSite 'IOSite' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+[11/21 16:58:44     21s] Type 'man IMPFP-3961' for more detail.
+[11/21 16:58:44     21s] Start create_tracks
+[11/21 16:58:44     21s]  ... processed partition successfully.
+[11/21 16:58:44     21s] Reading binary special route file /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/innovus/datapath_final.enc.dat/datapath.fp.spr.gz (Created by Innovus v21.19-s058_1 on Sat Nov 21 11:16:35 2026, version: 1)
+[11/21 16:58:44     21s] Convert 0 swires and 0 svias from compressed groups
+[11/21 16:58:44     21s] 26 swires and 56 svias were compressed
+[11/21 16:58:44     21s] 26 swires and 56 svias were decompressed from small or sparse groups
+[11/21 16:58:44     21s] Ending "Read special route file" (total cpu=0:00:00.0, real=0:00:00.0, peak res=1363.4M, current mem=1363.4M)
+[11/21 16:58:44     21s] There are 56 nets with weight being set
+[11/21 16:58:44     21s] There are 57 nets with bottomPreferredRoutingLayer being set
+[11/21 16:58:44     21s] There are 261 nets with avoidDetour being set
+[11/21 16:58:44     21s] Extracting standard cell pins and blockage ...... 
+[11/21 16:58:44     21s] Pin and blockage extraction finished
+[11/21 16:58:44     21s] % End Load floorplan data ... (date=11/21 16:58:44, total cpu=0:00:00.2, real=0:00:00.0, peak res=1364.4M, current mem=1364.4M)
+[11/21 16:58:44     21s] Reading congestion map file /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/innovus/datapath_final.enc.dat/datapath.route.congmap.gz ...
+[11/21 16:58:45     21s] % Begin Load SymbolTable ... (date=11/21 16:58:44, mem=1364.7M)
+[11/21 16:58:45     21s] Suppress "**WARN ..." messages.
+[11/21 16:58:45     21s] routingBox: (0 0) (564800 560120)
+[11/21 16:58:45     21s] coreBox:    (20000 20140) (544800 539980)
+[11/21 16:58:45     21s] Un-suppress "**WARN ..." messages.
+[11/21 16:58:45     21s] % End Load SymbolTable ... (date=11/21 16:58:45, total cpu=0:00:00.1, real=0:00:00.0, peak res=1369.6M, current mem=1369.6M)
+[11/21 16:58:45     21s] Loading place ...
+[11/21 16:58:45     21s] % Begin Load placement data ... (date=11/21 16:58:45, mem=1369.6M)
+[11/21 16:58:45     21s] Reading placement file - /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/innovus/datapath_final.enc.dat/datapath.place.gz.
+[11/21 16:58:45     21s] ** Reading stdCellPlacement_binary (Created by Innovus v21.19-s058_1 on Sat Nov 21 11:16:36 2026, version# 2) ...
+[11/21 16:58:45     21s] Read Views for adaptive view pruning ...
+[11/21 16:58:45     21s] Read 0 views from Binary DB for adaptive view pruning
+[11/21 16:58:45     21s] *** Checked 6 GNC rules.
+[11/21 16:58:45     21s] *** applyConnectGlobalNets disabled.
+[11/21 16:58:45     22s] *** Completed restorePlace (cpu=0:00:00.1 real=0:00:00.0 mem=1441.8M) ***
+[11/21 16:58:45     22s] Total net length = 2.714e+05 (1.366e+05 1.348e+05) (ext = 2.608e+04)
+[11/21 16:58:45     22s] % End Load placement data ... (date=11/21 16:58:45, total cpu=0:00:00.1, real=0:00:00.0, peak res=1379.5M, current mem=1376.2M)
+[11/21 16:58:45     22s] Reading PG file /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/innovus/datapath_final.enc.dat/datapath.pg.gz, version#2, (Created by Innovus v21.19-s058_1 on       Sat Nov 21 11:16:35 2026)
+[11/21 16:58:45     22s] *** Completed restorePGFile (cpu=0:00:00.0 real=0:00:00.0 mem=1437.8M) ***
+[11/21 16:58:45     22s] % Begin Load routing data ... (date=11/21 16:58:45, mem=1376.9M)
+[11/21 16:58:45     22s] Reading routing file - /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/innovus/datapath_final.enc.dat/datapath.route.gz.
+[11/21 16:58:45     22s] Reading Innovus routing data (Created by Innovus v21.19-s058_1 on Sat Nov 21 11:16:36 2026 Format: 20.1) ...
+[11/21 16:58:45     22s] *** Total 20286 nets are successfully restored.
+[11/21 16:58:45     22s] *** Completed restoreRoute (cpu=0:00:00.2 real=0:00:00.0 mem=1464.8M) ***
+[11/21 16:58:46     22s] % End Load routing data ... (date=11/21 16:58:45, total cpu=0:00:00.2, real=0:00:01.0, peak res=1403.6M, current mem=1403.2M)
+[11/21 16:58:46     22s] Loading Drc markers ...
+[11/21 16:58:46     22s] ... 274 markers are loaded ...
+[11/21 16:58:46     22s] ... 274 geometry drc markers are loaded ...
+[11/21 16:58:46     22s] ... 0 antenna drc markers are loaded ...
+[11/21 16:58:46     22s] TAT_INFO: restoreCongMap REAL = 1 : CPU = 0 : MEM = 0.
+[11/21 16:58:46     22s] Reading property file /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/innovus/datapath_final.enc.dat/datapath.prop
+[11/21 16:58:46     22s] *** Completed restoreProperty (cpu=0:00:00.0 real=0:00:00.0 mem=1467.8M) ***
+[11/21 16:58:46     22s] Reading dirtyarea snapshot file /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/innovus/datapath_final.enc.dat/datapath.db.da.gz (Create by Innovus v21.19-s058_1 on Sat Nov 21 11:16:36 2026, version: 6).
+[11/21 16:58:46     22s] Set Default Input Pin Transition as 0.1 ps.
+[11/21 16:58:46     22s] Loading preRoute extraction data from directory '/home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/innovus/datapath_final.enc.dat/extraction/' ...
+[11/21 16:58:46     22s] Restore PreRoute RC Grid meta data successful.
+[11/21 16:58:46     22s] Extraction setup Started 
+[11/21 16:58:46     22s] 
+[11/21 16:58:46     22s] Trim Metal Layers:
+[11/21 16:58:46     22s] Initializing multi-corner RC extraction with 2 active RC Corners ...
+[11/21 16:58:46     22s] Captable file(s) not specified in multi-corner setup. PreRoute extraction will use technology file. For postRoute extraction, default value for effort level would be 'medium' and effort level 'low' would not be allowed.
+[11/21 16:58:46     22s] __QRC_SADV_USE_LE__ is set 0
+[11/21 16:58:47     23s] Metal Layer Id 1 is Metal1 
+[11/21 16:58:47     23s] Metal Layer Id 2 is Metal2 
+[11/21 16:58:47     23s] Metal Layer Id 3 is Metal3 
+[11/21 16:58:47     23s] Metal Layer Id 4 is Metal4 
+[11/21 16:58:47     23s] Metal Layer Id 5 is Metal5 
+[11/21 16:58:47     23s] Metal Layer Id 6 is Metal6 
+[11/21 16:58:47     23s] Metal Layer Id 7 is Metal7 
+[11/21 16:58:47     23s] Metal Layer Id 8 is Metal8 
+[11/21 16:58:47     23s] Metal Layer Id 9 is Metal9 
+[11/21 16:58:47     23s] Metal Layer Id 10 is Metal10 
+[11/21 16:58:47     23s] Metal Layer Id 11 is Metal11 
+[11/21 16:58:47     23s] Via Layer Id 33 is Cont 
+[11/21 16:58:47     23s] Via Layer Id 34 is Via1 
+[11/21 16:58:47     23s] Via Layer Id 35 is Via2 
+[11/21 16:58:47     23s] Via Layer Id 36 is Via3 
+[11/21 16:58:47     23s] Via Layer Id 37 is Via4 
+[11/21 16:58:47     23s] Via Layer Id 38 is Via5 
+[11/21 16:58:47     23s] Via Layer Id 39 is Via6 
+[11/21 16:58:47     23s] Via Layer Id 40 is Via7 
+[11/21 16:58:47     23s] Via Layer Id 41 is Via8 
+[11/21 16:58:47     23s] Via Layer Id 42 is Via9 
+[11/21 16:58:47     23s] Via Layer Id 43 is Via10 
+[11/21 16:58:47     23s] Via Layer Id 44 is Bondpad 
+[11/21 16:58:47     23s] 
+[11/21 16:58:47     23s] Trim Metal Layers:
+[11/21 16:58:47     23s] Generating auto layer map file.
+[11/21 16:58:47     23s]  lef metal Layer Id 1 mapped to tech Id 5 of Layer metal_1 
+[11/21 16:58:47     23s]  lef via Layer Id 1 mapped to tech Id 6 of Layer via_1 
+[11/21 16:58:47     23s]  lef metal Layer Id 2 mapped to tech Id 7 of Layer metal_2 
+[11/21 16:58:47     23s]  lef via Layer Id 2 mapped to tech Id 8 of Layer via_2 
+[11/21 16:58:47     23s]  lef metal Layer Id 3 mapped to tech Id 9 of Layer metal_3 
+[11/21 16:58:47     23s]  lef via Layer Id 3 mapped to tech Id 10 of Layer via_3 
+[11/21 16:58:47     23s]  lef metal Layer Id 4 mapped to tech Id 11 of Layer metal_4 
+[11/21 16:58:47     23s]  lef via Layer Id 4 mapped to tech Id 12 of Layer via_4 
+[11/21 16:58:47     23s]  lef metal Layer Id 5 mapped to tech Id 13 of Layer metal_5 
+[11/21 16:58:47     23s]  lef via Layer Id 5 mapped to tech Id 14 of Layer via_5 
+[11/21 16:58:47     23s]  lef metal Layer Id 6 mapped to tech Id 15 of Layer metal_6 
+[11/21 16:58:47     23s]  lef via Layer Id 6 mapped to tech Id 16 of Layer via_6 
+[11/21 16:58:47     23s]  lef metal Layer Id 7 mapped to tech Id 17 of Layer metal_7 
+[11/21 16:58:47     23s]  lef via Layer Id 7 mapped to tech Id 18 of Layer via_7 
+[11/21 16:58:47     23s]  lef metal Layer Id 8 mapped to tech Id 19 of Layer metal_8 
+[11/21 16:58:47     23s]  lef via Layer Id 8 mapped to tech Id 20 of Layer via_8 
+[11/21 16:58:47     23s]  lef metal Layer Id 9 mapped to tech Id 21 of Layer metal_9 
+[11/21 16:58:47     23s]  lef via Layer Id 9 mapped to tech Id 22 of Layer via_9 
+[11/21 16:58:47     23s]  lef metal Layer Id 10 mapped to tech Id 23 of Layer metal_10 
+[11/21 16:58:47     23s]  lef via Layer Id 10 mapped to tech Id 24 of Layer via_10 
+[11/21 16:58:47     23s]  lef metal Layer Id 11 mapped to tech Id 25 of Layer metal_11 
+[11/21 16:58:47     23s] Metal Layer Id 1 mapped to 5 
+[11/21 16:58:47     23s] Via Layer Id 1 mapped to 6 
+[11/21 16:58:47     23s] Metal Layer Id 2 mapped to 7 
+[11/21 16:58:47     23s] Via Layer Id 2 mapped to 8 
+[11/21 16:58:47     23s] Metal Layer Id 3 mapped to 9 
+[11/21 16:58:47     23s] Via Layer Id 3 mapped to 10 
+[11/21 16:58:47     23s] Metal Layer Id 4 mapped to 11 
+[11/21 16:58:47     23s] Via Layer Id 4 mapped to 12 
+[11/21 16:58:47     23s] Metal Layer Id 5 mapped to 13 
+[11/21 16:58:47     23s] Via Layer Id 5 mapped to 14 
+[11/21 16:58:47     23s] Metal Layer Id 6 mapped to 15 
+[11/21 16:58:47     23s] Via Layer Id 6 mapped to 16 
+[11/21 16:58:47     23s] Metal Layer Id 7 mapped to 17 
+[11/21 16:58:47     23s] Via Layer Id 7 mapped to 18 
+[11/21 16:58:47     23s] Metal Layer Id 8 mapped to 19 
+[11/21 16:58:47     23s] Via Layer Id 8 mapped to 20 
+[11/21 16:58:47     23s] Metal Layer Id 9 mapped to 21 
+[11/21 16:58:47     23s] Via Layer Id 9 mapped to 22 
+[11/21 16:58:47     23s] Metal Layer Id 10 mapped to 23 
+[11/21 16:58:47     23s] Via Layer Id 10 mapped to 24 
+[11/21 16:58:47     23s] Metal Layer Id 11 mapped to 25 
+[11/21 16:58:47     23s] eee: pegPreRouteEnableSaveRestoreRCPatterns:1, retVal:1, doesAnyTechFileNeedExtraction1
+[11/21 16:58:47     23s] eee: Reading patterns meta data.
+[11/21 16:58:47     23s] Restore PreRoute Pattern Extraction data successful in header.
+[11/21 16:58:47     23s] Loading preRoute extracted patterns from file '/home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/innovus/datapath_final.enc.dat/datapath.techData.gz' ...
+[11/21 16:58:47     23s] readViaRC viaRead:119, nrVia:119
+[11/21 16:58:47     23s] isWireRCValid Validate checksum:4711880, FromFile:4711880accessWirePatterns Pattern count:31752, FromFile:31752 Checksum:4711880, FromFile:4711880
+[11/21 16:58:47     23s] eee: PatternAvail:1, PreRoutePatternReadFailed:0
+[11/21 16:58:47     23s] Restore PreRoute Pattern Extraction data successful.
+[11/21 16:58:47     23s] Completed (cpu: 0:00:00.7 real: 0:00:00.0)
+[11/21 16:58:47     23s] Set Shrink Factor to 1.00000
+[11/21 16:58:47     23s] Summary of Active RC-Corners : 
+[11/21 16:58:47     23s]  
+[11/21 16:58:47     23s]  Analysis View: func_slow_view
+[11/21 16:58:47     23s]     RC-Corner Name        : rc_slow
+[11/21 16:58:47     23s]     RC-Corner Index       : 0
+[11/21 16:58:47     23s]     RC-Corner Temperature : 125 Celsius
+[11/21 16:58:47     23s]     RC-Corner Cap Table   : ''
+[11/21 16:58:47     23s]     RC-Corner PreRoute Res Factor         : 1
+[11/21 16:58:47     23s]     RC-Corner PreRoute Cap Factor         : 1
+[11/21 16:58:47     23s]     RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+[11/21 16:58:47     23s]     RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+[11/21 16:58:47     23s]     RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+[11/21 16:58:47     23s]     RC-Corner PreRoute Clock Res Factor   : 1	[Derived from postRoute_res (effortLevel low)]
+[11/21 16:58:47     23s]     RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from postRoute_cap (effortLevel low)]
+[11/21 16:58:47     23s]     RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel medium)]
+[11/21 16:58:47     23s]     RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel medium)]
+[11/21 16:58:47     23s]     RC-Corner PostRoute Clock coupling capacitance Factor : 1 {1 1 1} 	[Derived from postRoute_xcap (effortLevel medium)]
+[11/21 16:58:47     23s]     RC-Corner Technology file: '/home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/innovus/datapath_final.enc.dat/libs/mmmc/rc_fast/gpdk045.tch'
+[11/21 16:58:47     23s]  
+[11/21 16:58:47     23s]  Analysis View: func_fast_view
+[11/21 16:58:47     23s]     RC-Corner Name        : rc_fast
+[11/21 16:58:47     23s]     RC-Corner Index       : 1
+[11/21 16:58:47     23s]     RC-Corner Temperature : 0 Celsius
+[11/21 16:58:47     23s]     RC-Corner Cap Table   : ''
+[11/21 16:58:47     23s]     RC-Corner PreRoute Res Factor         : 1
+[11/21 16:58:47     23s]     RC-Corner PreRoute Cap Factor         : 1
+[11/21 16:58:47     23s]     RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+[11/21 16:58:47     23s]     RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+[11/21 16:58:47     23s]     RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+[11/21 16:58:47     23s]     RC-Corner PreRoute Clock Res Factor   : 1	[Derived from postRoute_res (effortLevel low)]
+[11/21 16:58:47     23s]     RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from postRoute_cap (effortLevel low)]
+[11/21 16:58:47     23s]     RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel medium)]
+[11/21 16:58:47     23s]     RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel medium)]
+[11/21 16:58:47     23s]     RC-Corner PostRoute Clock coupling capacitance Factor : 1 {1 1 1} 	[Derived from postRoute_xcap (effortLevel medium)]
+[11/21 16:58:47     23s]     RC-Corner Technology file: '/home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/innovus/datapath_final.enc.dat/libs/mmmc/rc_fast/gpdk045.tch'
+[11/21 16:58:47     23s] Technology file '/home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/innovus/datapath_final.enc.dat/libs/mmmc/rc_fast/gpdk045.tch' associated with first view 'func_slow_view' will be used as the primary corner for the multi-corner extraction.
+[11/21 16:58:47     23s] 
+[11/21 16:58:47     23s] Trim Metal Layers:
+[11/21 16:58:47     23s] LayerId::1 widthSet size::1
+[11/21 16:58:47     23s] LayerId::2 widthSet size::1
+[11/21 16:58:47     23s] LayerId::3 widthSet size::1
+[11/21 16:58:47     23s] LayerId::4 widthSet size::1
+[11/21 16:58:47     23s] LayerId::5 widthSet size::1
+[11/21 16:58:47     23s] LayerId::6 widthSet size::1
+[11/21 16:58:47     23s] LayerId::7 widthSet size::1
+[11/21 16:58:47     23s] LayerId::8 widthSet size::1
+[11/21 16:58:47     23s] LayerId::9 widthSet size::1
+[11/21 16:58:47     23s] LayerId::10 widthSet size::1
+[11/21 16:58:47     23s] LayerId::11 widthSet size::1
+[11/21 16:58:47     23s] Checksum of RCGrid density data read::(132 132) passed::1
+[11/21 16:58:47     23s] Restore PreRoute RC Grid data successful.
+[11/21 16:58:47     23s] eee: pegSigSF::1.070000
+[11/21 16:58:47     23s] Initializing multi-corner resistance tables ...
+[11/21 16:58:47     23s] ReadRoutingBlockageFactor status::1
+[11/21 16:58:47     23s] Restore PreRoute Blockage data successful.
+[11/21 16:58:47     23s] eee: Reading Grid unit RC.
+[11/21 16:58:47     23s] pesRestorePreRouteExtractionData::readRCGridUnitRC called for corner::rc_slow
+[11/21 16:58:47     23s] RCCorner in design data Name::rc_slow Tech::/home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/innovus/datapath_final.enc.dat/libs/mmmc/rc_fast/gpdk045.tch 125.000000 1.000000 1.000000 
+[11/21 16:58:47     23s] RCCorner in saved data Name::rc_slow Tech::/tools/eda/pdks/cadence/gpdk045/gsclib045_svt_v4.7/gsclib045/qrc/qx/gpdk045.tch 125.000000 1.000000 1.000000 
+[11/21 16:58:47     23s] Unit RC read checksum: 14256, count: 14256, status: 1
+[11/21 16:58:47     23s] pesRestorePreRouteExtractionData::readRCGridUnitRC called for corner::rc_fast
+[11/21 16:58:47     23s] RCCorner in design data Name::rc_fast Tech::/home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/innovus/datapath_final.enc.dat/libs/mmmc/rc_fast/gpdk045.tch 0.000000 1.000000 1.000000 
+[11/21 16:58:47     23s] RCCorner in saved data Name::rc_slow Tech::/tools/eda/pdks/cadence/gpdk045/gsclib045_svt_v4.7/gsclib045/qrc/qx/gpdk045.tch 125.000000 1.000000 1.000000 
+[11/21 16:58:47     23s] RCCorner in design data Name::rc_fast Tech::/home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/innovus/datapath_final.enc.dat/libs/mmmc/rc_fast/gpdk045.tch 0.000000 1.000000 1.000000 
+[11/21 16:58:47     23s] RCCorner in saved data Name::rc_fast Tech::/tools/eda/pdks/cadence/gpdk045/gsclib045_svt_v4.7/gsclib045/qrc/qx/gpdk045.tch 0.000000 1.000000 1.000000 
+[11/21 16:58:47     23s] Unit RC read checksum: 14256, count: 14256, status: 1
+[11/21 16:58:47     23s] Number of RC corner to be extracted::0
+[11/21 16:58:47     23s] eee: l::1 avDens::0.109065 usedTrk::2669.921348 availTrk::24480.000000 sigTrk::2669.921348
+[11/21 16:58:47     23s] eee: l::2 avDens::0.215249 usedTrk::4766.581414 availTrk::22144.500000 sigTrk::4766.581414
+[11/21 16:58:47     23s] eee: l::3 avDens::0.244160 usedTrk::6064.932331 availTrk::24840.000000 sigTrk::6064.932331
+[11/21 16:58:47     23s] eee: l::4 avDens::0.198007 usedTrk::4469.422456 availTrk::22572.000000 sigTrk::4469.422456
+[11/21 16:58:47     23s] eee: l::5 avDens::0.127631 usedTrk::2779.805319 availTrk::21780.000000 sigTrk::2779.805319
+[11/21 16:58:47     23s] eee: l::6 avDens::0.060618 usedTrk::1197.234210 availTrk::19750.500000 sigTrk::1197.234210
+[11/21 16:58:47     23s] eee: l::7 avDens::0.037683 usedTrk::373.062281 availTrk::9900.000000 sigTrk::373.062281
+[11/21 16:58:47     23s] eee: l::8 avDens::0.057113 usedTrk::131.845031 availTrk::2308.500000 sigTrk::131.845031
+[11/21 16:58:47     23s] eee: l::9 avDens::0.007667 usedTrk::0.690058 availTrk::90.000000 sigTrk::0.690058
+[11/21 16:58:47     23s] eee: l::10 avDens::0.000000 usedTrk::0.000000 availTrk::0.000000 sigTrk::0.000000
+[11/21 16:58:47     23s] eee: l::11 avDens::0.000000 usedTrk::0.000000 availTrk::0.000000 sigTrk::0.000000
+[11/21 16:58:47     23s] eee: LAM: n=40 LLS=2-3 HLS=3-5 rDens=0.288220 uaWl=0.999697 uaWlH=0.434699 aWlH=0.000295 lMod=0 pMax=0.854900 pMod=81 wcR=0.772700 newSi=0.001600 wHLS=1.932323 siPrev=0 viaL=0.000000 crit=0.000382 shortMod=0.001908 fMod=0.000095 
+[11/21 16:58:47     23s] Default value for postRoute extraction mode's effortLevel (-effortLevel option of setExtractRCMode) changed to 'medium'.
+[11/21 16:58:47     23s] Restore PreRoute all RC Grid data successful.Start generating vias ..
+[11/21 16:58:48     23s] #create default rule from bind_ndr_rule rule=0x7fd10cf86270 0x7fd0ebec6568
+[11/21 16:58:48     23s] ### import design signature (1): route=1 fixed_route=1 flt_obj=0 vio=1905142130 swire=1 shield_wire=1 net_attr=1 dirty_area=0 del_dirty_area=0 cell=0 placement=0 pin_access=1 inst_pattern=1 via=610195162 routing_via=1
+[11/21 16:58:48     23s] #Skip building auto via since it is not turned on.
+[11/21 16:58:48     23s] Extracting standard cell pins and blockage ...... 
+[11/21 16:58:48     23s] Pin and blockage extraction finished
+[11/21 16:58:48     23s] Via generation completed.
+[11/21 16:58:48     23s] % Begin Load power constraints ... (date=11/21 16:58:48, mem=1459.7M)
+[11/21 16:58:48     24s] % End Load power constraints ... (date=11/21 16:58:48, total cpu=0:00:00.1, real=0:00:00.0, peak res=1466.8M, current mem=1466.8M)
+[11/21 16:58:48     24s] % Begin load AAE data ... (date=11/21 16:58:48, mem=1495.3M)
+[11/21 16:58:48     24s] AAE DB initialization (MEM=1583.35 CPU=0:00:00.0 REAL=0:00:00.0) 
+[11/21 16:58:48     24s] % End load AAE data ... (date=11/21 16:58:48, total cpu=0:00:00.5, real=0:00:00.0, peak res=1505.3M, current mem=1505.3M)
+[11/21 16:58:48     24s] Restoring CCOpt config...
+[11/21 16:58:48     24s] 
+[11/21 16:58:48     24s] TimeStamp Creating Cell Server ...(0, 0, 0, 0) in restoreDesign Begin ...
+[11/21 16:58:48     24s] SBFF Setting to complicate: SMDFFHQX8 complicate code: 30.1
+[11/21 16:58:48     24s] SBFF Setting to complicate: SMDFFHQX4 complicate code: 30.1
+[11/21 16:58:48     24s] SBFF Setting to complicate: SMDFFHQX2 complicate code: 30.1
+[11/21 16:58:48     24s] SBFF Setting to complicate: SMDFFHQX1 complicate code: 30.1
+[11/21 16:58:48     24s] SBFF Setting to complicate: SEDFFTRXL complicate code: 30.05
+[11/21 16:58:48     24s] SBFF Setting to complicate: SEDFFTRX4 complicate code: 30.05
+[11/21 16:58:48     24s] SBFF Setting to complicate: SEDFFTRX2 complicate code: 30.05
+[11/21 16:58:48     24s] SBFF Setting to complicate: SEDFFTRX1 complicate code: 30.05
+[11/21 16:58:48     24s] SBFF Setting to complicate: SEDFFHQX8 complicate code: 30.05
+[11/21 16:58:48     24s] SBFF Setting to complicate: SEDFFHQX4 complicate code: 30.05
+[11/21 16:58:48     24s] SBFF Setting to complicate: SEDFFHQX2 complicate code: 30.05
+[11/21 16:58:48     24s] SBFF Setting to complicate: SEDFFHQX1 complicate code: 30.05
+[11/21 16:58:48     24s] SBFF Setting to complicate: EDFFTRXL complicate code: 30.05
+[11/21 16:58:48     24s] SBFF Setting to complicate: EDFFTRX4 complicate code: 30.05
+[11/21 16:58:48     24s] SBFF Setting to complicate: EDFFTRX2 complicate code: 30.05
+[11/21 16:58:48     24s] SBFF Setting to complicate: EDFFTRX1 complicate code: 30.05
+[11/21 16:58:48     24s] Summary for sequential cells identification: 
+[11/21 16:58:48     24s]   Identified SBFF number: 104
+[11/21 16:58:48     24s]   Identified MBFF number: 0
+[11/21 16:58:48     24s]   Identified SB Latch number: 0
+[11/21 16:58:48     24s]   Identified MB Latch number: 0
+[11/21 16:58:48     24s]   Not identified SBFF number: 16
+[11/21 16:58:48     24s]   Not identified MBFF number: 0
+[11/21 16:58:48     24s]   Not identified SB Latch number: 0
+[11/21 16:58:48     24s]   Not identified MB Latch number: 0
+[11/21 16:58:48     24s]   Number of sequential cells which are not FFs: 32
+[11/21 16:58:48     24s]  Visiting view : func_slow_view
+[11/21 16:58:48     24s]    : PowerDomain = none : Weighted F : unweighted  = 38.00 (1.000) with rcCorner = 0
+[11/21 16:58:48     24s]    : PowerDomain = none : Weighted F : unweighted  = 20.10 (1.000) with rcCorner = -1
+[11/21 16:58:48     24s]  Visiting view : func_fast_view
+[11/21 16:58:48     24s]    : PowerDomain = none : Weighted F : unweighted  = 11.90 (1.000) with rcCorner = 1
+[11/21 16:58:48     24s]    : PowerDomain = none : Weighted F : unweighted  = 5.30 (1.000) with rcCorner = -1
+[11/21 16:58:48     24s] 
+[11/21 16:58:48     24s] TimeStamp Creating Cell Server ...(0, 0, 0, 0) in restoreDesign End ...
+[11/21 16:58:48     24s]   Extracting original clock gating for clk...
+[11/21 16:58:49     24s]     clock_tree clk contains 2949 sinks and 33 clock gates.
+[11/21 16:58:49     24s]   Extracting original clock gating for clk done.
+[11/21 16:58:49     24s]   The skew group clk/functional was created. It contains 2949 sinks and 1 sources.
+[11/21 16:58:49     24s]   The skew group clk/functional was created. It contains 2949 sinks and 1 sources.
+[11/21 16:58:49     24s] Restoring CCOpt config done.
+[11/21 16:58:49     24s] 
+[11/21 16:58:49     24s] TimeStamp Deleting Cell Server Begin ...
+[11/21 16:58:49     24s] 
+[11/21 16:58:49     24s] TimeStamp Deleting Cell Server End ...
+[11/21 16:58:49     24s] 
+[11/21 16:58:49     24s] TimeStamp Creating Cell Server ...(0, 1, 1, 1) in restoreDesign Begin ...
+[11/21 16:58:49     24s] SBFF Setting to complicate: SMDFFHQX8 complicate code: 30.1
+[11/21 16:58:49     24s] SBFF Setting to complicate: SMDFFHQX4 complicate code: 30.1
+[11/21 16:58:49     24s] SBFF Setting to complicate: SMDFFHQX2 complicate code: 30.1
+[11/21 16:58:49     24s] SBFF Setting to complicate: SMDFFHQX1 complicate code: 30.1
+[11/21 16:58:49     24s] SBFF Setting to complicate: SEDFFTRXL complicate code: 30.05
+[11/21 16:58:49     24s] SBFF Setting to complicate: SEDFFTRX4 complicate code: 30.05
+[11/21 16:58:49     24s] SBFF Setting to complicate: SEDFFTRX2 complicate code: 30.05
+[11/21 16:58:49     24s] SBFF Setting to complicate: SEDFFTRX1 complicate code: 30.05
+[11/21 16:58:49     24s] SBFF Setting to complicate: SEDFFHQX8 complicate code: 30.05
+[11/21 16:58:49     24s] SBFF Setting to complicate: SEDFFHQX4 complicate code: 30.05
+[11/21 16:58:49     24s] SBFF Setting to complicate: SEDFFHQX2 complicate code: 30.05
+[11/21 16:58:49     24s] SBFF Setting to complicate: SEDFFHQX1 complicate code: 30.05
+[11/21 16:58:49     24s] SBFF Setting to complicate: EDFFTRXL complicate code: 30.05
+[11/21 16:58:49     24s] SBFF Setting to complicate: EDFFTRX4 complicate code: 30.05
+[11/21 16:58:49     24s] SBFF Setting to complicate: EDFFTRX2 complicate code: 30.05
+[11/21 16:58:49     24s] SBFF Setting to complicate: EDFFTRX1 complicate code: 30.05
+[11/21 16:58:49     24s] Summary for sequential cells identification: 
+[11/21 16:58:49     24s]   Identified SBFF number: 104
+[11/21 16:58:49     24s]   Identified MBFF number: 0
+[11/21 16:58:49     24s]   Identified SB Latch number: 0
+[11/21 16:58:49     24s]   Identified MB Latch number: 0
+[11/21 16:58:49     24s]   Not identified SBFF number: 16
+[11/21 16:58:49     24s]   Not identified MBFF number: 0
+[11/21 16:58:49     24s]   Not identified SB Latch number: 0
+[11/21 16:58:49     24s]   Not identified MB Latch number: 0
+[11/21 16:58:49     24s]   Number of sequential cells which are not FFs: 32
+[11/21 16:58:49     24s] Total number of combinational cells: 318
+[11/21 16:58:49     24s] Total number of sequential cells: 152
+[11/21 16:58:49     24s] Total number of tristate cells: 10
+[11/21 16:58:49     24s] Total number of level shifter cells: 0
+[11/21 16:58:49     24s] Total number of power gating cells: 0
+[11/21 16:58:49     24s] Total number of isolation cells: 0
+[11/21 16:58:49     24s] Total number of power switch cells: 0
+[11/21 16:58:49     24s] Total number of pulse generator cells: 0
+[11/21 16:58:49     24s] Total number of always on buffers: 0
+[11/21 16:58:49     24s] Total number of retention cells: 0
+[11/21 16:58:49     24s] Total number of physical cells: 9
+[11/21 16:58:49     24s] List of usable buffers: BUFX12 BUFX16 BUFX20 CLKBUFX2 BUFX3 BUFX4 BUFX6 BUFX8 CLKBUFX12 CLKBUFX16 CLKBUFX20 CLKBUFX3 CLKBUFX4 CLKBUFX6 CLKBUFX8
+[11/21 16:58:49     24s] Total number of usable buffers: 15
+[11/21 16:58:49     24s] List of unusable buffers: BUFX2
+[11/21 16:58:49     24s] Total number of unusable buffers: 1
+[11/21 16:58:49     24s] List of usable inverters: CLKINVX1 CLKINVX2 CLKINVX12 CLKINVX16 CLKINVX20 CLKINVX4 CLKINVX3 CLKINVX6 CLKINVX8 INVX1 INVX2 INVX12 INVX16 INVX20 INVXL INVX3 INVX4 INVX6 INVX8
+[11/21 16:58:49     24s] Total number of usable inverters: 19
+[11/21 16:58:49     24s] List of unusable inverters:
+[11/21 16:58:49     24s] Total number of unusable inverters: 0
+[11/21 16:58:49     24s] List of identified usable delay cells: DLY1X1 DLY1X4 DLY2X1 DLY2X4 DLY3X1 DLY3X4 DLY4X1 DLY4X4
+[11/21 16:58:49     24s] Total number of identified usable delay cells: 8
+[11/21 16:58:49     24s] List of identified unusable delay cells:
+[11/21 16:58:49     24s] Total number of identified unusable delay cells: 0
+[11/21 16:58:49     24s] 
+[11/21 16:58:49     24s] TimeStamp Creating Cell Server ...(0, 1, 1, 1) in restoreDesign End ...
+[11/21 16:58:49     24s] 
+[11/21 16:58:49     24s] TimeStamp Deleting Cell Server Begin ...
+[11/21 16:58:49     24s] 
+[11/21 16:58:49     24s] TimeStamp Deleting Cell Server End ...
+[11/21 16:58:49     24s] **WARN: (IMPCTE-107):	The following globals have been obsoleted since version . They will be removed in the next release. 
+[11/21 16:58:49     24s] timing_enable_separate_device_slew_effect_sensitivities
+[11/21 16:58:49     24s] #% End load design ... (date=11/21 16:58:49, total cpu=0:00:06.4, real=0:00:08.0, peak res=1526.6M, current mem=1509.3M)
+[11/21 16:58:49     24s] 
+[11/21 16:58:49     24s] *** Summary of all messages that are not suppressed in this session:
+[11/21 16:58:49     24s] Severity  ID               Count  Summary                                  
+[11/21 16:58:49     24s] WARNING   IMPLF-200            1  Pin '%s' in macro '%s' has no ANTENNAGAT...
+[11/21 16:58:49     24s] WARNING   IMPFP-3961           4  The techSite '%s' has no related standar...
+[11/21 16:58:49     24s] WARNING   IMPOPT-3602          2  The specified path group name %s is not ...
+[11/21 16:58:49     24s] WARNING   NRIF-80              1  When droutePostRouteSwapVia is set to 'm...
+[11/21 16:58:49     24s] WARNING   IMPCTE-107           1  The following globals have been obsolete...
+[11/21 16:58:49     24s] WARNING   IMPTCM-77            1  Option "%s" for command %s is obsolete a...
+[11/21 16:58:49     24s] WARNING   TECHLIB-302         20  No function defined for cell '%s'. The c...
+[11/21 16:58:49     24s] *** Message Summary: 30 warning(s), 0 error(s)
+[11/21 16:58:49     24s] 
+[11/21 16:58:49     24s] <CMD> verify_connectivity -type all -error 1000 -warning 50 -report /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/signoff/lvs/innovus_connectivity.rpt
+[11/21 16:58:49     24s] VERIFY_CONNECTIVITY use new engine.
+[11/21 16:58:49     24s] 
+[11/21 16:58:49     24s] ******** Start: VERIFY CONNECTIVITY ********
+[11/21 16:58:49     24s] Start Time: Sat Nov 21 16:58:49 2026
+[11/21 16:58:49     24s] 
+[11/21 16:58:49     24s] Design Name: datapath
+[11/21 16:58:49     24s] Database Units: 2000
+[11/21 16:58:49     24s] Design Boundary: (0.0000, 0.0000) (282.4000, 280.0600)
+[11/21 16:58:49     24s] Error Limit = 1000; Warning Limit = 50
+[11/21 16:58:49     24s] Check all nets
+[11/21 16:58:49     25s] **** 16:58:49 **** Processed 5000 nets.
+[11/21 16:58:49     25s] **** 16:58:49 **** Processed 10000 nets.
+[11/21 16:58:49     25s] **** 16:58:49 **** Processed 15000 nets.
+[11/21 16:58:49     25s] **** 16:58:49 **** Processed 20000 nets.
+[11/21 16:58:50     26s] 
+[11/21 16:58:50     26s] Begin Summary 
+[11/21 16:58:50     26s]   Found no problems or warnings.
+[11/21 16:58:50     26s] End Summary
+[11/21 16:58:50     26s] 
+[11/21 16:58:50     26s] End Time: Sat Nov 21 16:58:50 2026
+[11/21 16:58:50     26s] Time Elapsed: 0:00:01.0
+[11/21 16:58:50     26s] 
+[11/21 16:58:50     26s] ******** End: VERIFY CONNECTIVITY ********
+[11/21 16:58:50     26s]   Verification Complete : 0 Viols.  0 Wrngs.
+[11/21 16:58:50     26s]   (CPU Time: 0:00:01.3  MEM: 4.000M)
+[11/21 16:58:50     26s] 
+[11/21 16:58:50     26s] <CMD> streamOut /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/signoff/datapath.gds -libName DesignLib -structureName datapath -stripes 1 -units 2000 -mode ALL -mapFile /tools/eda/pdks/cadence/gpdk045/gpdk045_v_6_0/gpdk045/gpdk045.layermap -merge /tools/eda/pdks/cadence/gpdk045/gsclib045_svt_v4.7/gsclib045/gds/gsclib045.gds
+[11/21 16:58:50     26s] **WARN: (IMPTCM-125):	Option "-stripes" for command streamOut is obsolete and will be ignored. It no longer has any effect and should be removed from your script.
+[11/21 16:58:50     26s] Merge file: /tools/eda/pdks/cadence/gpdk045/gsclib045_svt_v4.7/gsclib045/gds/gsclib045.gds has version number: 5
+[11/21 16:58:50     26s] Parse flat map file...
+[11/21 16:58:50     26s] **WARN: (IMPOGDS-391):	Line 3: Object Type 'drawing' specified with layer 'Nwell' is not legal. The map file maybe being a DFII/Virtuoso map file. For a list of legal object types refer to the map file syntax in the User Guide.
+[11/21 16:58:50     26s] Type 'man IMPOGDS-391' for more detail.
+[11/21 16:58:50     26s] **WARN: (IMPOGDS-391):	Line 4: Object Type 'drawing' specified with layer 'Oxide' is not legal. The map file maybe being a DFII/Virtuoso map file. For a list of legal object types refer to the map file syntax in the User Guide.
+[11/21 16:58:50     26s] Type 'man IMPOGDS-391' for more detail.
+[11/21 16:58:50     26s] **WARN: (IMPOGDS-392):	Unknown layer Oxide_thk 
+[11/21 16:58:50     26s] Type 'man IMPOGDS-392' for more detail.
+[11/21 16:58:50     26s] **WARN: (IMPOGDS-391):	Line 6: Object Type 'drawing' specified with layer 'Poly' is not legal. The map file maybe being a DFII/Virtuoso map file. For a list of legal object types refer to the map file syntax in the User Guide.
+[11/21 16:58:50     26s] Type 'man IMPOGDS-391' for more detail.
+[11/21 16:58:50     26s] **WARN: (IMPOGDS-391):	Line 7: Object Type 'drawing' specified with layer 'Pimp' is not legal. The map file maybe being a DFII/Virtuoso map file. For a list of legal object types refer to the map file syntax in the User Guide.
+[11/21 16:58:50     26s] Type 'man IMPOGDS-391' for more detail.
+[11/21 16:58:50     26s] **WARN: (IMPOGDS-391):	Line 8: Object Type 'drawing' specified with layer 'Nhvt' is not legal. The map file maybe being a DFII/Virtuoso map file. For a list of legal object types refer to the map file syntax in the User Guide.
+[11/21 16:58:50     26s] Type 'man IMPOGDS-391' for more detail.
+[11/21 16:58:50     26s] **WARN: (IMPOGDS-391):	Line 9: Object Type 'drawing' specified with layer 'Nlvt' is not legal. The map file maybe being a DFII/Virtuoso map file. For a list of legal object types refer to the map file syntax in the User Guide.
+[11/21 16:58:50     26s] Type 'man IMPOGDS-391' for more detail.
+[11/21 16:58:50     26s] **WARN: (IMPOGDS-391):	Line 10: Object Type 'drawing' specified with layer 'Nimp' is not legal. The map file maybe being a DFII/Virtuoso map file. For a list of legal object types refer to the map file syntax in the User Guide.
+[11/21 16:58:50     26s] Type 'man IMPOGDS-391' for more detail.
+[11/21 16:58:50     26s] **WARN: (IMPOGDS-391):	Line 11: Object Type 'drawing' specified with layer 'Phvt' is not legal. The map file maybe being a DFII/Virtuoso map file. For a list of legal object types refer to the map file syntax in the User Guide.
+[11/21 16:58:50     26s] Type 'man IMPOGDS-391' for more detail.
+[11/21 16:58:50     26s] **WARN: (IMPOGDS-391):	Line 12: Object Type 'drawing' specified with layer 'Plvt' is not legal. The map file maybe being a DFII/Virtuoso map file. For a list of legal object types refer to the map file syntax in the User Guide.
+[11/21 16:58:50     26s] Type 'man IMPOGDS-391' for more detail.
+[11/21 16:58:50     26s] **WARN: (IMPOGDS-391):	Line 13: Object Type 'drawing' specified with layer 'Nzvt' is not legal. The map file maybe being a DFII/Virtuoso map file. For a list of legal object types refer to the map file syntax in the User Guide.
+[11/21 16:58:50     26s] Type 'man IMPOGDS-391' for more detail.
+[11/21 16:58:50     26s] **WARN: (IMPOGDS-391):	Line 14: Object Type 'drawing' specified with layer 'SiProt' is not legal. The map file maybe being a DFII/Virtuoso map file. For a list of legal object types refer to the map file syntax in the User Guide.
+[11/21 16:58:50     26s] Type 'man IMPOGDS-391' for more detail.
+[11/21 16:58:50     26s] **WARN: (IMPOGDS-391):	Line 15: Object Type 'drawing' specified with layer 'Cont' is not legal. The map file maybe being a DFII/Virtuoso map file. For a list of legal object types refer to the map file syntax in the User Guide.
+[11/21 16:58:50     26s] Type 'man IMPOGDS-391' for more detail.
+[11/21 16:58:50     26s] **WARN: (IMPOGDS-391):	Line 16: Object Type 'drawing' specified with layer 'Metal1' is not legal. The map file maybe being a DFII/Virtuoso map file. For a list of legal object types refer to the map file syntax in the User Guide.
+[11/21 16:58:50     26s] Type 'man IMPOGDS-391' for more detail.
+[11/21 16:58:50     26s] **WARN: (IMPOGDS-391):	Line 17: Object Type 'drawing' specified with layer 'Via1' is not legal. The map file maybe being a DFII/Virtuoso map file. For a list of legal object types refer to the map file syntax in the User Guide.
+[11/21 16:58:50     26s] Type 'man IMPOGDS-391' for more detail.
+[11/21 16:58:50     26s] **WARN: (IMPOGDS-391):	Line 18: Object Type 'drawing' specified with layer 'Metal2' is not legal. The map file maybe being a DFII/Virtuoso map file. For a list of legal object types refer to the map file syntax in the User Guide.
+[11/21 16:58:50     26s] Type 'man IMPOGDS-391' for more detail.
+[11/21 16:58:50     26s] **WARN: (IMPOGDS-391):	Line 19: Object Type 'drawing' specified with layer 'Via2' is not legal. The map file maybe being a DFII/Virtuoso map file. For a list of legal object types refer to the map file syntax in the User Guide.
+[11/21 16:58:50     26s] Type 'man IMPOGDS-391' for more detail.
+[11/21 16:58:50     26s] **WARN: (IMPOGDS-391):	Line 20: Object Type 'drawing' specified with layer 'Metal3' is not legal. The map file maybe being a DFII/Virtuoso map file. For a list of legal object types refer to the map file syntax in the User Guide.
+[11/21 16:58:50     26s] Type 'man IMPOGDS-391' for more detail.
+[11/21 16:58:50     26s] **WARN: (IMPOGDS-391):	Line 21: Object Type 'drawing' specified with layer 'Via3' is not legal. The map file maybe being a DFII/Virtuoso map file. For a list of legal object types refer to the map file syntax in the User Guide.
+[11/21 16:58:50     26s] Type 'man IMPOGDS-391' for more detail.
+[11/21 16:58:50     26s] **WARN: (IMPOGDS-391):	Line 22: Object Type 'drawing' specified with layer 'Metal4' is not legal. The map file maybe being a DFII/Virtuoso map file. For a list of legal object types refer to the map file syntax in the User Guide.
+[11/21 16:58:50     26s] Type 'man IMPOGDS-391' for more detail.
+[11/21 16:58:50     26s] **WARN: (IMPOGDS-391):	Line 23: Object Type 'drawing' specified with layer 'Via4' is not legal. The map file maybe being a DFII/Virtuoso map file. For a list of legal object types refer to the map file syntax in the User Guide.
+[11/21 16:58:50     26s] Type 'man IMPOGDS-391' for more detail.
+[11/21 16:58:50     26s] **WARN: (EMS-27):	Message (IMPOGDS-391) has exceeded the current message display limit of 20.
+[11/21 16:58:50     26s] To increase the message display limit, refer to the product command reference manual.
+[11/21 16:58:50     26s] **WARN: (IMPOGDS-392):	Unknown layer CapMetal 
+[11/21 16:58:50     26s] Type 'man IMPOGDS-392' for more detail.
+[11/21 16:58:50     26s] **WARN: (IMPOGDS-392):	Unknown layer Nburied 
+[11/21 16:58:50     26s] Type 'man IMPOGDS-392' for more detail.
+[11/21 16:58:50     26s] **WARN: (IMPOGDS-392):	Unknown layer Psub 
+[11/21 16:58:50     26s] Type 'man IMPOGDS-392' for more detail.
+[11/21 16:58:50     26s] **WARN: (IMPOGDS-392):	Unknown layer Capdum 
+[11/21 16:58:50     26s] Type 'man IMPOGDS-392' for more detail.
+[11/21 16:58:50     26s] **WARN: (IMPOGDS-392):	Unknown layer Cap3dum 
+[11/21 16:58:50     26s] Type 'man IMPOGDS-392' for more detail.
+[11/21 16:58:50     26s] **WARN: (IMPOGDS-392):	Unknown layer INDdummy 
+[11/21 16:58:50     26s] Type 'man IMPOGDS-392' for more detail.
+[11/21 16:58:50     26s] **WARN: (IMPOGDS-392):	Unknown layer IND2dummy 
+[11/21 16:58:50     26s] Type 'man IMPOGDS-392' for more detail.
+[11/21 16:58:50     26s] **WARN: (IMPOGDS-392):	Unknown layer IND3dummy 
+[11/21 16:58:50     26s] Type 'man IMPOGDS-392' for more detail.
+[11/21 16:58:50     26s] **WARN: (IMPOGDS-392):	Unknown layer Resdum 
+[11/21 16:58:50     26s] Type 'man IMPOGDS-392' for more detail.
+[11/21 16:58:50     26s] **WARN: (IMPOGDS-392):	Unknown layer ResWdum 
+[11/21 16:58:50     26s] Type 'man IMPOGDS-392' for more detail.
+[11/21 16:58:50     26s] **WARN: (IMPOGDS-392):	Unknown layer M1Resdum 
+[11/21 16:58:50     26s] Type 'man IMPOGDS-392' for more detail.
+[11/21 16:58:50     26s] **WARN: (IMPOGDS-392):	Unknown layer M2Resdum 
+[11/21 16:58:50     26s] Type 'man IMPOGDS-392' for more detail.
+[11/21 16:58:50     26s] **WARN: (IMPOGDS-392):	Unknown layer M3Resdum 
+[11/21 16:58:50     26s] Type 'man IMPOGDS-392' for more detail.
+[11/21 16:58:50     26s] **WARN: (IMPOGDS-392):	Unknown layer M4Resdum 
+[11/21 16:58:50     26s] Type 'man IMPOGDS-392' for more detail.
+[11/21 16:58:50     26s] **WARN: (IMPOGDS-392):	Unknown layer M5Resdum 
+[11/21 16:58:50     26s] Type 'man IMPOGDS-392' for more detail.
+[11/21 16:58:50     26s] **WARN: (IMPOGDS-392):	Unknown layer M6Resdum 
+[11/21 16:58:50     26s] Type 'man IMPOGDS-392' for more detail.
+[11/21 16:58:50     26s] **WARN: (IMPOGDS-392):	Unknown layer M7Resdum 
+[11/21 16:58:50     26s] Type 'man IMPOGDS-392' for more detail.
+[11/21 16:58:50     26s] **WARN: (IMPOGDS-392):	Unknown layer M8Resdum 
+[11/21 16:58:50     26s] Type 'man IMPOGDS-392' for more detail.
+[11/21 16:58:50     26s] **WARN: (IMPOGDS-392):	Unknown layer M9Resdum 
+[11/21 16:58:50     26s] Type 'man IMPOGDS-392' for more detail.
+[11/21 16:58:50     26s] **WARN: (EMS-27):	Message (IMPOGDS-392) has exceeded the current message display limit of 20.
+[11/21 16:58:50     26s] To increase the message display limit, refer to the product command reference manual.
+[11/21 16:58:50     26s] Writing GDSII file ...
+[11/21 16:58:50     26s] 	****** db unit per micron = 2000 ******
+[11/21 16:58:50     26s] 	****** output gds2 file unit per micron = 2000 ******
+[11/21 16:58:50     26s] 	****** unit scaling factor = 1 ******
+[11/21 16:58:50     26s] Output for instance
+[11/21 16:58:50     26s] Output for bump
+[11/21 16:58:50     26s] Output for physical terminals
+[11/21 16:58:50     26s] Output for logical terminals
+[11/21 16:58:50     26s] Output for special nets and metal fills
+[11/21 16:58:50     26s] Output for via structure generation total number 12
+[11/21 16:58:50     26s] **WARN: (IMPOGDS-1178):	The GDSII cell 'datapath_VIA11' is empty.
+[11/21 16:58:50     26s] **WARN: (IMPOGDS-1178):	The GDSII cell 'datapath_VIA2' is empty.
+[11/21 16:58:50     26s] **WARN: (IMPOGDS-1178):	The GDSII cell 'datapath_VIA1' is empty.
+[11/21 16:58:50     26s] **WARN: (IMPOGDS-1178):	The GDSII cell 'datapath_VIA0' is empty.
+[11/21 16:58:50     26s] **WARN: (IMPOGDS-1178):	The GDSII cell 'datapath_VIA4' is empty.
+[11/21 16:58:50     26s] **WARN: (IMPOGDS-1178):	The GDSII cell 'datapath_VIA8' is empty.
+[11/21 16:58:50     26s] **WARN: (IMPOGDS-1178):	The GDSII cell 'datapath_VIA3' is empty.
+[11/21 16:58:50     26s] **WARN: (IMPOGDS-1178):	The GDSII cell 'datapath_VIA7' is empty.
+[11/21 16:58:50     26s] **WARN: (IMPOGDS-1178):	The GDSII cell 'datapath_VIA5' is empty.
+[11/21 16:58:50     26s] **WARN: (IMPOGDS-1178):	The GDSII cell 'datapath_VIA9' is empty.
+[11/21 16:58:50     26s] **WARN: (IMPOGDS-1178):	The GDSII cell 'datapath_VIA6' is empty.
+[11/21 16:58:50     26s] **WARN: (IMPOGDS-1178):	The GDSII cell 'datapath_VIA10' is empty.
+[11/21 16:58:50     26s] Statistics for GDS generated (version 5)
+[11/21 16:58:50     26s] ----------------------------------------
+[11/21 16:58:50     26s] Stream Out Layer Mapping Information:
+[11/21 16:58:50     26s] GDS Layer Number          GDS Layer Name
+[11/21 16:58:50     26s] ----------------------------------------
+[11/21 16:58:50     26s]     162                          Metal11
+[11/21 16:58:50     26s]     152                          Metal10
+[11/21 16:58:50     26s]     42                            Metal9
+[11/21 16:58:50     26s]     40                            Metal8
+[11/21 16:58:50     26s]     38                            Metal7
+[11/21 16:58:50     26s]     35                            Metal6
+[11/21 16:58:50     26s]     33                            Metal5
+[11/21 16:58:50     26s]     31                            Metal4
+[11/21 16:58:50     26s]     11                            Metal3
+[11/21 16:58:50     26s]     9                             Metal2
+[11/21 16:58:50     26s]     7                             Metal1
+[11/21 16:58:50     26s] 
+[11/21 16:58:50     26s] 
+[11/21 16:58:50     26s] Stream Out Information Processed for GDS version 5:
+[11/21 16:58:50     26s] Units: 2000 DBU
+[11/21 16:58:50     26s] 
+[11/21 16:58:50     26s] Object                             Count
+[11/21 16:58:50     26s] ----------------------------------------
+[11/21 16:58:50     26s] Instances                          30846
+[11/21 16:58:50     26s] 
+[11/21 16:58:50     26s] Ports/Pins                           230
+[11/21 16:58:50     26s]     metal layer Metal3               166
+[11/21 16:58:50     26s]     metal layer Metal4                64
+[11/21 16:58:50     26s] 
+[11/21 16:58:50     26s] Nets                                   0
+[11/21 16:58:50     26s] 
+[11/21 16:58:50     26s]     Via Instances                      0
+[11/21 16:58:50     26s] 
+[11/21 16:58:50     26s] Special Nets                           0
+[11/21 16:58:50     26s] 
+[11/21 16:58:50     26s]     Via Instances                   6921
+[11/21 16:58:50     26s] 
+[11/21 16:58:50     26s] Metal Fills                            0
+[11/21 16:58:50     26s] 
+[11/21 16:58:50     26s]     Via Instances                      0
+[11/21 16:58:50     26s] 
+[11/21 16:58:50     26s] Metal FillOPCs                         0
+[11/21 16:58:50     26s] 
+[11/21 16:58:50     26s]     Via Instances                      0
+[11/21 16:58:50     26s] 
+[11/21 16:58:50     26s] Metal FillDRCs                         0
+[11/21 16:58:50     26s] 
+[11/21 16:58:50     26s]     Via Instances                      0
+[11/21 16:58:50     26s] 
+[11/21 16:58:50     26s] Text                                   0
+[11/21 16:58:50     26s] 
+[11/21 16:58:50     26s] 
+[11/21 16:58:50     26s] Blockages                              0
+[11/21 16:58:50     26s] 
+[11/21 16:58:50     26s] 
+[11/21 16:58:50     26s] Custom Text                            0
+[11/21 16:58:50     26s] 
+[11/21 16:58:50     26s] 
+[11/21 16:58:50     26s] Custom Box                             0
+[11/21 16:58:50     26s] 
+[11/21 16:58:50     26s] Trim Metal                             0
+[11/21 16:58:50     26s] 
+[11/21 16:58:50     26s] Scanning GDS file /tools/eda/pdks/cadence/gpdk045/gsclib045_svt_v4.7/gsclib045/gds/gsclib045.gds to register cell name ......
+[11/21 16:58:50     26s] Merging GDS file /tools/eda/pdks/cadence/gpdk045/gsclib045_svt_v4.7/gsclib045/gds/gsclib045.gds ......
+[11/21 16:58:50     26s] 	****** Merge file: /tools/eda/pdks/cadence/gpdk045/gsclib045_svt_v4.7/gsclib045/gds/gsclib045.gds has version number: 5.
+[11/21 16:58:50     26s] 	****** Merge file: /tools/eda/pdks/cadence/gpdk045/gsclib045_svt_v4.7/gsclib045/gds/gsclib045.gds has units: 2000 per micron.
+[11/21 16:58:50     26s] 	****** unit scaling factor = 1 ******
+[11/21 16:58:50     26s] **WARN: (IMPOGDS-1176):	There are 12 empty cells. Check innovus.log# for the details.
+[11/21 16:58:50     26s]   It is probably because your mapping file does not contain corresponding rules.
+[11/21 16:58:50     26s]   Use default mapping file(without option -mapFile) to output all information of a cell.
+[11/21 16:58:50     26s] Type 'man IMPOGDS-1176' for more detail.
+[11/21 16:58:50     26s] ######Streamout is finished!
+[11/21 16:58:50     26s] <CMD> saveNetlist /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/signoff/datapath_lvs.v -phys -excludeLeafCell -excludeCellInst {FILL1 FILL2 FILL4 FILL8 FILL16 FILL32 FILL64}
+[11/21 16:58:50     26s] Writing Netlist "/home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/signoff/datapath_lvs.v" ...
+[11/21 16:58:50     26s] Pwr name (VDD).
+[11/21 16:58:50     26s] Gnd name (VSS).
+[11/21 16:58:50     26s] 1 Pwr names and 1 Gnd names.
+[11/21 16:58:51     26s] 
+[11/21 16:58:51     26s] *** Memory Usage v#1 (Current mem = 1595.355M, initial mem = 495.004M) ***
+[11/21 16:58:51     26s] 
+[11/21 16:58:51     26s] *** Summary of all messages that are not suppressed in this session:
+[11/21 16:58:51     26s] Severity  ID               Count  Summary                                  
+[11/21 16:58:51     26s] WARNING   IMPLF-200            1  Pin '%s' in macro '%s' has no ANTENNAGAT...
+[11/21 16:58:51     26s] WARNING   IMPFP-3961           4  The techSite '%s' has no related standar...
+[11/21 16:58:51     26s] WARNING   IMPOGDS-1176         1  There are %d empty cells. Check innovus....
+[11/21 16:58:51     26s] WARNING   IMPOGDS-1178        12  The GDSII cell '%s' is empty.            
+[11/21 16:58:51     26s] WARNING   IMPOGDS-391         57  Line %d: Object Type '%s' specified with...
+[11/21 16:58:51     26s] WARNING   IMPOGDS-392         43  Unknown layer %s                         
+[11/21 16:58:51     26s] WARNING   IMPOPT-3602          2  The specified path group name %s is not ...
+[11/21 16:58:51     26s] WARNING   IMPOPT-801           1  Genus executable not found in PATH%s. In...
+[11/21 16:58:51     26s] WARNING   NRIF-80              1  When droutePostRouteSwapVia is set to 'm...
+[11/21 16:58:51     26s] WARNING   IMPCTE-107           1  The following globals have been obsolete...
+[11/21 16:58:51     26s] WARNING   IMPTCM-77            1  Option "%s" for command %s is obsolete a...
+[11/21 16:58:51     26s] WARNING   IMPTCM-125           1  Option "%s" for command %s is obsolete a...
+[11/21 16:58:51     26s] WARNING   TECHLIB-302         20  No function defined for cell '%s'. The c...
+[11/21 16:58:51     26s] *** Message Summary: 145 warning(s), 0 error(s)
+[11/21 16:58:51     26s] 
+[11/21 16:58:51     26s] --- Ending "Innovus" (totcpu=0:00:26.8, real=0:00:37.0, mem=1595.4M) ---
