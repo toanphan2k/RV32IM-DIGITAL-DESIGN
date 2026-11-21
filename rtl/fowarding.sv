@@ -27,8 +27,13 @@ module forwarding(
     output logic [1:0]  sel_a_forward, sel_b_forward
     );
     
-    //EX/MEM first priority, then MEM/WB
-    assign sel_a_forward = (!rst_n) ? '0 : ((reg_write_m) & (rd_addr_m != 0) & (rd_addr_m == rs1_addr_e)) ? 2'b10 : ((reg_write_w) & (rd_addr_w != 0) & (rd_addr_w == rs1_addr_e)) ? 2'b01 : 2'b00;
-    assign sel_b_forward = (!rst_n) ? '0 : ((reg_write_m) & (rd_addr_m != 0) & (rd_addr_m == rs2_addr_e)) ? 2'b10 : ((reg_write_w) & (rd_addr_w != 0) & (rd_addr_w == rs2_addr_e)) ? 2'b01 : 2'b00;
+    // EX/MEM first priority, then MEM/WB.
+    // Note: reg_write_m and reg_write_w are already cleared by async rst_n, so
+    // gating combinational forwarding with rst_n is redundant and creates a high-
+    // fanout timing arc from rst_n through ALU/Mul/Div/PC.
+    assign sel_a_forward = (reg_write_m && (rd_addr_m != 5'd0) && (rd_addr_m == rs1_addr_e)) ? 2'b10 :
+                           (reg_write_w && (rd_addr_w != 5'd0) && (rd_addr_w == rs1_addr_e)) ? 2'b01 : 2'b00;
+    assign sel_b_forward = (reg_write_m && (rd_addr_m != 5'd0) && (rd_addr_m == rs2_addr_e)) ? 2'b10 :
+                           (reg_write_w && (rd_addr_w != 5'd0) && (rd_addr_w == rs2_addr_e)) ? 2'b01 : 2'b00;
     
 endmodule

@@ -1,3 +1,7 @@
+if {[info commands read_hdl] eq ""} {
+    error "scripts/synth.tcl must be run inside Cadence Genus: genus -files scripts/synth.tcl"
+}
+
 set SCRIPT_DIR [file dirname [file normalize [info script]]]
 set PROJECT_DIR [file normalize [file join $SCRIPT_DIR ..]]
 source [file join $SCRIPT_DIR pd_config.tcl]
@@ -20,12 +24,14 @@ foreach library $STD_CELL_LIBS {
 
 set_db init_lib_search_path [list $LIB_DIR]
 read_libs $STD_CELL_LIBS
-foreach cell $DONT_USE_CELLS {
-    set matching_lib_cells [get_db lib_cells */$cell]
+foreach cell_pattern $DONT_USE_CELLS {
+    set matching_lib_cells [get_db lib_cells */$cell_pattern]
     if {[llength $matching_lib_cells] == 0} {
-        error "Cannot find library cell to exclude: $cell"
+        puts "INFO: No library cells matched dont_use pattern '$cell_pattern' (skipping)."
+    } else {
+        set_db $matching_lib_cells .dont_use true
+        puts "INFO: Excluded [llength $matching_lib_cells] library cell(s) matching '$cell_pattern'."
     }
-    set_db $matching_lib_cells .dont_use true
 }
 
 if {[info exists ENABLE_CLOCK_GATING] && $ENABLE_CLOCK_GATING} {

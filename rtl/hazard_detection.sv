@@ -83,21 +83,22 @@ module hazard_detection(
     assign collision_at_mem = div_stage_5[6] || div_stage_6[6];
 
     //Stall system
+    logic stall_req;
     assign stall_req = conflict_div || conflict_div_waw || stall_load_use || collision_at_mem;
 
+    // Pipeline registers already reset asynchronously on negedge rst_n (clearing
+    // pc_sel and stall_req during reset), so rst_n does not need to drive the
+    // combinational pc_en / flush clock-enable cone.
     always_comb begin
         pc_en = 1'b1;
         flush = 1'b0;
-        if (!rst_n) begin
-            pc_en = 1'b1;
-            flush = 1'b0;
-        end else if (pc_sel) begin
+        if (pc_sel) begin
             flush = 1'b1;
             pc_en = 1'b1;
         end else if (stall_req) begin
-            pc_en    = 1'b0;  
-            flush    = 1'b1;  
-        end 
+            pc_en = 1'b0;
+            flush = 1'b1;
+        end
     end
     
 endmodule

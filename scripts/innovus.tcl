@@ -1,3 +1,7 @@
+if {[info commands init_design] eq ""} {
+    error "scripts/innovus.tcl must be run inside Cadence Innovus: innovus -files scripts/innovus.tcl"
+}
+
 set SCRIPT_DIR [file dirname [file normalize [info script]]]
 set PROJECT_DIR [file normalize [file join $SCRIPT_DIR ..]]
 source [file join $SCRIPT_DIR pd_config.tcl]
@@ -46,11 +50,27 @@ setDesignMode -process $PROCESS_NODE
 if {[info exists PV_CPUS] && $PV_CPUS > 1} {
     setMultiCpuUsage -localCpu $PV_CPUS
 }
-foreach cell $DONT_USE_CELLS {
-    set_dont_use [get_lib_cells */$cell]
+foreach cell_pattern $DONT_USE_CELLS {
+    set matching_cells [get_lib_cells -quiet */$cell_pattern]
+    if {[sizeof_collection $matching_cells] > 0} {
+        set_dont_use $matching_cells true
+    }
 }
+
 setAnalysisMode -analysisType onChipVariation -cppr both
 setPlaceMode -place_global_ignore_scan true
+
+# Create standard timing path groups (reg2reg, reg2cgate, in2reg, reg2out) cleanly
+createBasicPathGroups -expanded
+
+# Configure setup/hold slack & DRV guardbands so post-filler extraction stays violation-free
+if {![info exists SETUP_TARGET_SLACK]} { set SETUP_TARGET_SLACK 0.050 }
+if {![info exists HOLD_TARGET_SLACK]}  { set HOLD_TARGET_SLACK  0.030 }
+if {![info exists DRC_MARGIN]}         { set DRC_MARGIN         0.15  }
+setOptMode -fixDrc true -fixFanoutLoad true \
+    -setupTargetSlack $SETUP_TARGET_SLACK \
+    -holdTargetSlack  $HOLD_TARGET_SLACK \
+    -drcMargin        $DRC_MARGIN
 
 # 2. Floorplanning & IO pin assignment
 floorPlan -site $CORE_SITE -r $CORE_ASPECT_RATIO $CORE_UTILIZATION \
@@ -115,11 +135,11 @@ report_ccopt_skew_groups -file [file join $INNOVUS_OUTPUT_DIR cts_skew.rpt]
 optDesign -postCTS
 optDesign -postCTS -hold
 
-# 6. Timing/SI-driven routing with antenna fixing and multi-cut vias
+# 6. Timing/SI-driven routing with antenna fixing and DFM multi-cut vias
 setNanoRouteMode -routeWithTimingDriven true
 setNanoRouteMode -routeWithSiDriven true
 setNanoRouteMode -drouteFixAntenna true
-setNanoRouteMode -droutePostRouteSwapVia multiCut
+setNanoRouteMode -droutePostRouteSwapVia true
 set valid_antenna_cells [pd_filter_lib_cells [list $ANTENNA_CELL]]
 if {[llength $valid_antenna_cells] > 0} {
     setNanoRouteMode -routeInsertAntennaDiode true
@@ -133,13 +153,24 @@ setDelayCalMode -SIAware true
 extractRC
 optDesign -postRoute
 optDesign -postRoute -hold
-extractRC
 
-# 8. Decap & filler insertion before final verification and signoff export
+# 8. DRC-aware filler insertion + post-filler ECO route cleanup + final extraction
 set valid_fillers [pd_filter_lib_cells [concat $DECAP_CELLS $FILLER_CELLS]]
 if {[llength $valid_fillers] > 0} {
-    addFiller -cell $valid_fillers -prefix FILLER -fitGap
+    setFillerMode -core $valid_fillers -corePrefix FILLER -fitGap true -ecoMode true
+    addFiller
+    ecoRoute -target
 }
+
+verify_drc -limit 1000 -report [file join $INNOVUS_OUTPUT_DIR drc.rpt]
+set drc_markers [llength [dbGet -e top.markers]]
+if {$drc_markers > 0} {
+    puts "INFO: $drc_markers DRC marker(s) detected after filler insertion; running ecoRoute -fix_drc ..."
+    ecoRoute -fix_drc
+    verify_drc -limit 1000 -report [file join $INNOVUS_OUTPUT_DIR drc.rpt]
+}
+
+extractRC
 
 # 9. Post-route signoff timing, physical verification, and deliverables
 set POST_ROUTE_REPORT_DIR [file join $INNOVUS_OUTPUT_DIR postRoute]
@@ -148,7 +179,6 @@ timeDesign -postRoute -outDir $POST_ROUTE_REPORT_DIR
 timeDesign -postRoute -hold -outDir $POST_ROUTE_REPORT_DIR
 
 checkPlace [file join $INNOVUS_OUTPUT_DIR check_place.rpt]
-verify_drc -report [file join $INNOVUS_OUTPUT_DIR drc.rpt]
 verify_connectivity -type all -report [file join $INNOVUS_OUTPUT_DIR connectivity.rpt]
 verifyProcessAntenna -report [file join $INNOVUS_OUTPUT_DIR antenna.rpt]
 

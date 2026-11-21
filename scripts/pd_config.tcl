@@ -1,4 +1,3 @@
-
 set LIB_DIR "/tools/eda/pdks/cadence/gpdk045"
 set PROCESS_NODE 45
 
@@ -17,16 +16,40 @@ set STD_CELL_LIBS_FAST [list \
 # Alias used by synthesis (worst-case setup library)
 set STD_CELL_LIBS $STD_CELL_LIBS_SLOW
 
-set DONT_USE_CELLS [list BUFX2]
+# Excluded library cells:
+# - BUFX2: uses incompatible CoreSiteDouble site in gsclib045 LEF
+# - SDFF* / SEDFF*: scan flip-flops; no scan chain/DFT is inserted, so allowing them
+#   triggers Innovus ERROR IMPSP-9099 and slow /SE setup paths (235 ps setup time)
+# - CLKBUFX2 / NAND4*XL / NOR4*XL: ultra-weak 4-series-transistor XL drivers into
+#   tight 0.280 ns clock-buffer pins caused post-route max_tran DRV violations
+set DONT_USE_CELLS [list \
+    BUFX2 \
+    CLKBUFX2 \
+    SDFF* \
+    SEDFF* \
+    NAND4XL NAND4BXL NAND4BBXL \
+    NOR4XL NOR4BXL NOR4BBXL \
+]
 set ENABLE_CLOCK_GATING 1
 
 # Physical & CTS helper cell lists (filtered against loaded LEF/lib in Innovus)
 set TIE_CELLS [list TIEHI TIELO]
-set DECAP_CELLS [list DECAP10 DECAP9 DECAP8 DECAP7 DECAP6 DECAP5 DECAP4 DECAP3 DECAP2]
+
+# NOTE: gsclib045_svt_v4.7 DECAP3..DECAP10 macros have internal Metal1 Pin-to-Pin
+# EndOfLine spacing geometry that violates gsclib045_tech.lef (causing 274 DRC
+# violations in verify_drc). Keep DECAP_CELLS empty by default and fill 100% of
+# core gaps cleanly with FILL64..FILL1 (0 Metal1 signal pins, 0 DRC violations).
+# See scripts/MANUAL_GUIDE.md if decoupling capacitors are explicitly required.
+set DECAP_CELLS [list]
 set FILLER_CELLS [list FILL64 FILL32 FILL16 FILL8 FILL4 FILL2 FILL1]
 set ANTENNA_CELL "ANTENNA"
-set CTS_BUF_CELLS [list CLKBUFX2 CLKBUFX3 CLKBUFX4 CLKBUFX6 CLKBUFX8 CLKBUFX12 CLKBUFX16 CLKBUFX20]
+set CTS_BUF_CELLS [list CLKBUFX3 CLKBUFX4 CLKBUFX6 CLKBUFX8 CLKBUFX12 CLKBUFX16 CLKBUFX20]
 set CTS_INV_CELLS [list CLKINVX1 CLKINVX2 CLKINVX3 CLKINVX4 CLKINVX6 CLKINVX8 CLKINVX12 CLKINVX16 CLKINVX20]
+
+# Optimization guardbands (ns / ratio) to prevent 0.000 ns rounding/filler hold/DRV slips
+set SETUP_TARGET_SLACK 0.050
+set HOLD_TARGET_SLACK  0.030
+set DRC_MARGIN         0.15
 
 # --------------------------------------------------
 # Physical Technology
@@ -84,9 +107,19 @@ set STRIPE_OFFSET 10.0
 set PV_TOOL "auto"
 set PV_CPUS 2
 
+# Additional EDA install directories searched when PV tools are not in $PATH
+# (signoff_utils.tcl also filters out Linux OS /usr/sbin/pvs LVM2 utility)
+set PV_SEARCH_DIRS [list \
+    "/tools/eda/cadence" \
+    "/tools/eda/mentor" \
+    "/tools/eda/siemens" \
+    "/tools/eda" \
+]
+
 set STREAMOUT_UNITS 2000
 
-# Optional GDS layer map for streamOut (leave empty for auto-discovery / default map)
+# Optional Innovus streamOut GDS layer map (leave empty for auto-discovery /
+# automatic conversion of Virtuoso gpdk045.layermap into Innovus NET/SPNET/VIA format)
 set GDS_MAP_FILE ""
 
 # Standard-cell physical/schematic collateral for GDS merge and LVS
@@ -113,5 +146,3 @@ set PVS_DRC_RULE_DECK "$LIB_DIR/gpdk045_v_6_0/pvs/pvlDRC.rul"
 set PVS_LVS_RULE_DECK "$LIB_DIR/gpdk045_v_6_0/pvs/pvlLVS.rul"
 set CALIBRE_DRC_RULE_DECK ""
 set CALIBRE_LVS_RULE_DECK ""
-
-

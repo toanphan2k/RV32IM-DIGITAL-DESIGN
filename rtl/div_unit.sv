@@ -60,13 +60,17 @@ module div_unit(
         end else begin
             for(j=1; j<8; j=j+1) begin
                 div_busy[j] <= div_busy[j-1];
-                div_pc[j] <= div_pc[j-1];
-                div_inst[j] <= div_inst[j-1];
+                if (div_busy[j-1][6]) begin
+                    div_pc[j]   <= div_pc[j-1];
+                    div_inst[j] <= div_inst[j-1];
+                end
             end
             //Current divider_inst at EX
             div_busy[0] <= {is_div, is_rem, rd_addr_e};
-            div_pc[0] <= c_pc_e;   
-            div_inst[0] <= inst_e; 
+            if (is_div) begin
+                div_pc[0]   <= c_pc_e;
+                div_inst[0] <= inst_e;
+            end
         end
     end
 
@@ -90,6 +94,7 @@ module div_unit(
 div_pipelined divider_inst (
     .clk,
     .rst_n,
+    .i_valid     (is_div),
     .is_signed,   
     .i_dividend  (dividend),
     .i_divisor   (divisor),
