@@ -1,4 +1,3 @@
-
 set SCRIPT_DIR [file dirname [file normalize [info script]]]
 set PROJECT_DIR [file normalize [file join $SCRIPT_DIR ..]]
 source [file join $SCRIPT_DIR pd_config.tcl]
@@ -22,11 +21,15 @@ foreach library $STD_CELL_LIBS {
 set_db init_lib_search_path [list $LIB_DIR]
 read_libs $STD_CELL_LIBS
 foreach cell $DONT_USE_CELLS {
-    set matching_lib_cells [get_db lib_cells *$cell]
+    set matching_lib_cells [get_db lib_cells */$cell]
     if {[llength $matching_lib_cells] == 0} {
         error "Cannot find library cell to exclude: $cell"
     }
     set_db $matching_lib_cells .dont_use true
+}
+
+if {[info exists ENABLE_CLOCK_GATING] && $ENABLE_CLOCK_GATING} {
+    set_db lp_insert_clock_gating true
 }
 
 set rtl_handle [open $RTL_LIST r]
@@ -55,6 +58,8 @@ read_hdl -language sv $RTL_FILES
 elaborate $TOP
 check_design -unresolved
 read_sdc $SDC_FILE
+check_timing_intent > [file join $OUTPUT_DIR check_timing.rpt]
+report_timing -lint > [file join $OUTPUT_DIR timing_lint.rpt]
 
 set_db syn_generic_effort high
 set_db syn_map_effort high
@@ -68,7 +73,14 @@ report_timing > [file join $OUTPUT_DIR timing.rpt]
 report_power > [file join $OUTPUT_DIR power.rpt]
 report_gates > [file join $OUTPUT_DIR gates.rpt]
 report_qor > [file join $OUTPUT_DIR qor.rpt]
+if {[info exists ENABLE_CLOCK_GATING] && $ENABLE_CLOCK_GATING} {
+    report_clock_gating > [file join $OUTPUT_DIR clock_gating.rpt]
+}
+
 write_hdl -mapped > [file join $OUTPUT_DIR datapath_mapped.v]
 write_sdc > [file join $OUTPUT_DIR datapath.sdc]
+write_do_lec -revised_design [file join $OUTPUT_DIR datapath_mapped.v] \
+    -logfile [file join $OUTPUT_DIR lec_rtl2mapped.log] \
+    > [file join $OUTPUT_DIR rtl_to_mapped.do]
 
 exit
