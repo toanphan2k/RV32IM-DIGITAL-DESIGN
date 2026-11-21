@@ -68,8 +68,7 @@ set pvs_ctrl_file [file join $DRC_DIR pvs_drc.ctrl]
 set drc_sum [file join $DRC_DIR drc.sum]
 set drc_db  [file join $DRC_DIR drc.db]
 set fh [open $pvs_ctrl_file w]
-puts $fh "layout_format gdsii;"
-puts $fh "layout_path \"$GDS_FILE\";"
+puts $fh "layout_path \"$GDS_FILE\" gdsii;"
 puts $fh "layout_primary \"$TOP\";"
 puts $fh "results_db -drc \"$drc_db\" -ascii;"
 puts $fh "report_summary -drc \"$drc_sum\" -replace;"
@@ -84,7 +83,7 @@ if {$pv_engine eq "pegasus" || $pv_engine eq "pvs"} {
         puts "         Find it on the lab server with: find $LIB_DIR -iname '*drc*'"
         puts "         Then set PVS_DRC_RULE_DECK in scripts/pd_config.tcl and rerun."
     } else {
-        set cmd [list $pv_bin -drc -top_cell $TOP -gds $GDS_FILE -dp $PV_CPUS -control $pvs_ctrl_file $drc_rule_deck]
+        set cmd [list $pv_bin -drc -top_cell $TOP -gds $GDS_FILE -ascrdb $drc_db -dp $PV_CPUS -control $pvs_ctrl_file $drc_rule_deck]
         pd_run_external_cmd $DRC_RUN_DIR $cmd [file join $DRC_DIR ${pv_engine}_drc.log]
         if {[file isfile $drc_sum]} {
             puts "INFO: Signoff DRC summary written to: $drc_sum"

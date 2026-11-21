@@ -31,6 +31,6 @@ Task: Signoff LVS (in-Innovus connectivity check, PG Verilog + unified SPICE/CDL
 
 Command: `innovus -files scripts/lvs.tcl`
 
-`drc.tcl` and `lvs.tcl` restore `output/innovus/datapath_final.enc`, auto-convert Virtuoso `gpdk045.layermap` into an Innovus `streamOut` map (`output/signoff/innovus_streamout.map`) if needed, generate a unified SPICE/CDL netlist (`output/signoff/datapath_lvs.cdl`), and run Pegasus, PVS, or Calibre automatically when found in `PATH` or `PV_SEARCH_DIRS` (ignoring Linux OS `/usr/sbin/pvs` LVM2).
+`drc.tcl` and `lvs.tcl` restore `output/innovus/datapath_final.enc`, export GDSII using the official GPDK045 `soce/streamOut.map` (with automatic Virtuoso `layermap` conversion fallback), generate a unified SPICE/CDL netlist (`output/signoff/datapath_lvs.cdl`), and run Cadence Pegasus (`module load cadence/pegasus/241`), PVS, or Calibre automatically when found in `PATH` or `PV_SEARCH_DIRS` (ignoring Linux OS `/usr/sbin/pvs` LVM2).
 
 For manual ECO fixes in Innovus GUI, PVS/Virtuoso setup on the lab server, and PDK library waivers, see [MANUAL_GUIDE.md](MANUAL_GUIDE.md).

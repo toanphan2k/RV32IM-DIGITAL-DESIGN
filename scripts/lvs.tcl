@@ -33,6 +33,30 @@ puts "=== Running in-Innovus connectivity check ==="
 verify_connectivity -type all -error 1000 -warning 50 \
     -report [file join $LVS_DIR innovus_connectivity.rpt]
 
+# Ensure top-level physical PG pins exist on the Metal7 core ring so GDSII has
+# VDD/VSS port labels on layer (38, 3) for Pegasus/PVS LVS matching.
+foreach pg_net [list $POWER_NET $GROUND_NET] {
+    if {[llength [dbGet -e top.terms.name $pg_net]] == 0} {
+        set pg_net_ptr [dbGet -p1 top.nets.name $pg_net -e]
+        set box ""
+        if {$pg_net_ptr ne "" && $pg_net_ptr ne "0x0"} {
+            foreach sw [dbGet -e ${pg_net_ptr}.sWires] {
+                if {[dbGet ${sw}.layer.name] eq $RING_HORIZONTAL_LAYER} {
+                    set box [dbGet ${sw}.box]
+                    break
+                }
+            }
+        }
+        if {$box ne "" && [llength [lindex $box 0]] == 4} {
+            lassign [lindex $box 0] x1 y1 x2 y2
+            set cx [expr {($x1 + $x2) / 2.0}]
+            set half_w [expr {min(1.0, ($x2 - $x1) / 4.0)}]
+            createPGPin $pg_net -net $pg_net -geom $RING_HORIZONTAL_LAYER \
+                [expr {$cx - $half_w}] $y1 [expr {$cx + $half_w}] $y2
+        }
+    }
+}
+
 # 3. Export merged GDSII, LVS PG Verilog netlist, and unified SPICE/CDL netlist
 set resolved_gds_map [pd_find_first_file $GDS_MAP_FILE [list \
     "$LIB_DIR/gpdk045_v_6_0/soce/*map*" \
@@ -81,26 +105,25 @@ set lvs_rep  [file join $LVS_DIR lvs.rep]
 set erc_sum  [file join $LVS_DIR erc.sum]
 set erc_db   [file join $LVS_DIR erc.db]
 set svdb_dir [file join $LVS_DIR svdb]
+set layout_spi [file join $LVS_RUN_DIR ${TOP}_layout.spi]
 
 set fh [open $pvs_ctrl_file w]
-puts $fh "layout_format gdsii;"
-puts $fh "layout_path \"$GDS_FILE\";"
+puts $fh "layout_path \"$GDS_FILE\" gdsii;"
 puts $fh "layout_primary \"$TOP\";"
 if {[file isfile $LVS_CDL]} {
-    puts $fh "schematic_format cdl;"
-    puts $fh "schematic_path \"$LVS_CDL\";"
+    puts $fh "schematic_path \"$LVS_CDL\" cdl;"
 } else {
-    puts $fh "schematic_format verilog;"
-    puts $fh "schematic_path \"$LVS_VERILOG\";"
+    puts $fh "schematic_path \"$LVS_VERILOG\" verilog;"
 }
 puts $fh "schematic_primary \"$TOP\";"
-puts $fh "lvs_report \"$lvs_rep\";"
+puts $fh "lvs_report_file \"$lvs_rep\";"
 puts $fh "report_summary -erc \"$erc_sum\" -replace;"
 puts $fh "results_db -erc \"$erc_db\" -ascii;"
 puts $fh "mask_svdb_dir \"$svdb_dir\";"
 puts $fh "lvs_power_name \"$POWER_NET\";"
 puts $fh "lvs_ground_name \"$GROUND_NET\";"
 puts $fh "lvs_ignore_ports no;"
+puts $fh "lvs_expand_cell_on_error yes;"
 puts $fh "abort_on_layout_error yes;"
 close $fh
 puts "INFO: Generated PVS/Pegasus LVS control file: $pvs_ctrl_file"
@@ -116,7 +139,16 @@ if {$pv_engine eq "pegasus" || $pv_engine eq "pvs"} {
             puts "WARNING: Unified LVS CDL netlist ($LVS_CDL) could not be generated; check STD_CELL_CDL in scripts/pd_config.tcl."
         }
     } else {
-        set cmd [list $pv_bin -lvs -dp $PV_CPUS -control $pvs_ctrl_file $lvs_rule_deck]
+        # GPDK045 pvlLVS.rul contains relative `include ./pvs_control_file`
+        set deck_ctrl [file join [file dirname $lvs_rule_deck] pvs_control_file]
+        if {[file isfile $deck_ctrl]} {
+            file copy -force $deck_ctrl [file join $LVS_RUN_DIR pvs_control_file]
+        }
+        set cmd [list $pv_bin -lvs \
+            -gds $GDS_FILE -layout_top_cell $TOP \
+            -source_cdl $LVS_CDL -source_top_cell $TOP \
+            -spice $layout_spi \
+            -dp $PV_CPUS -control $pvs_ctrl_file $lvs_rule_deck]
         pd_run_external_cmd $LVS_RUN_DIR $cmd [file join $LVS_DIR ${pv_engine}_lvs.log]
         if {[file isfile $lvs_rep]} {
             puts "INFO: Signoff LVS report written to: $lvs_rep"

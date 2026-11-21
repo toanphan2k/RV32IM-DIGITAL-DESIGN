@@ -47,6 +47,9 @@ set init_mmmc_file [file join $SCRIPT_DIR mmmc.tcl]
 init_design
 
 setDesignMode -process $PROCESS_NODE
+if {[info exists TOP_SIGNAL_ROUTING_LAYER] && $TOP_SIGNAL_ROUTING_LAYER ne ""} {
+    setDesignMode -topRoutingLayer $TOP_SIGNAL_ROUTING_LAYER
+}
 if {[info exists PV_CPUS] && $PV_CPUS > 1} {
     setMultiCpuUsage -localCpu $PV_CPUS
 }
@@ -109,6 +112,28 @@ sroute -connect {corePin floatingStripe} \
     -nets [list $POWER_NET $GROUND_NET] \
     -allowJogging 1 -allowLayerChange 1
 
+# Create top-level physical PG pins on the Metal7 core ring so GDSII exports
+# VDD/VSS port labels on layer (38, 3) for Pegasus/PVS LVS matching.
+foreach pg_net [list $POWER_NET $GROUND_NET] {
+    set pg_net_ptr [dbGet -p1 top.nets.name $pg_net -e]
+    set box ""
+    if {$pg_net_ptr ne "" && $pg_net_ptr ne "0x0"} {
+        foreach sw [dbGet -e ${pg_net_ptr}.sWires] {
+            if {[dbGet ${sw}.layer.name] eq $RING_HORIZONTAL_LAYER} {
+                set box [dbGet ${sw}.box]
+                break
+            }
+        }
+    }
+    if {$box ne "" && [llength [lindex $box 0]] == 4} {
+        lassign [lindex $box 0] x1 y1 x2 y2
+        set cx [expr {($x1 + $x2) / 2.0}]
+        set half_w [expr {min(1.0, ($x2 - $x1) / 4.0)}]
+        createPGPin $pg_net -net $pg_net -geom $RING_HORIZONTAL_LAYER \
+            [expr {$cx - $half_w}] $y1 [expr {$cx + $half_w}] $y2
+    }
+}
+
 verifyPowerVia -report [file join $INNOVUS_OUTPUT_DIR power_via.rpt]
 
 # 4. Placement, tie-cell insertion, and pre-CTS optimization
@@ -135,11 +160,16 @@ report_ccopt_skew_groups -file [file join $INNOVUS_OUTPUT_DIR cts_skew.rpt]
 optDesign -postCTS
 optDesign -postCTS -hold
 
-# 6. Timing/SI-driven routing with antenna fixing and DFM multi-cut vias
+# 6. Timing/SI-driven routing with antenna fixing and multi-cut vias
 setNanoRouteMode -routeWithTimingDriven true
 setNanoRouteMode -routeWithSiDriven true
 setNanoRouteMode -drouteFixAntenna true
-setNanoRouteMode -droutePostRouteSwapVia true
+setNanoRouteMode -routeReserveSpaceForMultiCut true
+setNanoRouteMode -drouteUseMultiCutViaEffort high
+setNanoRouteMode -droutePostRouteSwapVia multiCut
+if {[info exists TOP_SIGNAL_ROUTING_LAYER] && $TOP_SIGNAL_ROUTING_LAYER ne ""} {
+    setNanoRouteMode -routeTopRoutingLayer $TOP_SIGNAL_ROUTING_LAYER
+}
 set valid_antenna_cells [pd_filter_lib_cells [list $ANTENNA_CELL]]
 if {[llength $valid_antenna_cells] > 0} {
     setNanoRouteMode -routeInsertAntennaDiode true

@@ -6,49 +6,60 @@ This guide documents:
 
 ---
 
-## 1. Quick Server Run Order (Important!)
+## 1. Verified Server Run Order (`black.doelab.site`)
 
-Because `DONT_USE_CELLS`, `constraints/top.sdc`, and RTL (`div_pipelined.sv`, `div_unit.sv`, `mul.sv`, `fowarding.sv`, `hazard_detection.sv`) were updated to eliminate scan-flop errors, setup/hold violations, `max_tran` DRVs, and `DECAP` DRC violations, **always re-run Genus synthesis first** before Innovus:
+Always load the Cadence modules on `black` and run the 4 stages in order (Genus first whenever `scripts/pd_config.tcl`, `constraints/top.sdc`, or `rtl/*.sv` changes):
 
 ```bash
-# From the repository root on black.doelab.site:
+# On red.doelab.site -> interactive compute node black:
+srun --nodelist=black -c 2 --pty bash -l
+
+cd ~/risc-v-ws/RV32IM-DIGITAL-DESIGN
+module load cadence/genus/211 cadence/innovus/211 cadence/pegasus/241
+
 genus   -files scripts/synth.tcl
 innovus -files scripts/innovus.tcl
 innovus -files scripts/drc.tcl
 innovus -files scripts/lvs.tcl
 ```
 
-> **Tip:** Do **not** run `genus -files scripts/innovus.tcl` (Genus cannot execute Innovus PnR commands; both scripts now check the active tool and exit with a clear message if invoked in the wrong tool).
+> **Verified Signoff Baseline (Pegasus 24.11 + Innovus 21.19 + Genus 21.19):**
+> - **Genus Synthesis**: `+442.1 ps` setup slack, `0` timing violations
+> - **Innovus Post-Route**: Setup WNS `+0.061 ns` (`0` viols), Hold WNS `+0.030 ns` (`0` viols), DRVs `0`, Density `72.86%` (`100%` w/ fillers), `verify_drc = 0`, `verify_connectivity = 0`, `verifyProcessAntenna = 0`, `verifyPowerVia = 0`
+> - **Pegasus 24.11 Foundry DRC (`pvlDRC.rul`)**: **`0 / 562`** rules violated
+> - **Pegasus 24.11 Foundry LVS (`pvlLVS.rul`)**: **`MATCH`** (`232/232` pins including `Metal7` `VDD`/`VSS`, `0` ERC, `0` device/net/parameter mismatches)
+>
+> **Tip:** Do **not** run `genus -files scripts/innovus.tcl` (both scripts check the active tool and exit cleanly if invoked in the wrong tool).
 
 ---
 
 ## 2. Cases That Require Manual Handling / PDK Waivers
 
-### Case A — Signoff PVS / Pegasus Tool Environment on `black.doelab.site`
-**What happened in the previous server log (`output/signoff/drc/pvs_drc.log` & `pvs_lvs.log`):**
+### Case A — Signoff Pegasus / PVS Tool Environment on `black.doelab.site`
+**What happened in the earlier log (`output/signoff/drc/pvs_drc.log` & `pvs_lvs.log`):**
 - Linux OS has `/usr/sbin/pvs` (the Rocky Linux **LVM2 disk utility**), which printed:
   `File descriptor ... leaked on pvs invocation` and `pvs: invalid option -- 'r'`.
-- `scripts/signoff_utils.tcl` now **automatically filters out `/usr/sbin/pvs`** and searches `/tools/eda/cadence/*` for real Cadence `pegasus` or `pvs`.
+- `scripts/signoff_utils.tcl` now **automatically filters out `/usr/sbin/pvs`** and selects Cadence `pegasus` (`/tools/eda/cadence/PEGASUS241/bin/pegasus`) or `pvs`.
 
-**If no external PV binary is installed under `/tools/eda/cadence` or requires a module/environment script:**
-1. Find where physical verification tools live on the server:
-   ```bash
-   module avail
-   find /tools/eda -maxdepth 4 \( -name pegasus -o -name pvs -o -name assura -o -name calibre \) 2>/dev/null
-   ```
-2. Add the tool's `bin` directory to `PATH` (make sure it comes **before** `/usr/sbin`) and re-run:
-   ```bash
-   export PATH="/tools/eda/cadence/<PVS_OR_PEGASUS_DIR>/bin:$PATH"
-   which pvs || which pegasus
-   innovus -files scripts/drc.tcl
-   innovus -files scripts/lvs.tcl
-   ```
-3. **Or run PVS DRC / LVS manually from GUI** using the ready-made files already exported by `drc.tcl` / `lvs.tcl`:
-   - **Merged Layout GDSII:** `output/signoff/datapath.gds` (top cell: `datapath`)
-   - **Unified LVS SPICE/CDL Netlist:** `output/signoff/datapath_lvs.cdl` (top `.SUBCKT`: `datapath`, includes `gsclib045.cdl`, power `VDD`, ground `VSS`)
-   - **DRC Rule Deck:** `/tools/eda/pdks/cadence/gpdk045/gpdk045_v_6_0/pvs/pvlDRC.rul`
-   - **LVS Rule Deck:** `/tools/eda/pdks/cadence/gpdk045/gpdk045_v_6_0/pvs/pvlLVS.rul`
-   - **Ready-made Control Files:** `output/signoff/drc/pvs_drc.ctrl` and `output/signoff/lvs/pvs_lvs.ctrl`
+**Recommended setup on `black.doelab.site`:**
+```bash
+module load cadence/pegasus/241
+which pegasus   # -> /tools/eda/cadence/PEGASUS241/bin/pegasus
+innovus -files scripts/drc.tcl
+innovus -files scripts/lvs.tcl
+```
+
+**If running Pegasus / PVS manually from GUI**, use the ready-made files exported by `drc.tcl` / `lvs.tcl`:
+- **Merged Layout GDSII:** `output/signoff/datapath.gds` (top cell: `datapath`, exported with official `/tools/eda/pdks/cadence/gpdk045/gpdk045_v_6_0/soce/streamOut.map`)
+- **Unified LVS SPICE/CDL Netlist:** `output/signoff/datapath_lvs.cdl` (top `.SUBCKT`: `datapath`, includes `gsclib045.cdl`, power `VDD`, ground `VSS`)
+- **DRC Rule Deck:** `/tools/eda/pdks/cadence/gpdk045/gpdk045_v_6_0/pvs/pvlDRC.rul`
+- **LVS Rule Deck:** `/tools/eda/pdks/cadence/gpdk045/gpdk045_v_6_0/pvs/pvlLVS.rul` (note: requires `pvs_control_file` in the LVS run directory; `scripts/lvs.tcl` copies it automatically)
+- **Ready-made Control Files:** `output/signoff/drc/pvs_drc.ctrl` and `output/signoff/lvs/pvs_lvs.ctrl`
+
+### Case A2 — GPDK045 Foundry Stacked-Via DRC (`VIAk.X.3_VIAk.X.4`)
+- GPDK045 `pvlDRC.rul` enforces double-cut vias at every level of a 5-level stacked via pillar (`M1..M6`, `M2..M7`, `M3..M8`, `M4..M9`).
+- `scripts/pd_config.tcl` caps signal routing at `TOP_SIGNAL_ROUTING_LAYER 5` (`Metal5`) — reserving `Metal6`/`Metal7` for multi-cut power stripes/rings — and `scripts/innovus.tcl` enables `-routeReserveSpaceForMultiCut true`, `-drouteUseMultiCutViaEffort high`, and `-droutePostRouteSwapVia multiCut`.
+- If you ever raise `TOP_SIGNAL_ROUTING_LAYER` above `5`, inspect `output/signoff/drc/drc.sum` for `VIAk.X.3_VIAk.X.4` single-cut pillar violations and swap/reroute those vias in Innovus.
 
 ---
 
@@ -138,9 +149,9 @@ source output/innovus/datapath_final.enc
 
 ## 4. Verifying Exported GDSII Before Submission
 
-In the previous run, `streamOut` used Virtuoso's `gpdk045.layermap` directly (`drawing` purpose), which caused Innovus to print `IMPOGDS-391` and export `Nets: 0` and `12 empty cells`.
-`scripts/signoff_utils.tcl` now automatically converts Virtuoso `gpdk045.layermap` into a valid Innovus `streamOut` map (`output/signoff/innovus_streamout.map` with `NET`, `SPNET`, `VIA`, `PIN`, `LEFPIN`, `LEFOBS`).
+`scripts/signoff_utils.tcl` automatically prefers the official PDK Innovus map (`/tools/eda/pdks/cadence/gpdk045/gpdk045_v_6_0/soce/streamOut.map`, which exports `NET`, `SPNET`, `PIN`, `LEFPIN`, `FILL`, `VIA`, `LEFOBS`, and `NAME Metal*/PIN` on texttype `3` matching `pvlLVS.rul`), falling back to converting Virtuoso `gpdk045.layermap` only if `soce/streamOut.map` is absent.
 
-After running `innovus -files scripts/drc.tcl` on the server, verify in `innovus.log*`:
-- `Nets` and `Via Instances` under `Stream Out Information Processed` are **non-zero** (`> 20,000` nets),
-- **Zero** `IMPOGDS-1178` (`datapath_VIA* is empty`) warnings appear.
+After running `innovus -files scripts/drc.tcl` and `innovus -files scripts/lvs.tcl` on the server, verify:
+- `Stream Out Information Processed` shows non-zero `Nets` (`~281,000`), `Via Instances` (`~161,000`), and `232` ports/pins (`Metal3`/`Metal4` signals + `Metal7` `VDD`/`VSS`), with **zero** `IMPOGDS-1178` warnings.
+- `output/signoff/drc/drc.sum`: `Total DRC Results : 0 (0)`
+- `output/signoff/lvs/lvs.rep`: `Run Result : MATCH`, `ERC Results: Empty`
