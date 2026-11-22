@@ -1,20 +1,21 @@
-# Manual Physical-Design & Signoff Guide (`RV32IM datapath` — GPDK045)
+# Physical-Design Signoff Reference & Optional Manual-ECO Guide (`RV32IM datapath` — GPDK045)
 
-This guide documents:
-1. **How to re-run the clean automated Synthesis + PnR + DRC + LVS flow** on the lab server (`black.doelab.site`), and
-2. **How to handle cases that cannot be changed purely inside TCL** (read-only PDK library warnings, server EDA environment paths, Virtuoso/PVS GUI signoff, and manual ECO fixes in Innovus GUI).
+> **Current Status: 100% Automated, Zero Violations — No Manual Steps Required.**
+> Running the 4 commands in Section 1 completes Synthesis, PnR, Pegasus DRC (`0 / 562`), and Pegasus LVS (`MATCH`) end-to-end with zero manual intervention.
+
+This document is kept as a reference for:
+1. **The verified 4-command automated run order** (with all required Cadence modules loaded once),
+2. **Read-only PDK library warnings (safe to waive)** and why certain PD settings (`Metal5` cap, `DECAP_CELLS [list]`) are configured the way they are,
+3. **Optional Innovus GUI ECO commands** in case you later push tighter constraints (e.g., `< 7 ns` or `> 80%` utilization) and want to fix a residual violation by hand, and
+4. **Opening Innovus GUI & capturing chip layout / area screenshots**.
 
 ---
 
-## 1. Verified Server Run Order (`black.doelab.site`)
+## 1. Environment Setup & Automated Run Order
 
-Always load the Cadence modules on `black` and run the 4 stages in order (Genus first whenever `scripts/pd_config.tcl`, `constraints/top.sdc`, or `rtl/*.sv` changes):
+Load all required Cadence tools once from the repository root, then run the 4 stages in order (always re-run Genus first whenever `scripts/pd_config.tcl`, `constraints/top.sdc`, or `rtl/*.sv` changes):
 
 ```bash
-# On red.doelab.site -> interactive compute node black:
-srun --nodelist=black -c 2 --pty bash -l
-
-cd ~/risc-v-ws/RV32IM-DIGITAL-DESIGN
 module load cadence/genus/211 cadence/innovus/211 cadence/pegasus/241
 
 genus   -files scripts/synth.tcl
@@ -23,9 +24,9 @@ innovus -files scripts/drc.tcl
 innovus -files scripts/lvs.tcl
 ```
 
-> **Verified Signoff Baseline (Pegasus 24.11 + Innovus 21.19 + Genus 21.19):**
-> - **Genus Synthesis**: `+442.1 ps` setup slack, `0` timing violations
-> - **Innovus Post-Route**: Setup WNS `+0.061 ns` (`0` viols), Hold WNS `+0.030 ns` (`0` viols), DRVs `0`, Density `72.86%` (`100%` w/ fillers), `verify_drc = 0`, `verify_connectivity = 0`, `verifyProcessAntenna = 0`, `verifyPowerVia = 0`
+> **Verified Signoff Baseline @ 133.3 MHz / `7.500 ns` (Pegasus 24.11 + Innovus 21.19 + Genus 21.19, slow corner `0.9 V, 125 °C`):**
+> - **Genus Synthesis**: `+0.1 ps` setup slack, `0` timing violations, cell area `49,635`
+> - **Innovus Post-Route**: Setup WNS **`+0.022 ns`** (`0` viols, implied `133.7 MHz`), Hold WNS **`+0.007 ns`** (`0` viols), DRVs **`0`** (`max_cap/max_tran/max_fanout/max_length = 0`), Density `71.25%` (`100%` w/ fillers), `verify_drc = 0`, `verify_connectivity = 0`, `verifyProcessAntenna = 0`, `checkPlace = 0`
 > - **Pegasus 24.11 Foundry DRC (`pvlDRC.rul`)**: **`0 / 562`** rules violated
 > - **Pegasus 24.11 Foundry LVS (`pvlLVS.rul`)**: **`MATCH`** (`232/232` pins including `Metal7` `VDD`/`VSS`, `0` ERC, `0` device/net/parameter mismatches)
 >
@@ -33,28 +34,15 @@ innovus -files scripts/lvs.tcl
 
 ---
 
-## 2. Cases That Require Manual Handling / PDK Waivers
+## 2. Reference Notes & Benign Read-Only PDK Warnings (Already Handled Automatically)
 
-### Case A — Signoff Pegasus / PVS Tool Environment on `black.doelab.site`
-**What happened in the earlier log (`output/signoff/drc/pvs_drc.log` & `pvs_lvs.log`):**
-- Linux OS has `/usr/sbin/pvs` (the Rocky Linux **LVM2 disk utility**), which printed:
-  `File descriptor ... leaked on pvs invocation` and `pvs: invalid option -- 'r'`.
-- `scripts/signoff_utils.tcl` now **automatically filters out `/usr/sbin/pvs`** and selects Cadence `pegasus` (`/tools/eda/cadence/PEGASUS241/bin/pegasus`) or `pvs`.
-
-**Recommended setup on `black.doelab.site`:**
-```bash
-module load cadence/pegasus/241
-which pegasus   # -> /tools/eda/cadence/PEGASUS241/bin/pegasus
-innovus -files scripts/drc.tcl
-innovus -files scripts/lvs.tcl
-```
-
-**If running Pegasus / PVS manually from GUI**, use the ready-made files exported by `drc.tcl` / `lvs.tcl`:
+### Case A — Cadence Pegasus Signoff Collateral
+`scripts/drc.tcl` and `scripts/lvs.tcl` run **Cadence Pegasus (`24.11`)** automatically (assuming the modules from Section 1 are loaded). If you ever open Pegasus GUI manually, use these exported files:
 - **Merged Layout GDSII:** `output/signoff/datapath.gds` (top cell: `datapath`, exported with official `/tools/eda/pdks/cadence/gpdk045/gpdk045_v_6_0/soce/streamOut.map`)
 - **Unified LVS SPICE/CDL Netlist:** `output/signoff/datapath_lvs.cdl` (top `.SUBCKT`: `datapath`, includes `gsclib045.cdl`, power `VDD`, ground `VSS`)
 - **DRC Rule Deck:** `/tools/eda/pdks/cadence/gpdk045/gpdk045_v_6_0/pvs/pvlDRC.rul`
 - **LVS Rule Deck:** `/tools/eda/pdks/cadence/gpdk045/gpdk045_v_6_0/pvs/pvlLVS.rul` (note: requires `pvs_control_file` in the LVS run directory; `scripts/lvs.tcl` copies it automatically)
-- **Ready-made Control Files:** `output/signoff/drc/pvs_drc.ctrl` and `output/signoff/lvs/pvs_lvs.ctrl`
+- **Ready-made Control Files:** `output/signoff/drc/pegasus_drc.ctrl` and `output/signoff/lvs/pegasus_lvs.ctrl`
 
 ### Case A2 — GPDK045 Foundry Stacked-Via DRC (`VIAk.X.3_VIAk.X.4`)
 - GPDK045 `pvlDRC.rul` enforces double-cut vias at every level of a 5-level stacked via pillar (`M1..M6`, `M2..M7`, `M3..M8`, `M4..M9`).
@@ -155,3 +143,65 @@ After running `innovus -files scripts/drc.tcl` and `innovus -files scripts/lvs.t
 - `Stream Out Information Processed` shows non-zero `Nets` (`~281,000`), `Via Instances` (`~161,000`), and `232` ports/pins (`Metal3`/`Metal4` signals + `Metal7` `VDD`/`VSS`), with **zero** `IMPOGDS-1178` warnings.
 - `output/signoff/drc/drc.sum`: `Total DRC Results : 0 (0)`
 - `output/signoff/lvs/lvs.rep`: `Run Result : MATCH`, `ERC Results: Empty`
+
+---
+
+## 5. Opening Innovus GUI & Screenshotting the Chip Layout / Area
+
+### 5.1 Launch Innovus GUI and Load the Routed Database
+With the modules from Section 1 loaded, launch Innovus with GUI enabled (do **not** pass `-no_gui`):
+
+```bash
+innovus
+```
+
+Inside the Innovus GUI console (bottom terminal window), load the final routed design:
+
+```tcl
+source output/innovus/datapath_final.enc
+fit
+```
+
+### 5.2 Print Exact Die & Core Dimensions / Area for Your Report
+Run these commands in the Innovus console to print exact micron dimensions and areas:
+
+```tcl
+puts "Die  box  (um)   : [dbGet top.fPlan.box]"
+puts "Die  area (um^2) : [dbGet top.fPlan.box_area]"
+puts "Core box  (um)   : [dbGet top.fPlan.coreBox]"
+puts "Core area (um^2) : [dbGet top.fPlan.coreBox_area]"
+report_area
+```
+
+### 5.3 Useful View Modes for Clean Report Screenshots
+Switch between layout views using the top toolbar icons or console commands:
+
+```tcl
+# 1. Full physical layout (routing + power rings/stripes + cells)
+setDrawView place
+fit
+
+# 2. Amoeba / hierarchy color view (great for showing IF/ID/EX/MEM/WB + MUL/DIV blocks)
+setDrawView ameba
+fit
+
+# 3. Floorplan view (clean die/core boundary, IO pins, power rings/stripes)
+setDrawView fplan
+fit
+```
+
+- **Measure dimensions directly on the canvas:** Press `k` (Ruler tool) in the GUI and click two edges of the die or core to display exact `µm` rulers right in your screenshot (`Shift+K` clears rulers).
+- **Hide filler cells for a clearer logic view:** In the right-hand **Layer Control** panel, expand **Cell** and uncheck **Filler** (or uncheck `Metal6`/`Metal7` stripes temporarily to see signal routing underneath).
+- **Highlight clock tree (optional):** Open **Clock -> CCOpt Clock Tree Debugger** or highlight the `clk` net from the console:
+  ```tcl
+  highlight [dbGet top.nets.name clk] -color yellow
+  ```
+
+### 5.4 Save High-Resolution Screenshots
+- **From the GUI menu (PNG / GIF):** `File -> Save Image...` (choose `PNG` for crisp report figures).
+- **From the Innovus Tcl console:**
+  ```tcl
+  fit
+  dumpToGIF output/innovus/chip_layout.gif
+  ```
+- **Or inspect the final merged GDSII** (including transistor-level standard-cell polygons): open `output/signoff/datapath.gds` in KLayout or Virtuoso.

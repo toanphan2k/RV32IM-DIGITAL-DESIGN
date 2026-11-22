@@ -23,14 +23,14 @@ Task: Floorplan, power plan, placement, CTS, routing, and physical optimization 
 
 Command: `innovus -files scripts/innovus.tcl`
 
-Task: Signoff DRC (in-Innovus DRC/antenna/via checks, merged GDSII export, and Pegasus/PVS/Calibre DRC).
+Task: Signoff DRC (in-Innovus DRC/antenna/via checks, merged GDSII export, and Cadence Pegasus DRC).
 
 Command: `innovus -files scripts/drc.tcl`
 
-Task: Signoff LVS (in-Innovus connectivity check, PG Verilog + unified SPICE/CDL export, and Pegasus/PVS/Calibre LVS).
+Task: Signoff LVS (in-Innovus connectivity check, PG Verilog + unified SPICE/CDL export, and Cadence Pegasus LVS).
 
 Command: `innovus -files scripts/lvs.tcl`
 
-`drc.tcl` and `lvs.tcl` restore `output/innovus/datapath_final.enc`, export GDSII using the official GPDK045 `soce/streamOut.map` (with automatic Virtuoso `layermap` conversion fallback), generate a unified SPICE/CDL netlist (`output/signoff/datapath_lvs.cdl`), and run Cadence Pegasus (`module load cadence/pegasus/241`), PVS, or Calibre automatically when found in `PATH` or `PV_SEARCH_DIRS` (ignoring Linux OS `/usr/sbin/pvs` LVM2).
+`drc.tcl` and `lvs.tcl` restore `output/innovus/datapath_final.enc`, export GDSII using the official GPDK045 `soce/streamOut.map` (with automatic Virtuoso `layermap` conversion fallback), generate a unified SPICE/CDL netlist (`output/signoff/datapath_lvs.cdl`), and run Cadence Pegasus (`module load cadence/pegasus/241`).
 
 For manual ECO fixes in Innovus GUI, PVS/Virtuoso setup on the lab server, and PDK library waivers, see [MANUAL_GUIDE.md](MANUAL_GUIDE.md).

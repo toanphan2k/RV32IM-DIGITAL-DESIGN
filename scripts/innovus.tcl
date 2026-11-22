@@ -74,6 +74,10 @@ setOptMode -fixDrc true -fixFanoutLoad true \
     -setupTargetSlack $SETUP_TARGET_SLACK \
     -holdTargetSlack  $HOLD_TARGET_SLACK \
     -drcMargin        $DRC_MARGIN
+set valid_hold_cells [pd_filter_lib_cells [list DLY1X1 DLY2X1 DLY3X1 DLY4X1 BUFX3 BUFX4 BUFX6 BUFX8]]
+if {[llength $valid_hold_cells] > 0} {
+    setOptMode -holdFixingCells $valid_hold_cells
+}
 
 # 2. Floorplanning & IO pin assignment
 floorPlan -site $CORE_SITE -r $CORE_ASPECT_RATIO $CORE_UTILIZATION \
@@ -183,6 +187,7 @@ setDelayCalMode -SIAware true
 extractRC
 optDesign -postRoute
 optDesign -postRoute -hold
+optDesign -postRoute -drv
 
 # 8. DRC-aware filler insertion + post-filler ECO route cleanup + final extraction
 set valid_fillers [pd_filter_lib_cells [concat $DECAP_CELLS $FILLER_CELLS]]
