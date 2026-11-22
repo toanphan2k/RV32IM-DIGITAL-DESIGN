@@ -7,8 +7,17 @@ set PROJECT_DIR [file normalize [file join $SCRIPT_DIR ..]]
 source [file join $SCRIPT_DIR pd_config.tcl]
 
 set TOP datapath
-set NETLIST [file join $PROJECT_DIR output genus datapath_mapped.v]
-set INNOVUS_OUTPUT_DIR [file join $PROJECT_DIR output innovus]
+if {[info exists ::env(PD_OUTPUT_DIR)] && $::env(PD_OUTPUT_DIR) ne ""} {
+    if {[file pathtype $::env(PD_OUTPUT_DIR)] eq "absolute"} {
+        set OUTPUT_ROOT [file normalize $::env(PD_OUTPUT_DIR)]
+    } else {
+        set OUTPUT_ROOT [file normalize [file join $PROJECT_DIR $::env(PD_OUTPUT_DIR)]]
+    }
+} else {
+    set OUTPUT_ROOT [file join $PROJECT_DIR output]
+}
+set NETLIST [file join $OUTPUT_ROOT genus datapath_mapped.v]
+set INNOVUS_OUTPUT_DIR [file join $OUTPUT_ROOT innovus]
 set LEF_FILES [concat [list $TECH_LEF] $CELL_LEFS]
 
 foreach required_var {STD_CELL_LIBS_SLOW STD_CELL_LIBS_FAST TECH_LEF CELL_LEFS QRC_TECH_FILE CORE_SITE RING_HORIZONTAL_LAYER RING_VERTICAL_LAYER STRIPE_LAYER PROCESS_NODE} {

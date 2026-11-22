@@ -2,7 +2,16 @@ set SCRIPT_DIR [file dirname [file normalize [info script]]]
 source [file join $SCRIPT_DIR pd_config.tcl]
 
 set PROJECT_DIR [file normalize [file join $SCRIPT_DIR ..]]
-set OUTPUT_DIR [file join $PROJECT_DIR output genus]
+if {[info exists ::env(PD_OUTPUT_DIR)] && $::env(PD_OUTPUT_DIR) ne ""} {
+    if {[file pathtype $::env(PD_OUTPUT_DIR)] eq "absolute"} {
+        set OUTPUT_ROOT [file normalize $::env(PD_OUTPUT_DIR)]
+    } else {
+        set OUTPUT_ROOT [file normalize [file join $PROJECT_DIR $::env(PD_OUTPUT_DIR)]]
+    }
+} else {
+    set OUTPUT_ROOT [file join $PROJECT_DIR output]
+}
+set OUTPUT_DIR [file join $OUTPUT_ROOT genus]
 set SDC_FILE [file join $OUTPUT_DIR datapath.sdc]
 if {![file isfile $SDC_FILE]} {
     error "Run scripts/synth.tcl first; Genus SDC not found: $SDC_FILE"

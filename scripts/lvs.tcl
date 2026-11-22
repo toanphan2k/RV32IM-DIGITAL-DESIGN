@@ -13,9 +13,18 @@ source [file join $SCRIPT_DIR pd_config.tcl]
 source [file join $SCRIPT_DIR signoff_utils.tcl]
 
 set TOP datapath
-set INNOVUS_OUTPUT_DIR [file join $PROJECT_DIR output innovus]
+if {[info exists ::env(PD_OUTPUT_DIR)] && $::env(PD_OUTPUT_DIR) ne ""} {
+    if {[file pathtype $::env(PD_OUTPUT_DIR)] eq "absolute"} {
+        set OUTPUT_ROOT [file normalize $::env(PD_OUTPUT_DIR)]
+    } else {
+        set OUTPUT_ROOT [file normalize [file join $PROJECT_DIR $::env(PD_OUTPUT_DIR)]]
+    }
+} else {
+    set OUTPUT_ROOT [file join $PROJECT_DIR output]
+}
+set INNOVUS_OUTPUT_DIR [file join $OUTPUT_ROOT innovus]
 set DESIGN_ENC [file join $INNOVUS_OUTPUT_DIR datapath_final.enc]
-set SIGNOFF_DIR [file join $PROJECT_DIR output signoff]
+set SIGNOFF_DIR [file join $OUTPUT_ROOT signoff]
 set LVS_DIR [file join $SIGNOFF_DIR lvs]
 set LVS_RUN_DIR [file join $LVS_DIR run]
 set GDS_FILE [file join $SIGNOFF_DIR ${TOP}.gds]

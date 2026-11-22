@@ -1,5 +1,12 @@
 # Tasks
 
+Task: Run full automated signoff (Genus -> Innovus -> Pegasus DRC -> Pegasus LVS) at a dedicated target frequency (isolated outputs under `output/<freq>/`).
+
+Commands:
+- **100 MHz (`10.000 ns`, `constraints/top_100mhz.sdc` -> `output/100mhz/`):** `bash scripts/run_signoff_100mhz.sh`
+- **125 MHz (`8.000 ns`, `constraints/top_125mhz.sdc` -> `output/125mhz/`):** `bash scripts/run_signoff_125mhz.sh`
+- **133.3 MHz (`7.500 ns`, `constraints/top_133mhz.sdc` -> `output/133mhz/`):** `bash scripts/run_signoff_133mhz.sh`
+
 Task: Set PDK paths and physical-design settings.
 
 Command: `code scripts/pd_config.tcl`

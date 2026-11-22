@@ -9,8 +9,25 @@ source [file join $SCRIPT_DIR pd_config.tcl]
 set TOP datapath
 set RTL_DIR [file join $PROJECT_DIR rtl]
 set RTL_LIST [file join $PROJECT_DIR rtl_files.f]
-set SDC_FILE [file join $PROJECT_DIR constraints top.sdc]
-set OUTPUT_DIR [file join $PROJECT_DIR output genus]
+if {[info exists ::env(PD_SDC_FILE)] && $::env(PD_SDC_FILE) ne ""} {
+    if {[file pathtype $::env(PD_SDC_FILE)] eq "absolute"} {
+        set SDC_FILE [file normalize $::env(PD_SDC_FILE)]
+    } else {
+        set SDC_FILE [file normalize [file join $PROJECT_DIR $::env(PD_SDC_FILE)]]
+    }
+} else {
+    set SDC_FILE [file join $PROJECT_DIR constraints top.sdc]
+}
+if {[info exists ::env(PD_OUTPUT_DIR)] && $::env(PD_OUTPUT_DIR) ne ""} {
+    if {[file pathtype $::env(PD_OUTPUT_DIR)] eq "absolute"} {
+        set OUTPUT_ROOT [file normalize $::env(PD_OUTPUT_DIR)]
+    } else {
+        set OUTPUT_ROOT [file normalize [file join $PROJECT_DIR $::env(PD_OUTPUT_DIR)]]
+    }
+} else {
+    set OUTPUT_ROOT [file join $PROJECT_DIR output]
+}
+set OUTPUT_DIR [file join $OUTPUT_ROOT genus]
 set SYNTH_EXCLUDED_RTL [list dmem.sv imem.sv imem_rom.sv memorypath.sv riscv.sv]
 
 if {![info exists STD_CELL_LIBS] || [llength $STD_CELL_LIBS] == 0} {

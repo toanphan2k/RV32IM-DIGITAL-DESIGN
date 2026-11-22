@@ -13,7 +13,17 @@ This document is kept as a reference for:
 
 ## 1. Environment Setup & Automated Run Order
 
-Load all required Cadence tools once from the repository root, then run the 4 stages in order (always re-run Genus first whenever `scripts/pd_config.tcl`, `constraints/top.sdc`, or `rtl/*.sv` changes):
+### Option A — One-Command Full Signoff by Target Frequency (Recommended)
+Each runner loads `cadence/genus/211`, `cadence/innovus/211`, and `cadence/pegasus/241` automatically, uses its dedicated SDC constraint file, and isolates all outputs/logs under `output/<freq>/`:
+
+```bash
+bash scripts/run_signoff_100mhz.sh   # constraints/top_100mhz.sdc (10.000 ns) -> output/100mhz/
+bash scripts/run_signoff_125mhz.sh   # constraints/top_125mhz.sdc ( 8.000 ns) -> output/125mhz/
+bash scripts/run_signoff_133mhz.sh   # constraints/top_133mhz.sdc ( 7.500 ns) -> output/133mhz/
+```
+
+### Option B — Step-by-Step Manual Invocation (Default `constraints/top.sdc` -> `output/`)
+Load all required Cadence tools once from the repository root, then run the 4 stages in order (always re-run Genus first whenever `scripts/pd_config.tcl`, `constraints/*.sdc`, or `rtl/*.sv` changes):
 
 ```bash
 module load cadence/genus/211 cadence/innovus/211 cadence/pegasus/241
