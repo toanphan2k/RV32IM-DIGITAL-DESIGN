@@ -1,0 +1,30 @@
+#######################################################
+#                                                     
+#  Innovus Command Logging File                     
+#  Created on Sun Nov 22 17:52:15 2026                
+#                                                     
+#######################################################
+
+#@(#)CDS: Innovus v21.19-s058_1 (64bit) 04/04/2024 09:59 (Linux 3.10.0-693.el7.x86_64)
+#@(#)CDS: NanoRoute 21.19-s058_1 NR231113-0413/21_19-UB (database version 18.20.605) {superthreading v2.17}
+#@(#)CDS: AAE 21.19-s004 (64bit) 04/04/2024 (Linux 3.10.0-693.el7.x86_64)
+#@(#)CDS: CTE 21.19-s010_1 () Mar 27 2024 01:55:37 ( )
+#@(#)CDS: SYNTECH 21.19-s002_1 () Sep  6 2023 22:17:00 ( )
+#@(#)CDS: CPE v21.19-s026
+#@(#)CDS: IQuantus/TQuantus 21.1.1-s966 (64bit) Wed Mar 8 10:22:20 PST 2023 (Linux 3.10.0-693.el7.x86_64)
+
+set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+suppressMessage ENCEXT-2799
+getVersion
+define_proc_arguments ViaFillQor -info {This procedure extracts Viafill details from innovus db} -define_args {
+        {-window "window coordinates" "" list optional}
+        {-window_size "window size in microns" "" string optional}
+    
+    }
+is_common_ui_mode
+restoreDesign /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/innovus/datapath_final.enc.dat datapath
+checkPlace /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/signoff/drc/check_place.rpt
+verify_drc -limit 1000 -report /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/signoff/drc/innovus_drc.rpt
+verifyProcessAntenna -report /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/signoff/drc/antenna.rpt
+verifyPowerVia -report /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/signoff/drc/power_via.rpt
+streamOut /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/signoff/datapath.gds -libName DesignLib -structureName datapath -units 2000 -mode ALL -mapFile /tools/eda/pdks/cadence/gpdk045/gpdk045_v_6_0/soce/streamOut.map -merge /tools/eda/pdks/cadence/gpdk045/gsclib045_svt_v4.7/gsclib045/gds/gsclib045.gds

@@ -1,0 +1,62 @@
+#######################################################
+#                                                     
+#  Innovus Command Logging File                     
+#  Created on Sun Nov 22 18:27:43 2026                
+#                                                     
+#######################################################
+
+#@(#)CDS: Innovus v21.19-s058_1 (64bit) 04/04/2024 09:59 (Linux 3.10.0-693.el7.x86_64)
+#@(#)CDS: NanoRoute 21.19-s058_1 NR231113-0413/21_19-UB (database version 18.20.605) {superthreading v2.17}
+#@(#)CDS: AAE 21.19-s004 (64bit) 04/04/2024 (Linux 3.10.0-693.el7.x86_64)
+#@(#)CDS: CTE 21.19-s010_1 () Mar 27 2024 01:55:37 ( )
+#@(#)CDS: SYNTECH 21.19-s002_1 () Sep  6 2023 22:17:00 ( )
+#@(#)CDS: CPE v21.19-s026
+#@(#)CDS: IQuantus/TQuantus 21.1.1-s966 (64bit) Wed Mar 8 10:22:20 PST 2023 (Linux 3.10.0-693.el7.x86_64)
+
+set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+suppressMessage ENCEXT-2799
+win
+is_common_ui_mode
+restoreDesign /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/innovus/datapath_final.enc.dat datapath
+fit
+report_area
+setDrawView place
+fit
+setDrawView ameba
+fit
+zoomBox -35.42650 19.16350 357.02650 370.49250
+zoomBox -35.42650 124.56250 357.02650 475.89150
+zoomBox -3820.68850 -3615.99200 8091.47600 7047.93800
+zoomBox -32280.66200 -31739.82400 66243.93850 56460.72400
+zoomBox -1949.72050 -1767.12150 4268.50550 3799.51800
+zoomBox 68.13550 226.90200 145.40000 296.07000
+zoomBox 77.93250 236.58300 125.38250 279.06100
+zoomBox 91.92050 250.40650 96.79750 254.77250
+zoomBox 91.63750 250.12700 97.37550 255.26350
+zoomBox 68.12800 226.89400 145.41200 296.07950
+zoomBox 44.87450 203.91500 192.92650 336.45300
+zoomBox 36.28950 195.43100 210.46850 351.35850
+zoomBox -677.28950 -509.71850 1668.52650 1590.28750
+zoomBox -1161.61600 -988.32450 2658.15400 2431.18500
+zoomBox -1161.61600 37.52850 2658.15400 3457.03800
+zoomBox -175.51050 1028.26500 65.56900 1244.08250
+zoomBox -157.07650 1046.78550 17.10350 1202.71400
+zoomBox -165.54650 1038.27600 39.37150 1221.72150
+zoomBox -869.55150 330.96750 1890.26700 2801.59400
+zoomBox -1600.21050 -416.15650 3686.73450 4316.78800
+fit
+setDrawView fplan
+highlight clk -color yellow
+zoomBox -35.42650 19.16350 357.02650 370.49250
+zoomBox -92.94600 -2.25000 368.76350 411.07850
+zoomBox -4099.24400 -1493.69300 1186.24800 3237.95050
+zoomBox 103.83100 -196.05900 496.28600 155.27200
+zoomBox 291.36550 -138.16050 465.50050 17.72750
+gui_select -rect {354.44150 -44.89800 428.33050 -94.90850}
+gui_select -rect {303.75550 8.26600 343.17800 -11.33250}
+deselectAll
+setLayerPreference allLayers -isVisible 0
+setLayerPreference allLayers -isVisible 1
+setLayerPreference allLayers -isVisible 0
+zoomBox 335.72050 -42.94850 336.68100 -42.08850
+zoomBox 335.83800 -42.69650 336.33950 -42.24750

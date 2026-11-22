@@ -1,0 +1,10 @@
+Pegasus 24.11-s021 XAiQ65t/w7Fk1C994e92Sg 2026-11-22 17:54:22 230702 black.doelab.site
+Copyright 2025 Cadence Design Systems, Inc.
+All rights reserved worldwide.
+
+INFO:    Command Line Options: -lvs -gds /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/signoff/datapath.gds -layout_top_cell datapath -source_cdl /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/signoff/datapath_lvs.cdl -source_top_cell datapath -spice /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/signoff/lvs/run/datapath_layout.spi -dp 2 -control /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/signoff/lvs/pegasus_lvs.ctrl /tools/eda/pdks/cadence/gpdk045/gpdk045_v_6_0/pvs/pvlLVS.rul
+INFO:    Launch host CPU: Model: AMD EPYC 7H12 64-Core Processor, OS: Rocky Linux release 8.10 (Green Obsidian), Logical cores: 48, Physical cores: 48, Cache: 512 KB, CPU Speed: 2595.12 MHz
+         Launch host Memory: MemTotal: 125742 MB,  MemFree: 71620 MB,  SwapTotal: 16383 MB,  SwapFree: 14236 MB,  VmallocTotal: 33554431 MB,  VmallocUsed: 72 MB
+INFO:    Current path: /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/signoff/lvs/run
+INFO:    Run directory same as current path
+INFO:    Log directory: /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/signoff/lvs/run/pegasus-1795344862-black.doelab.site-230702

@@ -1,0 +1,13 @@
+"ASCII DRC Report Database" output rdb /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/signoff/drc/drc.db
+"DRC Summary" output text /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/signoff/drc/drc.sum
+"Layout GDSII" input none /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/signoff/datapath.gds
+"Layout Top Cell" internal none datapath
+"Pegasus Job Mode" internal none drc
+"Report MaxResults" internal none 1000
+"Rule File" input text /tools/eda/pdks/cadence/gpdk045/gpdk045_v_6_0/pvs/pvlDRC.rul
+"Run Directory" internal none /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/signoff/drc/run/
+"Pegasus Mode Info" internal none PNEMDIMCCBLAJACLIBHHEBFFNBDPHCBE
+"Pegasus Version" internal none 24.11-s021
+"Binary Name" internal none pegasus
+"Pegasus Build Date" internal none "Thu Jan 16 02:52:05 +07 2025"
+"Pegasus Job Time" internal none 1795344828

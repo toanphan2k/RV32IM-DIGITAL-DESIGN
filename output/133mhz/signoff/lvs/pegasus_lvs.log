@@ -1,0 +1,1626 @@
+Pegasus 24.11-s021 XAiQ65t/w7Fk1C994e92Sg 2026-11-22 17:54:22 230702 black.doelab.site
+Copyright 2025 Cadence Design Systems, Inc.
+All rights reserved worldwide.
+
+WARNING: -dp option is obsolete and will be deprecated. Use mp/mt or resource option instead.
+INFO:    Command Line Options: -lvs -gds /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/signoff/datapath.gds -layout_top_cell datapath -source_cdl /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/signoff/datapath_lvs.cdl -source_top_cell datapath -spice /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/signoff/lvs/run/datapath_layout.spi -dp 2 -control /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/signoff/lvs/pegasus_lvs.ctrl /tools/eda/pdks/cadence/gpdk045/gpdk045_v_6_0/pvs/pvlLVS.rul
+INFO:    Launch host CPU: Model: AMD EPYC 7H12 64-Core Processor, OS: Rocky Linux release 8.10 (Green Obsidian), Logical cores: 48, Physical cores: 48, Cache: 512 KB, CPU Speed: 2595.12 MHz
+         Launch host Memory: MemTotal: 125742 MB,  MemFree: 71620 MB,  SwapTotal: 16383 MB,  SwapFree: 14236 MB,  VmallocTotal: 33554431 MB,  VmallocUsed: 72 MB
+INFO:    Current path: /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/signoff/lvs/run
+INFO:    Run directory same as current path
+INFO:    Log directory: /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/signoff/lvs/run/pegasus-1795344862-black.doelab.site-230702
+INFO:    PVL parsing results:
+WARNING: Cmd-line override: LAYOUT_PATH "/home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/signoff/datapath.gds";
+WARNING: Cmd-line override: LAYOUT_PRIMARY "datapath";
+WARNING: Cmd-line override: SCHEMATIC_PATH "/home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/signoff/datapath_lvs.cdl";
+WARNING: Cmd-line override: SCHEMATIC_PRIMARY "datapath";
+WARNING: MASK_SVDB_DIR at line 88 in file /tools/eda/pdks/cadence/gpdk045/gpdk045_v_6_0/pvs/pvlLVS.rul is skipped. It is set in control file.
+
+INFO:    See "/home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/signoff/lvs/run/pegasus-1795344862-black.doelab.site-230702/pvl.log" for additional details.
+
+INFO:    Checking out 1 license(s) of feature: 'Pegasus_LVS' version 24.1
+INFO:    License checkout successful ... 2026-11-22 17:54:31
+
+INFO:    Checking out 1 license(s) of feature: 'Pegasus_16nm' version 24.1
+INFO:    License checkout successful ... 2026-11-22 17:54:32
+WARNING: Neither hcell nor -automatch option is specified.
+INFO:    Extraction report file: /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/signoff/lvs/run//home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/signoff/lvs/lvs.rep 
+INFO:    Extracted layout netlist: /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/signoff/lvs/run/datapath_layout.spi 
+INFO:    Setting LAYOUT_PATH to: /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/signoff/datapath.gds 
+INFO:    Setting LAYOUT_PRIMARY to: datapath 
+INFO:    Setting SCHEMATIC_PATH to: /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/signoff/datapath_lvs.cdl 
+INFO:    Setting SCHEMATIC_PRIMARY to: datapath 
+
+INFO:    Gdsii input summary
+         File name: /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/signoff/datapath.gds
+         File size: 26162260
+         Version: 5.0
+         Library name: DesignLib
+         Last modified: 2026-11-22 17:54:19
+         Last accessed: 2026-11-22 17:54:19
+         Database unit in user units: 0.0005
+         Database unit in meters: 5e-10
+         Magnification: 1 
+
+INFO:    Cell Summary:
+         ----------------------------------------------------------------------------
+             CELL              INSTANCE    GEOMETRY      LABELS        HREF        FREF
+         ----------------------------------------------------------------------------
+         BUFX3                        0          63           9        1481        1481
+         INVXL                        0          29           9         425         425
+         INVX1                        0          32           9         746         746
+         CLKBUFX3                     0          54           9          94          94
+         DLY1X1                       0          72           9         719         719
+         BUFX6                        0          88           9          53          53
+         CLKBUFX8                     0         104           9          34          34
+         CLKINVX2                     0          43           9           4           4
+         INVX2                        0          41           9          85          85
+         BUFX4                        0          71           9         151         151
+         DLY2X1                       0         112           9         568         568
+         DLY1X4                       0          92           9          15          15
+         BUFX8                        0         103           9           9           9
+         CLKBUFX12                    0         128           9           2           2
+         DLY3X1                       0         155           9          98          98
+         NAND3X2                      0          68          13          22          22
+         OA21X1                       0          63          13          64          64
+         NAND2X2                      0          59          11         284         284
+         OR2XL                        0          44          11         231         231
+         OAI211X2                     0          90          15          20          20
+         AOI21X1                      0          54          13         498         498
+         NAND2X4                      0          87          11          25          25
+         CLKBUFX6                     0          81           9          77          77
+         BUFX12                       0         138           9         195         195
+         CLKINVX4                     0          58           9          35          35
+         INVX3                        0          48           9          42          42
+         CLKINVX6                     0          65           9          68          68
+         CLKINVX8                     0          72           9           8           8
+         MXI2X1                       0          64          13           3           3
+         NOR3X2                       0          65          13          23          23
+         NAND2X1                      0          42          11         892         892
+         NAND3X4                      0         105          13          11          11
+         NOR4X1                       0          56          15          97          97
+         NOR3X1                       0          54          13          11          11
+         AND2XL                       0          44          11         116         116
+         NAND3BX1                     0          59          13          16          16
+         CLKAND2X3                    0          71          11           2           2
+         NOR2X2                       0          57          11         120         120
+         AOI21X2                      0          68          13          39          39
+         NOR2BX1                      0          47          11        2004        2004
+         NAND2BX1                     0          48          11        1529        1529
+         NOR3X4                       0         100          13           8           8
+         OAI221X2                     0          99          17          26          26
+         AOI21X4                      0         104          13          13          13
+         OAI21X2                      0          69          13          49          49
+         OAI211X1                     0          62          15         143         143
+         CLKBUFX20                    0         197           9          13          13
+         CLKBUFX16                    0         162           9          28          28
+         OAI21X1                      0          56          13         352         352
+         AOI22X1                      0          63          15        2088        2088
+         NAND2XL                      0          37          11         318         318
+         NOR3BX4                      0         111          13           3           3
+         OAI21X4                      0         103          13          19          19
+         NOR2XL                       0          37          11         155         155
+         NOR2X1                       0          43          11         496         496
+         NOR2BX2                      0          62          11          15          15
+         OAI2BB1X2                    0          71          13          29          29
+         AOI221X2                     0         100          17          11          11
+         XNOR2X1                      0          69          11        1287        1287
+         MXI2XL                       0          60          13          32          32
+         AOI211X2                     0          87          15           8           8
+         OAI2BB1X1                    0          56          13         494         494
+         AOI211X4                     0         134          15           1           1
+         NAND2BX2                     0          67          11          42          42
+         AOI22X2                      0          82          15         202         202
+         NOR3BX2                      0          75          13          14          14
+         AOI2BB1X4                    0          91          13           9           9
+         NOR2BX4                      0          82          11           4           4
+         OAI211X4                     0         134          15           5           5
+         NAND2BX4                     0          99          11           8           8
+         AND2X1                       0          48          11          81          81
+         OR2X6                        0         102          11          12          12
+         NAND2X6                      0         110          11           1           1
+         OAI2BB1X4                    0          95          13           7           7
+         AOI221X4                     0         158          17           2           2
+         OAI31X4                      0         133          15           2           2
+         NOR2X4                       0          86          11          15          15
+         INVX4                        0          57           9           1           1
+         TIELO                        0          33           7          42          42
+         TLATNTSCAX4                  0         155          13           1           1
+         TLATNTSCAX3                  0         134          13           5           5
+         TLATNTSCAX6                  0         174          13           1           1
+         TLATNTSCAX2                  0         129          13           2           2
+         TLATNTSCAX8                  0         183          13          13          13
+         TLATNTSCAX12                 0         216          13          19          19
+         OAI221X1                     0          72          17          77          77
+         AOI221X1                     0          73          17         165         165
+         NAND4X1                      0          57          15         132         132
+         OR4X1                        0          63          15          22          22
+         AOI211XL                     0          55          15           8           8
+         AOI211X1                     0          61          15           6           6
+         AND4XL                       0          61          15          11          11
+         NOR3BX1                      0          61          13          34          34
+         OAI22X1                      0          64          15         457         457
+         AOI31X2                      0          83          15           2           2
+         OAI21XL                      0          48          13           3           3
+         OAI31X1                      0          65          15           9           9
+         AND3X1                       0          57          13           1           1
+         AOI31X1                      0          65          15           4           4
+         AND3XL                       0          53          13           9           9
+         OR2X1                        0          49          11          66          66
+         AND2X2                       0          56          11           6           6
+         NAND3BXL                     0          51          13          20          20
+         NAND4BX1                     0          63          15           3           3
+         AO22XL                       0          67          15          29          29
+         AOI33X2                      0         109          19           2           2
+         DFFRHQX1                     0         146          13        2997        2997
+         AOI22XL                      0          55          15         212         212
+         CLKAND2X2                    0          56          11           2           2
+         CLKAND2X4                    0          81          11           2           2
+         DFFRX1                       0         164          15         146         146
+         DFFRHQX4                     0         164          13          11          11
+         AO21X1                       0          63          13          32          32
+         AO21X4                       0          88          13           6           6
+         AO21X2                       0          70          13           7           7
+         OR3X1                        0          56          13          19          19
+         AO21XL                       0          60          13           8           8
+         OR2X2                        0          55          11           5           5
+         AO22X4                       0          93          15          14          14
+         AO22X1                       0          73          15          10          10
+         OR2X4                        0          82          11          10          10
+         AO22X2                       0          77          15           3           3
+         OR4X2                        0          76          15           1           1
+         XOR2XL                       0          68          11          80          80
+         CLKMX2X2                     0          77          13          66          66
+         MX2X1                        0          68          13          47          47
+         AOI222X1                     0          79          19         104         104
+         NAND2BXL                     0          44          11         301         301
+         CLKXOR2X1                    0          71          11          15          15
+         AND2X4                       0          83          11          18          18
+         CLKMX2X4                     0          93          13           6           6
+         MX2XL                        0          65          13          50          50
+         CLKMX2X3                     0          88          13           4           4
+         MXI2X2                       0          88          13           1           1
+         OA21X2                       0          73          13           1           1
+         NOR2X6                       0         108          11           1           1
+         AOI21XL                      0          48          13          42          42
+         AOI22X4                      0         122          15           2           2
+         CLKAND2X6                    0         109          11           1           1
+         DFFRHQX2                     0         154          13          75          75
+         AOI2BB1X1                    0          57          13          98          98
+         NAND3BX2                     0          73          13           7           7
+         OR3X2                        0          65          13           1           1
+         AND2X6                       0          98          11          59          59
+         NOR3BXL                      0          53          13           1           1
+         NAND3BX4                     0         113          13           2           2
+         NOR4X4                       0         138          15           2           2
+         NOR4X2                       0          76          15          23          23
+         AOI32X2                      0          95          17           7           7
+         OR3XL                        0          53          13           6           6
+         OAI31X2                      0          82          15           1           1
+         NOR4X6                       0         176          15           1           1
+         OAI33X1                      0          72          19           2           2
+         NAND4BX2                     0         102          15           2           2
+         NOR4BBX1                     0          80          15           4           4
+         NAND4X2                      0          80          15         145         145
+         OAI222X4                     0         165          19           2           2
+         NAND3X1                      0          52          13          30          30
+         DFFRHQX8                     0         222          13           4           4
+         OAI222X2                     0         110          19           4           4
+         OAI32X1                      0          78          17           6           6
+         OA22X1                       0          68          15           9           9
+         AOI33X4                      0         175          19           1           1
+         OAI22XL                      0          55          15          20          20
+         AND2X8                       0         117          11           1           1
+         AOI32X1                      0          72          17           1           1
+         OAI22X2                      0          79          15          89          89
+         AND4X1                       0          65          15           2           2
+         AND3X6                       0         109          13           1           1
+         OR3X4                        0          87          13           1           1
+         DFFRX2                       0         172          15          28          28
+         AOI222X2                     0         116          19           1           1
+         OAI22X4                      0         125          15           4           4
+         AOI2BB1XL                    0          58          13          63          63
+         ADDFX1                       0         133          15         596         596
+         ADDFHX2                      0         168          15           1           1
+         NOR4BBX2                     0         111          15           3           3
+         ADDFHX1                      0         152          15           1           1
+         OAI221X4                     0         151          17           1           1
+         ADDFXL                       0         143          15           7           7
+         ADDFHXL                      0         151          15           1           1
+         XNOR2X2                      0          82          11           8           8
+         ADDHX1                       0          98          13           5           5
+         OR2X8                        0         118          11           1           1
+         OA22X4                       0          91          15           2           2
+         OA22X2                       0          79          15           1           1
+         XNOR2X4                      0         100          11           1           1
+         NOR4BX2                      0         102          15           1           1
+         CLKXOR2X2                    0          78          11           7           7
+         DFFRX4                       0         212          15           2           2
+         AOI2BB1X2                    0          70          13           2           2
+         NOR4BX1                      0          64          15           1           1
+         NAND4BX4                     0         170          15           1           1
+         FILL64                       0         139           6         268         268
+         FILL8                        0          27           6         921         921
+         FILL2                        0          15           6        8157        8157
+         FILL4                        0          19           6        4338        4338
+         FILL1                        0          15           6        8878        8878
+         FILL32                       0          75           6         142         142
+         FILL16                       0          43           6         266         266
+         M4_M3_1x2_HV_N               0           4           0        7427        7427
+         M4_M3_2x1_HV_E               0           4           0        3259        3259
+         M4_M3_1x2_HV_S               0           4           0        4609        4609
+         M2_M1_1x2_HV_S               0           4           0       17416       17416
+         M3_M2_2x1_VH_E               0           4           0       12392       12392
+         M4_M3_2x1_HV_W               0           4           0        2131        2131
+         M2_M1_2x1_HH_W               0           4           0         452         452
+         M3_M2_VH                     0           3           0         471         471
+         M2_M1_1x2_HV_N               0           4           0       20803       20803
+         M3_M2_1x2_VH_N               0           4           0       22203       22203
+         M2_M1_2x1_HV_E               0           4           0        8187        8187
+         M3_M2_1x2_VH_S               0           4           0       16867       16867
+         M5_M4_1x2_VH_N               0           4           0        2947        2947
+         M2_M1_2x1_HH_E               0           4           0        1509        1509
+         M5_M4_1x2_VH_S               0           4           0        1813        1813
+         M3_M2_2x1_VH_W               0           4           0        9968        9968
+         M2_M1_1x2_VV_C               0           4           0        5550        5550
+         M2_M1_VV                     0           3           0         446         446
+         M5_M4_2x1_VH_W               0           4           0         601         601
+         M2_M1_1x2_VV_N               0           4           0        5793        5793
+         M5_M4_2x1_VH_E               0           4           0         990         990
+         M2_M1_2x1_HV_W               0           4           0        8678        8678
+         M2_M1_HV                     0           3           0        8076        8076
+         M2_M1_HH                     0           3           0         545         545
+         M4_M3_HV                     0           3           0         165         165
+         M2_M1_2x1_HH_C               0           4           0         518         518
+         M2_M1_1x2_VV_S               0           4           0        4182        4182
+         M3_M2_HH                     0           3           0         119         119
+         M5_M4_VH                     0           3           0          62          62
+         M4_M3_HH                     0           3           0          13          13
+         M5_M4_HH                     0           3           0           9           9
+         M3_M2_VV                     0           3           0           8           8
+         M2_M1_VH                     0           3           0          46          46
+         M3_M2_HV                     0           3           0          18          18
+         M4_M3_VV                     0           3           0           1           1
+         M4_M3_VH                     0           3           0           2           2
+         M3_M2_M_NH                   0           3           0           1           1
+         datapath_VIA0                0         156           0          32          32
+         datapath_VIA1                0         156           0           8           8
+         datapath_VIA2                0          16           0         352         352
+         datapath_VIA3                0          16           0         352         352
+         datapath_VIA4                0          16           0         352         352
+         datapath_VIA5                0          16           0         352         352
+         datapath_VIA6                0          16           0         352         352
+         datapath_VIA7                0          16           0        1408        1408
+         datapath_VIA8                0          16           0        1408        1408
+         datapath_VIA9                0          16           0        1408        1408
+         datapath_VIA10               0          16           0        1408        1408
+         datapath_VIA11               0          16           0        1408        1408
+         datapath                223714      292964         232           1           1
+         ----------------------------------------------------------------------------
+         TOTAL CELL = 250;  INSTANCE = 223714;  GEOMETRY = 310962;  LABEL = 2785
+
+INFO:    Layer Summary:
+         ----------------------------------------------------------------------------
+             LAYER                       ID       HPN      HTC        FPN       FTC
+         ----------------------------------------------------------------------------
+         BJTdum                        1000         0         0         0         0
+         Bondpad                       1001         0         0         0         0
+         Cap3dum                       1002         0         0         0         0
+         CapMetal                      1003         0         0         0         0
+         Capdum                        1004         0         0         0         0
+         Cont                          1005     10205         0   1093701         0
+         DIOdummy                      1006         0         0         0         0
+         IND2dummy                     1007         0         0         0         0
+         INDdummy                      1008         0         0         0         0
+         M1Resdum                      1009         0         0         0         0
+         M2Resdum                      1010         0         0         0         0
+         M3Resdum                      1011         0         0         0         0
+         M4Resdum                      1012         0         0         0         0
+         M5Resdum                      1013         0         0         0         0
+         M6Resdum                      1014         0         0         0         0
+         M7Resdum                      1015         0         0         0         0
+         M8Resdum                      1016         0         0         0         0
+         M9Resdum                      1017         0         0         0         0
+         M10Resdum                     1018         0         0         0         0
+         M11Resdum                     1019         0         0         0         0
+         Metal1                        1020     19922         0    626232         0
+         Metal2                        1021    128928         0    276669         0
+         Metal3                        1022     85328         0    168481         0
+         Metal4                        1023     43818         0     71349         0
+         Metal5                        1024     19064         0     28996         0
+         Metal6                        1025        24         0      1820         0
+         Metal7                        1026         8         0        46         0
+         Metal8                        1027         0         0         0         0
+         Metal9                        1028         0         0         0         0
+         Metal10                       1029         0         0         0         0
+         Metal11                       1030         0         0         0         0
+         NPN2dum                       1031         0         0         0         0
+         NPN5dum                       1032         0         0         0         0
+         NPN10dum                      1033         0         0         0         0
+         NPNdummy                      1034         0         0         0         0
+         Nburied                       1035         0         0         0         0
+         Nhvt                          1036         0         0         0         0
+         Nimp                          1037       400         0     93194         0
+         Nlvt                          1038         0         0         0         0
+         Nwell                         1039       200         0     46597         0
+         Nzvt                          1040         0         0         0         0
+         Oxide                         1041       928         0    178347         0
+         Oxide_thk                     1042         0         0         0         0
+         PNPdummy                      1043         0         0         0         0
+         Phvt                          1044         0         0         0         0
+         Pimp                          1045       400         0     93194         0
+         Plvt                          1046         0         0         0         0
+         Poly                          1047      1230         0    137369         0
+         Psub                          1048         0         0         0         0
+         ResWdum                       1049         0         0         0         0
+         Resdum                        1050         0         0         0         0
+         SiProt                        1051         0         0         0         0
+         Via1                          1052        52         0    179929         0
+         Via2                          1053        41         0    148117         0
+         Via3                          1054        40         0     59673         0
+         Via4                          1055        38         0     37413         0
+         Via5                          1056        28         0     24640         0
+         Via6                          1057       308         0      6160         0
+         Via7                          1058         0         0         0         0
+         Via8                          1059         0         0         0         0
+         Via9                          1060         0         0         0         0
+         Via10                         1061         0         0         0         0
+         ind10_text                    1062         0         0         0         0
+         ind11_text                    1063         0         0         0         0
+         metal1_conn_text              1064         0         0         0         0
+         metal2_conn_text              1065         0         0         0         0
+         metal3_conn_text              1066         0         0         0         0
+         metal4_conn_text              1067         0         0         0         0
+         metal5_conn_text              1068         0         0         0         0
+         metal6_conn_text              1069         0         0         0         0
+         metal7_conn_text              1070         0         0         0         0
+         metal8_conn_text              1071         0         0         0         0
+         metal9_conn_text              1072         0         0         0         0
+         metal10_conn_text             1073         0         0         0         0
+         metal11_conn_text             1074         0         0         0         0
+         m1_label                      1076         0         0         0         0
+         m2_label                      1077         0         0         0         0
+         m3_label                      1078         0       166         0       166
+         m4_label                      1079         0        64         0        64
+         m5_label                      1080         0         0         0         0
+         m6_label                      1081         0         0         0         0
+         m7_label                      1082         0         2         0         2
+         m8_label                      1083         0         0         0         0
+         m9_label                      1084         0         0         0         0
+         m10_label                     1085         0         0         0         0
+         m11_label                     1086         0         0         0         0
+         m1_pin                        1087         0      2346         0    349954
+         m2_pin                        1088         0         0         0         0
+         m3_pin                        1089         0         0         0         0
+         m4_pin                        1090         0         0         0         0
+         m5_pin                        1091         0         0         0         0
+         m6_pin                        1092         0         0         0         0
+         m7_pin                        1093         0         0         0         0
+         m8_pin                        1094         0         0         0         0
+         m9_pin                        1095         0         0         0         0
+         m10_pin                       1096         0         0         0         0
+         m11_pin                       1097         0         0         0         0
+         text                          1098         0       207         0     69567
+         nwell_conn_text              10645         0         0         0         0
+         nwell_label                  10765         0         0         0         0
+         nwell_pin                    10875         0         0         0         0
+         ----------------------------------------------------------------------------
+
+INFO:    CHIP EXTENT: 0 0 643200 638670
+
+INFO:    Worker 1 started on host black.doelab.site with 1 cpu(s)
+         CPU: Model: , OS: 	Rocky Linux release 8.10 (Green Obsidian), Logical cores: 0, Physical cores: 0, Cache: 0 KB, CPU Speed: 0 MHz
+         Memory: MemTotal: 125742 MB,  MemFree: 71601 MB,  SwapTotal: 16383 MB,  SwapFree: 14236 MB,  VmallocTotal: 33554431 MB,  VmallocUsed: 73 MB
+INFO:    Worker 2 started on host black.doelab.site with 1 cpu(s)
+         CPU: Model: , OS: 	Rocky Linux release 8.10 (Green Obsidian), Logical cores: 0, Physical cores: 0, Cache: 0 KB, CPU Speed: 0 MHz
+         Memory: MemTotal: 125742 MB,  MemFree: 71600 MB,  SwapTotal: 16383 MB,  SwapFree: 14236 MB,  VmallocTotal: 33554431 MB,  VmallocUsed: 73 MB
+
+INFO:    Ports ...
+         ========================================================================
+
+INFO:    Texts For Connectivity ...
+         ========================================================================
+         store_we_dmem[3] (321.475, 216.125) 1078 datapath
+         store_we_dmem[2] (321.475, 212.895) 1078 datapath
+         store_we_dmem[1] (321.475, 209.855) 1078 datapath
+         store_we_dmem[0] (321.475, 206.625) 1078 datapath
+         store_addr_dmem[9] (321.475, 248.425) 1078 datapath
+         store_addr_dmem[8] (321.475, 245.195) 1078 datapath
+         store_addr_dmem[7] (321.475, 241.965) 1078 datapath
+         store_addr_dmem[6] (321.475, 238.735) 1078 datapath
+         store_addr_dmem[5] (321.475, 235.505) 1078 datapath
+         store_addr_dmem[4] (321.475, 232.275) 1078 datapath
+         store_addr_dmem[3] (321.475, 229.045) 1078 datapath
+         store_addr_dmem[31] (321.475, 319.295) 1078 datapath
+         store_addr_dmem[30] (321.475, 316.255) 1078 datapath
+         store_addr_dmem[2] (321.475, 225.815) 1078 datapath
+         store_addr_dmem[29] (321.475, 313.025) 1078 datapath
+         store_addr_dmem[28] (321.475, 309.795) 1078 datapath
+         store_addr_dmem[27] (321.475, 306.565) 1078 datapath
+         store_addr_dmem[26] (321.475, 303.335) 1078 datapath
+         store_addr_dmem[25] (321.475, 300.105) 1078 datapath
+         store_addr_dmem[24] (321.475, 296.875) 1078 datapath
+         store_addr_dmem[23] (321.475, 293.645) 1078 datapath
+         store_addr_dmem[22] (321.475, 290.415) 1078 datapath
+         store_addr_dmem[21] (321.475, 287.185) 1078 datapath
+         store_addr_dmem[20] (321.475, 283.955) 1078 datapath
+         store_addr_dmem[1] (321.475, 222.585) 1078 datapath
+         store_addr_dmem[19] (321.475, 280.725) 1078 datapath
+         store_addr_dmem[18] (321.475, 277.495) 1078 datapath
+         store_addr_dmem[17] (321.475, 274.265) 1078 datapath
+         store_addr_dmem[16] (321.475, 271.035) 1078 datapath
+         store_addr_dmem[15] (321.475, 267.805) 1078 datapath
+         store_addr_dmem[14] (321.475, 264.575) 1078 datapath
+         store_addr_dmem[13] (321.475, 261.345) 1078 datapath
+         store_addr_dmem[12] (321.475, 258.115) 1078 datapath
+         store_addr_dmem[11] (321.475, 254.885) 1078 datapath
+         store_addr_dmem[10] (321.475, 251.655) 1078 datapath
+         store_addr_dmem[0] (321.475, 219.355) 1078 datapath
+         rst_n (0.125, 4.845) 1078 datapath
+         f_inst[9] (0.125, 275.025) 1078 datapath
+         f_inst[8] (0.125, 279.965) 1078 datapath
+         f_inst[7] (0.125, 284.905) 1078 datapath
+         f_inst[6] (0.125, 289.655) 1078 datapath
+         f_inst[5] (0.125, 294.595) 1078 datapath
+         f_inst[4] (0.125, 299.535) 1078 datapath
+         f_inst[3] (0.125, 304.475) 1078 datapath
+         f_inst[31] (0.125, 166.915) 1078 datapath
+         f_inst[30] (0.125, 171.855) 1078 datapath
+         f_inst[2] (0.125, 309.415) 1078 datapath
+         f_inst[29] (0.125, 176.795) 1078 datapath
+         f_inst[28] (0.125, 181.735) 1078 datapath
+         f_inst[27] (0.125, 186.675) 1078 datapath
+         f_inst[26] (0.125, 191.425) 1078 datapath
+         f_inst[25] (0.125, 196.365) 1078 datapath
+         f_inst[24] (0.125, 201.305) 1078 datapath
+         f_inst[23] (0.125, 206.245) 1078 datapath
+         f_inst[22] (0.125, 211.185) 1078 datapath
+         f_inst[21] (0.125, 216.125) 1078 datapath
+         f_inst[20] (0.125, 221.065) 1078 datapath
+         f_inst[1] (0.125, 314.355) 1078 datapath
+         f_inst[19] (0.125, 225.815) 1078 datapath
+         f_inst[18] (0.125, 230.755) 1078 datapath
+         f_inst[17] (0.125, 235.695) 1078 datapath
+         f_inst[16] (0.125, 240.635) 1078 datapath
+         f_inst[15] (0.125, 245.575) 1078 datapath
+         f_inst[14] (0.125, 250.515) 1078 datapath
+         f_inst[13] (0.125, 255.265) 1078 datapath
+         f_inst[12] (0.125, 260.205) 1078 datapath
+         f_inst[11] (0.125, 265.145) 1078 datapath
+         f_inst[10] (0.125, 270.085) 1078 datapath
+         f_inst[0] (0.125, 319.105) 1078 datapath
+         d_store_dmem_m[9] (321.475, 132.335) 1078 datapath
+         d_store_dmem_m[8] (321.475, 129.105) 1078 datapath
+         d_store_dmem_m[7] (321.475, 125.875) 1078 datapath
+         d_store_dmem_m[6] (321.475, 122.645) 1078 datapath
+         d_store_dmem_m[5] (321.475, 119.415) 1078 datapath
+         d_store_dmem_m[4] (321.475, 116.185) 1078 datapath
+         d_store_dmem_m[3] (321.475, 112.955) 1078 datapath
+         d_store_dmem_m[31] (321.475, 203.395) 1078 datapath
+         d_store_dmem_m[30] (321.475, 200.165) 1078 datapath
+         d_store_dmem_m[2] (321.475, 109.725) 1078 datapath
+         d_store_dmem_m[29] (321.475, 196.935) 1078 datapath
+         d_store_dmem_m[28] (321.475, 193.705) 1078 datapath
+         d_store_dmem_m[27] (321.475, 190.475) 1078 datapath
+         d_store_dmem_m[26] (321.475, 187.245) 1078 datapath
+         d_store_dmem_m[25] (321.475, 184.015) 1078 datapath
+         d_store_dmem_m[24] (321.475, 180.785) 1078 datapath
+         d_store_dmem_m[23] (321.475, 177.555) 1078 datapath
+         d_store_dmem_m[22] (321.475, 174.325) 1078 datapath
+         d_store_dmem_m[21] (321.475, 171.095) 1078 datapath
+         d_store_dmem_m[20] (321.475, 167.865) 1078 datapath
+         d_store_dmem_m[1] (321.475, 106.495) 1078 datapath
+         d_store_dmem_m[19] (321.475, 164.635) 1078 datapath
+         d_store_dmem_m[18] (321.475, 161.405) 1078 datapath
+         d_store_dmem_m[17] (321.475, 158.175) 1078 datapath
+         d_store_dmem_m[16] (321.475, 154.945) 1078 datapath
+         d_store_dmem_m[15] (321.475, 151.715) 1078 datapath
+         d_store_dmem_m[14] (321.475, 148.485) 1078 datapath
+         d_store_dmem_m[13] (321.475, 145.255) 1078 datapath
+         d_store_dmem_m[12] (321.475, 142.025) 1078 datapath
+         d_store_dmem_m[11] (321.475, 138.795) 1078 datapath
+         d_store_dmem_m[10] (321.475, 135.565) 1078 datapath
+         d_store_dmem_m[0] (321.475, 103.455) 1078 datapath
+         d_load_dmem[9] (321.475, 29.165) 1078 datapath
+         d_load_dmem[8] (321.475, 25.935) 1078 datapath
+         d_load_dmem[7] (321.475, 22.705) 1078 datapath
+         d_load_dmem[6] (321.475, 19.475) 1078 datapath
+         d_load_dmem[5] (321.475, 16.245) 1078 datapath
+         d_load_dmem[4] (321.475, 13.015) 1078 datapath
+         d_load_dmem[3] (321.475, 9.785) 1078 datapath
+         d_load_dmem[31] (321.475, 100.225) 1078 datapath
+         d_load_dmem[30] (321.475, 96.995) 1078 datapath
+         d_load_dmem[2] (321.475, 6.555) 1078 datapath
+         d_load_dmem[29] (321.475, 93.765) 1078 datapath
+         d_load_dmem[28] (321.475, 90.535) 1078 datapath
+         d_load_dmem[27] (321.475, 87.305) 1078 datapath
+         d_load_dmem[26] (321.475, 84.075) 1078 datapath
+         d_load_dmem[25] (321.475, 80.845) 1078 datapath
+         d_load_dmem[24] (321.475, 77.615) 1078 datapath
+         d_load_dmem[23] (321.475, 74.385) 1078 datapath
+         d_load_dmem[22] (321.475, 71.155) 1078 datapath
+         d_load_dmem[21] (321.475, 67.925) 1078 datapath
+         d_load_dmem[20] (321.475, 64.695) 1078 datapath
+         d_load_dmem[1] (321.475, 3.325) 1078 datapath
+         d_load_dmem[19] (321.475, 61.465) 1078 datapath
+         d_load_dmem[18] (321.475, 58.235) 1078 datapath
+         d_load_dmem[17] (321.475, 55.005) 1078 datapath
+         d_load_dmem[16] (321.475, 51.775) 1078 datapath
+         d_load_dmem[15] (321.475, 48.545) 1078 datapath
+         d_load_dmem[14] (321.475, 45.315) 1078 datapath
+         d_load_dmem[13] (321.475, 42.085) 1078 datapath
+         d_load_dmem[12] (321.475, 38.855) 1078 datapath
+         d_load_dmem[11] (321.475, 35.625) 1078 datapath
+         d_load_dmem[10] (321.475, 32.395) 1078 datapath
+         d_load_dmem[0] (321.475, 0.095) 1078 datapath
+         clk (0.125, 0.095) 1078 datapath
+         c_pc_f[9] (0.125, 117.895) 1078 datapath
+         c_pc_f[8] (0.125, 122.835) 1078 datapath
+         c_pc_f[7] (0.125, 127.775) 1078 datapath
+         c_pc_f[6] (0.125, 132.525) 1078 datapath
+         c_pc_f[5] (0.125, 137.465) 1078 datapath
+         c_pc_f[4] (0.125, 142.405) 1078 datapath
+         c_pc_f[3] (0.125, 147.345) 1078 datapath
+         c_pc_f[31] (0.125, 9.785) 1078 datapath
+         c_pc_f[30] (0.125, 14.725) 1078 datapath
+         c_pc_f[2] (0.125, 152.285) 1078 datapath
+         c_pc_f[29] (0.125, 19.665) 1078 datapath
+         c_pc_f[28] (0.125, 24.605) 1078 datapath
+         c_pc_f[27] (0.125, 29.545) 1078 datapath
+         c_pc_f[26] (0.125, 34.295) 1078 datapath
+         c_pc_f[25] (0.125, 39.235) 1078 datapath
+         c_pc_f[24] (0.125, 44.175) 1078 datapath
+         c_pc_f[23] (0.125, 49.115) 1078 datapath
+         c_pc_f[22] (0.125, 54.055) 1078 datapath
+         c_pc_f[21] (0.125, 58.995) 1078 datapath
+         c_pc_f[20] (0.125, 63.935) 1078 datapath
+         c_pc_f[1] (0.125, 157.225) 1078 datapath
+         c_pc_f[19] (0.125, 68.685) 1078 datapath
+         c_pc_f[18] (0.125, 73.625) 1078 datapath
+         c_pc_f[17] (0.125, 78.565) 1078 datapath
+         c_pc_f[16] (0.125, 83.505) 1078 datapath
+         c_pc_f[15] (0.125, 88.445) 1078 datapath
+         c_pc_f[14] (0.125, 93.385) 1078 datapath
+         c_pc_f[13] (0.125, 98.135) 1078 datapath
+         c_pc_f[12] (0.125, 103.075) 1078 datapath
+         c_pc_f[11] (0.125, 108.015) 1078 datapath
+         c_pc_f[10] (0.125, 112.955) 1078 datapath
+         c_pc_f[0] (0.125, 161.975) 1078 datapath
+         trace_pc[9] (209.300, 0.125) 1079 datapath
+         trace_pc[8] (204.300, 0.125) 1079 datapath
+         trace_pc[7] (199.100, 0.125) 1079 datapath
+         trace_pc[6] (194.100, 0.125) 1079 datapath
+         trace_pc[5] (188.900, 0.125) 1079 datapath
+         trace_pc[4] (183.900, 0.125) 1079 datapath
+         trace_pc[3] (178.700, 0.125) 1079 datapath
+         trace_pc[31] (321.500, 0.125) 1079 datapath
+         trace_pc[30] (316.500, 0.125) 1079 datapath
+         trace_pc[2] (173.700, 0.125) 1079 datapath
+         trace_pc[29] (311.300, 0.125) 1079 datapath
+         trace_pc[28] (306.300, 0.125) 1079 datapath
+         trace_pc[27] (301.100, 0.125) 1079 datapath
+         trace_pc[26] (296.100, 0.125) 1079 datapath
+         trace_pc[25] (290.900, 0.125) 1079 datapath
+         trace_pc[24] (285.900, 0.125) 1079 datapath
+         trace_pc[23] (280.700, 0.125) 1079 datapath
+         trace_pc[22] (275.700, 0.125) 1079 datapath
+         trace_pc[21] (270.500, 0.125) 1079 datapath
+         trace_pc[20] (265.500, 0.125) 1079 datapath
+         trace_pc[1] (168.500, 0.125) 1079 datapath
+         trace_pc[19] (260.300, 0.125) 1079 datapath
+         trace_pc[18] (255.300, 0.125) 1079 datapath
+         trace_pc[17] (250.100, 0.125) 1079 datapath
+         trace_pc[16] (245.100, 0.125) 1079 datapath
+         trace_pc[15] (239.900, 0.125) 1079 datapath
+         trace_pc[14] (234.900, 0.125) 1079 datapath
+         trace_pc[13] (229.700, 0.125) 1079 datapath
+         trace_pc[12] (224.700, 0.125) 1079 datapath
+         trace_pc[11] (219.500, 0.125) 1079 datapath
+         trace_pc[10] (214.500, 0.125) 1079 datapath
+         trace_pc[0] (163.500, 0.125) 1079 datapath
+         trace_inst[9] (46.100, 0.125) 1079 datapath
+         trace_inst[8] (41.100, 0.125) 1079 datapath
+         trace_inst[7] (35.900, 0.125) 1079 datapath
+         trace_inst[6] (30.900, 0.125) 1079 datapath
+         trace_inst[5] (25.700, 0.125) 1079 datapath
+         trace_inst[4] (20.700, 0.125) 1079 datapath
+         trace_inst[3] (15.500, 0.125) 1079 datapath
+         trace_inst[31] (158.300, 0.125) 1079 datapath
+         trace_inst[30] (153.300, 0.125) 1079 datapath
+         trace_inst[2] (10.500, 0.125) 1079 datapath
+         trace_inst[29] (148.100, 0.125) 1079 datapath
+         trace_inst[28] (143.100, 0.125) 1079 datapath
+         trace_inst[27] (137.900, 0.125) 1079 datapath
+         trace_inst[26] (132.900, 0.125) 1079 datapath
+         trace_inst[25] (127.700, 0.125) 1079 datapath
+         trace_inst[24] (122.700, 0.125) 1079 datapath
+         trace_inst[23] (117.500, 0.125) 1079 datapath
+         trace_inst[22] (112.500, 0.125) 1079 datapath
+         trace_inst[21] (107.300, 0.125) 1079 datapath
+         trace_inst[20] (102.300, 0.125) 1079 datapath
+         trace_inst[1] (5.300, 0.125) 1079 datapath
+         trace_inst[19] (97.100, 0.125) 1079 datapath
+         trace_inst[18] (92.100, 0.125) 1079 datapath
+         trace_inst[17] (86.900, 0.125) 1079 datapath
+         trace_inst[16] (81.900, 0.125) 1079 datapath
+         trace_inst[15] (76.700, 0.125) 1079 datapath
+         trace_inst[14] (71.700, 0.125) 1079 datapath
+         trace_inst[13] (66.500, 0.125) 1079 datapath
+         trace_inst[12] (61.500, 0.125) 1079 datapath
+         trace_inst[11] (56.300, 0.125) 1079 datapath
+         trace_inst[10] (51.300, 0.125) 1079 datapath
+         trace_inst[0] (0.100, 0.125) 1079 datapath
+         VSS (160.800, 5.070) 1082 datapath
+         VDD (160.800, 8.070) 1082 datapath
+         VSS (0.100, 0.000) 1087 FILL16
+         VDD (0.100, 1.710) 1087 FILL16
+         VSS (0.085, 0.000) 1098 FILL16
+         VDD (0.090, 1.700) 1098 FILL16
+         VSS (0.100, 0.000) 1087 FILL32
+         VDD (0.100, 1.710) 1087 FILL32
+         VSS (0.085, 0.000) 1098 FILL32
+         VDD (0.090, 1.700) 1098 FILL32
+         VSS (0.100, 0.000) 1087 FILL1
+         VDD (0.100, 1.710) 1087 FILL1
+         VSS (0.085, 0.000) 1098 FILL1
+         VDD (0.090, 1.700) 1098 FILL1
+         VSS (0.100, 0.000) 1087 FILL4
+         VDD (0.100, 1.710) 1087 FILL4
+         VSS (0.085, 0.000) 1098 FILL4
+         VDD (0.090, 1.700) 1098 FILL4
+         VSS (0.100, 0.000) 1087 FILL2
+         VDD (0.100, 1.710) 1087 FILL2
+         VSS (0.085, 0.000) 1098 FILL2
+         VDD (0.090, 1.700) 1098 FILL2
+         VSS (0.100, 0.000) 1087 FILL8
+         VDD (0.100, 1.710) 1087 FILL8
+         VSS (0.085, 0.000) 1098 FILL8
+         VDD (0.090, 1.700) 1098 FILL8
+         VSS (0.100, 0.000) 1087 FILL64
+         VDD (0.100, 1.710) 1087 FILL64
+         VSS (0.085, 0.000) 1098 FILL64
+         VDD (0.090, 1.700) 1098 FILL64
+         Y (1.500, 1.045) 1087 NAND4BX4
+         VSS (0.100, 0.000) 1087 NAND4BX4
+         VDD (0.100, 1.710) 1087 NAND4BX4
+         D (3.700, 0.855) 1087 NAND4BX4
+         C (3.100, 0.855) 1087 NAND4BX4
+         B (1.900, 0.855) 1087 NAND4BX4
+         AN (0.100, 0.665) 1087 NAND4BX4
+         NAND4BX4 (0.000, 0.000) 1098 NAND4BX4
+         Y (0.100, 0.665) 1087 NOR4BX1
+         VSS (0.100, 0.000) 1087 NOR4BX1
+         VDD (0.100, 1.710) 1087 NOR4BX1
+         D (0.300, 0.855) 1087 NOR4BX1
+         C (0.500, 1.045) 1087 NOR4BX1
+         B (0.700, 0.855) 1087 NOR4BX1
+         AN (1.100, 0.855) 1087 NOR4BX1
+         NOR4BX1 (0.000, 0.265) 1098 NOR4BX1
+         Y (0.100, 0.665) 1087 AOI2BB1X2
+         VSS (0.100, 0.000) 1087 AOI2BB1X2
+         VDD (0.100, 1.710) 1087 AOI2BB1X2
+         B0 (0.500, 0.855) 1087 AOI2BB1X2
+         A1N (1.500, 0.855) 1087 AOI2BB1X2
+         A0N (1.100, 0.665) 1087 AOI2BB1X2
+         AOI2BB1X2 (0.000, 0.000) 1098 AOI2BB1X2
+         VSS (0.100, 0.000) 1087 DFFRX4
+         VDD (0.100, 1.710) 1087 DFFRX4
+         RN (1.900, 0.665) 1087 DFFRX4
+         QN (4.500, 1.045) 1087 DFFRX4
+         Q (3.900, 0.855) 1087 DFFRX4
+         D (0.700, 1.045) 1087 DFFRX4
+         CK (0.100, 0.855) 1087 DFFRX4
+         DFFRX4 (0.000, 0.310) 1098 DFFRX4
+         Y (0.300, 0.665) 1087 CLKXOR2X2
+         VSS (0.100, 0.000) 1087 CLKXOR2X2
+         VDD (0.100, 1.710) 1087 CLKXOR2X2
+         B (1.500, 0.855) 1087 CLKXOR2X2
+         A (0.700, 0.855) 1087 CLKXOR2X2
+         CLKXOR2X2 (0.000, 0.000) 1098 CLKXOR2X2
+         Y (1.300, 0.855) 1087 NOR4BX2
+         VSS (0.100, 0.000) 1087 NOR4BX2
+         VDD (0.100, 1.710) 1087 NOR4BX2
+         D (2.500, 0.855) 1087 NOR4BX2
+         C (2.100, 0.855) 1087 NOR4BX2
+         B (1.700, 0.855) 1087 NOR4BX2
+         AN (0.100, 0.855) 1087 NOR4BX2
+         NOR4BX2 (0.000, 0.000) 1098 NOR4BX2
+         Y (0.300, 0.665) 1087 XNOR2X4
+         VSS (0.100, 0.000) 1087 XNOR2X4
+         VDD (0.100, 1.710) 1087 XNOR2X4
+         B (1.900, 0.855) 1087 XNOR2X4
+         A (0.900, 0.665) 1087 XNOR2X4
+         XNOR2X4 (0.000, 0.265) 1098 XNOR2X4
+         Y (1.500, 0.665) 1087 OA22X2
+         VSS (0.100, 0.000) 1087 OA22X2
+         VDD (0.100, 1.710) 1087 OA22X2
+         B1 (0.700, 1.045) 1087 OA22X2
+         B0 (1.300, 1.045) 1087 OA22X2
+         A1 (0.500, 1.045) 1087 OA22X2
+         A0 (0.300, 0.855) 1087 OA22X2
+         OA22X2 (0.000, 0.000) 1098 OA22X2
+         Y (2.100, 1.045) 1087 OA22X4
+         VSS (0.100, 0.000) 1087 OA22X4
+         VDD (0.100, 1.710) 1087 OA22X4
+         B1 (0.700, 1.045) 1087 OA22X4
+         B0 (1.100, 1.045) 1087 OA22X4
+         A1 (0.500, 1.045) 1087 OA22X4
+         A0 (0.300, 0.855) 1087 OA22X4
+         OA22X4 (0.000, 0.000) 1098 OA22X4
+         Y (2.500, 0.665) 1087 OR2X8
+         VSS (0.100, 0.000) 1087 OR2X8
+         VDD (0.100, 1.710) 1087 OR2X8
+         B (0.500, 1.045) 1087 OR2X8
+         A (0.100, 0.855) 1087 OR2X8
+         OR2X8 (0.000, 0.260) 1098 OR2X8
+         VSS (0.100, 0.000) 1087 ADDHX1
+         VDD (0.100, 1.710) 1087 ADDHX1
+         S (2.100, 0.855) 1087 ADDHX1
+         CO (0.100, 1.045) 1087 ADDHX1
+         B (0.500, 0.855) 1087 ADDHX1
+         A (0.300, 0.665) 1087 ADDHX1
+         ADDHX1 (0.000, 0.240) 1098 ADDHX1
+         Y (0.300, 0.855) 1087 XNOR2X2
+         VSS (0.100, 0.000) 1087 XNOR2X2
+         VDD (0.100, 1.710) 1087 XNOR2X2
+         B (1.495, 0.855) 1087 XNOR2X2
+         A (0.700, 0.855) 1087 XNOR2X2
+         XNOR2X2 (0.000, 0.270) 1098 XNOR2X2
+         VSS (0.100, 0.000) 1087 ADDFHXL
+         VDD (0.100, 1.710) 1087 ADDFHXL
+         S (4.300, 0.665) 1087 ADDFHXL
+         CO (0.100, 0.665) 1087 ADDFHXL
+         CI (1.700, 0.665) 1087 ADDFHXL
+         B (1.700, 1.005) 1087 ADDFHXL
+         A (3.700, 0.855) 1087 ADDFHXL
+         ADDFHXL (0.000, 0.000) 1098 ADDFHXL
+         VSS (0.100, 0.000) 1087 ADDFXL
+         VDD (0.100, 1.710) 1087 ADDFXL
+         S (3.900, 0.665) 1087 ADDFXL
+         CO (0.100, 0.855) 1087 ADDFXL
+         CI (1.700, 0.475) 1087 ADDFXL
+         B (1.700, 1.045) 1087 ADDFXL
+         A (3.500, 0.855) 1087 ADDFXL
+         ADDFXL (0.000, 0.000) 1098 ADDFXL
+         Y (4.300, 0.855) 1087 OAI221X4
+         VSS (0.100, 0.000) 1087 OAI221X4
+         VDD (0.100, 1.710) 1087 OAI221X4
+         C0 (3.900, 0.855) 1087 OAI221X4
+         B1 (3.100, 0.855) 1087 OAI221X4
+         B0 (3.500, 1.045) 1087 OAI221X4
+         A1 (0.700, 0.855) 1087 OAI221X4
+         A0 (0.300, 0.855) 1087 OAI221X4
+         OAI221X4 (0.000, 0.000) 1098 OAI221X4
+         VSS (0.100, 0.000) 1087 ADDFHX1
+         VDD (0.100, 1.710) 1087 ADDFHX1
+         S (4.300, 0.665) 1087 ADDFHX1
+         CO (0.100, 0.665) 1087 ADDFHX1
+         CI (1.700, 0.475) 1087 ADDFHX1
+         B (1.700, 0.855) 1087 ADDFHX1
+         A (3.700, 0.855) 1087 ADDFHX1
+         ADDFHX1 (0.000, 0.000) 1098 ADDFHX1
+         Y (2.700, 0.665) 1087 NOR4BBX2
+         VSS (0.100, 0.000) 1087 NOR4BBX2
+         VDD (0.100, 1.710) 1087 NOR4BBX2
+         D (2.300, 0.855) 1087 NOR4BBX2
+         C (1.900, 0.855) 1087 NOR4BBX2
+         BN (0.500, 0.665) 1087 NOR4BBX2
+         AN (0.500, 1.045) 1087 NOR4BBX2
+         NOR4BBX2 (0.000, 0.000) 1098 NOR4BBX2
+         VSS (0.100, 0.000) 1087 ADDFHX2
+         VDD (0.100, 1.710) 1087 ADDFHX2
+         S (4.500, 0.665) 1087 ADDFHX2
+         CO (0.300, 0.665) 1087 ADDFHX2
+         CI (1.900, 0.475) 1087 ADDFHX2
+         B (1.900, 1.045) 1087 ADDFHX2
+         A (3.900, 0.665) 1087 ADDFHX2
+         ADDFHX2 (0.000, 0.000) 1098 ADDFHX2
+         VSS (0.100, 0.000) 1087 ADDFX1
+         VDD (0.100, 1.710) 1087 ADDFX1
+         S (2.900, 1.045) 1087 ADDFX1
+         CO (0.100, 1.045) 1087 ADDFX1
+         CI (1.500, 0.665) 1087 ADDFX1
+         B (1.900, 0.855) 1087 ADDFX1
+         A (1.702, 0.665) 1087 ADDFX1
+         ADDFX1 (0.000, 0.185) 1098 ADDFX1
+         Y (0.100, 0.855) 1087 AOI2BB1XL
+         VSS (0.100, 0.000) 1087 AOI2BB1XL
+         VDD (0.100, 1.710) 1087 AOI2BB1XL
+         B0 (0.500, 1.045) 1087 AOI2BB1XL
+         A1N (1.100, 0.665) 1087 AOI2BB1XL
+         A0N (0.700, 1.045) 1087 AOI2BB1XL
+         AOI2BB1XL (0.000, 0.000) 1098 AOI2BB1XL
+         Y (2.100, 1.235) 1087 OAI22X4
+         VSS (0.100, 0.000) 1087 OAI22X4
+         VDD (0.100, 1.710) 1087 OAI22X4
+         B1 (2.700, 0.855) 1087 OAI22X4
+         B0 (2.300, 0.855) 1087 OAI22X4
+         A1 (0.900, 0.855) 1087 OAI22X4
+         A0 (1.300, 0.665) 1087 OAI22X4
+         OAI22X4 (0.000, 0.000) 1098 OAI22X4
+         Y (1.300, 0.855) 1087 AOI222X2
+         VSS (0.100, 0.000) 1087 AOI222X2
+         VDD (0.100, 1.710) 1087 AOI222X2
+         C1 (2.700, 0.855) 1087 AOI222X2
+         C0 (2.300, 0.665) 1087 AOI222X2
+         B1 (1.700, 0.855) 1087 AOI222X2
+         B0 (1.900, 0.665) 1087 AOI222X2
+         A1 (0.700, 0.855) 1087 AOI222X2
+         A0 (0.300, 0.665) 1087 AOI222X2
+         AOI222X2 (0.000, 0.000) 1098 AOI222X2
+         VSS (0.100, 0.000) 1087 DFFRX2
+         VDD (0.100, 1.710) 1087 DFFRX2
+         RN (1.300, 0.855) 1087 DFFRX2
+         QN (3.925, 1.045) 1087 DFFRX2
+         Q (3.460, 1.045) 1087 DFFRX2
+         D (0.300, 1.045) 1087 DFFRX2
+         CK (3.100, 1.045) 1087 DFFRX2
+         DFFRX2 (0.000, 0.275) 1098 DFFRX2
+         Y (1.500, 0.665) 1087 OR3X4
+         VSS (0.100, 0.000) 1087 OR3X4
+         VDD (0.100, 1.710) 1087 OR3X4
+         C (0.100, 0.855) 1087 OR3X4
+         B (0.300, 1.045) 1087 OR3X4
+         A (0.700, 1.045) 1087 OR3X4
+         OR3X4 (0.000, 0.185) 1098 OR3X4
+         Y (2.300, 0.855) 1087 AND3X6
+         VSS (0.100, 0.000) 1087 AND3X6
+         VDD (0.100, 1.710) 1087 AND3X6
+         C (0.700, 0.855) 1087 AND3X6
+         B (1.100, 0.855) 1087 AND3X6
+         A (0.300, 0.665) 1087 AND3X6
+         AND3X6 (0.000, 0.000) 1098 AND3X6
+         Y (1.300, 1.235) 1087 AND4X1
+         VSS (0.100, 0.000) 1087 AND4X1
+         VDD (0.100, 1.710) 1087 AND4X1
+         D (0.100, 0.665) 1087 AND4X1
+         C (0.300, 0.855) 1087 AND4X1
+         B (0.500, 1.045) 1087 AND4X1
+         A (0.900, 0.855) 1087 AND4X1
+         AND4X1 (0.000, 0.270) 1098 AND4X1
+         Y (0.900, 1.045) 1087 OAI22X2
+         VSS (0.100, 0.000) 1087 OAI22X2
+         VDD (0.100, 1.710) 1087 OAI22X2
+         B1 (1.700, 1.045) 1087 OAI22X2
+         B0 (1.300, 0.855) 1087 OAI22X2
+         A1 (0.300, 1.045) 1087 OAI22X2
+         A0 (0.700, 0.665) 1087 OAI22X2
+         OAI22X2 (0.000, 0.000) 1098 OAI22X2
+         Y (0.695, 1.045) 1087 AOI32X1
+         VSS (0.100, 0.000) 1087 AOI32X1
+         VDD (0.100, 1.710) 1087 AOI32X1
+         B1 (0.870, 0.590) 1087 AOI32X1
+         B0 (1.095, 0.780) 1087 AOI32X1
+         A2 (0.515, 0.715) 1087 AOI32X1
+         A1 (0.305, 0.875) 1087 AOI32X1
+         A0 (0.105, 1.030) 1087 AOI32X1
+         AOI32X1 (0.000, 0.270) 1098 AOI32X1
+         Y (2.100, 0.805) 1087 AND2X8
+         VSS (0.100, 0.000) 1087 AND2X8
+         VDD (0.100, 1.710) 1087 AND2X8
+         B (0.500, 0.855) 1087 AND2X8
+         A (0.100, 0.690) 1087 AND2X8
+         AND2X8 (0.000, 0.265) 1098 AND2X8
+         Y (0.500, 1.045) 1087 OAI22XL
+         VSS (0.100, 0.000) 1087 OAI22XL
+         VDD (0.100, 1.710) 1087 OAI22XL
+         B1 (0.700, 1.235) 1087 OAI22XL
+         B0 (0.900, 1.045) 1087 OAI22XL
+         A1 (0.300, 0.855) 1087 OAI22XL
+         A0 (0.100, 0.665) 1087 OAI22XL
+         OAI22XL (0.000, 0.000) 1098 OAI22XL
+         Y (2.700, 0.855) 1087 AOI33X4
+         VSS (0.100, 0.000) 1087 AOI33X4
+         VDD (0.100, 1.710) 1087 AOI33X4
+         B2 (3.500, 0.855) 1087 AOI33X4
+         B1 (4.900, 0.855) 1087 AOI33X4
+         B0 (2.900, 0.625) 1087 AOI33X4
+         A2 (2.100, 0.855) 1087 AOI33X4
+         A1 (0.700, 0.855) 1087 AOI33X4
+         A0 (2.500, 0.665) 1087 AOI33X4
+         AOI33X4 (0.000, 0.000) 1098 AOI33X4
+         Y (1.300, 0.475) 1087 OA22X1
+         VSS (0.100, 0.000) 1087 OA22X1
+         VDD (0.100, 1.710) 1087 OA22X1
+         B1 (0.500, 1.045) 1087 OA22X1
+         B0 (0.900, 1.045) 1087 OA22X1
+         A1 (0.300, 0.855) 1087 OA22X1
+         A0 (0.100, 0.665) 1087 OA22X1
+         OA22X1 (0.000, 0.285) 1098 OA22X1
+         Y (0.705, 1.425) 1087 OAI32X1
+         VSS (0.100, 0.000) 1087 OAI32X1
+         VDD (0.100, 1.710) 1087 OAI32X1
+         B1 (0.900, 0.855) 1087 OAI32X1
+         B0 (1.100, 0.665) 1087 OAI32X1
+         A2 (0.500, 1.045) 1087 OAI32X1
+         A1 (0.300, 1.235) 1087 OAI32X1
+         A0 (0.100, 0.870) 1087 OAI32X1
+         OAI32X1 (0.000, 0.265) 1098 OAI32X1
+         Y (3.300, 0.665) 1087 OAI222X2
+         VSS (0.100, 0.000) 1087 OAI222X2
+         VDD (0.100, 1.710) 1087 OAI222X2
+         C1 (2.500, 0.855) 1087 OAI222X2
+         C0 (2.900, 0.855) 1087 OAI222X2
+         B1 (1.900, 0.855) 1087 OAI222X2
+         B0 (1.500, 0.855) 1087 OAI222X2
+         A1 (0.500, 0.855) 1087 OAI222X2
+         A0 (0.900, 0.855) 1087 OAI222X2
+         OAI222X2 (0.000, 0.000) 1098 OAI222X2
+         VSS (0.100, 0.000) 1087 DFFRHQX8
+         VDD (0.100, 1.710) 1087 DFFRHQX8
+         RN (1.700, 0.665) 1087 DFFRHQX8
+         Q (0.100, 0.665) 1087 DFFRHQX8
+         D (5.900, 0.665) 1087 DFFRHQX8
+         CK (6.500, 1.045) 1087 DFFRHQX8
+         DFFRHQX8 (0.000, 0.000) 1098 DFFRHQX8
+         Y (0.700, 1.235) 1087 NAND3X1
+         VSS (0.100, 0.000) 1087 NAND3X1
+         VDD (0.100, 1.710) 1087 NAND3X1
+         C (0.500, 0.665) 1087 NAND3X1
+         B (0.300, 0.855) 1087 NAND3X1
+         A (0.100, 1.045) 1087 NAND3X1
+         NAND3X1 (0.000, 0.265) 1098 NAND3X1
+         Y (5.100, 0.855) 1087 OAI222X4
+         VSS (0.100, 0.000) 1087 OAI222X4
+         VDD (0.100, 1.710) 1087 OAI222X4
+         C1 (4.700, 0.855) 1087 OAI222X4
+         C0 (3.900, 0.855) 1087 OAI222X4
+         B1 (2.500, 0.855) 1087 OAI222X4
+         B0 (3.500, 0.855) 1087 OAI222X4
+         A1 (0.900, 0.855) 1087 OAI222X4
+         A0 (1.700, 0.855) 1087 OAI222X4
+         OAI222X4 (0.000, 0.000) 1098 OAI222X4
+         Y (2.100, 1.235) 1087 NAND4X2
+         VSS (0.100, 0.000) 1087 NAND4X2
+         VDD (0.100, 1.710) 1087 NAND4X2
+         D (0.900, 0.475) 1087 NAND4X2
+         C (1.300, 0.665) 1087 NAND4X2
+         B (0.500, 0.855) 1087 NAND4X2
+         A (1.900, 1.045) 1087 NAND4X2
+         NAND4X2 (0.000, 0.000) 1098 NAND4X2
+         Y (1.100, 1.045) 1087 NOR4BBX1
+         VSS (0.100, 0.000) 1087 NOR4BBX1
+         VDD (0.100, 1.710) 1087 NOR4BBX1
+         D (0.530, 1.045) 1087 NOR4BBX1
+         D (0.500, 1.045) 1087 NOR4BBX1
+         C (0.700, 1.045) 1087 NOR4BBX1
+         BN (0.100, 1.050) 1087 NOR4BBX1
+         AN (1.500, 0.855) 1087 NOR4BBX1
+         NOR4BBX1 (0.000, 0.225) 1098 NOR4BBX1
+         Y (1.300, 1.235) 1087 NAND4BX2
+         VSS (0.100, 0.000) 1087 NAND4BX2
+         VDD (0.100, 1.710) 1087 NAND4BX2
+         D (2.300, 0.855) 1087 NAND4BX2
+         C (1.900, 0.855) 1087 NAND4BX2
+         B (1.500, 0.855) 1087 NAND4BX2
+         AN (0.300, 0.855) 1087 NAND4BX2
+         NAND4BX2 (0.000, 0.000) 1098 NAND4BX2
+         Y (1.500, 1.045) 1087 OAI33X1
+         VSS (0.100, 0.000) 1087 OAI33X1
+         VDD (0.100, 1.710) 1087 OAI33X1
+         B2 (0.900, 1.045) 1087 OAI33X1
+         B1 (1.100, 1.045) 1087 OAI33X1
+         B0 (1.300, 0.855) 1087 OAI33X1
+         A2 (0.700, 1.045) 1087 OAI33X1
+         A1 (0.500, 1.045) 1087 OAI33X1
+         A0 (0.300, 0.855) 1087 OAI33X1
+         OAI33X1 (0.000, 0.000) 1098 OAI33X1
+         Y (4.300, 0.665) 1087 NOR4X6
+         VSS (0.100, 0.000) 1087 NOR4X6
+         VDD (0.100, 1.710) 1087 NOR4X6
+         D (3.900, 0.855) 1087 NOR4X6
+         C (3.100, 0.855) 1087 NOR4X6
+         B (1.500, 0.855) 1087 NOR4X6
+         A (0.700, 0.855) 1087 NOR4X6
+         NOR4X6 (0.000, 0.000) 1098 NOR4X6
+         Y (1.500, 1.045) 1087 OAI31X2
+         VSS (0.100, 0.000) 1087 OAI31X2
+         VDD (0.100, 1.710) 1087 OAI31X2
+         B0 (1.900, 0.855) 1087 OAI31X2
+         A2 (1.100, 1.045) 1087 OAI31X2
+         A1 (0.700, 0.855) 1087 OAI31X2
+         A0 (1.500, 0.665) 1087 OAI31X2
+         OAI31X2 (0.000, 0.000) 1098 OAI31X2
+         Y (0.900, 1.235) 1087 OR3XL
+         VSS (0.100, 0.000) 1087 OR3XL
+         VDD (0.100, 1.710) 1087 OR3XL
+         C (0.100, 0.665) 1087 OR3XL
+         B (0.300, 0.855) 1087 OR3XL
+         A (0.695, 1.045) 1087 OR3XL
+         OR3XL (0.000, 0.235) 1098 OR3XL
+         Y (1.500, 1.045) 1087 AOI32X2
+         VSS (0.100, 0.000) 1087 AOI32X2
+         VDD (0.100, 1.700) 1087 AOI32X2
+         B1 (2.100, 0.940) 1087 AOI32X2
+         B0 (1.900, 0.665) 1087 AOI32X2
+         A2 (0.500, 1.045) 1087 AOI32X2
+         A1 (1.100, 0.855) 1087 AOI32X2
+         A0 (1.300, 0.665) 1087 AOI32X2
+         AOI32X2 (0.000, 0.000) 1098 AOI32X2
+         Y (1.900, 1.235) 1087 NOR4X2
+         VSS (0.100, 0.000) 1087 NOR4X2
+         VDD (0.100, 1.710) 1087 NOR4X2
+         D (0.900, 0.665) 1087 NOR4X2
+         C (1.500, 0.665) 1087 NOR4X2
+         B (0.500, 0.855) 1087 NOR4X2
+         A (1.700, 1.045) 1087 NOR4X2
+         NOR4X2 (0.000, 0.000) 1098 NOR4X2
+         Y (1.100, 0.855) 1087 NOR4X4
+         VSS (0.100, 0.000) 1087 NOR4X4
+         VDD (0.100, 1.710) 1087 NOR4X4
+         D (2.900, 0.855) 1087 NOR4X4
+         C (2.500, 0.855) 1087 NOR4X4
+         B (1.500, 0.855) 1087 NOR4X4
+         A (0.900, 0.855) 1087 NOR4X4
+         NOR4X4 (0.000, 0.000) 1098 NOR4X4
+         Y (0.100, 0.475) 1087 NAND3BX4
+         VSS (0.100, 0.000) 1087 NAND3BX4
+         VDD (0.100, 1.710) 1087 NAND3BX4
+         C (0.900, 0.665) 1087 NAND3BX4
+         B (0.500, 0.665) 1087 NAND3BX4
+         AN (2.500, 0.665) 1087 NAND3BX4
+         NAND3BX4 (0.000, 0.000) 1098 NAND3BX4
+         Y (0.100, 0.665) 1087 NOR3BXL
+         VSS (0.100, 0.000) 1087 NOR3BXL
+         VDD (0.100, 1.710) 1087 NOR3BXL
+         C (0.300, 0.855) 1087 NOR3BXL
+         B (0.500, 1.045) 1087 NOR3BXL
+         AN (0.900, 0.855) 1087 NOR3BXL
+         NOR3BXL (0.000, 0.000) 1098 NOR3BXL
+         Y (1.700, 0.855) 1087 AND2X6
+         VSS (0.100, 0.000) 1087 AND2X6
+         VDD (0.100, 1.710) 1087 AND2X6
+         B (0.525, 0.855) 1087 AND2X6
+         A (0.100, 0.665) 1087 AND2X6
+         AND2X6 (0.000, 0.245) 1098 AND2X6
+         Y (1.125, 0.665) 1087 OR3X2
+         VSS (0.100, 0.000) 1087 OR3X2
+         VDD (0.100, 1.710) 1087 OR3X2
+         C (0.100, 0.865) 1087 OR3X2
+         B (0.325, 1.025) 1087 OR3X2
+         A (0.695, 0.695) 1087 OR3X2
+         OR3X2 (0.000, 0.255) 1098 OR3X2
+         Y (0.300, 1.045) 1087 NAND3BX2
+         VSS (0.100, 0.000) 1087 NAND3BX2
+         VDD (0.100, 1.710) 1087 NAND3BX2
+         C (0.700, 0.855) 1087 NAND3BX2
+         B (1.100, 0.855) 1087 NAND3BX2
+         AN (1.500, 0.855) 1087 NAND3BX2
+         NAND3BX2 (0.000, 0.000) 1098 NAND3BX2
+         Y (0.300, 0.475) 1087 AOI2BB1X1
+         VSS (0.100, 0.000) 1087 AOI2BB1X1
+         VDD (0.100, 1.710) 1087 AOI2BB1X1
+         B0 (0.500, 1.045) 1087 AOI2BB1X1
+         A1N (1.100, 0.665) 1087 AOI2BB1X1
+         A0N (0.700, 0.855) 1087 AOI2BB1X1
+         AOI2BB1X1 (0.000, 0.190) 1098 AOI2BB1X1
+         VSS (0.100, 0.000) 1087 DFFRHQX2
+         VDD (0.100, 1.710) 1087 DFFRHQX2
+         RN (1.700, 0.855) 1087 DFFRHQX2
+         Q (0.300, 0.665) 1087 DFFRHQX2
+         D (4.100, 0.665) 1087 DFFRHQX2
+         CK (0.700, 1.045) 1087 DFFRHQX2
+         DFFRHQX2 (0.000, 0.000) 1098 DFFRHQX2
+         Y (2.500, 0.855) 1087 CLKAND2X6
+         VSS (0.100, 0.000) 1087 CLKAND2X6
+         VDD (0.100, 1.710) 1087 CLKAND2X6
+         B (0.700, 0.855) 1087 CLKAND2X6
+         A (0.300, 0.665) 1087 CLKAND2X6
+         CLKAND2X6 (0.000, 0.000) 1098 CLKAND2X6
+         Y (1.900, 0.855) 1087 AOI22X4
+         VSS (0.100, 0.000) 1087 AOI22X4
+         VDD (0.100, 1.710) 1087 AOI22X4
+         B1 (2.300, 0.855) 1087 AOI22X4
+         B0 (2.100, 0.665) 1087 AOI22X4
+         A1 (0.900, 0.855) 1087 AOI22X4
+         A0 (1.500, 0.855) 1087 AOI22X4
+         AOI22X4 (0.000, 0.000) 1098 AOI22X4
+         Y (0.900, 0.665) 1087 AOI21XL
+         VSS (0.100, 0.000) 1087 AOI21XL
+         VDD (0.100, 1.710) 1087 AOI21XL
+         B0 (0.700, 0.855) 1087 AOI21XL
+         A1 (0.500, 0.285) 1087 AOI21XL
+         A0 (0.100, 0.665) 1087 AOI21XL
+         AOI21XL (0.000, 0.000) 1098 AOI21XL
+         Y (1.845, 1.050) 1087 NOR2X6
+         VSS (0.100, 0.000) 1087 NOR2X6
+         VDD (0.100, 1.710) 1087 NOR2X6
+         B (1.095, 0.885) 1087 NOR2X6
+         A (0.340, 0.765) 1087 NOR2X6
+         NOR2X6 (0.000, 0.215) 1098 NOR2X6
+         Y (1.300, 0.665) 1087 OA21X2
+         VSS (0.100, 0.000) 1087 OA21X2
+         VDD (0.100, 1.710) 1087 OA21X2
+         B0 (0.900, 0.285) 1087 OA21X2
+         A1 (0.500, 0.855) 1087 OA21X2
+         A0 (0.300, 0.855) 1087 OA21X2
+         OA21X2 (0.000, 0.000) 1098 OA21X2
+         Y (1.900, 0.665) 1087 MXI2X2
+         VSS (0.100, 0.000) 1087 MXI2X2
+         VDD (0.100, 1.710) 1087 MXI2X2
+         S0 (0.300, 1.045) 1087 MXI2X2
+         B (1.500, 0.855) 1087 MXI2X2
+         A (0.500, 0.855) 1087 MXI2X2
+         MXI2X2 (0.000, 0.000) 1098 MXI2X2
+         Y (1.900, 0.855) 1087 CLKMX2X3
+         VSS (0.100, 0.000) 1087 CLKMX2X3
+         VDD (0.100, 1.710) 1087 CLKMX2X3
+         S0 (0.300, 0.855) 1087 CLKMX2X3
+         B (1.500, 0.855) 1087 CLKMX2X3
+         A (0.700, 0.855) 1087 CLKMX2X3
+         CLKMX2X3 (0.000, 0.000) 1098 CLKMX2X3
+         Y (1.300, 0.475) 1087 MX2XL
+         VSS (0.100, 0.000) 1087 MX2XL
+         VDD (0.100, 1.710) 1087 MX2XL
+         S0 (0.500, 1.045) 1087 MX2XL
+         B (1.100, 0.665) 1087 MX2XL
+         A (0.300, 0.855) 1087 MX2XL
+         MX2XL (0.000, 0.275) 1098 MX2XL
+         Y (1.700, 1.045) 1087 CLKMX2X4
+         VSS (0.100, 0.000) 1087 CLKMX2X4
+         VDD (0.100, 1.710) 1087 CLKMX2X4
+         S0 (0.300, 1.045) 1087 CLKMX2X4
+         B (1.300, 0.855) 1087 CLKMX2X4
+         A (0.500, 0.855) 1087 CLKMX2X4
+         CLKMX2X4 (0.000, 0.000) 1098 CLKMX2X4
+         Y (1.275, 0.665) 1087 AND2X4
+         VSS (0.100, 0.000) 1087 AND2X4
+         VDD (0.100, 1.710) 1087 AND2X4
+         B (0.135, 0.885) 1087 AND2X4
+         A (0.475, 1.045) 1087 AND2X4
+         AND2X4 (0.000, 0.235) 1098 AND2X4
+         Y (0.100, 0.475) 1087 CLKXOR2X1
+         Y (0.100, 0.470) 1087 CLKXOR2X1
+         VSS (0.100, 0.000) 1087 CLKXOR2X1
+         VDD (0.100, 1.710) 1087 CLKXOR2X1
+         B (1.100, 0.855) 1087 CLKXOR2X1
+         A (0.500, 0.665) 1087 CLKXOR2X1
+         CLKXOR2X1 (0.000, 0.250) 1098 CLKXOR2X1
+         Y (0.100, 1.235) 1087 NAND2BXL
+         VSS (0.100, 0.000) 1087 NAND2BXL
+         VDD (0.100, 1.710) 1087 NAND2BXL
+         B (0.300, 0.665) 1087 NAND2BXL
+         AN (0.700, 1.045) 1087 NAND2BXL
+         NAND2BXL (0.000, 0.200) 1098 NAND2BXL
+         Y (1.700, 1.045) 1087 AOI222X1
+         VSS (0.100, 0.000) 1087 AOI222X1
+         VDD (0.100, 1.710) 1087 AOI222X1
+         C1 (1.500, 0.855) 1087 AOI222X1
+         C0 (1.300, 0.855) 1087 AOI222X1
+         B1 (0.700, 0.855) 1087 AOI222X1
+         B0 (0.900, 0.855) 1087 AOI222X1
+         A1 (0.500, 0.285) 1087 AOI222X1
+         A0 (0.300, 0.665) 1087 AOI222X1
+         AOI222X1 (0.000, 0.000) 1098 AOI222X1
+         Y (1.300, 0.475) 1087 MX2X1
+         VSS (0.100, 0.000) 1087 MX2X1
+         VDD (0.100, 1.710) 1087 MX2X1
+         S0 (0.500, 1.045) 1087 MX2X1
+         B (1.100, 0.855) 1087 MX2X1
+         A (0.300, 0.855) 1087 MX2X1
+         MX2X1 (0.000, 0.215) 1098 MX2X1
+         Y (1.700, 0.665) 1087 CLKMX2X2
+         VSS (0.100, 0.000) 1087 CLKMX2X2
+         VDD (0.100, 1.710) 1087 CLKMX2X2
+         S0 (0.300, 1.045) 1087 CLKMX2X2
+         B (1.300, 0.855) 1087 CLKMX2X2
+         A (0.500, 0.855) 1087 CLKMX2X2
+         CLKMX2X2 (0.000, 0.000) 1098 CLKMX2X2
+         Y (0.100, 0.665) 1087 XOR2XL
+         VSS (0.100, 0.000) 1087 XOR2XL
+         VDD (0.100, 1.710) 1087 XOR2XL
+         B (0.900, 0.855) 1087 XOR2XL
+         A (0.500, 0.475) 1087 XOR2XL
+         XOR2XL (0.000, 0.290) 1098 XOR2XL
+         Y (1.700, 0.665) 1087 OR4X2
+         VSS (0.100, 0.000) 1087 OR4X2
+         VDD (0.100, 1.710) 1087 OR4X2
+         D (0.300, 0.855) 1087 OR4X2
+         C (0.500, 0.855) 1087 OR4X2
+         B (0.700, 0.665) 1087 OR4X2
+         A (1.300, 0.665) 1087 OR4X2
+         OR4X2 (0.000, 0.000) 1098 OR4X2
+         Y (1.500, 1.045) 1087 AO22X2
+         VSS (0.100, 0.000) 1087 AO22X2
+         VDD (0.100, 1.710) 1087 AO22X2
+         B1 (0.700, 0.665) 1087 AO22X2
+         B0 (1.100, 1.045) 1087 AO22X2
+         A1 (0.300, 0.855) 1087 AO22X2
+         A0 (0.100, 1.045) 1087 AO22X2
+         AO22X2 (0.000, 0.000) 1098 AO22X2
+         Y (1.300, 0.665) 1087 OR2X4
+         VSS (0.100, 0.000) 1087 OR2X4
+         VDD (0.100, 1.710) 1087 OR2X4
+         B (0.100, 0.855) 1087 OR2X4
+         A (0.500, 1.045) 1087 OR2X4
+         OR2X4 (0.000, 0.245) 1098 OR2X4
+         Y (1.300, 1.235) 1087 AO22X1
+         VSS (0.100, 0.000) 1087 AO22X1
+         VDD (0.100, 1.710) 1087 AO22X1
+         B1 (0.500, 0.665) 1087 AO22X1
+         B0 (0.900, 0.475) 1087 AO22X1
+         A1 (0.300, 0.855) 1087 AO22X1
+         A0 (0.100, 1.045) 1087 AO22X1
+         AO22X1 (0.000, 0.320) 1098 AO22X1
+         Y (1.900, 0.665) 1087 AO22X4
+         VSS (0.100, 0.000) 1087 AO22X4
+         VDD (0.100, 1.710) 1087 AO22X4
+         B1 (0.700, 0.665) 1087 AO22X4
+         B0 (1.100, 1.045) 1087 AO22X4
+         A1 (0.500, 0.855) 1087 AO22X4
+         A0 (0.300, 0.665) 1087 AO22X4
+         AO22X4 (0.000, 0.000) 1098 AO22X4
+         Y (0.700, 0.855) 1087 OR2X2
+         VSS (0.100, 0.000) 1087 OR2X2
+         VDD (0.100, 1.710) 1087 OR2X2
+         B (0.100, 0.475) 1087 OR2X2
+         A (0.300, 1.045) 1087 OR2X2
+         OR2X2 (0.000, 0.285) 1098 OR2X2
+         Y (1.100, 0.665) 1087 AO21XL
+         VSS (0.100, 0.000) 1087 AO21XL
+         VDD (0.100, 1.710) 1087 AO21XL
+         B0 (0.700, 1.045) 1087 AO21XL
+         A1 (0.300, 0.855) 1087 AO21XL
+         A0 (0.100, 0.855) 1087 AO21XL
+         AO21XL (0.000, 0.000) 1098 AO21XL
+         Y (1.100, 0.475) 1087 OR3X1
+         VSS (0.100, 0.000) 1087 OR3X1
+         VDD (0.100, 1.710) 1087 OR3X1
+         C (0.100, 0.665) 1087 OR3X1
+         B (0.300, 1.045) 1087 OR3X1
+         A (0.700, 0.855) 1087 OR3X1
+         OR3X1 (0.000, 0.230) 1098 OR3X1
+         Y (1.300, 0.665) 1087 AO21X2
+         VSS (0.100, 0.000) 1087 AO21X2
+         VDD (0.100, 1.710) 1087 AO21X2
+         B0 (0.900, 0.855) 1087 AO21X2
+         A1 (0.500, 0.475) 1087 AO21X2
+         A0 (0.300, 0.855) 1087 AO21X2
+         AO21X2 (0.000, 0.000) 1098 AO21X2
+         Y (1.900, 0.665) 1087 AO21X4
+         VSS (0.100, 0.000) 1087 AO21X4
+         VDD (0.100, 1.710) 1087 AO21X4
+         B0 (0.700, 0.855) 1087 AO21X4
+         A1 (0.500, 0.855) 1087 AO21X4
+         A0 (0.300, 0.665) 1087 AO21X4
+         AO21X4 (0.000, 0.000) 1098 AO21X4
+         Y (1.200, 1.015) 1087 AO21X1
+         VSS (0.100, 0.000) 1087 AO21X1
+         VDD (0.100, 1.710) 1087 AO21X1
+         B0 (0.700, 0.835) 1087 AO21X1
+         A1 (0.500, 0.515) 1087 AO21X1
+         A0 (0.300, 0.675) 1087 AO21X1
+         AO21X1 (0.000, 0.260) 1098 AO21X1
+         VSS (0.100, 0.000) 1087 DFFRHQX4
+         VDD (0.100, 1.710) 1087 DFFRHQX4
+         RN (1.500, 0.475) 1087 DFFRHQX4
+         Q (0.700, 0.855) 1087 DFFRHQX4
+         D (5.100, 0.665) 1087 DFFRHQX4
+         CK (0.300, 0.855) 1087 DFFRHQX4
+         DFFRHQX4 (0.000, 0.000) 1098 DFFRHQX4
+         VSS (0.100, 0.000) 1087 DFFRX1
+         VDD (0.100, 1.710) 1087 DFFRX1
+         RN (1.445, 0.855) 1087 DFFRX1
+         QN (0.090, 0.665) 1087 DFFRX1
+         Q (0.650, 0.665) 1087 DFFRX1
+         D (3.470, 0.675) 1087 DFFRX1
+         CK (0.950, 0.895) 1087 DFFRX1
+         DFFRX1 (0.000, 0.275) 1098 DFFRX1
+         Y (1.700, 0.855) 1087 CLKAND2X4
+         VSS (0.100, 0.000) 1087 CLKAND2X4
+         VDD (0.100, 1.710) 1087 CLKAND2X4
+         B (0.700, 0.855) 1087 CLKAND2X4
+         A (0.500, 0.665) 1087 CLKAND2X4
+         CLKAND2X4 (0.000, 0.000) 1098 CLKAND2X4
+         Y (0.900, 0.665) 1087 CLKAND2X2
+         VSS (0.100, 0.000) 1087 CLKAND2X2
+         VDD (0.100, 1.710) 1087 CLKAND2X2
+         B (0.100, 0.855) 1087 CLKAND2X2
+         A (0.500, 1.045) 1087 CLKAND2X2
+         CLKAND2X2 (0.000, 0.240) 1098 CLKAND2X2
+         Y (0.700, 1.045) 1087 AOI22XL
+         VSS (0.100, 0.000) 1087 AOI22XL
+         VDD (0.100, 1.710) 1087 AOI22XL
+         B1 (0.700, 0.475) 1087 AOI22XL
+         B0 (0.900, 0.855) 1087 AOI22XL
+         A1 (0.295, 0.665) 1087 AOI22XL
+         A0 (0.100, 0.855) 1087 AOI22XL
+         AOI22XL (0.000, 0.260) 1098 AOI22XL
+         VSS (0.100, 0.000) 1087 DFFRHQX1
+         VDD (0.100, 1.710) 1087 DFFRHQX1
+         RN (1.300, 0.855) 1087 DFFRHQX1
+         Q (0.100, 1.045) 1087 DFFRHQX1
+         D (3.300, 0.665) 1087 DFFRHQX1
+         CK (0.300, 0.855) 1087 DFFRHQX1
+         DFFRHQX1 (0.000, 0.170) 1098 DFFRHQX1
+         Y (1.500, 1.045) 1087 AOI33X2
+         VSS (0.100, 0.000) 1087 AOI33X2
+         VDD (0.100, 1.710) 1087 AOI33X2
+         B2 (2.100, 0.855) 1087 AOI33X2
+         B1 (2.500, 0.855) 1087 AOI33X2
+         B0 (1.700, 0.665) 1087 AOI33X2
+         A2 (0.900, 0.855) 1087 AOI33X2
+         A1 (0.500, 0.855) 1087 AOI33X2
+         A0 (1.300, 0.665) 1087 AOI33X2
+         AOI33X2 (0.000, 0.000) 1098 AOI33X2
+         Y (1.300, 0.665) 1087 AO22XL
+         VSS (0.100, 0.000) 1087 AO22XL
+         VDD (0.100, 1.710) 1087 AO22XL
+         B1 (0.700, 0.855) 1087 AO22XL
+         B0 (1.100, 0.855) 1087 AO22XL
+         A1 (0.500, 0.665) 1087 AO22XL
+         A0 (0.300, 0.665) 1087 AO22XL
+         AO22XL (0.000, 0.000) 1098 AO22XL
+         Y (0.100, 1.045) 1087 NAND4BX1
+         VSS (0.100, 0.000) 1087 NAND4BX1
+         VDD (0.100, 1.710) 1087 NAND4BX1
+         D (0.300, 0.855) 1087 NAND4BX1
+         C (0.500, 0.855) 1087 NAND4BX1
+         B (0.700, 0.855) 1087 NAND4BX1
+         AN (1.100, 0.855) 1087 NAND4BX1
+         NAND4BX1 (0.000, 0.000) 1098 NAND4BX1
+         Y (0.100, 1.235) 1087 NAND3BXL
+         VSS (0.100, 0.000) 1087 NAND3BXL
+         VDD (0.100, 1.710) 1087 NAND3BXL
+         C (0.300, 0.665) 1087 NAND3BXL
+         B (0.500, 0.855) 1087 NAND3BXL
+         AN (0.700, 1.045) 1087 NAND3BXL
+         NAND3BXL (0.000, 0.200) 1098 NAND3BXL
+         Y (0.700, 0.665) 1087 AND2X2
+         VSS (0.100, 0.000) 1087 AND2X2
+         VDD (0.100, 1.710) 1087 AND2X2
+         B (0.100, 0.855) 1087 AND2X2
+         A (0.500, 1.045) 1087 AND2X2
+         AND2X2 (0.000, 0.285) 1098 AND2X2
+         Y (0.700, 0.855) 1087 OR2X1
+         VSS (0.100, 0.000) 1087 OR2X1
+         VDD (0.100, 1.710) 1087 OR2X1
+         B (0.100, 0.665) 1087 OR2X1
+         A (0.300, 1.045) 1087 OR2X1
+         OR2X1 (0.000, 0.285) 1098 OR2X1
+         Y (1.100, 0.475) 1087 AND3XL
+         VSS (0.100, 0.000) 1087 AND3XL
+         VDD (0.100, 1.710) 1087 AND3XL
+         C (0.100, 0.665) 1087 AND3XL
+         B (0.300, 0.855) 1087 AND3XL
+         A (0.900, 1.045) 1087 AND3XL
+         AND3XL (0.000, 0.000) 1098 AND3XL
+         Y (1.100, 1.235) 1087 AOI31X1
+         VSS (0.100, 0.000) 1087 AOI31X1
+         VDD (0.100, 1.710) 1087 AOI31X1
+         B0 (0.900, 1.045) 1087 AOI31X1
+         A2 (0.700, 0.855) 1087 AOI31X1
+         A1 (0.500, 0.855) 1087 AOI31X1
+         A0 (0.300, 0.665) 1087 AOI31X1
+         AOI31X1 (0.000, 0.260) 1098 AOI31X1
+         Y (1.300, 0.665) 1087 AND3X1
+         VSS (0.100, 0.000) 1087 AND3X1
+         VDD (0.100, 1.710) 1087 AND3X1
+         C (0.100, 1.045) 1087 AND3X1
+         B (0.300, 0.855) 1087 AND3X1
+         A (0.900, 1.045) 1087 AND3X1
+         AND3X1 (0.000, 0.000) 1098 AND3X1
+         Y (1.030, 0.475) 1087 OAI31X1
+         VSS (0.100, 0.000) 1087 OAI31X1
+         VDD (0.100, 1.710) 1087 OAI31X1
+         B0 (0.900, 0.855) 1087 OAI31X1
+         A2 (0.700, 0.855) 1087 OAI31X1
+         A1 (0.500, 1.045) 1087 OAI31X1
+         A0 (0.100, 0.855) 1087 OAI31X1
+         OAI31X1 (0.000, 0.255) 1098 OAI31X1
+         Y (0.900, 1.045) 1087 OAI21XL
+         VSS (0.100, 0.000) 1087 OAI21XL
+         VDD (0.100, 1.710) 1087 OAI21XL
+         B0 (0.700, 0.665) 1087 OAI21XL
+         A1 (0.500, 1.235) 1087 OAI21XL
+         A0 (0.100, 1.045) 1087 OAI21XL
+         OAI21XL (0.000, 0.000) 1098 OAI21XL
+         Y (1.500, 0.665) 1087 AOI31X2
+         VSS (0.100, 0.000) 1087 AOI31X2
+         VDD (0.100, 1.710) 1087 AOI31X2
+         B0 (1.900, 0.665) 1087 AOI31X2
+         A2 (0.900, 0.855) 1087 AOI31X2
+WARNING:  [WARN] Reach the TEXT_PRINT_MAXIMUM: 1000, the rest of texts will not print out
+
+INFO:    Texts For SELECT -LABEL ...
+         ========================================================================
+
+INFO:    Texts For EXPAND_TEXT_ORIGIN ...
+         ========================================================================
+
+INFO:    Texts For DFM_TEXT ...
+         ========================================================================
+
+INFO:    Texts For Device Text Model Layer ...
+         ========================================================================
+
+INFO:    Texts For Device Text Property Layer ...
+         ========================================================================
+
+INFO:    Layer Summary(Texts For Connectivity):
+         ----------------------------------------------------------------------------
+             LAYER                       ID       TEXTS
+         ----------------------------------------------------------------------------
+         m3_label                      1078       166
+         m4_label                      1079        64
+         m7_label                      1082         2
+         m1_pin                        1087      1175
+         text                          1098       207
+         ----------------------------------------------------------------------------
+
+INFO:    Layer Summary(Texts For SELECT -LABEL):
+         ----------------------------------------------------------------------------
+             LAYER                       ID       TEXTS
+         ----------------------------------------------------------------------------
+         ----------------------------------------------------------------------------
+
+INFO:    Layer Summary(Texts For EXPAND_TEXT_ORIGIN):
+         ----------------------------------------------------------------------------
+             LAYER                       ID       TEXTS
+         ----------------------------------------------------------------------------
+         ----------------------------------------------------------------------------
+
+INFO:    Layer Summary(Texts For DFM_TEXT):
+         ----------------------------------------------------------------------------
+             LAYER                       ID       TEXTS
+         ----------------------------------------------------------------------------
+         ----------------------------------------------------------------------------
+
+INFO:    Expanded Cell Summary
+         M4_M3_VV is expanded.
+         M3_M2_M_NH is expanded.
+ [WARN] Reach the TEXT_PRINT_MAXIMUM: 1000, the rest of texts will not print out
+ [WARN] Reach the TEXT_PRINT_MAXIMUM: 1000, the rest of texts will not print out
+INFO:    Status: Runset 100% complete as of 2026-11-22 17:55:38   Elapsed: 00:01:07
+         Worker: Active CPUs  Total Mem(MB)  Active Mem(MB)  CPU time(s)
+              1:    1 /   1             25              24            1
+              2:    1 /   1             25              24            1
+INFO:    Status: Runset 100% complete as of 2026-11-22 17:55:39   Elapsed: 00:01:08
+         Worker: Active CPUs  Total Mem(MB)  Active Mem(MB)  CPU time(s)
+              1:    1 /   1             25              24            1
+              2:    1 /   1             25              24            1
+INFO:	 Status: Finishing as of 2026-11-22 17:55:39   Elapsed: 00:01:08   CPU time[s]: 68
+INFO:    Resource usage by worker at exit:
+                  CPU      Elapsed  CPUs       CPU       Peak        Peak engine
+         Worker:  time[s]  time[s]  Allocated  usage[%]  Memory[MB]  Memory[MB]
+              1:        1       61          1      3.21          56           24
+              2:        1       61          1      2.46          53           24
+         Worker resource usage  summary: Total CPU[s]: 2  Run duration[s]: 61  Max peak memory[MB]: 56
+         Worker CPU utilization summary: 2 of 122 available CPU seconds ( 1.64%) with 2 average available CPU(s)
+INFO:    Extraction result: CLEAN (Reporter)
+INFO:    Generating ERC summary in /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/signoff/lvs/erc.sum
+INFO:    All selected rules completed
+         Total CPU Time                    : 60(s)
+         Total Real Time                   : 69(s)
+         Total Original Geometry           : 310962(3271927)
+         Total ERC RuleChecks              : 0
+         Total ERC Results                 : 0 (0)
+
+
+INFO:    Comparing netlists ...
+INFO:    Setup VLDB (0s)
+INFO:    Init sch rules (0s)
+INFO:    Init lay rules (0s)
+INFO:    Init structures (0s)
+INFO:    Set cells to delete (0s)
+INFO:    Check expand on pin error (0s)
+INFO:    Reading schematic network
+INFO:     inputting cdl netlist /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/signoff/datapath_lvs.cdl...
+INFO:     finished loading cdl netlist /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/signoff/datapath_lvs.cdl (1s)
+INFO:     commit cdl netlist(s)...
+INFO:     finished committing cdl netlists (0s)
+INFO:    Post sch netlist rule processing (0s)
+INFO:    Reading layout network
+INFO:     inputting (fast parser) cdl netlist  /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/signoff/lvs/run/datapath_layout.spi...
+INFO:     finished loading cdl netlist /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/signoff/lvs/run/datapath_layout.spi (0s)
+INFO:     commit cdl netlist(s)...
+INFO:     finished committing cdl netlists (1s)
+INFO:    Post lay netlist rule processing (0s)
+INFO:    Processing blackBox rules (0s)
+INFO:    Processing bindings (0s)
+INFO:    Commit sch verilog netlist (0s)
+INFO:    Commit lay verilog netlist (0s)
+INFO:    Erase netlist data (0s)
+INFO:    Set blackbox cells (0s)
+INFO:    Sch put cells in memory (0s)
+INFO:    Sch update netlist rules (0s)
+INFO:    Sch set devices to delete (0s)
+INFO:    Sch adjust device pins (0s)
+INFO:    Sch calc hier order (0s)
+INFO:    Sch process inherited connections (0s)
+INFO:    Sch generate qrc files (0s)
+INFO:    Sch handle global pins (0s)
+INFO:    Sch apply rule actions with processed netlist (0s)
+INFO:    Sch process cell supply (0s)
+INFO:    Lay put cells in memory (0s)
+INFO:    Lay update netlist rules (0s)
+INFO:    Lay set devices to delete (0s)
+INFO:    Lay calc hier order (0s)
+INFO:    Lay process inherited connections (0s)
+INFO:    Lay generate qrc files (0s)
+INFO:    Lay handle global pins (0s)
+INFO:    Lay apply rule actions with processed netlist (0s)
+INFO:    Lay process cell supply (0s)
+INFO:    Check if interposer flow (0s)
+INFO:    Check binding file (0s)
+INFO:    Set topcell global pin indicator (0s)
+INFO:    Calculate preserve parameterized cells (0s)
+INFO:    Check generic device bindings (0s)
+INFO:    Calculate primitive device bindings (0s)
+INFO:    Remove unused device parameters (0s)
+INFO:    Set instances to flatten inside cells (0s)
+INFO:    Calculate parameters (0s)
+INFO:    Start sch normalization (0s)
+INFO:    Start lay normalization (0s)
+INFO:    Calculate primitive device bindings (2nd time) (0s)
+INFO:    Finalize binding (0s)
+INFO:    Sch join nets (0s)
+INFO:    Sch setup hier normalization (0s)
+INFO:    Sch remove feedthroughs and black box cell instances (0s)
+INFO:    Sch remove identical pins (0s)
+INFO:    Sch calc connection counts (0s)
+INFO:    Run genHierCells (0s)
+INFO:    Reset normalization flags (0s)
+INFO:    Lay join nets (0s)
+INFO:    Lay setup hier normalization (0s)
+INFO:    Lay remove feedthroughs and black box cell instances (0s)
+INFO:    Lay remove identical pins (0s)
+INFO:    Lay calc connection counts (0s)
+INFO:    Normalize sch (0s)
+INFO:    Read in color file (0s)
+INFO:    Set scale factor per cell (0s)
+INFO:    Setup property init rules (0s)
+INFO:    Write sch vldb file (0s)
+INFO:    Write lay vldb file (0s)
+INFO:    Apply preserve parameterized cells (0s)
+INFO:    Cleanup after VLDB processing (0s)
+WARNING (NVN-10006): No ecdb file available.
+
+INFO:    Cell comparison output format:
+            <Comparing|Top Cell> <Layout Cell> vs <Schematic Cell>
+               <Layout instances> insts vs <Schematic instances> insts  (<Time>)-<Status>
+
+         Top Cell  datapath vs datapath
+            109077 insts vs 109077 insts . . . . . . . . . . . . . . . . . . . (3s)-match
+
+INFO:    Generating the LVS report...
+           Report Init (0s)
+           Load common queries (0s)
+           Create report (0s)
+           Cleanup (0s)
+INFO:    Report finished
+
+INFO:    Extraction Run Summary
+         Total CPU Time        : 60(s)
+         Total Real Time       : 69(s)
+         Peak Memory Used      : 226.00(M)
+
+
+INFO:    NVN Run Summary
+         Total CPU Time        : 5(s)
+         Total Real Time       : 12(s)
+         Peak Memory Used      : 812.36(M)
+
+
+INFO:    LVS Summary
+         Total CPU Time        : 65(s)
+         Total Real Time       : 81(s)
+         Peak Memory Used      : 812.36(M)
+
+    ##########################################################################################################################
+    #                                                                                                                        #
+    # Run Result             : MATCH                                                                                         #
+    #                                                                                                                        #
+    # Run Summary            : [INFO]  ERC Results: Empty                                                                    #
+    #                        : [INFO]  Extraction Clean                                                                      #
+    #                        : [INFO]  Some Sections Have Been Truncated                                                     #
+    #                                                                                                                        #
+    # ERC Summary File       : erc.sum                                                                                       #
+    # Extraction Report File : lvs.rep                                                                                       #
+    # Comparison Report File : /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/signoff/lvs/lvs.rep.cls  #
+    #                                                                                                                        #
+    ##########################################################################################################################
+
+INFO:    Checking in all SoftShare licenses.
+
+Pegasus finished normally. 2026-11-22 17:55:52

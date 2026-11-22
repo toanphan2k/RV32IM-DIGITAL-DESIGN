@@ -1,0 +1,362 @@
+
+Cadence Innovus(TM) Implementation System.
+Copyright 2021 Cadence Design Systems, Inc. All rights reserved worldwide.
+
+Version:	v21.19-s058_1, built Thu Apr 4 09:59:17 PDT 2024
+Options:	
+Date:		Sun Nov 22 18:27:18 2026
+Host:		black.doelab.site (x86_64 w/Linux 7.0.3-1.el8.elrepo.x86_64) (48cores*48cpus*AMD EPYC 7H12 64-Core Processor 512KB)
+OS:		Rocky Linux 8.10 (Green Obsidian)
+
+License:
+		[18:27:18.067033] Configured Lic search path (21.01-s002): 5280@cdns.doelab.site
+
+		invs	Innovus Implementation System	21.1	checkout succeeded
+		8 CPU jobs allowed with the current license(s). Use setMultiCpuUsage to set your required CPU count.
+Change the soft stacksize limit to 0.2%RAM (251 mbytes). Set global soft_stack_size_limit to change the value.
+
+**INFO:  MMMC transition support version v31-84 
+
+<CMD> set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+<CMD> suppressMessage ENCEXT-2799
+<CMD> win
+<CMD> is_common_ui_mode
+<CMD> restoreDesign /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/innovus/datapath_final.enc.dat datapath
+#% Begin load design ... (date=11/22 18:28:24, mem=997.2M)
+Set Default Input Pin Transition as 0.1 ps.
+Loading design 'datapath' saved by 'Innovus' '21.19-s058_1' on 'Sun Nov 22 17:51:47 2026'.
+% Begin Load MMMC data ... (date=11/22 18:28:24, mem=1000.3M)
+% End Load MMMC data ... (date=11/22 18:28:24, total cpu=0:00:00.0, real=0:00:00.0, peak res=1001.5M, current mem=1001.5M)
+rc_fast rc_slow
+
+Loading LEF file /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/innovus/datapath_final.enc.dat/libs/lef/gsclib045_tech.lef ...
+
+Loading LEF file /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/innovus/datapath_final.enc.dat/libs/lef/gsclib045_macro.lef ...
+Set DBUPerIGU to M2 pitch 400.
+**WARN: (IMPLF-200):	Pin 'A' in macro 'ANTENNA' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+
+##  Check design process and node:  
+##  Both design process and tech node are not set.
+
+Loading view definition file from /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/innovus/datapath_final.enc.dat/viewDefinition.tcl
+Reading libs_slow timing library '/tools/eda/pdks/cadence/gpdk045/gsclib045_svt_v4.7/gsclib045/timing/slow_vdd1v0_basicCells.lib' ...
+**WARN: (TECHLIB-302):	No function defined for cell 'DECAP9'. The cell will only be used for analysis. (File /tools/eda/pdks/cadence/gpdk045/gsclib045_svt_v4.7/gsclib045/timing/slow_vdd1v0_basicCells.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'DECAP8'. The cell will only be used for analysis. (File /tools/eda/pdks/cadence/gpdk045/gsclib045_svt_v4.7/gsclib045/timing/slow_vdd1v0_basicCells.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'DECAP7'. The cell will only be used for analysis. (File /tools/eda/pdks/cadence/gpdk045/gsclib045_svt_v4.7/gsclib045/timing/slow_vdd1v0_basicCells.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'DECAP6'. The cell will only be used for analysis. (File /tools/eda/pdks/cadence/gpdk045/gsclib045_svt_v4.7/gsclib045/timing/slow_vdd1v0_basicCells.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'DECAP5'. The cell will only be used for analysis. (File /tools/eda/pdks/cadence/gpdk045/gsclib045_svt_v4.7/gsclib045/timing/slow_vdd1v0_basicCells.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'DECAP4'. The cell will only be used for analysis. (File /tools/eda/pdks/cadence/gpdk045/gsclib045_svt_v4.7/gsclib045/timing/slow_vdd1v0_basicCells.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'DECAP3'. The cell will only be used for analysis. (File /tools/eda/pdks/cadence/gpdk045/gsclib045_svt_v4.7/gsclib045/timing/slow_vdd1v0_basicCells.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'DECAP2'. The cell will only be used for analysis. (File /tools/eda/pdks/cadence/gpdk045/gsclib045_svt_v4.7/gsclib045/timing/slow_vdd1v0_basicCells.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'DECAP10'. The cell will only be used for analysis. (File /tools/eda/pdks/cadence/gpdk045/gsclib045_svt_v4.7/gsclib045/timing/slow_vdd1v0_basicCells.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'ANTENNA'. The cell will only be used for analysis. (File /tools/eda/pdks/cadence/gpdk045/gsclib045_svt_v4.7/gsclib045/timing/slow_vdd1v0_basicCells.lib)
+Read 489 cells in library 'slow_vdd1v0' 
+Reading libs_fast timing library '/tools/eda/pdks/cadence/gpdk045/gsclib045_svt_v4.7/gsclib045/timing/fast_vdd1v0_basicCells.lib' ...
+**WARN: (TECHLIB-302):	No function defined for cell 'DECAP9'. The cell will only be used for analysis. (File /tools/eda/pdks/cadence/gpdk045/gsclib045_svt_v4.7/gsclib045/timing/fast_vdd1v0_basicCells.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'DECAP8'. The cell will only be used for analysis. (File /tools/eda/pdks/cadence/gpdk045/gsclib045_svt_v4.7/gsclib045/timing/fast_vdd1v0_basicCells.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'DECAP7'. The cell will only be used for analysis. (File /tools/eda/pdks/cadence/gpdk045/gsclib045_svt_v4.7/gsclib045/timing/fast_vdd1v0_basicCells.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'DECAP6'. The cell will only be used for analysis. (File /tools/eda/pdks/cadence/gpdk045/gsclib045_svt_v4.7/gsclib045/timing/fast_vdd1v0_basicCells.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'DECAP5'. The cell will only be used for analysis. (File /tools/eda/pdks/cadence/gpdk045/gsclib045_svt_v4.7/gsclib045/timing/fast_vdd1v0_basicCells.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'DECAP4'. The cell will only be used for analysis. (File /tools/eda/pdks/cadence/gpdk045/gsclib045_svt_v4.7/gsclib045/timing/fast_vdd1v0_basicCells.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'DECAP3'. The cell will only be used for analysis. (File /tools/eda/pdks/cadence/gpdk045/gsclib045_svt_v4.7/gsclib045/timing/fast_vdd1v0_basicCells.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'DECAP2'. The cell will only be used for analysis. (File /tools/eda/pdks/cadence/gpdk045/gsclib045_svt_v4.7/gsclib045/timing/fast_vdd1v0_basicCells.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'DECAP10'. The cell will only be used for analysis. (File /tools/eda/pdks/cadence/gpdk045/gsclib045_svt_v4.7/gsclib045/timing/fast_vdd1v0_basicCells.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'ANTENNA'. The cell will only be used for analysis. (File /tools/eda/pdks/cadence/gpdk045/gsclib045_svt_v4.7/gsclib045/timing/fast_vdd1v0_basicCells.lib)
+Read 489 cells in library 'fast_vdd1v0' 
+*** End library_loading (cpu=0.02min, real=0.00min, mem=37.9M, fe_cpu=0.38min, fe_real=1.12min, fe_mem=1097.8M) ***
+% Begin Load netlist data ... (date=11/22 18:28:26, mem=1028.6M)
+*** Begin netlist parsing (mem=1097.8M) ***
+Created 489 new cells from 2 timing libraries.
+Reading netlist ...
+Backslashed names will retain backslash and a trailing blank character.
+Reading verilogBinary netlist '/home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/innovus/datapath_final.enc.dat/vbin/datapath.v.bin'
+
+*** Memory Usage v#1 (Current mem = 1115.832M, initial mem = 495.004M) ***
+*** End netlist parsing (cpu=0:00:00.1, real=0:00:00.0, mem=1115.8M) ***
+% End Load netlist data ... (date=11/22 18:28:26, total cpu=0:00:00.1, real=0:00:00.0, peak res=1048.3M, current mem=1048.3M)
+Set top cell to datapath.
+Hooked 978 DB cells to tlib cells.
+Starting recursive module instantiation check.
+No recursion found.
+Building hierarchical netlist for Cell datapath ...
+*** Netlist is unique.
+** info: there are 1118 modules.
+** info: there are 23627 stdCell insts.
+
+*** Memory Usage v#1 (Current mem = 1176.746M, initial mem = 495.004M) ***
+*info: set bottom ioPad orient R0
+**WARN: (IMPFP-3961):	The techSite 'CornerSite' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+Type 'man IMPFP-3961' for more detail.
+**WARN: (IMPFP-3961):	The techSite 'IOSite' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+Type 'man IMPFP-3961' for more detail.
+Start create_tracks
+Loading preference file /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/innovus/datapath_final.enc.dat/gui.pref.tcl ...
+##  Process: 45            (User Set)               
+##     Node: (not set)                           
+
+##  Check design process and node:  
+##  Design tech node is not set.
+
+Applying the recommended capacitance filtering threshold values for 45nm process node: total_c_th=0, relative_c_th=1 and coupling_c_th=0.1.
+	These values will be used by all post-route extraction engines, including TQuantus, IQuantus and Quantus QRC extraction.
+	Capacitance filtering mode(-capFilterMode option of the setExtractRCMode) is 'relAndCoup' for all engines.
+	The accuracy mode for postRoute effortLevel low extraction will be set to 'high'.
+	Default value for EffortLevel(-effortLevel option of the setExtractRCMode) in postRoute extraction mode will be 'medium' if Quantus QRC technology file is specified else 'low'.
+**INFO: Hold fixing will be done using "DLY1X1 DLY2X1 DLY3X1 DLY4X1 BUFX3 BUFX4 BUFX6 BUFX8" only.
+Slack adjustment of -0 applied on <default> path group
+**WARN: (IMPOPT-3602):	The specified path group name reg2reg is not defined.
+Type 'man IMPOPT-3602' for more detail.
+Effort level <high> specified for reg2reg path_group
+Slack adjustment of -0 applied on reg2reg path_group
+**WARN: (IMPOPT-3602):	The specified path group name reg2out is not defined.
+Type 'man IMPOPT-3602' for more detail.
+Slack adjustment of -0 applied on reg2out path_group
+**WARN: (IMPOPT-3602):	The specified path group name reg2cgate is not defined.
+Type 'man IMPOPT-3602' for more detail.
+Effort level <high> specified for reg2cgate path_group
+Slack adjustment of -0 applied on reg2cgate path_group
+**WARN: (IMPOPT-3602):	The specified path group name in2reg is not defined.
+Type 'man IMPOPT-3602' for more detail.
+Slack adjustment of -0 applied on in2reg path_group
+**WARN: (IMPOPT-3602):	The specified path group name in2out is not defined.
+Type 'man IMPOPT-3602' for more detail.
+Slack adjustment of -0 applied on in2out path_group
+#WARNING (NRIF-80) When droutePostRouteSwapVia is set to 'multiCut', the post route via swapping step will be performed on all nets, and to double cut vias. To swap to DFM vias based on via weight, please set the option to 'true'.
+**WARN: (IMPTCM-77):	Option "-drouteStartIteration" for command setNanoRouteMode is obsolete and will be removed in a future release. The obsolete option still works in this release but to avoid this warning and to ensure compatibility with future releases, remove the obsolete option from your script.
+#WARNING (NRIF-91) Option setNanoRouteMode -routeTopRoutingLayer is obsolete. It will continue to work for the current release. To ensure compatibility with future releases, use option setDesignMode -topRoutingLayer instead.
+AAE_INFO: switching -siAware from false to true ...
+AAE_INFO: The setting is changed from false to true in setDelayCalMode -SIAware
+Change floorplan default-technical-site to 'CoreSite'.
+*Info: initialize multi-corner CTS.
+Total number of combinational cells: 318
+Total number of sequential cells: 152
+Total number of tristate cells: 10
+Total number of level shifter cells: 0
+Total number of power gating cells: 0
+Total number of isolation cells: 0
+Total number of power switch cells: 0
+Total number of pulse generator cells: 0
+Total number of always on buffers: 0
+Total number of retention cells: 0
+Total number of physical cells: 9
+List of usable buffers: BUFX2 BUFX12 BUFX16 BUFX20 CLKBUFX2 BUFX3 BUFX4 BUFX6 BUFX8 CLKBUFX12 CLKBUFX16 CLKBUFX20 CLKBUFX3 CLKBUFX4 CLKBUFX6 CLKBUFX8
+Total number of usable buffers: 16
+List of unusable buffers:
+Total number of unusable buffers: 0
+List of usable inverters: CLKINVX1 CLKINVX2 CLKINVX12 CLKINVX16 CLKINVX20 CLKINVX4 CLKINVX3 CLKINVX6 CLKINVX8 INVX1 INVX2 INVX12 INVX16 INVX20 INVXL INVX3 INVX4 INVX6 INVX8
+Total number of usable inverters: 19
+List of unusable inverters:
+Total number of unusable inverters: 0
+List of identified usable delay cells: DLY1X1 DLY1X4 DLY2X1 DLY2X4 DLY3X1 DLY3X4 DLY4X1 DLY4X4
+Total number of identified usable delay cells: 8
+List of identified unusable delay cells:
+Total number of identified unusable delay cells: 0
+Reading floorplan file - /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/innovus/datapath_final.enc.dat/datapath.fp.gz (mem = 1437.2M).
+% Begin Load floorplan data ... (date=11/22 18:28:33, mem=1371.7M)
+*info: reset 24750 existing net BottomPreferredLayer and AvoidDetour
+Deleting old partition specification.
+Set FPlanBox to (0 0 643200 638780)
+**WARN: (IMPFP-3961):	The techSite 'CornerSite' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+Type 'man IMPFP-3961' for more detail.
+**WARN: (IMPFP-3961):	The techSite 'IOSite' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+Type 'man IMPFP-3961' for more detail.
+Start create_tracks
+ ... processed partition successfully.
+Reading binary special route file /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/innovus/datapath_final.enc.dat/datapath.fp.spr.gz (Created by Innovus v21.19-s058_1 on Sun Nov 22 17:51:43 2026, version: 1)
+Convert 0 swires and 0 svias from compressed groups
+28 swires and 60 svias were compressed
+28 swires and 60 svias were decompressed from small or sparse groups
+Ending "Read special route file" (total cpu=0:00:00.0, real=0:00:00.0, peak res=1373.1M, current mem=1373.1M)
+There are 72 nets with weight being set
+There are 72 nets with bottomPreferredRoutingLayer being set
+There are 318 nets with avoidDetour being set
+Extracting standard cell pins and blockage ...... 
+Pin and blockage extraction finished
+% End Load floorplan data ... (date=11/22 18:28:34, total cpu=0:00:00.1, real=0:00:01.0, peak res=1374.7M, current mem=1374.7M)
+Reading congestion map file /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/innovus/datapath_final.enc.dat/datapath.route.congmap.gz ...
+% Begin Load SymbolTable ... (date=11/22 18:28:34, mem=1375.3M)
+Suppress "**WARN ..." messages.
+Un-suppress "**WARN ..." messages.
+% End Load SymbolTable ... (date=11/22 18:28:34, total cpu=0:00:00.1, real=0:00:00.0, peak res=1381.3M, current mem=1381.3M)
+Loading place ...
+% Begin Load placement data ... (date=11/22 18:28:34, mem=1381.3M)
+Reading placement file - /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/innovus/datapath_final.enc.dat/datapath.place.gz.
+** Reading stdCellPlacement_binary (Created by Innovus v21.19-s058_1 on Sun Nov 22 17:51:43 2026, version# 2) ...
+Read Views for adaptive view pruning ...
+Read 0 views from Binary DB for adaptive view pruning
+*** Checked 6 GNC rules.
+*** applyConnectGlobalNets disabled.
+*** Completed restorePlace (cpu=0:00:00.1 real=0:00:00.0 mem=1454.7M) ***
+Total net length = 4.465e+05 (2.336e+05 2.129e+05) (ext = 2.017e+04)
+% End Load placement data ... (date=11/22 18:28:34, total cpu=0:00:00.2, real=0:00:00.0, peak res=1394.2M, current mem=1391.7M)
+Reading PG file /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/innovus/datapath_final.enc.dat/datapath.pg.gz, version#2, (Created by Innovus v21.19-s058_1 on       Sun Nov 22 17:51:43 2026)
+*** Completed restorePGFile (cpu=0:00:00.0 real=0:00:01.0 mem=1450.7M) ***
+% Begin Load routing data ... (date=11/22 18:28:35, mem=1392.5M)
+Reading routing file - /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/innovus/datapath_final.enc.dat/datapath.route.gz.
+Reading Innovus routing data (Created by Innovus v21.19-s058_1 on Sun Nov 22 17:51:44 2026 Format: 20.1) ...
+*** Total 24482 nets are successfully restored.
+*** Completed restoreRoute (cpu=0:00:00.2 real=0:00:00.0 mem=1484.7M) ***
+% End Load routing data ... (date=11/22 18:28:35, total cpu=0:00:00.3, real=0:00:00.0, peak res=1426.4M, current mem=1426.4M)
+TAT_INFO: restoreCongMap REAL = 0 : CPU = 0 : MEM = 0.
+Reading property file /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/innovus/datapath_final.enc.dat/datapath.prop
+*** Completed restoreProperty (cpu=0:00:00.0 real=0:00:00.0 mem=1488.7M) ***
+Reading dirtyarea snapshot file /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/innovus/datapath_final.enc.dat/datapath.db.da.gz (Create by Innovus v21.19-s058_1 on Sun Nov 22 17:51:44 2026, version: 6).
+Set Default Input Pin Transition as 0.1 ps.
+Loading preRoute extraction data from directory '/home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/innovus/datapath_final.enc.dat/extraction/' ...
+Extraction setup Started 
+Initializing multi-corner RC extraction with 2 active RC Corners ...
+Captable file(s) not specified in multi-corner setup. PreRoute extraction will use technology file. For postRoute extraction, default value for effort level would be 'medium' and effort level 'low' would not be allowed.
+Generating auto layer map file.
+Loading preRoute extracted patterns from file '/home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/innovus/datapath_final.enc.dat/datapath.techData.gz' ...
+Completed (cpu: 0:00:00.7 real: 0:00:01.0)
+Set Shrink Factor to 1.00000
+Summary of Active RC-Corners : 
+ 
+ Analysis View: func_slow_view
+    RC-Corner Name        : rc_slow
+    RC-Corner Index       : 0
+    RC-Corner Temperature : 125 Celsius
+    RC-Corner Cap Table   : ''
+    RC-Corner PreRoute Res Factor         : 1
+    RC-Corner PreRoute Cap Factor         : 1
+    RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+    RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+    RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+    RC-Corner PreRoute Clock Res Factor   : 1	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel medium)]
+    RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel medium)]
+    RC-Corner PostRoute Clock coupling capacitance Factor : 1 {1 1 1} 	[Derived from postRoute_xcap (effortLevel medium)]
+    RC-Corner Technology file: '/home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/innovus/datapath_final.enc.dat/libs/mmmc/rc_fast/gpdk045.tch'
+ 
+ Analysis View: func_fast_view
+    RC-Corner Name        : rc_fast
+    RC-Corner Index       : 1
+    RC-Corner Temperature : 0 Celsius
+    RC-Corner Cap Table   : ''
+    RC-Corner PreRoute Res Factor         : 1
+    RC-Corner PreRoute Cap Factor         : 1
+    RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+    RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+    RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+    RC-Corner PreRoute Clock Res Factor   : 1	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel medium)]
+    RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel medium)]
+    RC-Corner PostRoute Clock coupling capacitance Factor : 1 {1 1 1} 	[Derived from postRoute_xcap (effortLevel medium)]
+    RC-Corner Technology file: '/home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/innovus/datapath_final.enc.dat/libs/mmmc/rc_fast/gpdk045.tch'
+Initializing multi-corner resistance tables ...
+Default value for postRoute extraction mode's effortLevel (-effortLevel option of setExtractRCMode) changed to 'medium'.
+Start generating vias ..
+#Skip building auto via since it is not turned on.
+Extracting standard cell pins and blockage ...... 
+Pin and blockage extraction finished
+Via generation completed.
+% Begin Load power constraints ... (date=11/22 18:28:37, mem=1483.3M)
+'set_default_switching_activity' finished successfully.
+% End Load power constraints ... (date=11/22 18:28:37, total cpu=0:00:00.0, real=0:00:00.0, peak res=1490.4M, current mem=1490.4M)
+delay_fast delay_slow
+% Begin load AAE data ... (date=11/22 18:28:37, mem=1542.7M)
+AAE DB initialization (MEM=1636.41 CPU=0:00:00.0 REAL=0:00:00.0) 
+% End load AAE data ... (date=11/22 18:28:38, total cpu=0:00:00.5, real=0:00:01.0, peak res=1552.6M, current mem=1552.6M)
+Restoring CCOpt config...
+  Extracting original clock gating for clk...
+    clock_tree clk contains 3263 sinks and 41 clock gates.
+  Extracting original clock gating for clk done.
+  The skew group clk/functional was created. It contains 3263 sinks and 1 sources.
+  The skew group clk/functional was created. It contains 3263 sinks and 1 sources.
+Restoring CCOpt config done.
+Total number of combinational cells: 318
+Total number of sequential cells: 152
+Total number of tristate cells: 10
+Total number of level shifter cells: 0
+Total number of power gating cells: 0
+Total number of isolation cells: 0
+Total number of power switch cells: 0
+Total number of pulse generator cells: 0
+Total number of always on buffers: 0
+Total number of retention cells: 0
+Total number of physical cells: 9
+List of usable buffers: BUFX12 BUFX16 BUFX20 BUFX3 BUFX4 BUFX6 BUFX8 CLKBUFX12 CLKBUFX16 CLKBUFX20 CLKBUFX3 CLKBUFX4 CLKBUFX6 CLKBUFX8
+Total number of usable buffers: 14
+List of unusable buffers: BUFX2 CLKBUFX2
+Total number of unusable buffers: 2
+List of usable inverters: CLKINVX1 CLKINVX2 CLKINVX12 CLKINVX16 CLKINVX20 CLKINVX4 CLKINVX3 CLKINVX6 CLKINVX8 INVX1 INVX2 INVX12 INVX16 INVX20 INVXL INVX3 INVX4 INVX6 INVX8
+Total number of usable inverters: 19
+List of unusable inverters:
+Total number of unusable inverters: 0
+List of identified usable delay cells: DLY1X1 DLY1X4 DLY2X1 DLY2X4 DLY3X1 DLY3X4 DLY4X1 DLY4X4
+Total number of identified usable delay cells: 8
+List of identified unusable delay cells:
+Total number of identified unusable delay cells: 0
+**WARN: (IMPCTE-107):	The following globals have been obsoleted since version . They will be removed in the next release. 
+timing_enable_separate_device_slew_effect_sensitivities
+#% End load design ... (date=11/22 18:28:38, total cpu=0:00:06.6, real=0:00:14.0, peak res=1573.7M, current mem=1555.0M)
+
+*** Summary of all messages that are not suppressed in this session:
+Severity  ID               Count  Summary                                  
+WARNING   IMPLF-200            1  Pin '%s' in macro '%s' has no ANTENNAGAT...
+WARNING   IMPFP-3961           4  The techSite '%s' has no related standar...
+WARNING   IMPOPT-3602          5  The specified path group name %s is not ...
+WARNING   NRIF-80              1  When droutePostRouteSwapVia is set to 'm...
+WARNING   NRIF-91              1  Option setNanoRouteMode -routeTopRouting...
+WARNING   IMPCTE-107           1  The following globals have been obsolete...
+WARNING   IMPTCM-77            1  Option "%s" for command %s is obsolete a...
+WARNING   TECHLIB-302         20  No function defined for cell '%s'. The c...
+*** Message Summary: 34 warning(s), 0 error(s)
+
+<CMD> fit
+<CMD> report_area
+<CMD> setDrawView place
+<CMD> fit
+<CMD> setDrawView ameba
+<CMD> fit
+<CMD> zoomBox -35.42650 19.16350 357.02650 370.49250
+<CMD> zoomBox -35.42650 124.56250 357.02650 475.89150
+<CMD> zoomBox -3820.68850 -3615.99200 8091.47600 7047.93800
+<CMD> zoomBox -32280.66200 -31739.82400 66243.93850 56460.72400
+<CMD> zoomBox -1949.72050 -1767.12150 4268.50550 3799.51800
+<CMD> zoomBox 68.13550 226.90200 145.40000 296.07000
+<CMD> zoomBox 77.93250 236.58300 125.38250 279.06100
+<CMD> zoomBox 91.92050 250.40650 96.79750 254.77250
+<CMD> zoomBox 91.63750 250.12700 97.37550 255.26350
+<CMD> zoomBox 68.12800 226.89400 145.41200 296.07950
+<CMD> zoomBox 44.87450 203.91500 192.92650 336.45300
+<CMD> zoomBox 36.28950 195.43100 210.46850 351.35850
+<CMD> zoomBox -677.28950 -509.71850 1668.52650 1590.28750
+<CMD> zoomBox -1161.61600 -988.32450 2658.15400 2431.18500
+<CMD> zoomBox -1161.61600 37.52850 2658.15400 3457.03800
+<CMD> zoomBox -175.51050 1028.26500 65.56900 1244.08250
+<CMD> zoomBox -157.07650 1046.78550 17.10350 1202.71400
+<CMD> zoomBox -165.54650 1038.27600 39.37150 1221.72150
+<CMD> zoomBox -869.55150 330.96750 1890.26700 2801.59400
+<CMD> zoomBox -1600.21050 -416.15650 3686.73450 4316.78800
+<CMD> fit
+<CMD> setDrawView fplan
+<CMD> highlight clk -color yellow
+<CMD> zoomBox -35.42650 19.16350 357.02650 370.49250
+<CMD> zoomBox -92.94600 -2.25000 368.76350 411.07850
+<CMD> zoomBox -4099.24400 -1493.69300 1186.24800 3237.95050
+<CMD> zoomBox 103.83100 -196.05900 496.28600 155.27200
+<CMD> zoomBox 291.36550 -138.16050 465.50050 17.72750
+<CMD> gui_select -rect {354.44150 -44.89800 428.33050 -94.90850}
+<CMD> gui_select -rect {303.75550 8.26600 343.17800 -11.33250}
+<CMD> deselectAll
+<CMD> setLayerPreference allLayers -isVisible 0
+<CMD> setLayerPreference allLayers -isVisible 1
+<CMD> setLayerPreference allLayers -isVisible 0
+<CMD> zoomBox 335.72050 -42.94850 336.68100 -42.08850
+<CMD> zoomBox 335.83800 -42.69650 336.33950 -42.24750
+
+--------------------------------------------------------------------------------
+Exiting Innovus on Sun Nov 22 18:34:10 2026
+  Total CPU time:     0:00:50
+  Total real time:    0:06:54
+  Peak memory (main): 1743.00MB
+
+
+*** Memory Usage v#1 (Current mem = 2146.598M, initial mem = 495.004M) ***
+*** Message Summary: 34 warning(s), 0 error(s)
+
+--- Ending "Innovus" (totcpu=0:00:48.0, real=0:06:52, mem=2146.6M) ---

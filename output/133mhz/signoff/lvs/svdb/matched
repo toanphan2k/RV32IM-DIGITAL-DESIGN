@@ -1,0 +1,36 @@
+##############################################################################################################
+#####  
+#####                                       Pegasus LVS COMPARISON
+#####  
+#####  Version                       :   24.11-s021
+#####  NVN Run Start                 :   Sun Nov 22 17:55:46 2026
+#####  ERC Summary File              :   erc.sum
+#####  Extraction Report File        :   lvs.rep
+#####  Comparison Report File        :   /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/signoff/lvs/lvs.rep.cls
+#####  Top Cell                      :   datapath  <vs>  datapath
+#####  
+#####  Run Result                    :   MATCH
+#####  
+#####  Run Summary                   :   [INFO]  ERC Results: Empty
+#####                                :   [INFO]  Extraction Clean
+#####                                :   [INFO]  Some Sections Have Been Truncated
+#####  
+#####  Layout Design                 :   /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/signoff/datapath.gds (GDSII)
+#####  Layout File                   :   /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/signoff/lvs/run/datapath_layout.spi (cdl)
+#####  Schematic File                :   /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/signoff/datapath_lvs.cdl (cdl)
+#####  Rules File                    :   /tools/eda/pdks/cadence/gpdk045/gpdk045_v_6_0/pvs/pvlLVS.rul
+#####  Pin Swap File                 :   lvs.rep.cps
+#####  
+#####  Extraction CPU Time           :   0h 1m 0s - (60s)
+#####  Extraction Exec Time          :   0h 1m 9s - (69s)
+#####  Extraction Peak Memory Usage  :   226.00MB
+#####  NVN CPU Time                  :   0h 0m 4s - (4s)                 
+#####  NVN Exec Time                 :   0h 0m 12s - (12s)               
+#####  NVN Peak Memory Usage         :   812.36MB
+#####  LVS Total CPU Time            :   0h 1m 4s - (64s)                
+#####  LVS Total Exec Time           :   0h 1m 21s - (81s)               
+#####  LVS Total Peak Memory Usage   :   812.36MB
+#####  
+##############################################################################################################
+
+

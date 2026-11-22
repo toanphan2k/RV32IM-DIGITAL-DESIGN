@@ -1,0 +1,675 @@
+Pegasus 24.11-s021 XAiQ65t/w7Fk1C994e92Sg 2026-11-22 17:52:39 227542 black.doelab.site
+Copyright 2025 Cadence Design Systems, Inc.
+All rights reserved worldwide.
+
+INFO:    Command Line Options: -drc -top_cell datapath -gds /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/signoff/datapath.gds -ascrdb /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/signoff/drc/drc.db -dp 2 -control /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/signoff/drc/pegasus_drc.ctrl /tools/eda/pdks/cadence/gpdk045/gpdk045_v_6_0/pvs/pvlDRC.rul
+INFO:    Launch host CPU: Model: AMD EPYC 7H12 64-Core Processor, OS: Rocky Linux release 8.10 (Green Obsidian), Logical cores: 48, Physical cores: 48, Cache: 512 KB, CPU Speed: 2595.12 MHz
+         Launch host Memory: MemTotal: 125742 MB,  MemFree: 71546 MB,  SwapTotal: 16383 MB,  SwapFree: 14236 MB,  VmallocTotal: 33554431 MB,  VmallocUsed: 72 MB
+INFO:    Current path: /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/signoff/drc/run
+INFO:    Run directory same as current path
+INFO:    Log directory: /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/signoff/drc/run/pegasus-1795344759-black.doelab.site-227542
+INFO:    Setting LAYOUT_PATH to /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/signoff/datapath.gds
+INFO:    Setting LAYOUT_PRIMARY to datapath
+INFO:    PVL parsing results:
+WARNING: Cmd-line override: LAYOUT_PATH "/home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/signoff/datapath.gds";
+WARNING: Cmd-line override: LAYOUT_PRIMARY "datapath";
+WARNING: RESULTS_DB statement at line 3 in file /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/signoff/drc/pegasus_drc.ctrl is ignored.
+INFO:           ASCII output database has been specified in command line as /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/signoff/drc/drc.db
+WARNING: LAYOUT_PATH at line 30 in file /tools/eda/pdks/cadence/gpdk045/gpdk045_v_6_0/pvs/pvlDRC.rul is skipped. It is set in control file.
+WARNING: Cmd-line override: LAYOUT_PRIMARY "datapath";
+WARNING: RESULTS_DB -ascii at line 32 in file /tools/eda/pdks/cadence/gpdk045/gpdk045_v_6_0/pvs/pvlDRC.rul is skipped. It is set in control file.
+INFO:    See /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/signoff/drc/run/pegasus-1795344759-black.doelab.site-227542/pvl.log for additional details
+WARNING: -para only is set since -project with constraint is only supported with -para only. ('METAL1.SP.1.2:L92336')
+WARNING: -para only is set since -project with constraint is only supported with -para only. ('METAL2.SP.1.2:L44095')
+WARNING: -para only is set since -project with constraint is only supported with -para only. ('METAL3.SP.1.2:L85233')
+WARNING: -para only is set since -project with constraint is only supported with -para only. ('METAL4.SP.1.2:L86514')
+WARNING: -para only is set since -project with constraint is only supported with -para only. ('METAL5.SP.1.2:L52050')
+WARNING: -para only is set since -project with constraint is only supported with -para only. ('METAL6.SP.1.2:L49476')
+WARNING: -para only is set since -project with constraint is only supported with -para only. ('METAL7.SP.1.2:L9898')
+WARNING: -para only is set since -project with constraint is only supported with -para only. ('METAL8.SP.1.2:L72343')
+WARNING: -para only is set since -project with constraint is only supported with -para only. ('METAL9.SP.1.2:L86404')
+WARNING: -para only is set since -project with constraint is only supported with -para only. ('METAL1.SP.1.3:L7339')
+WARNING: -para only is set since -project with constraint is only supported with -para only. ('METAL2.SP.1.3:L71477')
+WARNING: -para only is set since -project with constraint is only supported with -para only. ('METAL3.SP.1.3:L54105')
+WARNING: -para only is set since -project with constraint is only supported with -para only. ('METAL4.SP.1.3:L99602')
+WARNING: -para only is set since -project with constraint is only supported with -para only. ('METAL5.SP.1.3:L90470')
+WARNING: -para only is set since -project with constraint is only supported with -para only. ('METAL6.SP.1.3:L61285')
+WARNING: -para only is set since -project with constraint is only supported with -para only. ('METAL7.SP.1.3:L99702')
+WARNING: -para only is set since -project with constraint is only supported with -para only. ('METAL8.SP.1.3:L19640')
+WARNING: -para only is set since -project with constraint is only supported with -para only. ('METAL9.SP.1.3:L59222')
+WARNING: -para only is set since -project with constraint is only supported with -para only. ('METAL10.SP.1.2:L77459')
+WARNING: -para only is set since -project with constraint is only supported with -para only. ('METAL11.SP.1.2:L35461')
+WARNING: -para only is set since -project with constraint is only supported with -para only. ('METAL1.SP.1.4:L53457')
+WARNING: -para only is set since -project with constraint is only supported with -para only. ('METAL2.SP.1.4:L32322')
+WARNING: -para only is set since -project with constraint is only supported with -para only. ('METAL3.SP.1.4:L69918')
+WARNING: -para only is set since -project with constraint is only supported with -para only. ('METAL4.SP.1.4:L66245')
+WARNING: -para only is set since -project with constraint is only supported with -para only. ('METAL5.SP.1.4:L4189')
+WARNING: -para only is set since -project with constraint is only supported with -para only. ('METAL6.SP.1.4:L35837')
+WARNING: -para only is set since -project with constraint is only supported with -para only. ('METAL7.SP.1.4:L46531')
+WARNING: -para only is set since -project with constraint is only supported with -para only. ('METAL8.SP.1.4:L86042')
+WARNING: -para only is set since -project with constraint is only supported with -para only. ('METAL9.SP.1.4:L16228')
+WARNING: -para only is set since -project with constraint is only supported with -para only. ('METAL10.SP.1.3:L42715')
+WARNING: -para only is set since -project with constraint is only supported with -para only. ('METAL11.SP.1.3:L24794')
+WARNING: -para only is set since -project with constraint is only supported with -para only. ('METAL1.SP.1.5:L91954')
+WARNING: -para only is set since -project with constraint is only supported with -para only. ('METAL2.SP.1.5:L38211')
+WARNING: -para only is set since -project with constraint is only supported with -para only. ('METAL3.SP.1.5:L42694')
+WARNING: -para only is set since -project with constraint is only supported with -para only. ('METAL4.SP.1.5:L34833')
+WARNING: -para only is set since -project with constraint is only supported with -para only. ('METAL5.SP.1.5:L75372')
+WARNING: -para only is set since -project with constraint is only supported with -para only. ('METAL6.SP.1.5:L38425')
+WARNING: -para only is set since -project with constraint is only supported with -para only. ('METAL7.SP.1.5:L54182')
+WARNING: -para only is set since -project with constraint is only supported with -para only. ('METAL8.SP.1.5:L98640')
+WARNING: -para only is set since -project with constraint is only supported with -para only. ('METAL9.SP.1.5:L51397')
+WARNING: -para only is set since -project with constraint is only supported with -para only. ('METAL10.SP.1.4:L71050')
+WARNING: -para only is set since -project with constraint is only supported with -para only. ('METAL11.SP.1.4:L62441')
+WARNING: -para only is set since -project with constraint is only supported with -para only. ('METAL1.SP.1.6:L79181')
+WARNING: -para only is set since -project with constraint is only supported with -para only. ('METAL2.SP.1.6:L51652')
+WARNING: -para only is set since -project with constraint is only supported with -para only. ('METAL3.SP.1.6:L76733')
+WARNING: -para only is set since -project with constraint is only supported with -para only. ('METAL4.SP.1.6:L56711')
+WARNING: -para only is set since -project with constraint is only supported with -para only. ('METAL5.SP.1.6:L66366')
+WARNING: -para only is set since -project with constraint is only supported with -para only. ('METAL6.SP.1.6:L69059')
+WARNING: -para only is set since -project with constraint is only supported with -para only. ('METAL7.SP.1.6:L18364')
+WARNING: -para only is set since -project with constraint is only supported with -para only. ('METAL8.SP.1.6:L27358')
+WARNING: -para only is set since -project with constraint is only supported with -para only. ('METAL9.SP.1.6:L90432')
+WARNING: -para only is set since -project with constraint is only supported with -para only. ('METAL10.SP.1.5:L62458')
+WARNING: -para only is set since -project with constraint is only supported with -para only. ('METAL11.SP.1.5:L35557')
+INFO:    Worker 1 started on host black.doelab.site with 2 threads
+         CPU: Model: AMD EPYC 7H12 64-Core Processor, OS: Rocky Linux release 8.10 (Green Obsidian), Logical cores: 48, Physical cores: 48, Cache: 512 KB, CPU Speed: 2595.12 MHz
+         Memory: MemTotal: 125742 MB,  MemFree: 71350 MB,  SwapTotal: 16383 MB,  SwapFree: 14236 MB,  VmallocTotal: 33554431 MB,  VmallocUsed: 73 MB
+INFO:    Checking out 1 license(s) of feature: 'Pegasus_DRC' version 24.1
+INFO:    License checkout successful ... 2026-11-22 17:52:42 (0s) (License)
+INFO:    Checking out 1 license(s) of feature: 'Pegasus_16nm' version 24.1
+INFO:    License checkout successful ... 2026-11-22 17:52:43 (0s) (License)
+INFO:    Gdsii input summary
+         File name: /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/signoff/datapath.gds
+         File size: 26162260
+         Version: 5.0
+         Library name: DesignLib
+         Last modified: 2026-11-22 17:52:38
+         Last accessed: 2026-11-22 17:52:38
+         Database unit in user units: 0.0005
+         Database unit in meters: 5e-10
+         Magnification: 1
+INFO:    CHIP EXTENT: 0 0 643200 638670
+INFO:    Rule NZVT.L.1 completed with no violations, 1/562
+INFO:    Rule NZVT.W.2 completed with no violations, 2/562
+INFO:    Rule OXIDE.W.2.1.2 completed with no violations, 3/562
+INFO:    Rule OXIDE.W.2.2.2 completed with no violations, 4/562
+INFO:    Rule POLY.W.3 completed with no violations, 5/562
+INFO:    Rule POLY.W.4 completed with no violations, 6/562
+INFO:    Rule POLY.SP.4 completed with no violations, 7/562
+INFO:    Rule ESD.1 completed with no violations, 8/562
+INFO:    Rule ESD.14 completed with no violations, 9/562
+INFO:    Rule soft_check_3 completed with no violations, 10/562
+INFO:    Rule soft_check_9 completed with no violations, 11/562
+INFO:    Rule POLY.SP.1 completed with no violations, 12/562
+INFO:    Rule CONT.SE.4 completed with no violations, 13/562
+INFO:    Rule POLYR.W.1.1 completed with no violations, 14/562
+INFO:    Rule BONDPAD.SP.7_10 completed with no violations, 15/562
+INFO:    Rule BONDPAD.SP.7_8 completed with no violations, 16/562
+INFO:    Rule BONDPAD.SP.7_7 completed with no violations, 17/562
+INFO:    Rule BONDPAD.SP.7_6 completed with no violations, 18/562
+INFO:    Rule BONDPAD.SP.7_3 completed with no violations, 19/562
+INFO:    Rule BONDPAD.SP.7_2 completed with no violations, 20/562
+INFO:    Rule BONDPAD.SP.7 completed with no violations, 21/562
+INFO:    Rule BONDPAD.SP.6_9 completed with no violations, 22/562
+INFO:    Rule BONDPAD.SP.6_7 completed with no violations, 23/562
+INFO:    Rule BONDPAD.SP.6_6 completed with no violations, 24/562
+INFO:    Rule BONDPAD.SP.6_5 completed with no violations, 25/562
+INFO:    Rule BONDPAD.SP.6_4 completed with no violations, 26/562
+INFO:    Rule BONDPAD.SP.6_3 completed with no violations, 27/562
+INFO:    Rule BONDPAD.SP.6 completed with no violations, 28/562
+INFO:    Rule BONDPAD.W.5_10 completed with no violations, 29/562
+INFO:    Rule BONDPAD.W.5_8 completed with no violations, 30/562
+INFO:    Rule BONDPAD.W.5_7 completed with no violations, 31/562
+INFO:    Rule BONDPAD.W.5_6 completed with no violations, 32/562
+INFO:    Rule BONDPAD.W.5_5 completed with no violations, 33/562
+INFO:    Rule BONDPAD.W.5_4 completed with no violations, 34/562
+INFO:    Rule BONDPAD.W.5 completed with no violations, 35/562
+INFO:    Rule BONDPAD.W.4_10 completed with no violations, 36/562
+INFO:    Rule BONDPAD.W.4_9 completed with no violations, 37/562
+INFO:    Rule BONDPAD.W.4_8 completed with no violations, 38/562
+INFO:    Rule BONDPAD.W.4_6 completed with no violations, 39/562
+INFO:    Rule BONDPAD.W.4_3 completed with no violations, 40/562
+INFO:    Rule BONDPAD.W.4_2 completed with no violations, 41/562
+INFO:    Rule BONDPAD.W.4 completed with no violations, 42/562
+INFO:    Rule BONDPAD.SP.5_8 completed with no violations, 43/562
+INFO:    Rule BONDPAD.SP.5_10 completed with no violations, 44/562
+INFO:    Rule BONDPAD.SP.5_7 completed with no violations, 45/562
+INFO:    Rule BONDPAD.SP.5_6 completed with no violations, 46/562
+INFO:    Rule BONDPAD.SP.5_5 completed with no violations, 47/562
+INFO:    Rule BONDPAD.SP.5_4 completed with no violations, 48/562
+INFO:    Rule BONDPAD.SP.5_3 completed with no violations, 49/562
+INFO:    Rule BONDPAD.SP.5_2 completed with no violations, 50/562
+INFO:    Rule METAL9.W.3 completed with no violations, 51/562
+INFO:    Rule BONDPAD.W.5_3 completed with no violations, 52/562
+INFO:    Rule NZVT.W.1 completed with no violations, 53/562
+INFO:    Rule NLVT.SP.1 completed with no violations, 54/562
+INFO:    Rule VIAk.X.3_VIAk.X.4_3 completed with no violations, 55/562
+INFO:    Rule METAL11.SP.1.4 completed with no violations, 56/562
+INFO:    Rule soft_check_18 completed with no violations, 57/562
+INFO:    Rule METAL10.SP.1.4 completed with no violations, 58/562
+INFO:    Rule VIA8.E.2 completed with no violations, 59/562
+INFO:    Rule BONDPAD.SP.3 completed with no violations, 60/562
+INFO:    Rule METAL8.SP.1.5 completed with no violations, 61/562
+INFO:    Rule BONDPAD.E.2_5 completed with no violations, 62/562
+INFO:    Rule METAL8.SP.1.1 completed with no violations, 63/562
+INFO:    Rule NWR.E.2 completed with no violations, 64/562
+INFO:    Rule BONDPAD.SP.3_3 completed with no violations, 65/562
+INFO:    Rule NBL.SE.3 completed with no violations, 66/562
+INFO:    Rule METAL8.SP.1.3 completed with no violations, 67/562
+INFO:    Rule BONDPAD.W.5_2 completed with no violations, 68/562
+INFO:    Rule SIPROT.SE.4 completed with no violations, 69/562
+INFO:    Rule METAL9.SP.1.4 completed with no violations, 70/562
+INFO:    Rule METAL9.W.2 completed with no violations, 71/562
+INFO:    Rule METAL8.W.2 completed with no violations, 72/562
+INFO:    Rule NBL.SP.1 completed with no violations, 73/562
+INFO:    Rule METAL9.L.1 completed with no violations, 74/562
+INFO:    Rule METAL11.W.1 completed with no violations, 75/562
+INFO:    Rule METAL10.W.1 completed with no violations, 76/562
+INFO:    Rule METAL10.SP.1.5 completed with no violations, 77/562
+INFO:    Rule METAL10.E.1_METAL10.E.2 completed with no violations, 78/562
+INFO:    Rule METAL9.E.1_METAL9.E.2 completed with no violations, 79/562
+INFO:    Rule BONDPAD.SP.7_4 completed with no violations, 80/562
+INFO:    Rule METAL8.E.1_METAL8.E.2 completed with no violations, 81/562
+INFO:    Rule BONDPAD.SP.5_9 completed with no violations, 82/562
+INFO:    Rule SIPROT.EA.1 completed with no violations, 83/562
+INFO:    Rule SIPROT.E.3 completed with no violations, 84/562
+INFO:    Rule NZVT.SE.1 completed with no violations, 85/562
+INFO:    Rule SIPROT.E.1 completed with no violations, 86/562
+INFO:    Rule SIPROT.E.2 completed with no violations, 87/562
+INFO:    Rule ESD.4_2 completed with no violations, 88/562
+INFO:    Rule METAL8.W.1 completed with no violations, 89/562
+INFO:    Rule METAL10.A.1 completed with no violations, 90/562
+INFO:    Rule METAL9.W.1 completed with no violations, 91/562
+INFO:    Rule CONT.SE.2 completed with no violations, 92/562
+INFO:    Rule BONDPAD.B.1A_5 completed with no violations, 93/562
+INFO:    Rule SIPROT.SE.2 completed with no violations, 94/562
+INFO:    Rule POLYR.X.1 completed with no violations, 95/562
+INFO:    Rule METAL8.SP.1.2 completed with no violations, 96/562
+INFO:    Rule BONDPAD.E.3_2 completed with no violations, 97/562
+INFO:    Rule SIPROT.SP.1 completed with no violations, 98/562
+INFO:    Rule METAL9.SP.1.2 completed with no violations, 99/562
+INFO:    Rule METAL9.SP.3 completed with no violations, 100/562
+INFO:    Rule SIPROT.SE.1 completed with no violations, 101/562
+INFO:    Rule POLYR.SE.2 completed with no violations, 102/562
+INFO:    Rule PLVT.SP.1 completed with no violations, 103/562
+INFO:    Rule METAL11.SP.1.5 completed with no violations, 104/562
+INFO:    Rule OXIDETHK.SP.2 completed with no violations, 105/562
+INFO:    Rule BONDPAD.SP.2_7 completed with no violations, 106/562
+INFO:    Rule BONDPAD.L.1 completed with no violations, 107/562
+INFO:    Rule NZVT.SE.2 completed with no violations, 108/562
+INFO:    Rule CMET.E.2 completed with no violations, 109/562
+INFO:    Rule VIA8.X.1 completed with no violations, 110/562
+INFO:    Rule METAL10.SP.1.1 completed with no violations, 111/562
+INFO:    Rule OXIDER.SE.2_2 completed with no violations, 112/562
+INFO:    Rule NWR.O.1 completed with no violations, 113/562
+INFO:    Rule VIA10.W.1 completed with no violations, 114/562
+INFO:    Rule OXIDER.E.1 completed with no violations, 115/562
+INFO:    Rule soft_check_16 completed with no violations, 116/562
+INFO:    Rule BONDPAD.E.2_2 completed with no violations, 117/562
+INFO:    Rule NW.SE.3 completed with no violations, 118/562
+INFO:    Rule soft_check_14 completed with no violations, 119/562
+INFO:    Rule OXIDETHK.W.1 completed with no violations, 120/562
+INFO:    Rule BONDPAD.SP.4_3 completed with no violations, 121/562
+INFO:    Rule METAL11.SP.1.1 completed with no violations, 122/562
+INFO:    Rule NZVT.X.3 completed with no violations, 123/562
+INFO:    Rule NHVT.W.1 completed with no violations, 124/562
+INFO:    Rule BONDPAD.SP.2_6 completed with no violations, 125/562
+INFO:    Rule NWR.E.1 completed with no violations, 126/562
+INFO:    Rule NLVT.W.1 completed with no violations, 127/562
+INFO:    Rule NHVT.SP.1 completed with no violations, 128/562
+INFO:    Rule METAL8.SP.1.6 completed with no violations, 129/562
+INFO:    Rule NZVT.X.4 completed with no violations, 130/562
+INFO:    Rule VIA7.E.2 completed with no violations, 131/562
+INFO:    Rule BONDPAD.SP.7_9 completed with no violations, 132/562
+INFO:    Rule METAL10.SP.1.2 completed with no violations, 133/562
+INFO:    Rule PHVT.X.4 completed with no violations, 134/562
+INFO:    Rule VIA9.SP.1 completed with no violations, 135/562
+INFO:    Rule BONDPAD.B.1A_3 completed with no violations, 136/562
+INFO:    Rule METAL9.SP.1.6 completed with no violations, 137/562
+INFO:    Rule NW.SP.2 completed with no violations, 138/562
+INFO:    Rule BONDPAD.E.2_9 completed with no violations, 139/562
+INFO:    Rule METAL8.SP.1.4 completed with no violations, 140/562
+INFO:    Rule METAL8.SP.3 completed with no violations, 141/562
+INFO:    Rule OXIDER.X.1 completed with no violations, 142/562
+INFO:    Rule METAL9.EA.1 completed with no violations, 143/562
+INFO:    Rule NWR.X.1 completed with no violations, 144/562
+INFO:    Rule soft_check_15 completed with no violations, 145/562
+INFO:    Rule METAL11.SP.1.2 completed with no violations, 146/562
+INFO:    Rule METAL9.SP.1.1 completed with no violations, 147/562
+INFO:    Rule BONDPAD.SP.2_8 completed with no violations, 148/562
+INFO:    Rule NBL.W.1 completed with no violations, 149/562
+INFO:    Rule OXIDETHK.E.1 completed with no violations, 150/562
+INFO:    Rule METAL8.W.3 completed with no violations, 151/562
+INFO:    Rule soft_check_13 completed with no violations, 152/562
+INFO:    Rule OXIDETHK.SP.1 completed with no violations, 153/562
+INFO:    Rule BONDPAD.E.1_4 completed with no violations, 154/562
+INFO:    Rule BONDPAD.B.1A_6 completed with no violations, 155/562
+INFO:    Rule SIPROT.A.1 completed with no violations, 156/562
+INFO:    Rule NW.SE.4 completed with no violations, 157/562
+INFO:    Rule CMET.E.1 completed with no violations, 158/562
+INFO:    Rule PHVT.X.3 completed with no violations, 159/562
+INFO:    Rule METAL10.SP.1.3 completed with no violations, 160/562
+INFO:    Rule ESD.8 completed with no violations, 161/562
+INFO:    Rule BONDPAD.B.1B_11 completed with no violations, 162/562
+INFO:    Rule soft_check_17 completed with no violations, 163/562
+INFO:    Rule METAL8.SP.2 completed with no violations, 164/562
+INFO:    Rule BONDPAD.W.1 completed with no violations, 165/562
+INFO:    Rule OXIDER.SE.2 completed with no violations, 166/562
+INFO:    Rule METAL9.SP.1.3 completed with no violations, 167/562
+INFO:    Rule CMET.W.1 completed with no violations, 168/562
+INFO:    Rule METAL11.SP.1.3 completed with no violations, 169/562
+INFO:    Rule OXIDETHK.SE.1 completed with no violations, 170/562
+INFO:    Rule NBL.SE.2 completed with no violations, 171/562
+INFO:    Rule NLVT.X.3 completed with no violations, 172/562
+INFO:    Rule METAL9.SP.2 completed with no violations, 173/562
+INFO:    Rule VIA9.W.1 completed with no violations, 174/562
+INFO:    Rule BONDPAD.E.1_10 completed with no violations, 175/562
+INFO:    Rule PLVT.X.4 completed with no violations, 176/562
+INFO:    Rule NW.E.3 completed with no violations, 177/562
+INFO:    Rule BONDPAD.SP.6_10 completed with no violations, 178/562
+INFO:    Rule SIPROT.W.1 completed with no violations, 179/562
+INFO:    Rule OXIDETHK.SE.2 completed with no violations, 180/562
+INFO:    Rule OXIDETHK.SE.3 completed with no violations, 181/562
+INFO:    Rule OXIDETHK.SE.5 completed with no violations, 182/562
+INFO:    Rule BONDPAD.W.5_9 completed with no violations, 183/562
+INFO:    Rule BONDPAD.B.1A completed with no violations, 184/562
+INFO:    Rule POLYR.E.2 completed with no violations, 185/562
+INFO:    Rule METAL11.W.2 completed with no violations, 186/562
+INFO:    Rule NHVT.X.2 completed with no violations, 187/562
+INFO:    Rule PHVT.W.1 completed with no violations, 188/562
+INFO:    Rule OXIDE.SE.1 completed with no violations, 189/562
+INFO:    Rule CMET.S.1 completed with no violations, 190/562
+INFO:    Rule POLYR.SE.2_2 completed with no violations, 191/562
+INFO:    Rule BONDPAD.SP.4_2 completed with no violations, 192/562
+INFO:    Rule PHVT.SP.1 completed with no violations, 193/562
+INFO:    Rule BONDPAD.E.2_6 completed with no violations, 194/562
+INFO:    Rule NHVT.X.3 completed with no violations, 195/562
+INFO:    Rule OXIDETHK.E.2 completed with no violations, 196/562
+INFO:    Rule NWR.SE.1 completed with no violations, 197/562
+INFO:    Rule BONDPAD.SP.2_11 completed with no violations, 198/562
+INFO:    Rule PLVT.X.3 completed with no violations, 199/562
+INFO:    Rule BONDPAD.SP.6_2 completed with no violations, 200/562
+INFO:    Rule PLVT.X.2 completed with no violations, 201/562
+INFO:    Rule METAL8.L.1 completed with no violations, 202/562
+INFO:    Rule NBL.SE.4 completed with no violations, 203/562
+INFO:    Rule NLVT.X.2 completed with no violations, 204/562
+INFO:    Rule ESD.11 completed with no violations, 205/562
+INFO:    Rule NW.SP.2_2 completed with no violations, 206/562
+INFO:    Rule NLVT.X.4 completed with no violations, 207/562
+INFO:    Rule METAL11.E.1_METAL11.E.2 completed with no violations, 208/562
+INFO:    Rule METAL8.A.1 completed with no violations, 209/562
+INFO:    Rule METAL8.EA.1 completed with no violations, 210/562
+INFO:    Rule METAL10.EA.1 completed with no violations, 211/562
+INFO:    Rule METAL11.EA.1 completed with no violations, 212/562
+INFO:    Rule CMET.E.4 completed with no violations, 213/562
+INFO:    Rule CMET.E.3 completed with no violations, 214/562
+INFO:    Rule NBL.E.1 completed with no violations, 215/562
+INFO:    Rule VIA8.W.1 completed with no violations, 216/562
+INFO:    Rule VIA7.W.1 completed with no violations, 217/562
+INFO:    Rule NZVT.SP.1 completed with no violations, 218/562
+INFO:    Rule BONDPAD.B.1B_9 completed with no violations, 219/562
+INFO:    Rule VIA7.SP.1 completed with no violations, 220/562
+INFO:    Rule BONDPAD.W.4_5 completed with no violations, 221/562
+INFO:    Rule VIA8.SP.1 completed with no violations, 222/562
+INFO:    Rule POLYR.E.3 completed with no violations, 223/562
+INFO:    Rule VIA10.SP.1 completed with no violations, 224/562
+INFO:    Rule BONDPAD.E.1_5 completed with no violations, 225/562
+INFO:    Rule BONDPAD.B.1A_7 completed with no violations, 226/562
+INFO:    Rule VIA7.E.1 completed with no violations, 227/562
+INFO:    Rule VIA8.E.1 completed with no violations, 228/562
+INFO:    Rule BONDPAD.SP.2 completed with no violations, 229/562
+INFO:    Rule BONDPAD.SP.7_5 completed with no violations, 230/562
+INFO:    Rule METAL9.A.1 completed with no violations, 231/562
+INFO:    Rule VIA9.E.1 completed with no violations, 232/562
+INFO:    Rule BONDPAD.SP.5 completed with no violations, 233/562
+INFO:    Rule VIA8.E.3 completed with no violations, 234/562
+INFO:    Rule METAL10.W.2 completed with no violations, 235/562
+INFO:    Rule BONDPAD.E.1_8 completed with no violations, 236/562
+INFO:    Rule BONDPAD.SP.3_6 completed with no violations, 237/562
+INFO:    Rule VIA10.E.1 completed with no violations, 238/562
+INFO:    Rule VIA7.E.3 completed with no violations, 239/562
+INFO:    Rule BONDPAD.E.1_7 completed with no violations, 240/562
+INFO:    Rule VIA7.X.1 completed with no violations, 241/562
+INFO:    Rule PHVT.X.2 completed with no violations, 242/562
+INFO:    Rule POLYR.SE.2_3 completed with no violations, 243/562
+INFO:    Rule VIA7.X.2 completed with no violations, 244/562
+INFO:    Rule BONDPAD.SP.1 completed with no violations, 245/562
+INFO:    Rule VIA8.X.2 completed with no violations, 246/562
+INFO:    Rule NBL.X.1 completed with no violations, 247/562
+INFO:    Rule VIAk.X.3_VIAk.X.4_4 completed with no violations, 248/562
+INFO:    Rule BONDPAD.W.4_4 completed with no violations, 249/562
+INFO:    Rule LATCHUP.3 completed with no violations, 250/562
+INFO:    Rule BONDPAD.B.1A_11 completed with no violations, 251/562
+INFO:    Rule LATCHUP.4 completed with no violations, 252/562
+INFO:    Rule ESD.4 completed with no violations, 253/562
+INFO:    Rule ESD.5 completed with no violations, 254/562
+INFO:    Rule ESD.6 completed with no violations, 255/562
+INFO:    Rule ESD.7 completed with no violations, 256/562
+INFO:    Rule NZVT.E.1 completed with no violations, 257/562
+INFO:    Rule ESD.7_2 completed with no violations, 258/562
+INFO:    Rule BONDPAD.E.2_4 completed with no violations, 259/562
+INFO:    Rule ESD.8_2 completed with no violations, 260/562
+INFO:    Rule BONDPAD.B.1B_8 completed with no violations, 261/562
+INFO:    Rule ESD.12 completed with no violations, 262/562
+INFO:    Rule METAL11.A.1 completed with no violations, 263/562
+INFO:    Rule BONDPAD.B.1A_10 completed with no violations, 264/562
+INFO:    Rule BONDPAD.E.3_7 completed with no violations, 265/562
+INFO:    Rule NW.E.4 completed with no violations, 266/562
+INFO:    Rule ESD.15 completed with no violations, 267/562
+INFO:    Rule BONDPAD.E.1_2 completed with no violations, 268/562
+INFO:    Rule BONDPAD.E.3_8 completed with no violations, 269/562
+INFO:    Rule BONDPAD.SP.2_2 completed with no violations, 270/562
+INFO:    Rule NBL.SE.1 completed with no violations, 271/562
+INFO:    Rule BONDPAD.SP.2_3 completed with no violations, 272/562
+INFO:    Rule BONDPAD.SP.2_5 completed with no violations, 273/562
+INFO:    Rule BONDPAD.E.1_6 completed with no violations, 274/562
+INFO:    Rule SIPROT.SE.3 completed with no violations, 275/562
+INFO:    Rule BONDPAD.E.1_9 completed with no violations, 276/562
+INFO:    Rule METAL9.SP.1.5 completed with no violations, 277/562
+INFO:    Rule BONDPAD.SP.2_9 completed with no violations, 278/562
+INFO:    Rule BONDPAD.SP.2_10 completed with no violations, 279/562
+INFO:    Rule ESD.13 completed with no violations, 280/562
+INFO:    Rule BONDPAD.SP.2_4 completed with no violations, 281/562
+INFO:    Rule BONDPAD.E.1_11 completed with no violations, 282/562
+INFO:    Rule BONDPAD.B.1A_2 completed with no violations, 283/562
+INFO:    Rule BONDPAD.B.1B_5 completed with no violations, 284/562
+INFO:    Rule BONDPAD.B.1A_4 completed with no violations, 285/562
+INFO:    Rule BONDPAD.B.1B_4 completed with no violations, 286/562
+INFO:    Rule BONDPAD.B.1A_8 completed with no violations, 287/562
+INFO:    Rule BONDPAD.E.3_6 completed with no violations, 288/562
+INFO:    Rule BONDPAD.B.1A_9 completed with no violations, 289/562
+INFO:    Rule BONDPAD.E.3 completed with no violations, 290/562
+INFO:    Rule VIA9.E.2 completed with no violations, 291/562
+INFO:    Rule BONDPAD.E.1 completed with no violations, 292/562
+INFO:    Rule BONDPAD.B.1B completed with no violations, 293/562
+INFO:    Rule BONDPAD.E.2_8 completed with no violations, 294/562
+INFO:    Rule BONDPAD.B.1B_2 completed with no violations, 295/562
+INFO:    Rule BONDPAD.B.1B_3 completed with no violations, 296/562
+INFO:    Rule BONDPAD.E.2 completed with no violations, 297/562
+INFO:    Rule BONDPAD.B.1B_6 completed with no violations, 298/562
+INFO:    Rule BONDPAD.SP.3_4 completed with no violations, 299/562
+INFO:    Rule NHVT.X.4 completed with no violations, 300/562
+INFO:    Rule BONDPAD.SP.3_5 completed with no violations, 301/562
+INFO:    Rule BONDPAD.B.1B_7 completed with no violations, 302/562
+INFO:    Rule BONDPAD.SP.6_8 completed with no violations, 303/562
+INFO:    Rule VIA10.E.2 completed with no violations, 304/562
+INFO:    Rule BONDPAD.B.1B_10 completed with no violations, 305/562
+INFO:    Rule BONDPAD.W.4_7 completed with no violations, 306/562
+INFO:    Rule BONDPAD.SP.3_2 completed with no violations, 307/562
+INFO:    Rule BONDPAD.SP.4 completed with no violations, 308/562
+INFO:    Rule BONDPAD.SP.4_4 completed with no violations, 309/562
+INFO:    Rule BONDPAD.E.2_3 completed with no violations, 310/562
+INFO:    Rule BONDPAD.E.3_3 completed with no violations, 311/562
+INFO:    Rule BONDPAD.E.3_4 completed with no violations, 312/562
+INFO:    Rule OXIDER.W.1.1 completed with no violations, 313/562
+INFO:    Rule BONDPAD.E.2_7 completed with no violations, 314/562
+INFO:    Rule BONDPAD.E.2_10 completed with no violations, 315/562
+INFO:    Rule BONDPAD.E.2_11 completed with no violations, 316/562
+INFO:    Rule NZVT.O.1 completed with no violations, 317/562
+INFO:    Rule BONDPAD.E.1_3 completed with no violations, 318/562
+INFO:    Rule BONDPAD.E.2_12 completed with no violations, 319/562
+INFO:    Rule PLVT.W.1 completed with no violations, 320/562
+INFO:    Rule POLYR.E.1 completed with no violations, 321/562
+INFO:    Rule BONDPAD.E.3_5 completed with no violations, 322/562
+INFO:    Rule METAL1.L.1 completed with no violations, 323/562
+INFO:    Rule METAL1.SP.2 completed with no violations, 324/562
+INFO:    Rule METAL1.W.3 completed with no violations, 325/562
+INFO:    Rule OXIDE.W.3 completed with no violations, 326/562
+INFO:    Rule OXIDE.SP.4 completed with no violations, 327/562
+INFO:    Rule NW.W.1 completed with no violations, 328/562
+INFO:    Rule POLY.SP.5 completed with no violations, 329/562
+INFO:    Rule POLY.W.6 completed with no violations, 330/562
+INFO:    Rule OXIDE.W.1 completed with no violations, 331/562
+INFO:    Rule POLY.W.5 completed with no violations, 332/562
+INFO:    Rule POLY.SP.2 completed with no violations, 333/562
+INFO:    Rule POLY.SP.3 completed with no violations, 334/562
+INFO:    Rule OXIDE.W.2.1.1 completed with no violations, 335/562
+INFO:    Rule OXIDE.W.2.2.1 completed with no violations, 336/562
+INFO:    Rule OXIDE.SP.1 completed with no violations, 337/562
+INFO:    Rule OXIDE.SP.2 completed with no violations, 338/562
+INFO:    Rule POLY.W.1 completed with no violations, 339/562
+INFO:    Rule POLY.W.2 completed with no violations, 340/562
+INFO:    Rule OXIDE.SP.3 completed with no violations, 341/562
+INFO:    Rule NIMP.W.1 completed with no violations, 342/562
+INFO:    Rule POLY.E.3 completed with no violations, 343/562
+INFO:    Rule NIMP.SP.1 completed with no violations, 344/562
+INFO:    Rule NIMP.E.3 completed with no violations, 345/562
+INFO:    Rule POLY.SE.1_POLY.SE.2 completed with no violations, 346/562
+INFO:    Rule NIMP.E.1 completed with no violations, 347/562
+INFO:    Rule NIMP.O.1 completed with no violations, 348/562
+INFO:    Rule NIMP.E.2 completed with no violations, 349/562
+INFO:    Rule PIMP.W.1 completed with no violations, 350/562
+INFO:    Rule PIMP.SP.1 completed with no violations, 351/562
+INFO:    Rule PIMP.E.1 completed with no violations, 352/562
+INFO:    Rule PIMP.E.3 completed with no violations, 353/562
+INFO:    Rule PIMP.E.2 completed with no violations, 354/562
+INFO:    Rule PIMP.O.1 completed with no violations, 355/562
+INFO:    Rule CONT.SP.1 completed with no violations, 356/562
+INFO:    Rule METAL1.W.1 completed with no violations, 357/562
+INFO:    Rule METAL6.SP.3 completed with no violations, 358/562
+INFO:    Rule METAL7.SP.3 completed with no violations, 359/562
+INFO:    Rule CONT.SP.2 completed with no violations, 360/562
+INFO:    Rule METAL3.W.1 completed with no violations, 361/562
+INFO:    Rule METAL2.W.1 completed with no violations, 362/562
+INFO:    Rule METAL4.W.1 completed with no violations, 363/562
+INFO:    Rule METAL5.W.1 completed with no violations, 364/562
+INFO:    Rule METAL6.W.1 completed with no violations, 365/562
+INFO:    Rule METAL7.W.1 completed with no violations, 366/562
+INFO:    Rule METAL2.SP.1.1 completed with no violations, 367/562
+INFO:    Rule METAL3.SP.1.1 completed with no violations, 368/562
+INFO:    Rule METAL4.SP.1.1 completed with no violations, 369/562
+INFO:    Rule METAL5.SP.1.1 completed with no violations, 370/562
+INFO:    Rule METAL6.SP.1.1 completed with no violations, 371/562
+INFO:    Rule METAL7.SP.1.1 completed with no violations, 372/562
+INFO:    Rule METAL1.SP.1.1 completed with no violations, 373/562
+INFO:    Rule METAL2.L.1 completed with no violations, 374/562
+INFO:    Rule METAL2.SP.2 completed with no violations, 375/562
+INFO:    Rule METAL2.W.3 completed with no violations, 376/562
+INFO:    Rule METAL3.L.1 completed with no violations, 377/562
+INFO:    Rule METAL3.SP.2 completed with no violations, 378/562
+INFO:    Rule METAL3.W.3 completed with no violations, 379/562
+INFO:    Rule METAL4.L.1 completed with no violations, 380/562
+INFO:    Rule METAL5.L.1 completed with no violations, 381/562
+INFO:    Rule METAL6.L.1 completed with no violations, 382/562
+INFO:    Rule METAL7.L.1 completed with no violations, 383/562
+INFO:    Rule METAL4.SP.2 completed with no violations, 384/562
+INFO:    Rule METAL6.SP.2 completed with no violations, 385/562
+INFO:    Rule METAL7.SP.2 completed with no violations, 386/562
+INFO:    Rule METAL5.SP.2 completed with no violations, 387/562
+INFO:    Rule METAL4.W.3 completed with no violations, 388/562
+INFO:    Rule METAL5.W.3 completed with no violations, 389/562
+INFO:    Rule METAL6.W.3 completed with no violations, 390/562
+INFO:    Rule METAL7.W.3 completed with no violations, 391/562
+INFO:    Rule METAL1.W.2 completed with no violations, 392/562
+INFO:    Rule METAL1.SP.1.5 completed with no violations, 393/562
+INFO:    Rule METAL1.SP.1.6 completed with no violations, 394/562
+INFO:    Rule METAL2.W.2 completed with no violations, 395/562
+INFO:    Rule METAL2.SP.1.5 completed with no violations, 396/562
+INFO:    Rule METAL2.SP.1.6 completed with no violations, 397/562
+INFO:    Rule METAL4.SP.3 completed with no violations, 398/562
+INFO:    Rule METAL3.W.2 completed with no violations, 399/562
+INFO:    Rule METAL3.SP.1.5 completed with no violations, 400/562
+INFO:    Rule METAL3.SP.1.6 completed with no violations, 401/562
+INFO:    Rule VIA1.SP.1 completed with no violations, 402/562
+INFO:    Rule VIA2.SP.1 completed with no violations, 403/562
+INFO:    Rule VIA3.SP.1 completed with no violations, 404/562
+INFO:    Rule VIA4.SP.1 completed with no violations, 405/562
+INFO:    Rule VIA5.SP.1 completed with no violations, 406/562
+INFO:    Rule VIA6.SP.1 completed with no violations, 407/562
+INFO:    Rule METAL5.W.2 completed with no violations, 408/562
+INFO:    Rule METAL5.SP.1.5 completed with no violations, 409/562
+INFO:    Rule METAL5.SP.1.6 completed with no violations, 410/562
+INFO:    Rule METAL4.W.2 completed with no violations, 411/562
+INFO:    Rule METAL4.SP.1.5 completed with no violations, 412/562
+INFO:    Rule METAL4.SP.1.6 completed with no violations, 413/562
+INFO:    Rule VIA1.E.1 completed with no violations, 414/562
+INFO:    Rule VIA2.E.1 completed with no violations, 415/562
+INFO:    Rule VIA4.E.1 completed with no violations, 416/562
+INFO:    Rule VIA3.E.1 completed with no violations, 417/562
+INFO:    Rule VIA5.E.1 completed with no violations, 418/562
+INFO:    Rule VIA6.E.1 completed with no violations, 419/562
+INFO:    Rule VIA1.X.1 completed with no violations, 420/562
+INFO:    Rule METAL6.W.2 completed with no violations, 421/562
+INFO:    Rule METAL7.W.2 completed with no violations, 422/562
+INFO:    Rule VIA1.X.2 completed with no violations, 423/562
+INFO:    Rule VIA2.X.1 completed with no violations, 424/562
+INFO:    Rule VIA2.X.2 completed with no violations, 425/562
+INFO:    Rule VIA3.X.1 completed with no violations, 426/562
+INFO:    Rule VIA3.X.2 completed with no violations, 427/562
+INFO:    Rule VIA4.X.1 completed with no violations, 428/562
+INFO:    Rule VIA4.X.2 completed with no violations, 429/562
+INFO:    Rule soft_check_6 completed with no violations, 430/562
+INFO:    Rule CONT.E.4 completed with no violations, 431/562
+INFO:    Rule CONT.E.1 completed with no violations, 432/562
+INFO:    Rule CONT.E.4_2 completed with no violations, 433/562
+INFO:    Rule CONT.SE.1 completed with no violations, 434/562
+INFO:    Rule CONT.E.2 completed with no violations, 435/562
+INFO:    Rule CONT.X.2 completed with no violations, 436/562
+INFO:    Rule CONT.X.2_2 completed with no violations, 437/562
+INFO:    Rule CONT.W.1 completed with no violations, 438/562
+INFO:    Rule CONT.X.3 completed with no violations, 439/562
+INFO:    Rule CONT.SE.3 completed with no violations, 440/562
+INFO:    Rule CONT.X.1 completed with no violations, 441/562
+INFO:    Rule METAL1.A.1 completed with no violations, 442/562
+INFO:    Rule METAL1.E.1_METAL1.E.2 completed with no violations, 443/562
+INFO:    Rule METAL1.EA.1 completed with no violations, 444/562
+INFO:    Rule METAL1.SP.1.3 completed with no violations, 445/562
+INFO:    Rule METAL2.A.1 completed with no violations, 446/562
+INFO:    Rule METAL1.SP.1.4 completed with no violations, 447/562
+INFO:    Rule METAL2.E.1_METAL2.E.2 completed with no violations, 448/562
+INFO:    Rule METAL2.EA.1 completed with no violations, 449/562
+INFO:    Rule METAL2.SP.1.3 completed with no violations, 450/562
+INFO:    Rule LATCHUP.1 completed with no violations, 451/562
+INFO:    Rule METAL2.SP.1.4 completed with no violations, 452/562
+INFO:    Rule LATCHUP.2 completed with no violations, 453/562
+INFO:    Rule METAL3.A.1 completed with no violations, 454/562
+INFO:    Rule METAL3.E.1_METAL3.E.2 completed with no violations, 455/562
+INFO:    Rule CONT.E.3 completed with no violations, 456/562
+INFO:    Rule METAL3.EA.1 completed with no violations, 457/562
+INFO:    Rule METAL3.SP.1.3 completed with no violations, 458/562
+INFO:    Rule METAL3.SP.1.4 completed with no violations, 459/562
+INFO:    Rule METAL4.A.1 completed with no violations, 460/562
+INFO:    Rule METAL4.E.1_METAL4.E.2 completed with no violations, 461/562
+INFO:    Rule METAL4.EA.1 completed with no violations, 462/562
+INFO:    Rule METAL4.SP.1.3 completed with no violations, 463/562
+INFO:    Rule METAL4.SP.1.4 completed with no violations, 464/562
+INFO:    Rule METAL5.A.1 completed with no violations, 465/562
+INFO:    Rule METAL5.E.1_METAL5.E.2 completed with no violations, 466/562
+INFO:    Rule METAL1.SP.1.2 completed with no violations, 467/562
+INFO:    Rule METAL5.EA.1 completed with no violations, 468/562
+INFO:    Rule METAL5.SP.1.3 completed with no violations, 469/562
+INFO:    Rule METAL5.SP.1.4 completed with no violations, 470/562
+INFO:    Rule METAL6.A.1 completed with no violations, 471/562
+INFO:    Rule METAL6.E.1_METAL6.E.2 completed with no violations, 472/562
+INFO:    Rule METAL6.EA.1 completed with no violations, 473/562
+INFO:    Rule METAL7.A.1 completed with no violations, 474/562
+INFO:    Rule METAL2.SP.1.2 completed with no violations, 475/562
+INFO:    Rule METAL7.EA.1 completed with no violations, 476/562
+INFO:    Rule METAL7.E.1_METAL7.E.2 completed with no violations, 477/562
+INFO:    Rule METAL3.SP.1.2 completed with no violations, 478/562
+INFO:    Rule METAL6.SP.1.5 completed with no violations, 479/562
+INFO:    Rule METAL6.SP.1.6 completed with no violations, 480/562
+INFO:    Rule METAL4.SP.1.2 completed with no violations, 481/562
+INFO:    Rule METAL1.SP.3 completed with no violations, 482/562
+INFO:    Rule METAL6.SP.1.2 completed with no violations, 483/562
+INFO:    Rule METAL6.SP.1.3 completed with no violations, 484/562
+INFO:    Rule NIMP.E.4 completed with no violations, 485/562
+INFO:    Rule NIMP.A.1 completed with no violations, 486/562
+INFO:    Rule METAL2.SP.3 completed with no violations, 487/562
+INFO:    Rule NIMP.EA.1 completed with no violations, 488/562
+INFO:    Rule METAL5.SP.1.2 completed with no violations, 489/562
+INFO:    Rule METAL6.SP.1.4 completed with no violations, 490/562
+INFO:    Rule METAL7.SP.1.2 completed with no violations, 491/562
+INFO:    Rule METAL7.SP.1.5 completed with no violations, 492/562
+INFO:    Rule METAL7.SP.1.6 completed with no violations, 493/562
+INFO:    Rule NIMP.SE.2 completed with no violations, 494/562
+INFO:    Rule NIMP.SE.1 completed with no violations, 495/562
+INFO:    Rule METAL3.SP.3 completed with no violations, 496/562
+INFO:    Rule NIMP.SE.3 completed with no violations, 497/562
+INFO:    Rule NIMP.X.1 completed with no violations, 498/562
+INFO:    Rule METAL7.SP.1.3 completed with no violations, 499/562
+INFO:    Rule NW.A.1 completed with no violations, 500/562
+INFO:    Rule NW.EA.1 completed with no violations, 501/562
+INFO:    Rule METAL7.SP.1.4 completed with no violations, 502/562
+INFO:    Rule NW.E.1 completed with no violations, 503/562
+INFO:    Rule NW.SE.1 completed with no violations, 504/562
+INFO:    Rule OXIDE.A.1 completed with no violations, 505/562
+INFO:    Rule NW.E.2 completed with no violations, 506/562
+INFO:    Rule NW.SE.2 completed with no violations, 507/562
+INFO:    Rule OXIDE.X.1 completed with no violations, 508/562
+INFO:    Rule METAL5.SP.3 completed with no violations, 509/562
+INFO:    Rule PIMP.E.4 completed with no violations, 510/562
+INFO:    Rule PIMP.A.1 completed with no violations, 511/562
+INFO:    Rule PIMP.EA.1 completed with no violations, 512/562
+INFO:    Rule PIMP.SE.1 completed with no violations, 513/562
+INFO:    Rule PIMP.SE.3 completed with no violations, 514/562
+INFO:    Rule PIMP.SE.2 completed with no violations, 515/562
+INFO:    Rule OXIDE.L.1_OXIDE.L.2 completed with no violations, 516/562
+INFO:    Rule POLY.A.1 completed with no violations, 517/562
+INFO:    Rule VIA1.E.3 completed with no violations, 518/562
+INFO:    Rule VIA1.W.1 completed with no violations, 519/562
+INFO:    Rule POLY.SE.3 completed with no violations, 520/562
+INFO:    Rule POLY.X.2 completed with no violations, 521/562
+INFO:    Status: Runset 86% complete as of 2026-11-22 17:53:40   Elapsed: 00:01:00   CPU time[s]: 93
+         Worker: Active Threads  Total Mem[MB]  Active Mem[MB]  CPU time[s]
+              1:     2 /   2              809              57           93
+INFO:    Rule VIA2.E.3 completed with no violations, 522/562
+INFO:    Rule OXIDE.EA.1 completed with no violations, 523/562
+INFO:    Rule VIA2.W.1 completed with no violations, 524/562
+INFO:    Rule POLY.E.1 completed with no violations, 525/562
+INFO:    Rule POLY.E.2 completed with no violations, 526/562
+INFO:    Rule VIA3.E.3 completed with no violations, 527/562
+INFO:    Rule VIA3.W.1 completed with no violations, 528/562
+INFO:    Rule POLY.X.1 completed with no violations, 529/562
+INFO:    Rule VIA4.W.1 completed with no violations, 530/562
+INFO:    Rule VIA4.E.3 completed with no violations, 531/562
+INFO:    Rule POLY.EA.1 completed with no violations, 532/562
+INFO:    Rule VIA5.E.3 completed with no violations, 533/562
+INFO:    Rule VIA5.W.1 completed with no violations, 534/562
+INFO:    Rule VIA6.W.1 completed with no violations, 535/562
+INFO:    Rule VIA5.E.2 completed with no violations, 536/562
+INFO:    Rule VIA1.E.2 completed with no violations, 537/562
+INFO:    Rule VIA6.E.2 completed with no violations, 538/562
+INFO:    Rule VIA2.E.2 completed with no violations, 539/562
+INFO:    Rule VIA3.E.2 completed with no violations, 540/562
+INFO:    Rule VIA4.E.2 completed with no violations, 541/562
+INFO:    Rule VIA5.X.1 completed with no violations, 542/562
+INFO:    Rule acute_check completed with no violations, 543/562
+INFO:    Rule offgrid_check completed with no violations, 544/562
+INFO:    Rule ortho_45_check completed with no violations, 545/562
+INFO:    Rule VIA5.X.2 completed with no violations, 546/562
+INFO:    Rule VIA6.X.1 completed with no violations, 547/562
+INFO:    Rule soft_check_12 completed with no violations, 548/562
+INFO:    Rule soft_check_5 completed with no violations, 549/562
+INFO:    Rule soft_check_11 completed with no violations, 550/562
+INFO:    Rule NW.SP.1 completed with no violations, 551/562
+INFO:    Rule VIAk.X.3_VIAk.X.4_2 completed with no violations, 552/562, remaining rules: NW.SP.2_3 VIA6.E.3 VIA6.X.2 VIAk.X.3_VIAk.X.4 soft_check_1 soft_check_10 soft_check_2 soft_check_4 soft_check_7 soft_check_8
+INFO:    Rule VIA6.X.2 completed with no violations, 553/562, remaining rules: NW.SP.2_3 VIA6.E.3 VIAk.X.3_VIAk.X.4 soft_check_1 soft_check_10 soft_check_2 soft_check_4 soft_check_7 soft_check_8
+INFO:    Rule soft_check_2 completed with no violations, 554/562, remaining rules: NW.SP.2_3 VIA6.E.3 VIAk.X.3_VIAk.X.4 soft_check_1 soft_check_10 soft_check_4 soft_check_7 soft_check_8
+INFO:    Rule NW.SP.2_3 completed with no violations, 555/562, remaining rules: VIA6.E.3 VIAk.X.3_VIAk.X.4 soft_check_1 soft_check_10 soft_check_4 soft_check_7 soft_check_8
+INFO:    Rule soft_check_1 completed with no violations, 556/562, remaining rules: VIA6.E.3 VIAk.X.3_VIAk.X.4 soft_check_10 soft_check_4 soft_check_7 soft_check_8
+INFO:    Rule soft_check_8 completed with no violations, 557/562, remaining rules: VIA6.E.3 VIAk.X.3_VIAk.X.4 soft_check_10 soft_check_4 soft_check_7
+INFO:    Rule soft_check_10 completed with no violations, 558/562, remaining rules: VIA6.E.3 VIAk.X.3_VIAk.X.4 soft_check_4 soft_check_7
+INFO:    Rule soft_check_4 completed with no violations, 559/562, remaining rules: VIA6.E.3 VIAk.X.3_VIAk.X.4 soft_check_7
+INFO:    Rule soft_check_7 completed with no violations, 560/562, remaining rules: VIA6.E.3 VIAk.X.3_VIAk.X.4
+INFO:    Rule VIAk.X.3_VIAk.X.4 completed with no violations, 561/562, remaining rules: VIA6.E.3
+INFO:    Rule VIA6.E.3 completed with no violations, 562/562
+INFO:    Status: Runset Finished as of 2026-11-22 17:53:48   Elapsed: 00:01:09   CPU time[s]: 105
+INFO:    Resource usage by worker at exit:
+                  CPU      Elapsed  Threads    CPU       Peak Total  Peak Active
+         Worker:  time[s]  time[s]  Allocated  usage[%]  Memory[MB]  Memory[MB]
+              1:      105       65          2     80.77         809          174
+         Worker resource usage  summary: Total CPU[s]: 105  Run duration[s]: 65  Max peak memory[MB]: 809
+         Worker CPU utilization summary: 105 of 130 available CPU seconds (80.77%) with 2 average available CPUs
+INFO:    Generating summary in /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/signoff/drc/drc.sum
+INFO:    All selected rules completed
+         Total CPU Time                    : 105(s)
+         Total Real Time                   : 65(s)
+         Total Original Geometry           : 310962 (3271927)
+         Total DRC RuleChecks              : 562
+         Total DRC Results                 : 0 (0)
+         ASCII report database is /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/signoff/drc/drc.db
+INFO:    Checking in all SoftShare licenses.
+
+Pegasus finished normally. 2026-11-22 17:53:48

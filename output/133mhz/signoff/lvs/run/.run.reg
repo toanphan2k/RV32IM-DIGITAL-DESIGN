@@ -1,0 +1,31 @@
+# This Pegasus GUI File Index Registry was created automatically
+# Do not attempt to modify this file as any change may lead
+# to Pegasus GUI Tools malfunction.
+# 
+"Extracted Spice File" output text /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/signoff/lvs/run/datapath_layout.spi
+"Layout GDSII" input none /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/signoff/datapath.gds
+"Pegasus Job Mode" internal none lvs
+"Rule File" input text /tools/eda/pdks/cadence/gpdk045/gpdk045_v_6_0/pvs/pvlLVS.rul
+"Comparison Report" output cls /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/signoff/lvs/lvs.rep.cls
+"Extraction Report" output erc /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/signoff/lvs/lvs.rep
+"LVS Report Options" internal none -none
+"Schematic Top Cell" internal none datapath
+"Layout Top Cell" internal none datapath
+"SCONNECT RDB" output rdb /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/signoff/lvs/run/datapath.softchk
+"ERC Summary" output text /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/signoff/lvs/erc.sum
+"Extraction Result" internal none CLEAN
+"ERC Result" internal none EMPTY
+"Run Directory" internal none /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/signoff/lvs/run/
+"Pegasus Mode Info" internal none PNEMDIMCCBLAJACLCLKKLBCKOILCOJJL
+"Report MaxResults" internal none 1000
+"Pegasus Version" internal none 24.11-s021
+"Binary Name" internal none Pegasus
+"Pegasus Build Date" internal none "Wed Jan 15 14:24:19 PST 2025"
+"Pegasus Job Time" internal none 1795344870
+"Schematic Netlist" input text /home/yellow/ee5303_05/risc-v-ws/RV32IM-DIGITAL-DESIGN/output/133mhz/signoff/datapath_lvs.cdl
+"Comparison Result" internal none MATCH
+"LVS Run Name" internal none lvs.rep
+"Pegasus Version" internal none 24.11-s021
+"Binary Name" internal none pegasusnvn
+"Pegasus Build Date" internal none "Wed Jan 15 14:24:19 PST 2025"
+"Pegasus Job Time" internal none 1795344946
